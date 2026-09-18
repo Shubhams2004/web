@@ -1,79 +1,8 @@
 @import "tailwindcss";
 
 @layer base {
-  :root {
-    font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
-    color: #172033;
-    background: #f4f7fb;
-    font-synthesis: none;
-    text-rendering: optimizeLegibility;
+  html {
+    scroll-behavior: smooth;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   }
-
-  * { box-sizing: border-box; }
-  body { margin: 0; min-width: 320px; min-height: 100vh; }
-  button { font: inherit; }
-}
-
-.calculator-page {
-  min-height: 100vh;
-  padding: 48px 20px;
-  background: radial-gradient(circle at top left, #eaf2ff 0, transparent 34%), #f4f7fb;
-}
-
-.calculator-shell {
-  width: min(100%, 980px);
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: minmax(0, 560px) minmax(260px, 1fr);
-  gap: 24px;
-  align-items: stretch;
-}
-
-.calculator-card, .history-card {
-  background: rgba(255, 255, 255, .9);
-  border: 1px solid #e2e8f2;
-  border-radius: 24px;
-  box-shadow: 0 20px 50px rgba(40, 64, 100, .1);
-}
-
-.calculator-card { padding: 28px; }
-.calculator-header, .history-heading { display: flex; justify-content: space-between; align-items: flex-start; }
-.eyebrow { margin: 0 0 6px; color: #6680a8; font-size: 11px; font-weight: 800; letter-spacing: .14em; text-transform: uppercase; }
-h1, h2 { margin: 0; color: #172033; letter-spacing: -.04em; }
-h1 { font-size: clamp(28px, 5vw, 38px); }
-h2 { font-size: 20px; }
-.status-dot { width: 11px; height: 11px; margin-top: 8px; border-radius: 50%; background: #45c98a; box-shadow: 0 0 0 5px #e1f7ec; }
-
-.display-panel { min-height: 142px; margin: 28px 0 18px; padding: 23px 22px; display: flex; flex-direction: column; justify-content: flex-end; align-items: flex-end; overflow: hidden; border-radius: 18px; background: #172033; color: white; }
-.expression { min-height: 18px; width: 100%; margin: 0 0 8px; color: #91a4c4; font-size: 14px; text-align: right; }
-.display-value { max-width: 100%; overflow-x: auto; color: white; font-size: clamp(34px, 7vw, 48px); font-weight: 700; letter-spacing: -.04em; line-height: 1.15; scrollbar-width: none; }
-.display-value::-webkit-scrollbar { display: none; }
-
-.keypad { display: grid; grid-template-columns: repeat(4, 1fr); gap: 11px; }
-.calculator-button { min-height: 58px; border: 1px solid #e4eaf3; border-radius: 14px; background: #fff; color: #263752; cursor: pointer; font-size: 19px; font-weight: 700; transition: transform .15s, background .15s, box-shadow .15s; }
-.calculator-button:hover { background: #f0f5ff; box-shadow: 0 5px 12px rgba(56, 91, 148, .12); transform: translateY(-1px); }
-.calculator-button:active { transform: translateY(1px); box-shadow: none; }
-.function-key { background: #f2f6fc; color: #6680a8; }
-.operator-key { border-color: #d8e6ff; background: #eaf2ff; color: #3576df; }
-.equals-key { border-color: #3b82f6; background: #3b82f6; color: white; }
-.equals-key:hover { background: #2563eb; }
-.zero-key { grid-column: span 1; }
-.keyboard-hint { margin: 18px 0 0; color: #8a9ab3; font-size: 12px; text-align: center; }
-
-.history-card { padding: 28px; }
-.clear-history { border: 0; background: transparent; color: #3576df; cursor: pointer; font-size: 12px; font-weight: 700; }
-.empty-history { min-height: 300px; display: flex; flex-direction: column; align-items: center; justify-content: center; color: #8a9ab3; text-align: center; }
-.empty-icon { width: 48px; height: 48px; margin-bottom: 14px; display: grid; place-items: center; border-radius: 14px; background: #edf4ff; color: #5790ec; font-size: 22px; font-weight: 700; }
-.empty-history p { max-width: 150px; margin: 0; font-size: 13px; line-height: 1.6; }
-.history-list { margin-top: 28px; display: grid; gap: 10px; }
-.history-item { width: 100%; padding: 13px 14px; display: flex; flex-direction: column; align-items: flex-start; gap: 5px; border: 1px solid #e8edf5; border-radius: 12px; background: #fbfcfe; color: #72839d; cursor: pointer; text-align: left; }
-.history-item:hover { border-color: #b9d2fb; background: #f5f9ff; }
-.history-item strong { color: #243550; font-size: 18px; }
-
-@media (max-width: 760px) {
-  .calculator-page { padding: 20px 12px; }
-  .calculator-shell { grid-template-columns: 1fr; }
-  .calculator-card, .history-card { padding: 20px; border-radius: 20px; }
-  .history-card { min-height: 220px; }
-  .empty-history { min-height: 150px; }
 }
