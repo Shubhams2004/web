@@ -20,7 +20,7 @@ export interface NewsResult {
   generatedAt: string;
 }
 
-const MODEL = 'gemini-2.5-flash';
+const MODEL = 'gemini-flash-latest';
 const MAX_ITEMS = 6;
 
 /**
