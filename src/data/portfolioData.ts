@@ -23,6 +23,7 @@ export const portfolioData: PortfolioData = {
     { label: 'Home', href: '#home' },
     { label: 'About', href: '#about' },
     { label: 'Work', href: '#portfolio' },
+    { label: 'News', href: '#news' },
     { label: 'Contact', href: '#contact' },
   ],
 
