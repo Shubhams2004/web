@@ -6,9 +6,18 @@ import { Portfolio } from './components/Portfolio';
 import { LiveNews } from './components/LiveNews';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
+import { updatePageSEO, SECTION_SEO_PRESETS } from './utils/seo';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
+
+  // Update dynamic SEO meta tags whenever the active section context changes
+  useEffect(() => {
+    const preset = SECTION_SEO_PRESETS[activeSection];
+    if (preset) {
+      updatePageSEO(preset);
+    }
+  }, [activeSection]);
 
   useEffect(() => {
     const sections = ['home', 'news', 'about', 'portfolio', 'contact'];

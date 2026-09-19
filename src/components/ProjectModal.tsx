@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { X, Calendar, Layers, Award, ArrowUpRight } from 'lucide-react';
 import { Project } from '../types';
+import { updatePageSEO, SECTION_SEO_PRESETS } from '../utils/seo';
 
 interface ProjectModalProps {
   project: Project | null;
@@ -15,10 +16,54 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({ project, onClose }) 
     if (project) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
+
+      // Dynamically update SEO meta tags & structured data for this specific case study
+      const desc = project.fullOverview || project.briefDescription;
+      const projectUrl = typeof window !== 'undefined'
+        ? `${window.location.origin}${window.location.pathname}#project-${project.id}`
+        : `https://shubhamsonale.com/#project-${project.id}`;
+
+      updatePageSEO({
+        title: project.title,
+        description: desc,
+        canonicalUrl: projectUrl,
+        ogType: 'article',
+        lang: 'en',
+        locale: 'en_US',
+        section: project.categoryTag,
+        keywords: [
+          project.categoryTag,
+          'Case Study',
+          'Research Paper',
+          ...project.methodsUsed,
+          'Shubham Sonale',
+        ],
+        alternates: [
+          { lang: 'en', href: projectUrl },
+          { lang: 'x-default', href: projectUrl },
+        ],
+        structuredData: {
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: project.title,
+          description: desc,
+          mainEntityOfPage: projectUrl,
+          author: {
+            '@type': 'Person',
+            name: 'Shubham Sonale',
+          },
+          genre: project.categoryTag,
+          keywords: project.methodsUsed.join(', '),
+        },
+      });
     }
     return () => {
       document.body.style.overflow = 'unset';
       window.removeEventListener('keydown', handleKeyDown);
+      // Restore section SEO when modal closes
+      if (project) {
+        updatePageSEO(SECTION_SEO_PRESETS.portfolio);
+      }
     };
   }, [project, onClose]);
 
