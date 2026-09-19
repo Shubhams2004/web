@@ -3,6 +3,7 @@ import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
 import { Portfolio } from './components/Portfolio';
+import { LiveNews } from './components/LiveNews';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 
@@ -10,7 +11,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
-    const sections = ['home', 'about', 'portfolio', 'contact'];
+    const sections = ['home', 'about', 'portfolio', 'news', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140; // offset for sticky header
 
@@ -43,6 +44,7 @@ export default function App() {
         <Hero />
         <About />
         <Portfolio />
+        <LiveNews />
         <Contact />
       </main>
 
