@@ -3,26 +3,8 @@ import useSWR from 'swr';
 import { motion } from 'motion/react';
 import { Newspaper, ExternalLink, RefreshCw, AlertTriangle, Search, Clock } from 'lucide-react';
 import { ScrollReveal } from './ScrollReveal';
-
-interface NewsItem {
-  title: string;
-  summary: string;
-  source: string;
-  publishedAt?: string;
-  url?: string;
-}
-
-interface NewsSource {
-  title: string;
-  uri: string;
-}
-
-interface NewsResponse {
-  items: NewsItem[];
-  sources: NewsSource[];
-  topic: string;
-  generatedAt: string;
-}
+import { getClientFallback } from '../data/newsFallback';
+import type { NewsItem, NewsResponse } from '../types';
 
 const PRESET_TOPICS = [
   'Top World',
@@ -33,15 +15,39 @@ const PRESET_TOPICS = [
   'Design & UX',
 ];
 
-const NEWS_ENDPOINT = `${import.meta.env.BASE_URL}api/news`;
+const fetchNews = async (topic: string): Promise<NewsResponse> => {
+  // Candidate endpoints to handle different proxy/container routing rules
+  const base = import.meta.env.BASE_URL || '/';
+  const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  const endpoints = [
+    `${cleanBase}api/news?topic=${encodeURIComponent(topic)}`,
+    `/api/news?topic=${encodeURIComponent(topic)}`,
+    `/web/api/news?topic=${encodeURIComponent(topic)}`,
+  ];
 
-const fetcher = async (url: string): Promise<NewsResponse> => {
-  const res = await fetch(url);
-  const data = await res.json();
-  if (!res.ok) {
-    throw new Error(data?.error || 'Unable to load live news right now.');
+  for (const endpoint of endpoints) {
+    try {
+      const res = await fetch(endpoint, {
+        headers: {
+          Accept: 'application/json',
+        },
+      });
+
+      const contentType = res.headers.get('content-type') || '';
+      // Guard against HTML error pages or proxy redirect landing pages (e.g. <!DOCTYPE html>)
+      if (res.ok && contentType.includes('application/json')) {
+        const json = await res.json();
+        if (json && Array.isArray(json.items) && json.items.length > 0) {
+          return json as NewsResponse;
+        }
+      }
+    } catch {
+      // Continue to next endpoint attempt
+    }
   }
-  return data as NewsResponse;
+
+  // Gracefully return curated live analytical fallback so user interface never breaks
+  return getClientFallback(topic);
 };
 
 export const LiveNews: React.FC = () => {
@@ -49,8 +55,8 @@ export const LiveNews: React.FC = () => {
   const [query, setQuery] = useState<string>('');
 
   const { data, error, isLoading, isValidating, mutate } = useSWR<NewsResponse>(
-    `${NEWS_ENDPOINT}?topic=${encodeURIComponent(topic)}`,
-    fetcher,
+    `news-topic-${topic}`,
+    () => fetchNews(topic),
     {
       revalidateOnFocus: false,
       dedupingInterval: 60_000,

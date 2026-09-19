@@ -72,3 +72,24 @@ export interface PortfolioData {
   projects: Project[];
   contact: ContactInfo;
 }
+
+export interface NewsItem {
+  title: string;
+  summary: string;
+  source: string;
+  publishedAt?: string;
+  url?: string;
+}
+
+export interface NewsSource {
+  title: string;
+  uri: string;
+}
+
+export interface NewsResponse {
+  items: NewsItem[];
+  sources: NewsSource[];
+  topic: string;
+  generatedAt: string;
+  cached?: boolean;
+}
