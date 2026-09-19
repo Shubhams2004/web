@@ -1,4 +1,7 @@
 import { GoogleGenAI } from '@google/genai';
+import { promises as fs } from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
 
 export interface NewsItem {
   title: string;
@@ -18,18 +21,97 @@ export interface NewsResult {
   sources: NewsSource[];
   topic: string;
   generatedAt: string;
+  cached?: boolean;
 }
 
 const MODEL = 'gemini-flash-latest';
 const MAX_ITEMS = 6;
+
+// Only call Gemini once per day per topic. Everything else is served from cache.
+const ONE_DAY_MS = 24 * 60 * 60 * 1000;
+const CACHE_FILE = path.join(os.tmpdir(), 'v0-live-news-cache.json');
+
+interface CacheEntry {
+  data: NewsResult;
+  fetchedAt: number;
+}
+type CacheStore = Record<string, CacheEntry>;
+
+let memoryCache: CacheStore | null = null;
+const inFlight = new Map<string, Promise<NewsResult>>();
+
+/**
+ * Public entry point. Returns cached news when it is less than a day old and
+ * only calls Gemini when the cache is missing or stale. On a failed refresh
+ * (e.g. rate limiting) it falls back to the last cached result so the site
+ * keeps working instead of surfacing an error.
+ */
+export async function fetchLiveNews(topicInput: string, apiKey: string): Promise<NewsResult> {
+  const topic = normalizeTopic(topicInput);
+  const key = topic.toLowerCase();
+
+  const store = await loadCache();
+  const entry = store[key];
+  const now = Date.now();
+
+  if (entry && now - entry.fetchedAt < ONE_DAY_MS) {
+    return { ...entry.data, cached: true };
+  }
+
+  // Dedupe concurrent requests for the same topic into a single Gemini call.
+  const existing = inFlight.get(key);
+  if (existing) return existing;
+
+  const request = generateFromGemini(topic, apiKey)
+    .then(async (fresh) => {
+      store[key] = { data: fresh, fetchedAt: Date.now() };
+      memoryCache = store;
+      await saveCache(store);
+      return fresh;
+    })
+    .catch((error) => {
+      // Serve stale data rather than breaking the page when the refresh fails.
+      if (entry) return { ...entry.data, cached: true };
+      throw error;
+    })
+    .finally(() => {
+      inFlight.delete(key);
+    });
+
+  inFlight.set(key, request);
+  return request;
+}
+
+function normalizeTopic(topicInput: string): string {
+  return (topicInput || 'top world').trim().slice(0, 120) || 'top world';
+}
+
+async function loadCache(): Promise<CacheStore> {
+  if (memoryCache) return memoryCache;
+  try {
+    const raw = await fs.readFile(CACHE_FILE, 'utf8');
+    const parsed = JSON.parse(raw) as CacheStore;
+    memoryCache = parsed && typeof parsed === 'object' ? parsed : {};
+  } catch {
+    memoryCache = {};
+  }
+  return memoryCache;
+}
+
+async function saveCache(store: CacheStore): Promise<void> {
+  try {
+    await fs.writeFile(CACHE_FILE, JSON.stringify(store), 'utf8');
+  } catch {
+    // A failed disk write is non-fatal; the in-memory cache still applies.
+  }
+}
 
 /**
  * Fetches genuinely live news by grounding Gemini with Google Search.
  * Grounding cannot be combined with a JSON response schema, so we ask the
  * model for a strict JSON array in plain text and parse it defensively.
  */
-export async function fetchLiveNews(topicInput: string, apiKey: string): Promise<NewsResult> {
-  const topic = (topicInput || 'top world').trim().slice(0, 120) || 'top world';
+async function generateFromGemini(topic: string, apiKey: string): Promise<NewsResult> {
   const ai = new GoogleGenAI({ apiKey });
 
   const prompt = [
@@ -71,6 +153,7 @@ export async function fetchLiveNews(topicInput: string, apiKey: string): Promise
     sources,
     topic,
     generatedAt: new Date().toISOString(),
+    cached: false,
   };
 }
 
