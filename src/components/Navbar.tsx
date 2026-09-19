@@ -55,7 +55,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
             </span>
             <span className="text-xs text-slate-500 font-medium tracking-normal flex items-center gap-1.5">
               <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 inline-block animate-pulse"></span>
-              Freelance Researcher & Analyst
+              {portfolioData.person.headline}
             </span>
           </div>
         </a>

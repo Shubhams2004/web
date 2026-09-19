@@ -11,9 +11,9 @@ import { PortfolioData } from '../types';
 export const portfolioData: PortfolioData = {
   person: {
     fullName: 'Shubham Sonale',
-    headline: 'Freelance Researcher & Analyst',
+    headline: 'Research Writer',
     tagline:
-      'Translating complex human behavior and quantitative data into clear, high-impact product decisions through rigorous research, survey design, usability testing, and statistical analysis.',
+      'Translating complex human behavior, scientific findings, and quantitative data into clear, high-impact research writing, strategic white papers, and evidence-backed case studies.',
     avatarInitials: 'SS',
     statusBadge: 'Open for Freelance & Contract Projects',
     locationBadge: 'Available Worldwide (Remote)',
@@ -21,17 +21,17 @@ export const portfolioData: PortfolioData = {
 
   navigation: [
     { label: 'Home', href: '#home' },
+    { label: 'News', href: '#news' },
     { label: 'About', href: '#about' },
     { label: 'Work', href: '#portfolio' },
-    { label: 'News', href: '#news' },
     { label: 'Contact', href: '#contact' },
   ],
 
   about: {
     bioParagraphs: [
-      'I am an independent researcher and quantitative analyst dedicated to helping founders, product teams, and organizations uncover truth in their data and user journeys.',
-      'With a grounded background in mixed-methods inquiry, survey architecture, and empirical testing, I turn ambiguous questions into structured methodologies and evidence-backed recommendations that eliminate guesswork.',
-      'Whether launching an exploratory market study or diagnosing user friction in digital workflows, I bridge raw numbers with human rationale to create actionable roadmaps.',
+      'I am an independent research writer dedicated to helping founders, product teams, and publications articulate deep findings, empirical data, and user insights into compelling narratives.',
+      'With a grounded background in research synthesis, quantitative inquiry, and analytical reporting, I turn complex subjects into structured publications and evidence-backed writing that engages stakeholders.',
+      'Whether authoring in-depth market analyses, investigative tech reports, or executive research summaries, I bridge rigorous analysis with clear, authoritative prose.',
     ],
     highlights: [
       { label: 'Methodology', value: 'Mixed-Methods' },

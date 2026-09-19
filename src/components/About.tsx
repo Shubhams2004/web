@@ -9,8 +9,10 @@ import {
   LineChart,
   Check,
   Layers,
+  FileText,
+  BookOpen,
+  PenTool,
 } from 'lucide-react';
-import { motion } from 'motion/react';
 import { portfolioData } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 
@@ -22,6 +24,9 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Search,
   FileSpreadsheet,
   LineChart,
+  FileText,
+  BookOpen,
+  PenTool,
 };
 
 export const About: React.FC = () => {
@@ -35,7 +40,7 @@ export const About: React.FC = () => {
             About Me
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-6">
-            Bridging empirical data with human experience.
+            Bridging empirical research with publication-grade clarity.
           </h2>
 
           {/* Short Bio (2-3 sentences) */}
@@ -61,13 +66,10 @@ export const About: React.FC = () => {
             {portfolioData.about.services.map((service, index) => {
               const IconComponent = iconMap[service.iconName] || Users;
               return (
-                <motion.div
+                <ScrollReveal
                   key={service.id}
                   id={`service-card-${service.id}`}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, margin: '-50px' }}
-                  transition={{ duration: 0.45, delay: index * 0.08 }}
+                  delay={index * 0.05}
                   className="p-6 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-300 hover:bg-white transition-all duration-200 shadow-2xs group"
                 >
                   <div className="flex items-start gap-4">
@@ -94,7 +96,7 @@ export const About: React.FC = () => {
                       </div>
                     </div>
                   </div>
-                </motion.div>
+                </ScrollReveal>
               );
             })}
           </div>

@@ -11,7 +11,7 @@ export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
 
   useEffect(() => {
-    const sections = ['home', 'about', 'portfolio', 'news', 'contact'];
+    const sections = ['home', 'news', 'about', 'portfolio', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140; // offset for sticky header
 
@@ -42,9 +42,9 @@ export default function App() {
       {/* Main Content Sections */}
       <main className="flex-1">
         <Hero />
+        <LiveNews />
         <About />
         <Portfolio />
-        <LiveNews />
         <Contact />
       </main>
 

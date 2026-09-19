@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { ArrowUpRight, PlusCircle, CheckCircle, Tag, Layers, FileText } from 'lucide-react';
-import { motion } from 'motion/react';
 import { portfolioData } from '../data/portfolioData';
 import { Project } from '../types';
 import { ProjectModal } from './ProjectModal';
@@ -10,15 +9,12 @@ export const Portfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
-  // Extract unique categories for filter tabs if wanted
-  const categories = ['All', 'Research', 'Analysis', 'Usability'];
+  // Categories for case study filtering
+  const categories = ['All', 'UX Research', 'Quantitative', 'E-Commerce', 'Healthcare'];
 
   const filteredProjects = portfolioData.projects.filter((p) => {
     if (activeFilter === 'All') return true;
-    if (activeFilter === 'Research') return p.categoryTag.toLowerCase().includes('research');
-    if (activeFilter === 'Analysis') return p.categoryTag.toLowerCase().includes('analysis');
-    if (activeFilter === 'Usability') return p.categoryTag.toLowerCase().includes('usability');
-    return true;
+    return p.categoryTag.toLowerCase().includes(activeFilter.toLowerCase());
   });
 
   return (
@@ -29,14 +25,13 @@ export const Portfolio: React.FC = () => {
           <div className="max-w-2xl">
             <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-              Featured Work & Case Studies
+              Case Studies
             </div>
             <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight">
-              Selected Research & Analysis Highlights
+              Selected Case Studies
             </h2>
             <p className="text-base text-slate-600 mt-3">
-              A sample of mixed-methods research studies, survey inquiries, and usability audits.
-              Easily update or replace these in your content file anytime.
+              A curated selection of in-depth research case studies detailing empirical investigations, methodologies, and measurable product outcomes.
             </p>
           </div>
 
@@ -62,13 +57,10 @@ export const Portfolio: React.FC = () => {
         {/* Project Cards Grid (3-4 Project highlights) */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8 mb-12">
           {filteredProjects.map((project, index) => (
-            <motion.div
+            <ScrollReveal
               key={project.id}
               id={`portfolio-card-${project.id}`}
-              initial={{ opacity: 0, y: 24 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: '-40px' }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              delay={index * 0.08}
               className="bg-white rounded-xl border border-slate-200 p-6 sm:p-7 flex flex-col justify-between hover:border-blue-400 hover:shadow-md transition-all duration-200 group relative"
             >
               <div>
@@ -128,7 +120,7 @@ export const Portfolio: React.FC = () => {
                   <ArrowUpRight className="w-3.5 h-3.5" />
                 </button>
               </div>
-            </motion.div>
+            </ScrollReveal>
           ))}
         </div>
 

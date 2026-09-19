@@ -54,7 +54,7 @@ export const Footer: React.FC = () => {
             &copy; {new Date().getFullYear()} {portfolioData.person.fullName}. All rights reserved.
           </p>
           <p className="flex items-center gap-1.5">
-            Designed for clarity, empirical research, and decision-ready data.
+            Designed for clarity, empirical research, and publication-grade insights.
           </p>
         </div>
       </div>

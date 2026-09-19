@@ -7,7 +7,17 @@ export interface ServiceItem {
   id: string;
   title: string;
   description: string;
-  iconName: 'Search' | 'FileSpreadsheet' | 'Users' | 'BarChart3' | 'ClipboardCheck' | 'LineChart' | 'CheckCircle2';
+  iconName:
+    | 'Search'
+    | 'FileSpreadsheet'
+    | 'Users'
+    | 'BarChart3'
+    | 'ClipboardCheck'
+    | 'LineChart'
+    | 'CheckCircle2'
+    | 'BookOpen'
+    | 'FileText'
+    | 'PenTool';
   deliverables: string[];
 }
 
