@@ -7,6 +7,7 @@ interface ScrollRevealProps {
   yOffset?: number;
   className?: string;
   id?: string;
+  onClick?: (e: React.MouseEvent<HTMLDivElement>) => void;
 }
 
 export const ScrollReveal: React.FC<ScrollRevealProps> = ({
@@ -15,6 +16,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
   yOffset = 16,
   className = '',
   id,
+  onClick,
 }) => {
   const [isVisible, setIsVisible] = useState(false);
 
@@ -40,6 +42,7 @@ export const ScrollReveal: React.FC<ScrollRevealProps> = ({
         ease: 'easeOut',
       }}
       className={className}
+      onClick={onClick}
     >
       {children}
     </motion.div>

@@ -61,7 +61,7 @@ const DEFAULT_META: Required<Omit<PageMetaContext, 'publishedTime' | 'structured
     jobTitle: 'Research Writer & Analyst',
     description:
       'Independent research writer dedicated to translating complex human behavior, data, and scientific research into clear, evidence-backed publications and white papers.',
-    sameAs: ['https://www.linkedin.com', 'https://github.com', 'https://twitter.com'],
+    sameAs: ['https://github.com/shubhamsonale'],
     knowsAbout: [
       'Research Writing',
       'White Papers',

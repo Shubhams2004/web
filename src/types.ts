@@ -21,16 +21,53 @@ export interface ServiceItem {
   deliverables: string[];
 }
 
+export interface ProjectTechStackItem {
+  category: string;
+  recommended_tool: string;
+  purpose: string;
+}
+
+export interface ProjectWorkflowItem {
+  id: number;
+  title: string;
+  user_prompt: string;
+  intent_resolution?: {
+    intent: string;
+    task: string;
+    scheduled_at: string;
+  };
+  execution?: string;
+  agentic_execution_sequence?: string[];
+}
+
+export interface ProjectRoadmapItem {
+  phase: number;
+  title: string;
+  description: string;
+}
+
+export interface ProjectFreeTierLimit {
+  service: string;
+  quota: string;
+}
+
 export interface Project {
   id: string;
   title: string;
-  categoryTag: string; // e.g., "Research", "Analysis", "Usability Testing", "Survey Design"
+  subtitle?: string;
+  categoryTag: string; // e.g., "Research", "Analysis", "Usability Testing", "Survey Design", "AI Systems"
   tagColor: 'blue' | 'slate' | 'indigo' | 'emerald';
   briefDescription: string;
   fullOverview?: string;
   methodsUsed: string[];
   keyOutcome: string;
   timeframe?: string;
+  architecturePrinciple?: string;
+  techStack?: ProjectTechStackItem[];
+  workflows?: ProjectWorkflowItem[];
+  engineeringRoadmap?: ProjectRoadmapItem[];
+  freeTierLimits?: ProjectFreeTierLimit[];
+  rawSpecification?: Record<string, unknown>;
 }
 
 export interface SkillCategory {

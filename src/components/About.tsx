@@ -15,6 +15,7 @@ import {
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { useInViewAnimation } from '../hooks/useInViewAnimation';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Users,
@@ -30,8 +31,17 @@ const iconMap: Record<string, React.FC<{ className?: string }>> = {
 };
 
 export const About: React.FC = () => {
+  const { ref, animationClasses } = useInViewAnimation<HTMLElement>({
+    threshold: 0.08,
+    rootMargin: '0px 0px -60px 0px',
+  });
+
   return (
-    <section id="about" className="py-20 sm:py-24 bg-white border-b border-slate-200/70">
+    <section
+      id="about"
+      ref={ref}
+      className={`py-20 sm:py-24 bg-white border-b border-slate-200/70 ${animationClasses}`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal className="max-w-3xl mb-16">

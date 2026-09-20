@@ -33,15 +33,44 @@ const fetchNews = async (topic: string): Promise<NewsResponse> => {
         },
       });
 
+      // Check status code and content-type
+      if (!res.ok) {
+        continue;
+      }
+
       const contentType = res.headers.get('content-type') || '';
       // Guard against HTML error pages or proxy redirect landing pages (e.g. <!DOCTYPE html>)
-      if (res.ok && contentType.includes('application/json')) {
-        const json = await res.json();
-        if (json && Array.isArray(json.items) && json.items.length > 0) {
-          return json as NewsResponse;
+      if (!contentType.includes('application/json')) {
+        continue;
+      }
+
+      // Safe text retrieval and JSON parse to avoid unhandled SyntaxError on corrupt bodies
+      const rawText = await res.text();
+      if (!rawText || !rawText.trim().startsWith('{')) {
+        continue;
+      }
+
+      const json = JSON.parse(rawText) as Partial<NewsResponse>;
+      // Validate schema: must have an array of items with at least one item
+      if (json && Array.isArray(json.items) && json.items.length > 0) {
+        // Sanitize items so individual malformed items don't break rendering
+        const validItems = json.items.filter(
+          (item): item is NewsItem =>
+            Boolean(item && typeof item === 'object' && typeof item.title === 'string' && item.title.trim().length > 0)
+        );
+
+        if (validItems.length > 0) {
+          return {
+            items: validItems,
+            sources: Array.isArray(json.sources) ? json.sources.filter((s) => s && typeof s.title === 'string') : [],
+            topic: typeof json.topic === 'string' && json.topic ? json.topic : topic,
+            generatedAt: typeof json.generatedAt === 'string' ? json.generatedAt : new Date().toISOString(),
+            cached: Boolean(json.cached),
+          };
         }
       }
-    } catch {
+    } catch (err) {
+      console.warn(`[LiveNews] Failed endpoint ${endpoint}:`, err instanceof Error ? err.message : err);
       // Continue to next endpoint attempt
     }
   }

@@ -13,8 +13,14 @@ import {
 } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
+import { useInViewAnimation } from '../hooks/useInViewAnimation';
 
 export const Contact: React.FC = () => {
+  const { ref, animationClasses } = useInViewAnimation<HTMLElement>({
+    threshold: 0.08,
+    rootMargin: '0px 0px -60px 0px',
+  });
+
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -89,7 +95,11 @@ export const Contact: React.FC = () => {
   };
 
   return (
-    <section id="contact" className="py-20 sm:py-24 bg-white">
+    <section
+      id="contact"
+      ref={ref}
+      className={`py-20 sm:py-24 bg-white ${animationClasses}`}
+    >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal className="max-w-3xl mb-16">
@@ -182,10 +192,10 @@ export const Contact: React.FC = () => {
               </div>
             </div>
 
-            {/* Social Links */}
+            {/* Public Profile */}
             <div>
               <h4 className="text-xs font-bold uppercase tracking-wider text-slate-500 mb-3">
-                Profiles & Social Links
+                Online Profiles & Code
               </h4>
               <div className="flex flex-col gap-2">
                 {portfolioData.contact.socials.map((social) => (

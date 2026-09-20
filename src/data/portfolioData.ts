@@ -126,83 +126,318 @@ export const portfolioData: PortfolioData = {
     ],
   },
 
-  // 3-4 Project highlights ready for you to customize or update
+  // Projects / Case Studies
   projects: [
     {
-      id: 'project-1',
-      title: 'B2B SaaS Onboarding Friction & Churn Audit',
-      categoryTag: 'Usability Testing & Research',
+      id: 'project-ai-assistant',
+      title: 'AI Personal Assistant & Task Automation',
+      subtitle:
+        'Low-Cost Infrastructure Stack, Agentic Workflows, Function Calling & Strategic Roadmap',
+      categoryTag: 'AI Systems & Agentic Workflows',
       tagColor: 'blue',
       briefDescription:
-        'Conducted 18 moderated usability walkthroughs and cohort telemetry analysis to identify root causes of a 34% drop-off during user activation.',
+        'Low-cost agentic task automation infrastructure leveraging Gemini API reasoning, Supabase persistent state, and Cloudflare Workers serverless execution.',
       fullOverview:
-        'A comprehensive mixed-methods inquiry evaluating new user signup, team invite loops, and core feature discovery across self-serve enterprise accounts.',
+        'Building an AI Personal Assistant & Task Automation platform does not require expensive enterprise infrastructure. By orchestrating modern serverless hosting, managed database platforms, edge computing triggers, and LLM APIs, developers can build production-ready agentic automation systems virtually free of cost for development and personal usage.\n\nArchitecture Triad: Reasoning Brain (Gemini API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
+      architecturePrinciple:
+        'Architecture Triad: Reasoning Brain (Gemini API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
       methodsUsed: [
-        '18 Moderated Remote Sessions',
-        'Cohort Funnel Analysis',
-        'System Usability Scale (SUS)',
-        'Heuristic Walkthroughs',
+        'Gemini Function Calling & Entity Extraction',
+        'Supabase PostgreSQL & Auth State Machines',
+        'Cloudflare Workers Cron & Edge Functions',
+        'Multi-Step Agentic Workflow Orchestration',
+        'Gmail, Calendar & Telegram Integration',
       ],
       keyOutcome:
-        'Identified 4 critical navigation bottlenecks; recommended flow updates projected to lift Day-7 activation by 22%.',
-      timeframe: '4 Weeks',
-    },
-    {
-      id: 'project-2',
-      title: 'Global Consumer FinTech Survey & Segmentation',
-      categoryTag: 'Survey & Quantitative Analysis',
-      tagColor: 'slate',
-      briefDescription:
-        'Architected a 1,250-respondent cross-regional survey investigating trust factors, privacy comfort, and recurring transaction preferences.',
-      fullOverview:
-        'Designed question matrices, managed sample quotas, performed cross-tabulation, and authored a 28-page strategic decision paper for executive leaders.',
-      methodsUsed: [
-        'Quotas & Stratified Sampling',
-        'Cross-Tabulation Analysis',
-        'Statistical Significance Testing',
-        'Executive Readout Deck',
+        'Engineered an enterprise-grade agentic workflow architecture executing zero-cost personal automation across search, scheduling, and multi-step tool actions.',
+      timeframe: 'Architecture & Roadmap Specification',
+      techStack: [
+        {
+          category: '🧠 AI Engine',
+          recommended_tool: 'Google AI Studio / Gemini API',
+          purpose:
+            'Natural language intent parsing, reasoning, entity extraction, and function calling.',
+        },
+        {
+          category: '🎨 Frontend UI',
+          recommended_tool: 'React / Next.js',
+          purpose:
+            'Interactive user dashboard, real-time activity feeds, chat interface, and task management UI.',
+        },
+        {
+          category: '🌐 Cloud Hosting',
+          recommended_tool: 'Cloudflare Pages / Vercel',
+          purpose:
+            'Edge deployment providing globally distributed hosting with automated CI/CD pipelines.',
+        },
+        {
+          category: '🗄️ Database',
+          recommended_tool: 'Supabase (PostgreSQL)',
+          purpose:
+            'Structured storage for user profiles, task state machines, schedule configurations, and chat histories.',
+        },
+        {
+          category: '⚡ Backend Engine',
+          recommended_tool: 'Cloudflare Workers / Edge Functions',
+          purpose:
+            'Serverless execution logic for API webhooks, authentication validation, and external tool calls.',
+        },
+        {
+          category: '🔐 Authentication',
+          recommended_tool: 'Supabase Auth',
+          purpose:
+            'Secure JWT user registration, session handling, and OAuth integration (Google, GitHub).',
+        },
+        {
+          category: '⏰ Scheduled Execution',
+          recommended_tool: 'Cloudflare Workers Cron',
+          purpose:
+            'Background cron schedules to trigger automated tasks, daily digests, and reminders asynchronously.',
+        },
+        {
+          category: '🔗 Integrations',
+          recommended_tool: 'REST APIs / Webhooks',
+          purpose:
+            'Connections to third-party services like Gmail, Google Calendar, Telegram, and Slack.',
+        },
+        {
+          category: '📢 Notifications',
+          recommended_tool: 'Telegram API / Web Push / Email',
+          purpose:
+            'Instant alert delivery for task completions, daily briefings, and time-sensitive reminders.',
+        },
       ],
-      keyOutcome:
-        'Segmented users into 3 distinct risk-tolerance clusters, shaping product pricing and regulatory disclosures.',
-      timeframe: '6 Weeks',
-    },
-    {
-      id: 'project-3',
-      title: 'E-Commerce Checkout Heuristic & Field Benchmarking',
-      categoryTag: 'Data Analysis & Optimization',
-      tagColor: 'indigo',
-      briefDescription:
-        'Synthesized 6 months of behavioral analytics, user heatmaps, and competitive benchmarks to overhaul a mobile payment flow.',
-      fullOverview:
-        'Analyzed high cart-abandonment instances using event tracking and concurrent user test recordings across iOS and Android mobile web users.',
-      methodsUsed: [
-        'Event Log & Drop-off Modeling',
-        'Competitive Gap Benchmarking',
-        'Tree Testing & Field Notes',
-        'UX Prioritization Matrix',
+      workflows: [
+        {
+          id: 1,
+          title: 'Structured Reminders & Task Creation',
+          user_prompt: 'Remind me tomorrow at 9 AM to call Rahul.',
+          intent_resolution: {
+            intent: 'CREATE_REMINDER',
+            task: 'Call Rahul',
+            scheduled_at: '2026-09-21T09:00:00Z',
+          },
+          execution:
+            'The serverless backend inserts the record into Supabase PostgreSQL and schedules a Cloudflare Worker Cron trigger to dispatch a Telegram or Web Push notification at 9 AM.',
+        },
+        {
+          id: 2,
+          title: 'Advanced Multi-Step Tool Execution (Agentic Workflow)',
+          user_prompt:
+            'Find the email from Amazon about my latest order and add the delivery date to my tasks.',
+          agentic_execution_sequence: [
+            "1. Search Gmail API — Query recent inbox messages matching vendor 'Amazon'.",
+            '2. Read Relevant Email — Retrieve plain text/HTML body of the matching message.',
+            '3. Entity Extraction — Gemini parses the message body to extract target date strings.',
+            '4. Task Persistence — Write new task entry to Supabase Database with extracted metadata.',
+            '5. Confirmation Dispatch — Send completion response back to User UI.',
+          ],
+        },
       ],
-      keyOutcome:
-        'Delivered 9 high-impact interface adjustments that reduced checkout steps from 5 to 3 screens.',
-      timeframe: '3 Weeks',
-    },
-    {
-      id: 'project-4',
-      title: 'Healthcare Patient Portal Discovery Study',
-      categoryTag: 'Exploratory Qualitative Research',
-      tagColor: 'emerald',
-      briefDescription:
-        'Conducted qualitative stakeholder and patient interviews to map digital appointment scheduling readiness among elderly demographics.',
-      fullOverview:
-        'Designed accessibility-focused interview protocols, documented accessibility friction points, and formulated guidelines for WCAG-compliant appointment bookings.',
-      methodsUsed: [
-        'Semi-Structured Patient Interviews',
-        'Affinity Diagramming',
-        'Assistive Tech Observation',
-        'Accessibility Action Plan',
+      engineeringRoadmap: [
+        {
+          phase: 1,
+          title: 'Conversational Foundation (Chat)',
+          description:
+            'Set up Next.js UI, integrate Gemini API via serverless backend, configure Supabase Auth, and enable basic multi-turn chat persistence.',
+        },
+        {
+          phase: 2,
+          title: 'Intent Engine & Reminders (Tasks)',
+          description:
+            'Implement Gemini Function Calling to parse natural language queries into JSON schema tasks; persist state in Supabase.',
+        },
+        {
+          phase: 3,
+          title: 'Automated Scheduling (Cron & Alerts)',
+          description:
+            'Deploy Cloudflare Workers Cron jobs to periodically check due tasks and dispatch alerts via Telegram Bot or Webhooks.',
+        },
+        {
+          phase: 4,
+          title: 'External Tool Integration (Calendar & Gmail)',
+          description:
+            'Incorporate Google OAuth scopes to allow full reads/writes for Google Calendar events and Gmail search.',
+        },
+        {
+          phase: 5,
+          title: 'Autonomous Background Agents',
+          description:
+            'Connect agentic workflow orchestration (e.g., n8n or LangChain) for multi-step background task execution without manual triggers.',
+        },
       ],
-      keyOutcome:
-        'Uncovered key cognitive hesitations around telehealth links, prompting an automated SMS verification workflow.',
-      timeframe: '5 Weeks',
+      freeTierLimits: [
+        {
+          service: 'Gemini API',
+          quota:
+            'Generous free tier (up to 15 Requests Per Minute / 1,500 Requests Per Day), ideal for personal automation.',
+        },
+        {
+          service: 'Cloudflare Pages & Workers',
+          quota:
+            'Unlimited static hosting; Workers provide 100,000 free request executions per day.',
+        },
+        {
+          service: 'Supabase PostgreSQL',
+          quota:
+            '500 MB database storage, 50,000 active monthly users, and 1 GB file storage on the free tier.',
+        },
+        {
+          service: 'Telegram Bot API',
+          quota:
+            'Completely free unlimited notification and interactive bot messaging capability.',
+        },
+      ],
+      rawSpecification: {
+        project: {
+          title: 'AI Personal Assistant & Task Automation',
+          subtitle:
+            'Low-Cost Infrastructure Stack, Agentic Workflows, Function Calling & Strategic Roadmap',
+          overview: {
+            summary:
+              'Building an AI Personal Assistant & Task Automation platform does not require expensive enterprise infrastructure. By orchestrating modern serverless hosting, managed database platforms, edge computing triggers, and LLM APIs, developers can build production-ready agentic automation systems virtually free of cost for development and personal usage.',
+            core_architecture_principle:
+              'Architecture Triad: Reasoning Brain (Gemini API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
+          },
+          tech_stack: [
+            {
+              category: '🧠 AI Engine',
+              recommended_tool: 'Google AI Studio / Gemini API',
+              purpose:
+                'Natural language intent parsing, reasoning, entity extraction, and function calling.',
+            },
+            {
+              category: '🎨 Frontend UI',
+              recommended_tool: 'React / Next.js',
+              purpose:
+                'Interactive user dashboard, real-time activity feeds, chat interface, and task management UI.',
+            },
+            {
+              category: '🌐 Cloud Hosting',
+              recommended_tool: 'Cloudflare Pages / Vercel',
+              purpose:
+                'Edge deployment providing globally distributed hosting with automated CI/CD pipelines.',
+            },
+            {
+              category: '🗄️ Database',
+              recommended_tool: 'Supabase (PostgreSQL)',
+              purpose:
+                'Structured storage for user profiles, task state machines, schedule configurations, and chat histories.',
+            },
+            {
+              category: '⚡ Backend Engine',
+              recommended_tool: 'Cloudflare Workers / Edge Functions',
+              purpose:
+                'Serverless execution logic for API webhooks, authentication validation, and external tool calls.',
+            },
+            {
+              category: '🔐 Authentication',
+              recommended_tool: 'Supabase Auth',
+              purpose:
+                'Secure JWT user registration, session handling, and OAuth integration (Google, GitHub).',
+            },
+            {
+              category: '⏰ Scheduled Execution',
+              recommended_tool: 'Cloudflare Workers Cron',
+              purpose:
+                'Background cron schedules to trigger automated tasks, daily digests, and reminders asynchronously.',
+            },
+            {
+              category: '🔗 Integrations',
+              recommended_tool: 'REST APIs / Webhooks',
+              purpose:
+                'Connections to third-party services like Gmail, Google Calendar, Telegram, and Slack.',
+            },
+            {
+              category: '📢 Notifications',
+              recommended_tool: 'Telegram API / Web Push / Email',
+              purpose:
+                'Instant alert delivery for task completions, daily briefings, and time-sensitive reminders.',
+            },
+          ],
+          workflows: [
+            {
+              id: 1,
+              title: 'Structured Reminders & Task Creation',
+              user_prompt: 'Remind me tomorrow at 9 AM to call Rahul.',
+              intent_resolution: {
+                intent: 'CREATE_REMINDER',
+                task: 'Call Rahul',
+                scheduled_at: '2026-09-21T09:00:00Z',
+              },
+              execution:
+                'The serverless backend inserts the record into Supabase PostgreSQL and schedules a Cloudflare Worker Cron trigger to dispatch a Telegram or Web Push notification at 9 AM.',
+            },
+            {
+              id: 2,
+              title: 'Advanced Multi-Step Tool Execution (Agentic Workflow)',
+              user_prompt:
+                'Find the email from Amazon about my latest order and add the delivery date to my tasks.',
+              agentic_execution_sequence: [
+                "1. Search Gmail API — Query recent inbox messages matching vendor 'Amazon'.",
+                '2. Read Relevant Email — Retrieve plain text/HTML body of the matching message.',
+                '3. Entity Extraction — Gemini parses the message body to extract target date strings.',
+                '4. Task Persistence — Write new task entry to Supabase Database with extracted metadata.',
+                '5. Confirmation Dispatch — Send completion response back to User UI.',
+              ],
+            },
+          ],
+          engineering_roadmap: [
+            {
+              phase: 1,
+              title: 'Conversational Foundation (Chat)',
+              description:
+                'Set up Next.js UI, integrate Gemini API via serverless backend, configure Supabase Auth, and enable basic multi-turn chat persistence.',
+            },
+            {
+              phase: 2,
+              title: 'Intent Engine & Reminders (Tasks)',
+              description:
+                'Implement Gemini Function Calling to parse natural language queries into JSON schema tasks; persist state in Supabase.',
+            },
+            {
+              phase: 3,
+              title: 'Automated Scheduling (Cron & Alerts)',
+              description:
+                'Deploy Cloudflare Workers Cron jobs to periodically check due tasks and dispatch alerts via Telegram Bot or Webhooks.',
+            },
+            {
+              phase: 4,
+              title: 'External Tool Integration (Calendar & Gmail)',
+              description:
+                'Incorporate Google OAuth scopes to allow full reads/writes for Google Calendar events and Gmail search.',
+            },
+            {
+              phase: 5,
+              title: 'Autonomous Background Agents',
+              description:
+                'Connect agentic workflow orchestration (e.g., n8n or LangChain) for multi-step background task execution without manual triggers.',
+            },
+          ],
+          free_tier_limits: [
+            {
+              service: 'Gemini API',
+              quota:
+                'Generous free tier (up to 15 Requests Per Minute / 1,500 Requests Per Day), ideal for personal automation.',
+            },
+            {
+              service: 'Cloudflare Pages & Workers',
+              quota:
+                'Unlimited static hosting; Workers provide 100,000 free request executions per day.',
+            },
+            {
+              service: 'Supabase PostgreSQL',
+              quota:
+                '500 MB database storage, 50,000 active monthly users, and 1 GB file storage on the free tier.',
+            },
+            {
+              service: 'Telegram Bot API',
+              quota:
+                'Completely free unlimited notification and interactive bot messaging capability.',
+            },
+          ],
+        },
+      },
     },
   ],
 
@@ -213,20 +448,12 @@ export const portfolioData: PortfolioData = {
     responseTime: 'Typically responds within 24 business hours',
     socials: [
       {
-        platform: 'LinkedIn',
-        url: 'https://linkedin.com',
-        handle: 'linkedin.com/in/shubham-sonale',
-      },
-      {
         platform: 'GitHub',
         url: 'https://github.com',
         handle: 'github.com/shubhamsonale',
       },
-      {
-        platform: 'Twitter / X',
-        url: 'https://twitter.com',
-        handle: '@shubham_sonale',
-      },
     ],
   },
 };
+
+export const projects = portfolioData.projects;
