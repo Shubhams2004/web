@@ -294,6 +294,21 @@ export const SECTION_SEO_PRESETS: Record<string, PageMetaContext> = {
       'Healthcare Analytics Case Study',
     ],
   },
+  'case-studies': {
+    title: 'Trending Business Case Studies | Corporate Strategy & Market Catalysts',
+    description:
+      'Empirical business case studies analyzing major strategic pivots, operational crises, corporate governance shifts, and financial metrics across industry leaders.',
+    section: 'Trending Business Case Studies',
+    keywords: [
+      'Business Case Studies',
+      'Corporate Strategy Analysis',
+      'Market Catalysts',
+      'Financial Metrics',
+      'Strategic Dilemmas',
+      'Groq AI Research',
+      'Shubham Sonale',
+    ],
+  },
   contact: {
     title: 'Hire a Research Writer | Contact & Inquiries',
     description:

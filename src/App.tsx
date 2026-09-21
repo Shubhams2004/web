@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Navbar } from './components/Navbar';
 import { Hero } from './components/Hero';
 import { About } from './components/About';
-import { Portfolio } from './components/Portfolio';
-import { LiveNews } from './components/LiveNews';
+import { TrendingCaseStudies } from './components/TrendingCaseStudies';
 import { Contact } from './components/Contact';
 import { Footer } from './components/Footer';
 import { CaseStudyPage } from './components/CaseStudyPage';
@@ -64,7 +63,7 @@ export default function App() {
 
   useEffect(() => {
     if (caseStudyProjectId || isNewsPlatformPage) return;
-    const sections = ['home', 'news', 'about', 'portfolio', 'contact'];
+    const sections = ['home', 'case-studies', 'about', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140; // offset for sticky header
 
@@ -99,7 +98,7 @@ export default function App() {
     );
   }
 
-  // If a case study separate page is requested, find the project and render standalone view
+  // If a legacy project separate page is requested
   const activeCaseStudyProject = caseStudyProjectId
     ? portfolioData.projects.find((p) => p.id === caseStudyProjectId) ||
       portfolioData.projects[0]
@@ -110,7 +109,7 @@ export default function App() {
       <CaseStudyPage
         project={activeCaseStudyProject}
         onBack={() => {
-          window.location.hash = '#portfolio';
+          window.location.hash = '#case-studies';
         }}
       />
     );
@@ -121,12 +120,21 @@ export default function App() {
       {/* Navigation */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections: Brief Intro + Trending Business Case Studies centerpiece + About + Contact */}
       <main className="flex-1">
-        <Hero />
-        <LiveNews />
+        <Hero
+          onOpenRssDiscovery={() => {
+            const btn = document.getElementById('discover-rss-btn');
+            if (btn) {
+              btn.click();
+            } else {
+              const el = document.getElementById('case-studies');
+              if (el) el.scrollIntoView({ behavior: 'smooth' });
+            }
+          }}
+        />
+        <TrendingCaseStudies />
         <About />
-        <Portfolio />
         <Contact />
       </main>
 

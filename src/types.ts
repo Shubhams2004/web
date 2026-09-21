@@ -46,6 +46,56 @@ export interface ProjectRoadmapItem {
   description: string;
 }
 
+export interface CaseStudyMetric {
+  label: string;
+  value: string;
+  change?: string;
+  isPositive?: boolean;
+}
+
+export interface CaseStudySource {
+  title: string;
+  url: string;
+  publisher?: string;
+  date?: string;
+}
+
+export interface BusinessCaseStudy {
+  id: string;
+  company: string;
+  ticker?: string;
+  industry: string;
+  title: string;
+  whatHappened: string;
+  businessProblemOrOpportunity: string;
+  marketContext: string;
+  strategyActionTaken: string;
+  importantDataOrResults: {
+    metrics: CaseStudyMetric[];
+    summary: string;
+  };
+  keyLessons: string[];
+  sources: CaseStudySource[];
+  date: string;
+  readTime: string;
+  status: 'Verified Research' | 'Breaking Catalyst' | 'Strategic Deep Dive';
+  tags: string[];
+  rssHeadlineReference?: string;
+  generatedByGroq?: boolean;
+  generatedAt?: string;
+}
+
+export interface BusinessRssStory {
+  id: string;
+  title: string;
+  source: string;
+  publishedAt: string;
+  url: string;
+  summary?: string;
+  suggestedCompany?: string;
+  suggestedIndustry?: string;
+}
+
 export interface ProjectFreeTierLimit {
   service: string;
   quota: string;

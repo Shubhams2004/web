@@ -11,33 +11,31 @@ import { PortfolioData } from '../types';
 export const portfolioData: PortfolioData = {
   person: {
     fullName: 'Shubham Sonale',
-    headline: 'Research Writer',
+    headline: 'Research Analyst & Strategy Writer',
     tagline:
-      'Translating complex human behavior, scientific findings, and quantitative data into clear, high-impact research writing, strategic white papers, and evidence-backed case studies.',
+      'Synthesizing real-time market catalysts, corporate disruptions, and public filings into empirical, publication-grade business case studies.',
     avatarInitials: 'SS',
-    statusBadge: 'Open for Freelance & Contract Projects',
+    statusBadge: 'Available for Business Research & Strategic Case Studies',
     locationBadge: 'Available Worldwide (Remote)',
   },
 
   navigation: [
     { label: 'Home', href: '#home' },
-    { label: 'News', href: '#news' },
+    { label: 'Case Studies', href: '#case-studies' },
     { label: 'About', href: '#about' },
-    { label: 'Work', href: '#portfolio' },
     { label: 'Contact', href: '#contact' },
   ],
 
   about: {
     bioParagraphs: [
-      'I am an independent research writer dedicated to helping founders, product teams, and publications articulate deep findings, empirical data, and user insights into compelling narratives.',
-      'With a grounded background in research synthesis, quantitative inquiry, and analytical reporting, I turn complex subjects into structured publications and evidence-backed writing that engages stakeholders.',
-      'Whether authoring in-depth market analyses, investigative tech reports, or executive research summaries, I bridge rigorous analysis with clear, authoritative prose.',
+      'I synthesize breaking market catalysts, corporate disruptions, and SEC filings into concise, publication-grade business case studies and strategic intelligence.',
+      'Combining investigative corporate inquiry with quantitative rigor, I help leaders evaluate strategic dilemmas, capital allocation trade-offs, and competitive dynamics.',
     ],
     highlights: [
-      { label: 'Methodology', value: 'Mixed-Methods' },
-      { label: 'Experience', value: '4+ Years' },
-      { label: 'Core Focus', value: 'Actionable Insights' },
-      { label: 'Engagement', value: 'Direct & Remote' },
+      { label: 'Methodology', value: 'Case Study Framework' },
+      { label: 'Focus', value: 'Market Catalysts & Strategy' },
+      { label: 'Source Rigor', value: 'Public Filings & Wires' },
+      { label: 'Engagement', value: 'Consulting & Publications' },
     ],
     skills: [
       {
