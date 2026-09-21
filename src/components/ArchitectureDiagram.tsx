@@ -50,7 +50,7 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ classN
           <ArrowRight className="w-4 h-4 hidden lg:block" />
         </div>
 
-        {/* Step 2: Reasoning Brain (Gemini) */}
+        {/* Step 2: Reasoning Brain (Groq) */}
         <div className="flex-1 min-w-0 bg-blue-50/70 border border-blue-200 rounded-xl p-3.5 sm:p-4 flex flex-col justify-between">
           <div>
             <div className="flex items-center gap-2 mb-2">
@@ -60,12 +60,12 @@ export const ArchitectureDiagram: React.FC<ArchitectureDiagramProps> = ({ classN
               <span className="text-xs font-bold text-blue-950">2. Reasoning Brain</span>
             </div>
             <p className="text-xs text-blue-900 leading-relaxed mb-2">
-              Gemini API extracts intents, entities, schedules, and issues structured function calls.
+              Groq API extracts intents, entities, schedules, and issues structured function calls with ultra-low latency.
             </p>
           </div>
           <div className="mt-2 pt-2 border-t border-blue-200/60 flex items-center justify-between text-[11px] font-mono text-blue-800">
-            <span>Gemini 2.5 Flash</span>
-            <span className="font-semibold text-emerald-700">1,500 RPD Free</span>
+            <span>Groq Llama 3.3</span>
+            <span className="font-semibold text-emerald-700">Ultra-Fast LPU</span>
           </div>
         </div>
 
