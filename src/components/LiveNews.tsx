@@ -115,6 +115,36 @@ export const LiveNews: React.FC = () => {
           </p>
         </ScrollReveal>
 
+        {/* Dedicated Newsroom Platform Launch Banner */}
+        <ScrollReveal delay={0.03} className="mb-8 p-4 sm:p-5 rounded-2xl bg-slate-900 text-white shadow-sm border border-slate-800 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+          <div className="flex items-start sm:items-center gap-3.5">
+            <div className="w-10 h-10 rounded-xl bg-red-600/20 border border-red-500/40 flex items-center justify-center text-red-500 shrink-0">
+              <span className="w-2.5 h-2.5 rounded-full bg-red-500 animate-ping" />
+            </div>
+            <div>
+              <div className="flex items-center gap-2 flex-wrap">
+                <span className="text-xs font-bold px-2 py-0.5 rounded bg-red-600/30 text-red-400 font-mono uppercase tracking-wider">
+                  The News Chronicle
+                </span>
+                <span className="text-[11px] text-slate-400">Full Digital Newsroom Page</span>
+              </div>
+              <p className="text-sm font-semibold text-slate-100 mt-1">
+                Explore our full news website: Breaking News banner, India & Maharashtra bureaus, category filters, market tickers & article reader.
+              </p>
+            </div>
+          </div>
+          <div className="flex items-center gap-2 shrink-0 w-full sm:w-auto">
+            <a
+              href="#/news"
+              id="open-full-news-platform-cta"
+              className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white text-xs font-semibold shadow-xs hover:shadow-md transition-all cursor-pointer"
+            >
+              <span>Launch News Platform</span>
+              <ExternalLink className="w-4 h-4" />
+            </a>
+          </div>
+        </ScrollReveal>
+
         {/* Controls */}
         <ScrollReveal delay={0.05} className="mb-8">
           <div className="flex flex-col gap-4 md:flex-row md:items-center md:justify-between">

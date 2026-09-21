@@ -2,5 +2,5 @@
   "name": "Shubham Sonale | Research Writer",
   "description": "Professional personal portfolio website for Shubham Sonale, Research Writer, featuring in-depth case studies, research writing, analytical services, and direct contact details.",
   "requestFramePermissions": [],
-  "majorCapabilities": []
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
 }

@@ -1,0 +1,422 @@
+import { NewsArticle, NewsCategory } from '../types';
+
+export interface MarketTickerItem {
+  symbol: string;
+  name: string;
+  value: string;
+  change: string;
+  isPositive: boolean;
+}
+
+export interface WeatherItem {
+  city: string;
+  temp: string;
+  condition: string;
+}
+
+export const MARKET_TICKERS: MarketTickerItem[] = [
+  { symbol: 'BSE SENSEX', name: 'Sensex', value: '82,415.80', change: '+384.20 (+0.47%)', isPositive: true },
+  { symbol: 'NSE NIFTY', name: 'Nifty 50', value: '25,230.15', change: '+112.65 (+0.45%)', isPositive: true },
+  { symbol: 'USD/INR', name: 'Rupee', value: '83.42', change: '-0.08 (-0.10%)', isPositive: true },
+  { symbol: 'GOLD (10g)', name: 'MCX Gold', value: '₹74,850', change: '+240 (+0.32%)', isPositive: true },
+  { symbol: 'BRENT', name: 'Crude Oil', value: '$78.14', change: '-0.92 (-1.16%)', isPositive: false },
+];
+
+export const REGIONAL_WEATHER: WeatherItem[] = [
+  { city: 'Mumbai', temp: '30°C', condition: 'Partly Cloudy' },
+  { city: 'Pune', temp: '26°C', condition: 'Breezy & Pleasant' },
+  { city: 'Nagpur', temp: '32°C', condition: 'Sunny' },
+  { city: 'New Delhi', temp: '29°C', condition: 'Clear Sky' },
+  { city: 'Bengaluru', temp: '24°C', condition: 'Light Showers' },
+];
+
+export const BREAKING_NEWS_ITEMS: { id: string; headline: string; timestamp: string; category: NewsCategory }[] = [
+  {
+    id: 'break-1',
+    headline: 'Supreme Court Constitutional Bench delivers landmark order on digital privacy safeguards and state data retention rules',
+    timestamp: '8m ago',
+    category: 'Politics',
+  },
+  {
+    id: 'break-2',
+    headline: 'RBI Governor indicates comfortable inflation glide path; liquidity frameworks to remain flexible for Q3 growth',
+    timestamp: '24m ago',
+    category: 'Business',
+  },
+  {
+    id: 'break-3',
+    headline: 'Maharashtra Cabinet ratifies Phase-3 expansion of Mumbai Coastal Road and underground transit link to Thane',
+    timestamp: '41m ago',
+    category: 'Maharashtra',
+  },
+  {
+    id: 'break-4',
+    headline: 'ISRO successfully completes hot tests for next-generation semi-cryogenic engine at Mahendragiri propulsion complex',
+    timestamp: '1h ago',
+    category: 'Technology',
+  },
+  {
+    id: 'break-5',
+    headline: 'BCCI confirms multi-nation bilateral cricket series schedule and upgraded fan infrastructure across 12 venues',
+    timestamp: '2h ago',
+    category: 'Sports',
+  },
+];
+
+export const NEWS_CATEGORIES: { key: NewsCategory; label: string; description: string }[] = [
+  { key: 'All', label: 'All News', description: 'Curated coverage across all beats and bureaus' },
+  { key: 'India', label: 'India', description: 'National affairs, governance, development, and state updates' },
+  { key: 'Maharashtra', label: 'Maharashtra', description: 'Mumbai, Pune, Vidarbha, civic developments, and state policy' },
+  { key: 'World', label: 'World', description: 'Global diplomacy, international conflicts, and geopolitical shifts' },
+  { key: 'Politics', label: 'Politics', description: 'Parliamentary updates, elections, legislation, and party dynamics' },
+  { key: 'Business', label: 'Business & Economy', description: 'Markets, corporate earnings, startup investments, and fiscal policy' },
+  { key: 'Technology', label: 'Technology', description: 'Artificial intelligence, space exploration, cybersecurity, and gadgets' },
+  { key: 'Sports', label: 'Sports', description: 'Cricket, Olympics, football, badminton, and athlete profiles' },
+  { key: 'Entertainment', label: 'Entertainment & Arts', description: 'Cinema, streaming, cultural festivals, literary reviews, and music' },
+];
+
+export const SAMPLE_ARTICLES: NewsArticle[] = [
+  {
+    id: 'article-1',
+    title: 'India Unveils $12 Billion National Semiconductor Fabrication Mission with 3 New Silicon Foundries',
+    slug: 'india-semiconductor-fabrication-mission-silicon-foundries',
+    summary:
+      'The Union Cabinet has cleared advanced fiscal incentives and technology transfer pacts to establish world-class semiconductor fabs and testing units across Gujarat and Maharashtra.',
+    content: [
+      'In a decisive boost to domestic high-tech manufacturing, the government has ratified a comprehensive $12 billion capital incentive package dedicated to sub-28nm silicon fabrication, advanced packaging facilities, and compound semiconductor foundries.',
+      'The strategic initiative brings together consortium partnerships with leading international chipmakers and Indian industrial houses. Two large-scale wafer fabs in Dholera and Sanand, alongside a specialized power semiconductor facility near Pune, are scheduled to break ground within the upcoming fiscal quarter.',
+      'Industry analysts estimate the program will generate over 45,000 high-skilled engineering jobs while substantially curtailing India’s reliance on imported microchips across automotive, aerospace, telecom, and consumer electronics verticals.',
+      '"This marks an inflection point in India’s transition from a chip design powerhouse to an end-to-end semiconductor sovereign state," remarked the Minister of Electronics and IT during the post-cabinet briefing.',
+    ],
+    category: 'Technology',
+    author: {
+      name: 'Aditi Deshmukh',
+      role: 'Chief Technology Editor',
+      avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '25 minutes ago',
+    readTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Advanced automated silicon wafer fabrication cleanroom in commercial testing phase.',
+    isBreaking: false,
+    isFeatured: true,
+    isTrending: true,
+    trendingRank: 1,
+    tags: ['Semiconductors', 'Electronics', 'Make in India', 'AI Hardware', 'Economy'],
+    viewsCount: '48.2K',
+    location: 'New Delhi',
+  },
+  {
+    id: 'article-2',
+    title: 'Mumbai Coastal Road Phase-2 Reaches Final Inspection Milestone; Seamless Sea-Link Transit Ready by Next Month',
+    slug: 'mumbai-coastal-road-phase-2-sea-link-inspection-complete',
+    summary:
+      'Civic engineers complete rigorous stress tests on the northern promenade and twin undersea tunnels, reducing South Mumbai to Bandra commute to under 12 minutes.',
+    content: [
+      'Mumbai’s flagship infrastructure marvel, the Chhatrapati Sambhaji Maharaj Coastal Motorway, has achieved 98% structural readiness across its northern corridor connecting Marine Drive to the Bandra-Worli Sea Link.',
+      'The Brihanmumbai Municipal Corporation (BMC) joint inspection team verified ventilation and safety dampers inside the 2.07 km twin undersea tunnels, the deepest vehicular underwater passage constructed in South Asia.',
+      'Traffic telemetry indicates the operational southern corridor has already saved motorists an estimated 3.4 million liters of fuel over its first four months of service while significantly decongesting Pedder Road and Western Railway feeder corridors.',
+      'The full opening of all entry-exit ramps, public seaside promenades, and dedicated underground bus transit lanes is slated for formal handover early next month.',
+    ],
+    category: 'Maharashtra',
+    author: {
+      name: 'Rohan Shinde',
+      role: 'Urban Affairs Bureau',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '42 minutes ago',
+    readTime: '3 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1570168007204-dfb528c6958f?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Panoramic evening vista of the Mumbai coastline and the newly extended transit viaducts.',
+    isBreaking: true,
+    isFeatured: true,
+    isTrending: true,
+    trendingRank: 2,
+    tags: ['Mumbai', 'Infrastructure', 'BMC', 'Coastal Road', 'Urban Mobility'],
+    viewsCount: '34.9K',
+    location: 'Mumbai',
+  },
+  {
+    id: 'article-3',
+    title: 'G20 Climate & Energy Coalition Ratifies Renewable Grid Modernization Accord in Geneva',
+    slug: 'g20-climate-energy-coalition-renewable-grid-accord',
+    summary:
+      'Delegates from 24 nations sign off on an accelerated cross-border renewable transmission roadmap backed by $350 billion in blended green financing.',
+    content: [
+      'High-level representatives from major world economies concluded three days of intense negotiations in Geneva, delivering a ratified declaration on cross-continental high-voltage direct current (HVDC) power transmission grids.',
+      'The agreement provides standard regulatory frameworks for green hydrogen trade, regional battery energy storage integration, and joint research into next-generation perovskite solar cells.',
+      'The multilateral funding mechanism will channel concessionary capital to developing economies across South Asia and Sub-Saharan Africa to decommission aging thermal generation without destabilizing local manufacturing sectors.',
+    ],
+    category: 'World',
+    author: {
+      name: 'Elena Rostova',
+      role: 'International Diplomatic Correspondent',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '1 hour ago',
+    readTime: '5 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Delegates convene inside the plenary chamber at the International Environmental Council.',
+    isBreaking: false,
+    isFeatured: true,
+    isTrending: false,
+    trendingRank: 4,
+    tags: ['Geopolitics', 'Clean Energy', 'G20', 'Climate Action', 'Geneva'],
+    viewsCount: '21.5K',
+    location: 'Geneva',
+  },
+  {
+    id: 'article-4',
+    title: 'Parliament Winter Session: Key Bills on Digital Personal Rights and AI Governance Tabled',
+    slug: 'parliament-winter-session-digital-rights-ai-governance',
+    summary:
+      'The Union Government has introduced landmark legislative amendments to harmonize consumer algorithmic transparency, synthetic media watermarking, and judicial e-courts modernization.',
+    content: [
+      'The Lok Sabha saw rigorous introductory debate today as the comprehensive Artificial Intelligence Governance and Algorithmic Fairness Bill was placed on the floor by the Ministry of Law and Justice.',
+      'The proposed framework mandates algorithmic auditability for critical infrastructure systems, introduces criminal penalties for malicious deepfake propagation during electoral cycles, and shields open-source research innovators with safe-harbor exemptions.',
+      'Leaders across party benches commended the bipartisan consultation rounds conducted with university faculties, civil liberties advocates, and developer associations over the preceding six months.',
+    ],
+    category: 'Politics',
+    author: {
+      name: 'Vikramaditya Sen',
+      role: 'Parliamentary Affairs Bureau',
+      avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '2 hours ago',
+    readTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1541872703-74c5e44368f9?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'The Parliament of India in New Delhi ahead of the legislative session.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: true,
+    trendingRank: 3,
+    tags: ['Parliament', 'Legislation', 'AI Policy', 'Digital Rights', 'Lok Sabha'],
+    viewsCount: '29.1K',
+    location: 'New Delhi',
+  },
+  {
+    id: 'article-5',
+    title: 'Sensex Scales Fresh Milestone as Foreign Institutional Inflows Surge into Manufacturing & Tech Stocks',
+    slug: 'sensex-scales-fresh-milestone-fii-inflows-manufacturing',
+    summary:
+      'Benchmark domestic equity indices recorded broad-based gains led by capital goods, private banking, and automotive leaders following robust quarterly tax revenues.',
+    content: [
+      'Indian benchmark equities opened strong and maintained bullish momentum throughout Monday’s trading session, with the 30-share BSE Sensex advancing 384 points to settle near intra-day highs of 82,415.',
+      'Foreign institutional investors (FIIs) remained net buyers for the fifth consecutive trading session, deploying over ₹3,200 crore into blue-chip manufacturing, renewable energy utilities, and IT services exporters.',
+      'Analysts at leading domestic brokerages highlighted that strong goods and services tax (GST) receipts, coupled with stable crude oil prices, have reinforced India’s standing as the premier emerging market investment destination.',
+    ],
+    category: 'Business',
+    author: {
+      name: 'Nandita Iyer',
+      role: 'Senior Markets Analyst',
+      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '3 hours ago',
+    readTime: '3 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Real-time financial ticker data and equity performance screens at the stock exchange.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: true,
+    trendingRank: 5,
+    tags: ['Stock Market', 'Sensex', 'Economy', 'FII', 'Investments'],
+    viewsCount: '18.7K',
+    location: 'Mumbai',
+  },
+  {
+    id: 'article-6',
+    title: 'India Defeats Australia in Thrilling T20 Decider at Wankhede Stadium with Final-Over Heroics',
+    slug: 'india-defeats-australia-t20-decider-wankhede',
+    summary:
+      'A masterclass counter-attack by the middle order paired with inch-perfect yorkers in the 20th over sealed a memorable 2-1 series victory for the Men in Blue.',
+    content: [
+      'A capacity crowd of 33,000 spectators at Mumbai’s iconic Wankhede Stadium erupted into celebrations as the Indian cricket team held their nerve in a pulsating final over to clinch the bilateral T20 international series.',
+      'Chasing a stiff target of 194 on a true red-soil wicket, India were rescued from 62 for 3 by a blistering 78-run partnership off just 38 deliveries, showcasing audacious strokeplay against genuine pace.',
+      'Needing 11 runs off the final six balls, the premier speedster delivered five pin-point yorkers and a deceptive slower bouncer, conceding merely 4 runs to trigger ecstatic scenes across the dugout.',
+    ],
+    category: 'Sports',
+    author: {
+      name: 'Kabir Batra',
+      role: 'Special Sports Correspondent',
+      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '4 hours ago',
+    readTime: '3 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Floodlights illuminate the packed stadium stands during the high-voltage clash.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: false,
+    tags: ['Cricket', 'T20', 'Team India', 'Wankhede', 'Sports'],
+    viewsCount: '52.3K',
+    location: 'Mumbai',
+  },
+  {
+    id: 'article-7',
+    title: 'Pune IT & Research Corridor Welcomes 10 New R&D Centers in Autonomous Mobility and Clean Power',
+    slug: 'pune-it-corridor-welcomes-new-rd-centers-mobility',
+    summary:
+      'Hinjawadi and Kharadi tech parks see major global automotive and software giants inaugurate collaborative engineering laboratories, creating 8,000 specialist positions.',
+    content: [
+      'Maharashtra’s premier educational and software capital has cemented its reputation as the epicenter of automotive software engineering, with ten multinational engineering hubs opening their doors today.',
+      'The multi-disciplinary facilities will focus on battery management software, edge radar computer vision, telematics cybersecurity, and high-performance power inverters.',
+      'The Maharashtra Industrial Development Corporation (MIDC) noted that enhanced plug-and-play research infrastructure and streamlined green clearances have catalyzed over ₹4,500 crore in private tech investments over the past year.',
+    ],
+    category: 'Maharashtra',
+    author: {
+      name: 'Rohan Shinde',
+      role: 'Urban Affairs Bureau',
+      avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '5 hours ago',
+    readTime: '3 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Modern glass architectural office campuses in the Pune IT and technology hub.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: false,
+    tags: ['Pune', 'Technology', 'Automotive', 'Jobs', 'Maharashtra'],
+    viewsCount: '15.4K',
+    location: 'Pune',
+  },
+  {
+    id: 'article-8',
+    title: 'National Rail Electrification Achieves 99% Milestone as Vande Bharat Sleeper Trains Enter Commercial Testing',
+    slug: 'national-rail-electrification-vande-bharat-sleeper-trials',
+    summary:
+      'Indian Railways conducts speed trial runs of the aerodynamic 16-coach Vande Bharat Sleeper rake between Delhi and Mumbai, clocking smooth 160 km/h cruising speeds.',
+    content: [
+      'In a transformative step for inter-city passenger travel, Indian Railways conducted the inaugural full-consist test run of the indigenous Vande Bharat Sleeper express on the Western Railway trunk line.',
+      'Equipped with advanced crash-worthy couplers, pressurized passenger gangways, ergonomic bio-vacuum lavatories, and sensor-monitored regenerative braking, the sleeper train aims to replace legacy Rajdhani rakes on high-density overnight routes.',
+      'Concurrently, the Ministry of Railways affirmed that broad-gauge route electrification has crossed 99.2%, firmly placing the network among the world’s cleanest and most energy-efficient heavy transport systems.',
+    ],
+    category: 'India',
+    author: {
+      name: 'Sunil Mathur',
+      role: 'Infrastructure Correspondent',
+      avatar: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '6 hours ago',
+    readTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1474487548417-781cb71495f3?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Modern aerodynamic high-speed train navigating along electrified double-track lines.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: false,
+    tags: ['Railways', 'Vande Bharat', 'Infrastructure', 'India', 'Travel'],
+    viewsCount: '27.8K',
+    location: 'New Delhi',
+  },
+  {
+    id: 'article-9',
+    title: 'Independent Indian Cinema Sweeps Top Accolades at International Film Festival with Authentic Regional Storytelling',
+    slug: 'independent-indian-cinema-sweeps-international-festival',
+    summary:
+      'A Marathi-Konkani social drama and an indie Malayalam psychological thriller win prestigious Grand Jury awards, reflecting global reverence for grassroots Indian storytelling.',
+    content: [
+      'Grassroots regional cinema from India captured global imagination at the European Autumn International Film Festival, with two self-funded independent productions taking home top honors.',
+      'The jury lauded the unvarnished authenticity, nuanced cinematography, and soundscapes that captured rural coastal life without resorting to formulaic melodrama or commercial tropes.',
+      'Industry experts at the film market noted an unprecedented surge in global theatrical acquisitions and digital streaming licenses for regional Indian languages across North America and East Asia.',
+    ],
+    category: 'Entertainment',
+    author: {
+      name: 'Pooja Kashyap',
+      role: 'Arts & Culture Reviewer',
+      avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '7 hours ago',
+    readTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Cinematic film theater auditorium spotlighting premiere artistic presentations.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: false,
+    tags: ['Cinema', 'Films', 'Marathi Cinema', 'Entertainment', 'Culture'],
+    viewsCount: '14.1K',
+    location: 'Mumbai',
+  },
+  {
+    id: 'article-10',
+    title: 'Global Aerospace Venture Deploys Next-Gen Satellite Constellation for Hyper-Local Drought Forecasting',
+    slug: 'global-aerospace-satellite-constellation-drought-forecasting',
+    summary:
+      'Synthetic aperture radar payloads provide farmers across semi-arid regions with daily millimeter-precision soil moisture maps and aquifer replenishment telemetry.',
+    content: [
+      'A public-private space consortium successfully placed four earth-observation satellites into sun-synchronous orbit, launching the world’s highest-resolution agricultural moisture monitoring constellation.',
+      'The multi-spectral sensors peer through cloud cover and dense foliage to calculate sub-surface hydrological shifts, warning agricultural cooperatives of impending dry spells up to six weeks in advance.',
+      'State agricultural departments in Maharashtra and Karnataka have signed memorandum pacts to integrate this satellite feed directly into automated SMS advisories sent to over 2.8 million farming households.',
+    ],
+    category: 'World',
+    author: {
+      name: 'Elena Rostova',
+      role: 'International Diplomatic Correspondent',
+      avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '8 hours ago',
+    readTime: '4 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Earth illuminated from orbit as observation satellites monitor global hydrological cycles.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: false,
+    tags: ['Space', 'Satellites', 'Agriculture', 'Climate', 'Global'],
+    viewsCount: '19.4K',
+    location: 'Berlin',
+  },
+  {
+    id: 'article-11',
+    title: 'Digital Payments in India Cross 18 Billion Monthly UPI Transactions as Cross-Border Remittance Expands',
+    slug: 'digital-payments-india-cross-upi-milestone-cross-border',
+    summary:
+      'The Unified Payments Interface logs record velocity, with bilateral integrations now active across Singapore, UAE, France, Mauritius, and Sri Lanka.',
+    content: [
+      'National Payments Corporation of India (NPCI) monthly data revealed that the Unified Payments Interface (UPI) processed a historic 18.2 billion merchant and peer transactions in the preceding month, registering a 38% year-on-year surge.',
+      'Zero-fee interoperable QR standards and offline soundboxes have penetrated deep into tier-3 and rural markets, making cash-free microtransactions standard across millions of neighborhood merchants.',
+      'The platform’s international arm confirmed that direct rupee remittances from the Gulf corridor and Southeast Asia have reduced cross-border transfer transaction fees by more than 60%.',
+    ],
+    category: 'Business',
+    author: {
+      name: 'Nandita Iyer',
+      role: 'Senior Markets Analyst',
+      avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '9 hours ago',
+    readTime: '3 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1556742049-0a67c5574f73?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Contactless instant digital payments processed in real-time at retail storefronts.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: false,
+    tags: ['Fintech', 'UPI', 'Economy', 'Digital India', 'Banking'],
+    viewsCount: '31.2K',
+    location: 'Mumbai',
+  },
+  {
+    id: 'article-12',
+    title: 'Grand Chess Tour & World Candidates: Indian Grandmasters Secure Top Tier Rankings Following Stellar Blitz Performance',
+    slug: 'grand-chess-tour-indian-grandmasters-top-tier-rankings',
+    summary:
+      'A brilliant display of positional precision and tactical bravery in Bucharest catapults young Indian prodigies into the elite top-5 FIDE global live rating bracket.',
+    content: [
+      'India’s golden generation of chess grandmasters continued their triumphant ascent on the international circuit, sweeping podium placements at the Superbet Grand Chess tournament in Europe.',
+      'Displaying extraordinary theoretical preparation in the Sicilian Defense and iron nerve in sudden-death time scrambles, the 19-year-old Grandmaster outplayed former world championship contenders in consecutive rounds.',
+      'FIDE officials commended the systemic grassroots chess academy ecosystem established across Chennai, Mumbai, and Delhi that continues to produce the deepest bench of teenage grandmasters in modern sporting history.',
+    ],
+    category: 'Sports',
+    author: {
+      name: 'Kabir Batra',
+      role: 'Special Sports Correspondent',
+      avatar: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80',
+    },
+    publishedAt: '10 hours ago',
+    readTime: '3 min read',
+    imageUrl: 'https://images.unsplash.com/photo-1529699211952-734e80c4d42b?auto=format&fit=crop&w=1200&q=80',
+    imageCaption: 'Tournament chess board with wooden pieces staged under focused arena lighting.',
+    isBreaking: false,
+    isFeatured: false,
+    isTrending: false,
+    tags: ['Chess', 'Grandmaster', 'FIDE', 'Sports', 'India'],
+    viewsCount: '17.3K',
+    location: 'Bucharest',
+  },
+];

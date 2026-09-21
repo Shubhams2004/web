@@ -87,6 +87,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
           <div className="h-4 w-px bg-slate-200 mx-2" aria-hidden="true" />
 
+          {/* Dedicated Newsroom / News Platform Button */}
+          <a
+            href="#/news"
+            id="nav-link-news-portal"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-800 hover:text-blue-600 bg-slate-100 hover:bg-slate-200/80 rounded-md transition-all border border-slate-200 mr-1"
+            title="Open Dedicated News Platform"
+          >
+            <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+            <span>News Portal</span>
+          </a>
+
           {/* Direct CTA button */}
           <a
             href="#contact"
@@ -141,6 +152,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 </a>
               );
             })}
+
+            {/* Dedicated News Portal link in mobile drawer */}
+            <a
+              href="#/news"
+              id="mobile-nav-link-news-portal"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2.5 rounded-md text-base font-bold text-slate-900 bg-slate-100 hover:bg-slate-200 transition-colors flex items-center justify-between mt-1"
+            >
+              <span className="flex items-center gap-2">
+                <span className="w-2 h-2 rounded-full bg-red-600 animate-pulse" />
+                <span>News Portal (Digital Newsroom)</span>
+              </span>
+              <ArrowUpRight className="w-4 h-4 text-slate-500" />
+            </a>
           </div>
 
           <div className="pt-3 border-t border-slate-100 flex flex-col gap-3">

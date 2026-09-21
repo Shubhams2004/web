@@ -8,33 +8,22 @@ import {
   GitBranch,
   Milestone,
   Zap,
-  Code2,
   CheckCircle2,
-  Copy,
   Check,
-  Download,
   Share2,
-  FileText,
-  Home,
 } from 'lucide-react';
 import { Project } from '../types';
 import { updatePageSEO, SECTION_SEO_PRESETS } from '../utils/seo';
-import { JsonFullScreenViewer } from './JsonFullScreenViewer';
-import { ArchitectureDiagram } from './ArchitectureDiagram';
 
 interface CaseStudyPageProps {
   project: Project;
   onBack: () => void;
-  initialTab?: 'case-study' | 'json';
 }
 
 export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
   project,
   onBack,
-  initialTab = 'case-study',
 }) => {
-  const [activeTab, setActiveTab] = useState<'case-study' | 'json'>(initialTab);
-  const [copied, setCopied] = useState(false);
   const [shared, setShared] = useState(false);
 
   useEffect(() => {
@@ -79,27 +68,6 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
       updatePageSEO(SECTION_SEO_PRESETS.portfolio);
     };
   }, [project]);
-
-  const handleCopyJson = () => {
-    if (!project?.rawSpecification) return;
-    navigator.clipboard.writeText(JSON.stringify(project.rawSpecification, null, 2));
-    setCopied(true);
-    setTimeout(() => setCopied(false), 2000);
-  };
-
-  const handleDownloadJson = () => {
-    if (!project?.rawSpecification) return;
-    const jsonStr = JSON.stringify(project.rawSpecification, null, 2);
-    const blob = new Blob([jsonStr], { type: 'application/json' });
-    const url = URL.createObjectURL(blob);
-    const a = document.createElement('a');
-    a.href = url;
-    a.download = `${project.id}-spec.json`;
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-    URL.revokeObjectURL(url);
-  };
 
   const handleShare = async () => {
     const shareUrl = window.location.href;
@@ -148,69 +116,8 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
             </div>
           </div>
 
-          {/* Center/Right: Tab Switchers & Actions */}
+          {/* Right: Actions */}
           <div className="flex items-center gap-1.5 sm:gap-2 shrink-0">
-            {/* Tabs */}
-            <div className="flex items-center bg-slate-950 p-0.5 rounded-lg border border-slate-800 text-xs">
-              <button
-                type="button"
-                onClick={() => setActiveTab('case-study')}
-                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                  activeTab === 'case-study'
-                    ? 'bg-blue-600 text-white font-semibold shadow-xs'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <FileText className="w-3.5 h-3.5" />
-                <span className="hidden sm:inline">Case Study</span>
-              </button>
-              <button
-                type="button"
-                onClick={() => setActiveTab('json')}
-                className={`inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md transition-colors cursor-pointer ${
-                  activeTab === 'json'
-                    ? 'bg-blue-600 text-white font-semibold shadow-xs'
-                    : 'text-slate-400 hover:text-white'
-                }`}
-              >
-                <Code2 className="w-3.5 h-3.5" />
-                <span>JSON Spec</span>
-              </button>
-            </div>
-
-            {/* Actions */}
-            {project.rawSpecification && (
-              <>
-                <button
-                  type="button"
-                  onClick={handleCopyJson}
-                  className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs inline-flex items-center gap-1.5 transition-colors cursor-pointer"
-                  title="Copy JSON to clipboard"
-                >
-                  {copied ? (
-                    <>
-                      <Check className="w-3.5 h-3.5 text-emerald-400" />
-                      <span className="hidden md:inline text-emerald-400 font-medium">Copied</span>
-                    </>
-                  ) : (
-                    <>
-                      <Copy className="w-3.5 h-3.5" />
-                      <span className="hidden md:inline font-medium">Copy JSON</span>
-                    </>
-                  )}
-                </button>
-                <button
-                  type="button"
-                  onClick={handleDownloadJson}
-                  className="p-1.5 sm:px-2.5 sm:py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs inline-flex items-center gap-1.5 transition-colors cursor-pointer"
-                  title="Download JSON specification file"
-                >
-                  <Download className="w-3.5 h-3.5" />
-                  <span className="hidden md:inline font-medium">Download</span>
-                </button>
-              </>
-            )}
-
             <button
               type="button"
               onClick={handleShare}
@@ -234,17 +141,7 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
       </header>
 
       {/* Main Content Area */}
-      {activeTab === 'json' ? (
-        <div className="flex-1 w-full h-[calc(100vh-57px)] min-h-[500px]">
-          <JsonFullScreenViewer
-            data={project.rawSpecification}
-            fileName={`${project.id}-spec.json`}
-            onClose={() => setActiveTab('case-study')}
-            isFullScreen={true}
-          />
-        </div>
-      ) : (
-        <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 overflow-x-hidden min-w-0">
+      <main className="flex-1 w-full max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-8 sm:py-12 overflow-x-hidden min-w-0">
           {/* Article Header */}
           <article className="space-y-8 max-w-full">
             <header className="border-b border-slate-200/80 pb-6 sm:pb-8">
@@ -272,32 +169,6 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
               )}
             </header>
 
-            {/* Quick Switch Banner to JSON Spec */}
-            {project.rawSpecification && (
-              <div className="p-3.5 sm:p-4 rounded-xl bg-blue-50/80 border border-blue-200/80 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3 max-w-full">
-                <div className="flex items-start sm:items-center gap-3">
-                  <div className="w-9 h-9 rounded-lg bg-blue-600 text-white flex items-center justify-center shrink-0 mt-0.5 sm:mt-0">
-                    <Code2 className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <span className="text-xs sm:text-sm font-bold text-slate-900 block">
-                      Inspect Raw JSON Architecture Specification
-                    </span>
-                    <span className="text-[11px] sm:text-xs text-slate-600 leading-relaxed block">
-                      Explore the full machine-readable specification, schemas, intent structures, and cloud parameters.
-                    </span>
-                  </div>
-                </div>
-                <button
-                  type="button"
-                  onClick={() => setActiveTab('json')}
-                  className="px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs transition-colors shrink-0 cursor-pointer"
-                >
-                  View JSON Spec &rarr;
-                </button>
-              </div>
-            )}
-
             {/* Executive Overview */}
             <section className="space-y-4 max-w-full">
               <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-700">
@@ -313,7 +184,7 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
               <section className="p-4 sm:p-6 rounded-xl bg-blue-50/70 border border-blue-200/80 max-w-full">
                 <div className="flex items-center gap-2 text-xs font-bold uppercase tracking-wider text-blue-800 mb-2">
                   <Cpu className="w-4 h-4 text-blue-600" />
-                  Core Architecture Triad
+                  Research Framework & Core Principle
                 </div>
                 <p className="text-sm sm:text-base text-blue-950 font-medium leading-relaxed break-words">
                   {project.architecturePrinciple}
@@ -321,17 +192,12 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
               </section>
             )}
 
-            {/* Visual Architecture Diagram (Constrained & Responsive) */}
-            <section className="max-w-full overflow-hidden">
-              <ArchitectureDiagram />
-            </section>
-
             {/* Tech Stack Grid */}
             {project.techStack && project.techStack.length > 0 && (
               <section className="p-4 sm:p-6 rounded-xl bg-white border border-slate-200 shadow-xs max-w-full">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 mb-4">
                   <Cpu className="w-4 h-4 text-blue-600" />
-                  Low-Cost Infrastructure Stack
+                  Research & Analytical Stack
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4 max-w-full">
                   {project.techStack.map((tech, idx) => (
@@ -356,12 +222,12 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
               </section>
             )}
 
-            {/* Agentic Workflows & Execution Sequences */}
+            {/* Workflows & Execution Phases */}
             {project.workflows && project.workflows.length > 0 && (
               <section className="p-4 sm:p-6 rounded-xl bg-white border border-slate-200 shadow-xs max-w-full">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 mb-4">
                   <GitBranch className="w-4 h-4 text-blue-600" />
-                  Agentic Workflows & Execution Sequences
+                  Research Workflows & Execution Phases
                 </div>
                 <div className="space-y-4 max-w-full">
                   {project.workflows.map((wf) => (
@@ -380,19 +246,19 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
 
                       {/* Prompt */}
                       <div className="text-xs text-slate-700 bg-white p-2.5 sm:p-3 rounded-lg border border-slate-200/70 mb-2.5 font-mono break-all sm:break-words">
-                        <span className="text-slate-400 font-sans">User Prompt: </span>"{wf.user_prompt}"
+                        <span className="text-slate-400 font-sans">Research Question: </span>"{wf.user_prompt}"
                       </div>
 
                       {/* Intent Resolution Badges */}
                       {wf.intent_resolution && (
                         <div className="text-xs text-emerald-950 bg-emerald-50/80 p-2.5 rounded-lg border border-emerald-200/60 mb-2.5 flex flex-wrap items-center gap-2 sm:gap-3 font-mono">
-                          <span>Intent: <strong className="text-emerald-800">{wf.intent_resolution.intent}</strong></span>
+                          <span>Focus: <strong className="text-emerald-800">{wf.intent_resolution.intent}</strong></span>
                           <span>•</span>
-                          <span>Task: <strong className="text-emerald-800">{wf.intent_resolution.task}</strong></span>
+                          <span>Finding: <strong className="text-emerald-800">{wf.intent_resolution.task}</strong></span>
                           {wf.intent_resolution.scheduled_at && (
                             <>
                               <span>•</span>
-                              <span>Scheduled: <strong className="text-emerald-800">{wf.intent_resolution.scheduled_at}</strong></span>
+                              <span>Timeline: <strong className="text-emerald-800">{wf.intent_resolution.scheduled_at}</strong></span>
                             </>
                           )}
                         </div>
@@ -409,7 +275,7 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
                       {wf.agentic_execution_sequence && (
                         <div className="space-y-1.5 pt-3 border-t border-slate-200/60">
                           <span className="text-[11px] font-bold text-slate-500 uppercase tracking-wider block mb-1">
-                            Execution Steps:
+                            Investigation Steps:
                           </span>
                           {wf.agentic_execution_sequence.map((step, sIdx) => (
                             <div
@@ -428,12 +294,12 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
               </section>
             )}
 
-            {/* Strategic Engineering Roadmap */}
+            {/* Strategic Research Roadmap */}
             {project.engineeringRoadmap && project.engineeringRoadmap.length > 0 && (
               <section className="p-4 sm:p-6 rounded-xl bg-white border border-slate-200 shadow-xs max-w-full">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-800 mb-4">
                   <Milestone className="w-4 h-4 text-blue-600" />
-                  Strategic Engineering Roadmap
+                  Strategic Research & Publication Roadmap
                 </div>
                 <div className="space-y-3 max-w-full">
                   {project.engineeringRoadmap.map((item) => (
@@ -458,12 +324,12 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
               </section>
             )}
 
-            {/* Free Tier Limits */}
+            {/* Sample & Scope Limits */}
             {project.freeTierLimits && project.freeTierLimits.length > 0 && (
               <section className="p-4 sm:p-6 rounded-xl bg-amber-50/60 border border-amber-200/80 max-w-full">
                 <div className="flex items-center gap-2 text-xs sm:text-sm font-bold uppercase tracking-wider text-amber-900 mb-3">
                   <Zap className="w-4 h-4 text-amber-600" />
-                  Zero-Cost / Free Tier Thresholds
+                  Research Scope & Benchmark Parameters
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 max-w-full">
                   {project.freeTierLimits.map((limit, lIdx) => (
@@ -531,13 +397,12 @@ export const CaseStudyPage: React.FC<CaseStudyPageProps> = ({
                 }}
                 className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
               >
-                <span>Discuss This Architecture</span>
+                <span>Discuss This Research</span>
                 <span>&rarr;</span>
               </button>
             </footer>
           </article>
         </main>
-      )}
     </div>
   );
 };

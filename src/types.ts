@@ -130,3 +130,39 @@ export interface NewsResponse {
   generatedAt: string;
   cached?: boolean;
 }
+
+export type NewsCategory =
+  | 'All'
+  | 'India'
+  | 'Maharashtra'
+  | 'World'
+  | 'Politics'
+  | 'Business'
+  | 'Technology'
+  | 'Sports'
+  | 'Entertainment';
+
+export interface NewsArticle {
+  id: string;
+  title: string;
+  slug: string;
+  summary: string;
+  content: string[];
+  category: NewsCategory;
+  author: {
+    name: string;
+    role: string;
+    avatar?: string;
+  };
+  publishedAt: string;
+  readTime: string;
+  imageUrl: string;
+  imageCaption?: string;
+  isBreaking?: boolean;
+  isFeatured?: boolean;
+  isTrending?: boolean;
+  trendingRank?: number;
+  tags: string[];
+  viewsCount?: string;
+  location?: string;
+}

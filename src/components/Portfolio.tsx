@@ -1,5 +1,5 @@
 import React, { useState, useMemo } from 'react';
-import { ArrowUpRight, CheckCircle, Tag, FileText, Sparkles, Code2, ExternalLink } from 'lucide-react';
+import { ArrowUpRight, CheckCircle, Tag, FileText, Sparkles, ExternalLink } from 'lucide-react';
 import { portfolioData, projects } from '../data/portfolioData';
 import { Project } from '../types';
 import { ProjectModal } from './ProjectModal';
@@ -8,7 +8,6 @@ import { useInViewAnimation } from '../hooks/useInViewAnimation';
 
 export const Portfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
-  const [modalTab, setModalTab] = useState<'case-study' | 'json'>('case-study');
   const [modalFullScreen, setModalFullScreen] = useState<boolean>(true);
   const [activeFilter, setActiveFilter] = useState<string>('All');
 
@@ -180,37 +179,18 @@ export const Portfolio: React.FC = () => {
                     </div>
                   )}
 
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
-                    {project.rawSpecification && (
-                      <button
-                        type="button"
-                        id={`view-json-${project.id}`}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          setModalTab('json');
-                          setModalFullScreen(true);
-                          setSelectedProject(project);
-                        }}
-                        className="w-full inline-flex items-center justify-center gap-2 py-3 px-3.5 rounded-lg bg-slate-900 hover:bg-slate-800 text-white text-xs font-semibold shadow-xs hover:shadow-md transition-all cursor-pointer"
-                        title="Open JSON file in full screen viewer"
-                      >
-                        <Code2 className="w-4 h-4 text-blue-400" />
-                        <span>Open JSON File (Full View)</span>
-                      </button>
-                    )}
-
+                  <div className="w-full">
                     <button
                       type="button"
                       id={`view-details-${project.id}`}
                       onClick={(e) => {
                         e.stopPropagation();
-                        setModalTab('case-study');
                         setModalFullScreen(true);
                         setSelectedProject(project);
                       }}
                       className="w-full inline-flex items-center justify-center gap-2 py-3 px-3.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-semibold shadow-xs hover:shadow-md transition-all cursor-pointer"
                     >
-                      <span>Read Full Case Study</span>
+                      <span>Read Case Study</span>
                       <ArrowUpRight className="w-4 h-4" />
                     </button>
                   </div>
@@ -220,7 +200,7 @@ export const Portfolio: React.FC = () => {
                       type="button"
                       onClick={(e) => {
                         e.stopPropagation();
-                        window.location.hash = `case-study-${project.id}`;
+                        window.location.hash = `#/case-study/${project.id}`;
                       }}
                       className="inline-flex items-center gap-1.5 text-xs text-slate-500 hover:text-blue-600 font-medium py-1 transition-colors cursor-pointer"
                     >
@@ -269,7 +249,6 @@ export const Portfolio: React.FC = () => {
       <ProjectModal
         project={selectedProject}
         onClose={() => setSelectedProject(null)}
-        initialTab={modalTab}
         defaultFullScreen={modalFullScreen}
       />
     </section>
