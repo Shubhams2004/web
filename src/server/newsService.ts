@@ -1,4 +1,4 @@
-import { GoogleGenAI } from '@google/genai';
+import Groq from 'groq-sdk';
 import { promises as fs } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
@@ -24,7 +24,7 @@ export interface NewsResult {
   cached?: boolean;
 }
 
-const MODEL = 'gemini-3.6-flash';
+const MODEL = 'llama-3.3-70b-versatile';
 const MAX_ITEMS = 6;
 const CACHE_TTL_MS = 15 * 60 * 1000; // 15 minutes cache
 const CACHE_FILE = path.join(os.tmpdir(), 'v0-live-news-cache.json');
@@ -40,8 +40,8 @@ const inFlight = new Map<string, Promise<NewsResult>>();
 
 /**
  * Public entry point. Returns live news for the given topic.
- * Uses real-time live news feeds with optional Gemini enhancement,
- * guaranteeing 100% availability even when Gemini hits quota or 503 limits.
+ * Uses real-time live news feeds with optional Groq enhancement,
+ * guaranteeing 100% availability even when Groq hits quota or rate limits.
  */
 export async function fetchLiveNews(topicInput: string, apiKey?: string): Promise<NewsResult> {
   const topic = normalizeTopic(topicInput);
@@ -123,10 +123,10 @@ async function fetchFreshNews(topic: string, apiKey?: string): Promise<NewsResul
     return getFallbackNews(topic);
   }
 
-  // If Gemini API key is available, optionally enrich summaries (best-effort)
+  // If Groq API key is available, optionally enrich summaries (best-effort)
   if (apiKey && items.length > 0) {
     try {
-      items = await enrichSummariesWithGemini(items, apiKey);
+      items = await enrichSummariesWithGroq(items, apiKey);
     } catch {
       // Non-fatal: RSS summaries are already clean and informative
     }
@@ -225,38 +225,47 @@ function decodeXml(str: string): string {
     .trim();
 }
 
-async function enrichSummariesWithGemini(items: NewsItem[], apiKey: string): Promise<NewsItem[]> {
+async function enrichSummariesWithGroq(items: NewsItem[], apiKey: string): Promise<NewsItem[]> {
   try {
-    const ai = new GoogleGenAI({ apiKey });
+    const groq = new Groq({ apiKey });
     const headlines = items.map((i) => i.title);
 
     const prompt = `You are a research news analyst. For each headline in the list below, write a crisp, factual 1-sentence analytical overview (15-25 words) explaining the significance or context of the story.
 Headlines:
 ${JSON.stringify(headlines)}
 
-Respond ONLY with a JSON array containing exactly ${headlines.length} strings, one for each headline in order.`;
+Respond in valid JSON format as an object with a "summaries" property containing an array of exactly ${headlines.length} strings, one for each headline in order. Example:
+{"summaries": ["summary 1", "summary 2"]}`;
 
-    const geminiCall = ai.models.generateContent({
+    const groqCall = groq.chat.completions.create({
       model: MODEL,
-      contents: prompt,
-      config: {
-        temperature: 0.2,
-        responseMimeType: 'application/json',
-      },
+      messages: [
+        {
+          role: 'system',
+          content: 'You are a research news analyst. You must respond strictly in JSON format.',
+        },
+        {
+          role: 'user',
+          content: prompt,
+        },
+      ],
+      response_format: { type: 'json_object' },
+      temperature: 0.2,
     });
 
     const timeout = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error('Gemini enrich timeout')), 3000)
+      setTimeout(() => reject(new Error('Groq enrich timeout')), 3500)
     );
 
-    const res = await Promise.race([geminiCall, timeout]);
+    const res = await Promise.race([groqCall, timeout]);
 
-    const text = res.text?.trim() || '';
+    const text = res.choices[0]?.message?.content?.trim() || '';
     const parsed = JSON.parse(text);
-    if (Array.isArray(parsed) && parsed.length === items.length) {
+    const summaries = Array.isArray(parsed) ? parsed : parsed?.summaries;
+    if (Array.isArray(summaries) && summaries.length === items.length) {
       return items.map((item, idx) => ({
         ...item,
-        summary: typeof parsed[idx] === 'string' && parsed[idx].trim().length > 15 ? parsed[idx].trim() : item.summary,
+        summary: typeof summaries[idx] === 'string' && summaries[idx].trim().length > 15 ? summaries[idx].trim() : item.summary,
       }));
     }
   } catch {

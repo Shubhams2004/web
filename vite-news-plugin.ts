@@ -4,7 +4,7 @@ import { getClientFallback } from './src/data/newsFallback';
 
 /**
  * Dev-server middleware exposing GET /api/news?topic=... (and with base paths like /web/api/news).
- * Runs in the Vite Node process so the Gemini API key stays server-side.
+ * Runs in the Vite Node process so the Groq API key stays server-side.
  * Guarantees a valid JSON NewsResponse object even in case of timeouts, exceptions, or bad input.
  */
 export function newsApiPlugin(apiKey: string): Plugin {
@@ -42,7 +42,7 @@ export function newsApiPlugin(apiKey: string): Plugin {
         }
 
         try {
-          const data = await fetchLiveNews(topic, apiKey || process.env.GEMINI_API_KEY || '');
+          const data = await fetchLiveNews(topic, apiKey || process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '');
           
           // Verify returned data structure has valid items array
           if (data && Array.isArray(data.items) && data.items.length > 0) {

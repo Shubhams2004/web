@@ -136,13 +136,13 @@ export const portfolioData: PortfolioData = {
       categoryTag: 'AI Systems & Agentic Workflows',
       tagColor: 'blue',
       briefDescription:
-        'Low-cost agentic task automation infrastructure leveraging Gemini API reasoning, Supabase persistent state, and Cloudflare Workers serverless execution.',
+        'Low-cost agentic task automation infrastructure leveraging Groq API reasoning, Supabase persistent state, and Cloudflare Workers serverless execution.',
       fullOverview:
-        'Building an AI Personal Assistant & Task Automation platform does not require expensive enterprise infrastructure. By orchestrating modern serverless hosting, managed database platforms, edge computing triggers, and LLM APIs, developers can build production-ready agentic automation systems virtually free of cost for development and personal usage.\n\nArchitecture Triad: Reasoning Brain (Gemini API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
+        'Building an AI Personal Assistant & Task Automation platform does not require expensive enterprise infrastructure. By orchestrating modern serverless hosting, managed database platforms, edge computing triggers, and LLM APIs, developers can build production-ready agentic automation systems virtually free of cost for development and personal usage.\n\nArchitecture Triad: Reasoning Brain (Groq API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
       architecturePrinciple:
-        'Architecture Triad: Reasoning Brain (Gemini API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
+        'Architecture Triad: Reasoning Brain (Groq API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
       methodsUsed: [
-        'Gemini Function Calling & Entity Extraction',
+        'Groq Function Calling & Entity Extraction',
         'Supabase PostgreSQL & Auth State Machines',
         'Cloudflare Workers Cron & Edge Functions',
         'Multi-Step Agentic Workflow Orchestration',
@@ -154,7 +154,7 @@ export const portfolioData: PortfolioData = {
       techStack: [
         {
           category: '🧠 AI Engine',
-          recommended_tool: 'Google AI Studio / Gemini API',
+          recommended_tool: 'Groq Cloud / Groq API',
           purpose:
             'Natural language intent parsing, reasoning, entity extraction, and function calling.',
         },
@@ -228,7 +228,7 @@ export const portfolioData: PortfolioData = {
           agentic_execution_sequence: [
             "1. Search Gmail API — Query recent inbox messages matching vendor 'Amazon'.",
             '2. Read Relevant Email — Retrieve plain text/HTML body of the matching message.',
-            '3. Entity Extraction — Gemini parses the message body to extract target date strings.',
+            '3. Entity Extraction — Groq parses the message body to extract target date strings.',
             '4. Task Persistence — Write new task entry to Supabase Database with extracted metadata.',
             '5. Confirmation Dispatch — Send completion response back to User UI.',
           ],
@@ -239,13 +239,13 @@ export const portfolioData: PortfolioData = {
           phase: 1,
           title: 'Conversational Foundation (Chat)',
           description:
-            'Set up Next.js UI, integrate Gemini API via serverless backend, configure Supabase Auth, and enable basic multi-turn chat persistence.',
+            'Set up Next.js UI, integrate Groq API via serverless backend, configure Supabase Auth, and enable basic multi-turn chat persistence.',
         },
         {
           phase: 2,
           title: 'Intent Engine & Reminders (Tasks)',
           description:
-            'Implement Gemini Function Calling to parse natural language queries into JSON schema tasks; persist state in Supabase.',
+            'Implement Groq Function Calling to parse natural language queries into JSON schema tasks; persist state in Supabase.',
         },
         {
           phase: 3,
@@ -268,9 +268,9 @@ export const portfolioData: PortfolioData = {
       ],
       freeTierLimits: [
         {
-          service: 'Gemini API',
+          service: 'Groq API',
           quota:
-            'Generous free tier (up to 15 Requests Per Minute / 1,500 Requests Per Day), ideal for personal automation.',
+            'Generous free tier with ultra-fast LPU inference (up to 30 RPM / 14,400 RPD on Llama 3 models), ideal for personal automation.',
         },
         {
           service: 'Cloudflare Pages & Workers',
@@ -297,12 +297,12 @@ export const portfolioData: PortfolioData = {
             summary:
               'Building an AI Personal Assistant & Task Automation platform does not require expensive enterprise infrastructure. By orchestrating modern serverless hosting, managed database platforms, edge computing triggers, and LLM APIs, developers can build production-ready agentic automation systems virtually free of cost for development and personal usage.',
             core_architecture_principle:
-              'Architecture Triad: Reasoning Brain (Gemini API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
+              'Architecture Triad: Reasoning Brain (Groq API) + Persistent Data & State (Supabase) + Action Execution Engine (Cloudflare Workers / Cron & API Integrations) ➔ Web/Mobile User Dashboard.',
           },
           tech_stack: [
             {
               category: '🧠 AI Engine',
-              recommended_tool: 'Google AI Studio / Gemini API',
+              recommended_tool: 'Groq Cloud / Groq API',
               purpose:
                 'Natural language intent parsing, reasoning, entity extraction, and function calling.',
             },
@@ -376,7 +376,7 @@ export const portfolioData: PortfolioData = {
               agentic_execution_sequence: [
                 "1. Search Gmail API — Query recent inbox messages matching vendor 'Amazon'.",
                 '2. Read Relevant Email — Retrieve plain text/HTML body of the matching message.',
-                '3. Entity Extraction — Gemini parses the message body to extract target date strings.',
+                '3. Entity Extraction — Groq parses the message body to extract target date strings.',
                 '4. Task Persistence — Write new task entry to Supabase Database with extracted metadata.',
                 '5. Confirmation Dispatch — Send completion response back to User UI.',
               ],
@@ -387,13 +387,13 @@ export const portfolioData: PortfolioData = {
               phase: 1,
               title: 'Conversational Foundation (Chat)',
               description:
-                'Set up Next.js UI, integrate Gemini API via serverless backend, configure Supabase Auth, and enable basic multi-turn chat persistence.',
+                'Set up Next.js UI, integrate Groq API via serverless backend, configure Supabase Auth, and enable basic multi-turn chat persistence.',
             },
             {
               phase: 2,
               title: 'Intent Engine & Reminders (Tasks)',
               description:
-                'Implement Gemini Function Calling to parse natural language queries into JSON schema tasks; persist state in Supabase.',
+                'Implement Groq Function Calling to parse natural language queries into JSON schema tasks; persist state in Supabase.',
             },
             {
               phase: 3,
@@ -416,9 +416,9 @@ export const portfolioData: PortfolioData = {
           ],
           free_tier_limits: [
             {
-              service: 'Gemini API',
+              service: 'Groq API',
               quota:
-                'Generous free tier (up to 15 Requests Per Minute / 1,500 Requests Per Day), ideal for personal automation.',
+                'Generous free tier with ultra-fast LPU inference (up to 30 RPM / 14,400 RPD on Llama 3 models), ideal for personal automation.',
             },
             {
               service: 'Cloudflare Pages & Workers',
