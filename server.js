@@ -62,6 +62,9 @@ app.post(['/api/business-case-studies/generate', '/web/api/business-case-studies
 
 // Serve frontend static files
 const distPath = path.join(__dirname, 'dist');
+const publicPath = path.join(__dirname, 'public');
+app.use(express.static(publicPath));
+app.use('/web', express.static(publicPath));
 app.use(express.static(distPath));
 app.use('/web', express.static(distPath));
 

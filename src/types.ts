@@ -143,6 +143,7 @@ export interface PortfolioData {
     headline: string;
     tagline: string;
     avatarInitials: string;
+    logoUrl?: string;
     statusBadge: string;
     locationBadge: string;
   };

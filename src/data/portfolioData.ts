@@ -15,6 +15,7 @@ export const portfolioData: PortfolioData = {
     tagline:
       'Synthesizing real-time market catalysts, corporate disruptions, and public filings into empirical, publication-grade business case studies.',
     avatarInitials: 'SS',
+    logoUrl: '/assets/brand-logo.svg',
     statusBadge: 'Available for Business Research & Strategic Case Studies',
     locationBadge: 'Available Worldwide (Remote)',
   },

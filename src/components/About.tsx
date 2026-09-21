@@ -16,6 +16,7 @@ import {
 import { portfolioData } from '../data/portfolioData';
 import { ScrollReveal } from './ScrollReveal';
 import { useInViewAnimation } from '../hooks/useInViewAnimation';
+import { BrandLogo } from './BrandLogo';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Users,
@@ -45,9 +46,12 @@ export const About: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-            About Me
+          <div className="flex items-center gap-3 mb-3">
+            <BrandLogo size="md" className="w-10 h-10 drop-shadow-xs" />
+            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+              About Me & Strategic Research
+            </div>
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-6">
             Bridging empirical research with publication-grade clarity.

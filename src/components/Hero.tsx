@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowDown, ArrowUpRight, TrendingUp, Sparkles, Rss, BarChart3 } from 'lucide-react';
 import { motion } from 'motion/react';
+import { BrandLogo } from './BrandLogo';
 
 interface HeroProps {
   onOpenRssDiscovery?: () => void;
@@ -27,8 +28,8 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRssDiscovery }) => {
           transition={{ duration: 0.35, ease: 'easeOut' }}
         >
           {/* Quick status pill */}
-          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50 border border-blue-200/80 text-blue-900 text-xs font-semibold mb-5 shadow-2xs">
-            <span className="w-2 h-2 rounded-full bg-blue-600 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-blue-50/90 border border-blue-200/80 text-blue-900 text-xs font-semibold mb-5 shadow-2xs">
+            <BrandLogo size="sm" className="w-4 h-4 -ml-0.5" />
             <span>Shubham Sonale · Research Analyst & Strategy Writer</span>
           </div>
 

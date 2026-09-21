@@ -11,6 +11,7 @@ import {
   Share2,
 } from 'lucide-react';
 import { REGIONAL_WEATHER, MARKET_TICKERS } from '../../data/newsPlatformData';
+import { BrandLogo } from '../BrandLogo';
 
 interface NewsHeaderProps {
   searchQuery: string;
@@ -123,11 +124,14 @@ export const NewsHeader: React.FC<NewsHeaderProps> = ({
           </div>
 
           {/* Center: Masthead Title */}
-          <div className="text-center flex-1">
-            <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-950 font-serif uppercase">
-              The News Chronicle
-            </h1>
-            <p className="text-[11px] sm:text-xs tracking-wider uppercase text-slate-500 font-medium mt-1">
+          <div className="text-center flex-1 flex flex-col items-center">
+            <div className="flex items-center justify-center gap-2.5 sm:gap-3 mb-1">
+              <BrandLogo size="md" className="w-8 h-8 sm:w-10 sm:h-10 md:w-11 md:h-11 drop-shadow-xs" />
+              <h1 className="text-2xl sm:text-4xl md:text-5xl font-extrabold tracking-tight text-slate-950 font-serif uppercase">
+                The News Chronicle
+              </h1>
+            </div>
+            <p className="text-[11px] sm:text-xs tracking-wider uppercase text-slate-500 font-medium">
               Independent Journalism • Rigorous Verification • Grounded Analysis
             </p>
           </div>

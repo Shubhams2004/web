@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowUp, Heart } from 'lucide-react';
 import { portfolioData } from '../data/portfolioData';
+import { BrandLogo } from './BrandLogo';
 
 export const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -12,9 +13,7 @@ export const Footer: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col md:flex-row items-center justify-between gap-6 pb-8 border-b border-slate-800">
           <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-lg bg-blue-600 text-white font-bold text-xs flex items-center justify-center">
-              {portfolioData.person.avatarInitials}
-            </div>
+            <BrandLogo size="sm" className="w-9 h-9" />
             <div>
               <span className="text-white font-bold text-sm tracking-tight block">
                 {portfolioData.person.fullName}

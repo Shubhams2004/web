@@ -1,0 +1,151 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 500" fill="none">
+  <defs>
+    <!-- Vibrant Sapphire to Electric Blue Gradient for S Upper Body -->
+    <linearGradient id="sUpperGrad" x1="140" y1="70" x2="380" y2="150" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0052CC" />
+      <stop offset="45%" stop-color="#0066FF" />
+      <stop offset="100%" stop-color="#0099FF" />
+    </linearGradient>
+
+    <!-- Main Dynamic S Spine Gradient -->
+    <linearGradient id="sSpineGrad" x1="120" y1="120" x2="400" y2="340" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0066FF" />
+      <stop offset="35%" stop-color="#0080FF" />
+      <stop offset="70%" stop-color="#0052CC" />
+      <stop offset="100%" stop-color="#0A2558" />
+    </linearGradient>
+
+    <!-- Lower S Curve Shadow / Depth Gradient -->
+    <linearGradient id="sLowerGrad" x1="160" y1="230" x2="390" y2="350" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0A2A66" />
+      <stop offset="40%" stop-color="#0066FF" />
+      <stop offset="85%" stop-color="#0052CC" />
+      <stop offset="100%" stop-color="#082252" />
+    </linearGradient>
+
+    <!-- Silver Book Page Gradient -->
+    <linearGradient id="pageSilverGrad" x1="130" y1="280" x2="260" y2="380" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#F1F5F9" />
+      <stop offset="50%" stop-color="#CBD5E1" />
+      <stop offset="100%" stop-color="#94A3B8" />
+    </linearGradient>
+
+    <!-- Bar Chart Vibrant Blue Gradient -->
+    <linearGradient id="barGrad" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#0080FF" />
+      <stop offset="100%" stop-color="#0052CC" />
+    </linearGradient>
+  </defs>
+
+  <!-- Group: Stylized Book Pages (Lower Left) -->
+  <g id="book-pages">
+    <!-- Back Outer Navy Book Page/Wing -->
+    <path
+      d="M 85 270 L 115 385 C 160 388, 215 396, 270 400 C 230 385, 175 372, 135 370 L 115 285 Z"
+      fill="#0A224E"
+    />
+
+    <!-- Middle Silvery/Gray Report Page -->
+    <path
+      d="M 125 300 L 140 365 C 180 368, 225 378, 265 388 C 220 370, 175 356, 142 352 L 132 302 Z"
+      fill="url(#pageSilverGrad)"
+    />
+
+    <!-- Fore Dark Navy Dynamic Book Spine / Chevron Fold -->
+    <path
+      d="M 115 230 C 130 255, 170 300, 245 330 C 205 320, 160 300, 135 275 L 120 380 C 170 385, 230 398, 270 402 C 200 375, 150 340, 115 230 Z"
+      fill="#081E48"
+    />
+  </g>
+
+  <!-- Group: The Main Stylized 'S' Ribbon -->
+  <g id="s-ribbon">
+    <!-- Main S Body flowing with 3D twist -->
+    <path
+      d="M 175 160 C 160 115, 205 72, 310 72 L 375 72 L 305 145 L 340 145 C 375 145, 395 195, 385 240 C 372 295, 325 335, 245 340 C 200 342, 160 315, 145 280 C 135 255, 145 220, 170 200 C 190 185, 215 180, 235 178 C 210 185, 190 205, 185 230 C 180 255, 195 275, 220 280 C 270 290, 310 260, 320 220 C 330 180, 305 145, 260 145 C 220 145, 190 152, 175 160 Z"
+      fill="url(#sSpineGrad)"
+    />
+
+    <!-- Sweeping Upper Ribbon with Top Arrow Head -->
+    <!-- Top arm starts at curve (115, 175), sweeps over arch to top right (375, 72) -->
+    <path
+      d="M 148 238 C 115 180, 145 72, 280 72 L 375 72 L 302 145 L 332 145 C 372 175, 392 235, 392 290 C 392 310, 385 330, 375 345 C 390 315, 395 270, 375 220 C 355 170, 315 145, 260 145 L 240 145 C 190 145, 155 180, 148 238 Z"
+      fill="url(#sUpperGrad)"
+    />
+
+    <!-- Dynamic Arrow Head at Top Right -->
+    <path
+      d="M 285 72 L 375 72 L 302 145 L 302 110 L 285 110 Z"
+      fill="#0091FF"
+    />
+
+    <!-- Lower Cradling S Swoop -->
+    <path
+      d="M 148 238 C 160 270, 190 315, 250 340 C 305 362, 365 345, 385 310 C 395 290, 396 265, 392 245 C 385 275, 365 305, 335 320 C 290 342, 230 330, 185 295 C 160 275, 150 255, 148 238 Z"
+      fill="url(#sLowerGrad)"
+    />
+  </g>
+
+  <!-- Group: Magnifying Glass with Growth Chart Inside -->
+  <g id="magnifying-glass">
+    <!-- Handle (extending down-right ~45 deg) -->
+    <rect
+      x="340"
+      y="350"
+      width="22"
+      height="65"
+      rx="11"
+      transform="rotate(-45 340 350)"
+      fill="#0A224E"
+    />
+
+    <!-- Outer Navy Ring of Magnifying Glass -->
+    <circle
+      cx="310"
+      cy="320"
+      r="58"
+      stroke="#0A224E"
+      stroke-width="18"
+      fill="#F8FAFC"
+    />
+
+    <!-- Subtle Inner Highlight Ring / Lens Tint -->
+    <circle
+      cx="310"
+      cy="320"
+      r="47"
+      fill="#FFFFFF"
+    />
+
+    <!-- 3-Bar Quantitative Growth Chart inside Lens -->
+    <!-- Bar 1 (Left, Lowest) -->
+    <rect
+      x="278"
+      y="322"
+      width="13"
+      height="34"
+      rx="2.5"
+      fill="#0066FF"
+    />
+
+    <!-- Bar 2 (Middle, Intermediate) -->
+    <rect
+      x="298"
+      y="304"
+      width="13"
+      height="52"
+      rx="2.5"
+      fill="#0066FF"
+    />
+
+    <!-- Bar 3 (Right, Highest) -->
+    <rect
+      x="318"
+      y="286"
+      width="13"
+      height="70"
+      rx="2.5"
+      fill="#0066FF"
+    />
+  </g>
+</svg>
