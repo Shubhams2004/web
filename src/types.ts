@@ -180,6 +180,9 @@ export interface NewsResponse {
   topic: string;
   generatedAt: string;
   cached?: boolean;
+  dailyEdition?: string;
+  nextDailyUpdate?: string;
+  updateFrequency?: string;
 }
 
 export type NewsCategory =

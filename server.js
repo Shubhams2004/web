@@ -3,7 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import dotenv from 'dotenv';
 import { getAllCaseStudies, fetchBusinessRssStories, generateCaseStudyWithGroq } from './src/server/caseStudyService.js';
-import { fetchLiveNews } from './src/server/newsService.js';
+import { fetchLiveNews, startDailyNewsScheduler, getDailyNewsStatus } from './src/server/newsService.js';
 import { INITIAL_TRENDING_CASE_STUDIES, INITIAL_BUSINESS_RSS_STORIES } from './src/data/trendingCaseStudies.js';
 
 dotenv.config();
@@ -16,7 +16,7 @@ const PORT = process.env.PORT || 3000;
 
 app.use(express.json());
 
-const apiKey = process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '';
+const getGroqApiKey = () => process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '';
 
 // API: GET /api/business-case-studies
 app.get(['/api/business-case-studies', '/web/api/business-case-studies'], async (req, res) => {
@@ -25,7 +25,7 @@ app.get(['/api/business-case-studies', '/web/api/business-case-studies'], async 
     res.json({
       caseStudies,
       count: caseStudies.length,
-      groqConnected: Boolean(apiKey),
+      groqConnected: Boolean(getGroqApiKey()),
     });
   } catch (err) {
     res.json({
@@ -46,6 +46,28 @@ app.get(['/api/business-rss', '/web/api/business-rss'], async (req, res) => {
   }
 });
 
+// API: GET /api/news (Once a day daily edition)
+app.get(['/api/news', '/web/api/news'], async (req, res) => {
+  try {
+    const topic = req.query.topic || 'Top World';
+    const force = req.query.force === 'true';
+    const data = await fetchLiveNews(topic, getGroqApiKey(), force);
+    res.json(data);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to fetch daily news', message: err instanceof Error ? err.message : String(err) });
+  }
+});
+
+// API: GET /api/news/daily-status
+app.get(['/api/news/daily-status', '/web/api/news/daily-status'], async (req, res) => {
+  try {
+    const status = await getDailyNewsStatus();
+    res.json(status);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to get daily news status', message: err instanceof Error ? err.message : String(err) });
+  }
+});
+
 // API: POST /api/business-case-studies/generate
 app.post(['/api/business-case-studies/generate', '/web/api/business-case-studies/generate'], async (req, res) => {
   try {
@@ -53,7 +75,7 @@ app.post(['/api/business-case-studies/generate', '/web/api/business-case-studies
     if (!headline) {
       return res.status(400).json({ error: 'Headline is required' });
     }
-    const newCaseStudy = await generateCaseStudyWithGroq({ headline, source, url, summary }, apiKey);
+    const newCaseStudy = await generateCaseStudyWithGroq({ headline, source, url, summary }, getGroqApiKey());
     res.json(newCaseStudy);
   } catch (err) {
     res.status(500).json({ error: 'Generation failed', message: err instanceof Error ? err.message : String(err) });
@@ -74,4 +96,11 @@ app.get('*', (req, res) => {
 
 app.listen(PORT, '0.0.0.0', () => {
   console.log(`Server listening on port ${PORT}`);
+  // Start daily background news scheduler (updates once a day)
+  try {
+    startDailyNewsScheduler(getGroqApiKey);
+    console.log('[server] Daily news background scheduler activated (runs once a day).');
+  } catch (err) {
+    console.warn('[server] Could not initialize daily scheduler:', err);
+  }
 });

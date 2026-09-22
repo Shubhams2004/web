@@ -71,7 +71,8 @@ export const NewsHeader: React.FC<NewsHeaderProps> = ({
             </span>
             <span className="hidden md:inline text-slate-600">|</span>
             <span className="hidden md:inline text-slate-400">
-              Edition: <strong className="text-slate-200 font-semibold">India & Global</strong>
+              Edition: <strong className="text-slate-200 font-semibold">Daily Edition</strong>
+              <span className="ml-1 text-[10px] px-1.5 py-0.5 rounded bg-blue-900/60 text-blue-300 font-mono">ONCE A DAY</span>
             </span>
             <span className="hidden lg:inline text-slate-600">|</span>
             <span className="hidden lg:flex items-center gap-1 text-slate-300">

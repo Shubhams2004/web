@@ -1,5 +1,5 @@
 import type { Plugin } from 'vite';
-import { fetchLiveNews } from './src/server/newsService';
+import { fetchLiveNews, startDailyNewsScheduler, getDailyNewsStatus } from './src/server/newsService';
 import { getClientFallback } from './src/data/newsFallback';
 import {
   getAllCaseStudies,
@@ -21,6 +21,13 @@ export function newsApiPlugin(apiKey: string): Plugin {
   return {
     name: 'live-news-and-case-studies-api',
     configureServer(server) {
+      // Start daily news scheduler in dev mode
+      try {
+        startDailyNewsScheduler(() => apiKey || process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '');
+      } catch (err) {
+        console.warn('[vite-news-plugin] Could not start daily scheduler:', err);
+      }
+
       server.middlewares.use(async (req, res, next) => {
         const rawUrl = req.url || '';
         const pathname = rawUrl.split('?')[0];
@@ -29,9 +36,10 @@ export function newsApiPlugin(apiKey: string): Plugin {
         const isCaseStudies = pathname.endsWith('/api/business-case-studies') || pathname.includes('/api/business-case-studies');
         const isGenerateCaseStudy = pathname.endsWith('/api/business-case-studies/generate') || pathname.includes('/api/business-case-studies/generate');
         const isBusinessRss = pathname.endsWith('/api/business-rss') || pathname.includes('/api/business-rss');
-        const isNews = pathname.endsWith('/api/news') || pathname.includes('/api/news');
+        const isNewsStatus = pathname.endsWith('/api/news/daily-status') || pathname.includes('/api/news/daily-status');
+        const isNews = !isNewsStatus && (pathname.endsWith('/api/news') || pathname.includes('/api/news'));
 
-        if (!isCaseStudies && !isGenerateCaseStudy && !isBusinessRss && !isNews) {
+        if (!isCaseStudies && !isGenerateCaseStudy && !isBusinessRss && !isNews && !isNewsStatus) {
           return next();
         }
 
@@ -41,6 +49,19 @@ export function newsApiPlugin(apiKey: string): Plugin {
         res.setHeader('X-Content-Type-Options', 'nosniff');
 
         const effectiveKey = apiKey || process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '';
+
+        // --- Route: GET /api/news/daily-status ---
+        if (isNewsStatus) {
+          try {
+            const status = await getDailyNewsStatus();
+            res.statusCode = 200;
+            res.end(JSON.stringify(status));
+          } catch (err) {
+            res.statusCode = 500;
+            res.end(JSON.stringify({ error: 'Failed to retrieve daily status', message: String(err) }));
+          }
+          return;
+        }
 
         // --- Route: POST /api/business-case-studies/generate ---
         if (isGenerateCaseStudy && req.method === 'POST') {
@@ -132,9 +153,11 @@ export function newsApiPlugin(apiKey: string): Plugin {
         // --- Route: GET /api/news (Legacy or General News Wire) ---
         if (isNews) {
           let topic = 'Top World';
+          let force = false;
           try {
             const parsedUrl = new URL(rawUrl, 'http://localhost');
             topic = parsedUrl.searchParams.get('topic') || 'Top World';
+            force = parsedUrl.searchParams.get('force') === 'true';
           } catch {
             const match = rawUrl.match(/[?&]topic=([^&]+)/);
             if (match) {
@@ -144,10 +167,13 @@ export function newsApiPlugin(apiKey: string): Plugin {
                 topic = match[1];
               }
             }
+            if (rawUrl.includes('force=true')) {
+              force = true;
+            }
           }
 
           try {
-            const data = await fetchLiveNews(topic, effectiveKey);
+            const data = await fetchLiveNews(topic, effectiveKey, force);
 
             if (data && Array.isArray(data.items) && data.items.length > 0) {
               res.statusCode = 200;

@@ -22,54 +22,121 @@ export interface NewsResult {
   topic: string;
   generatedAt: string;
   cached?: boolean;
+  dailyEdition?: string;
+  nextDailyUpdate?: string;
+  updateFrequency?: string;
 }
 
 const MODEL = 'llama-3.3-70b-versatile';
 const MAX_ITEMS = 6;
-const CACHE_TTL_MS = 15 * 60 * 1000; // 15 minutes cache
+const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24-hour daily cycle (run once a day)
 const CACHE_FILE = path.join(os.tmpdir(), 'v0-live-news-cache.json');
+
+export const PRIMARY_DAILY_TOPICS = [
+  'Top World',
+  'Technology',
+  'Business & Markets',
+  'AI & Research',
+  'Science',
+  'Design & UX',
+];
+
+export function getTodayDateKey(): string {
+  const now = new Date();
+  return now.toISOString().slice(0, 10);
+}
+
+export function getTodayFormatted(): string {
+  const now = new Date();
+  return now.toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+export function getNextDailyUpdateIso(): string {
+  const tomorrow = new Date();
+  tomorrow.setUTCHours(24, 0, 0, 0);
+  return tomorrow.toISOString();
+}
 
 interface CacheEntry {
   data: NewsResult;
   fetchedAt: number;
+  dateKey: string;
 }
 type CacheStore = Record<string, CacheEntry>;
 
 let memoryCache: CacheStore | null = null;
 const inFlight = new Map<string, Promise<NewsResult>>();
+let schedulerInterval: NodeJS.Timeout | null = null;
+let isSchedulerRunning = false;
 
 /**
- * Public entry point. Returns live news for the given topic.
- * Uses real-time live news feeds with optional Groq enhancement,
- * guaranteeing 100% availability even when Groq hits quota or rate limits.
+ * Public entry point. Returns live news for the given topic on a once-a-day daily cycle.
+ * Serves the locked daily edition if today's news has already been generated.
  */
-export async function fetchLiveNews(topicInput: string, apiKey?: string): Promise<NewsResult> {
+export async function fetchLiveNews(
+  topicInput: string,
+  apiKey?: string,
+  forceRefresh = false
+): Promise<NewsResult> {
   const topic = normalizeTopic(topicInput);
   const key = topic.toLowerCase();
+  const todayKey = getTodayDateKey();
 
   const store = await loadCache();
   const entry = store[key];
   const now = Date.now();
 
-  if (entry && now - entry.fetchedAt < CACHE_TTL_MS) {
-    return { ...entry.data, cached: true };
+  // If today's edition is already cached and not forced, return immediately
+  if (!forceRefresh && entry && (entry.dateKey === todayKey || now - entry.fetchedAt < CACHE_TTL_MS)) {
+    return {
+      ...entry.data,
+      cached: true,
+      dailyEdition: entry.data.dailyEdition || getTodayFormatted(),
+      nextDailyUpdate: entry.data.nextDailyUpdate || getNextDailyUpdateIso(),
+      updateFrequency: 'Daily (Refreshed once a day)',
+    };
   }
 
   const existing = inFlight.get(key);
-  if (existing) return existing;
+  if (existing && !forceRefresh) return existing;
 
   const request = fetchFreshNews(topic, apiKey)
     .then(async (fresh) => {
-      store[key] = { data: fresh, fetchedAt: Date.now() };
+      const dailyData: NewsResult = {
+        ...fresh,
+        dailyEdition: getTodayFormatted(),
+        nextDailyUpdate: getNextDailyUpdateIso(),
+        updateFrequency: 'Daily (Refreshed once a day)',
+      };
+      store[key] = { data: dailyData, fetchedAt: Date.now(), dateKey: todayKey };
       memoryCache = store;
       await saveCache(store);
-      return fresh;
+      return dailyData;
     })
     .catch((error) => {
       // Return stale cache if available
-      if (entry) return { ...entry.data, cached: true };
+      if (entry) {
+        return {
+          ...entry.data,
+          cached: true,
+          dailyEdition: entry.data.dailyEdition || getTodayFormatted(),
+          nextDailyUpdate: entry.data.nextDailyUpdate || getNextDailyUpdateIso(),
+          updateFrequency: 'Daily (Refreshed once a day)',
+        };
+      }
       // Fall back to curated live items rather than breaking the UI
-      return getFallbackNews(topic);
+      const fallback = getFallbackNews(topic);
+      return {
+        ...fallback,
+        dailyEdition: getTodayFormatted(),
+        nextDailyUpdate: getNextDailyUpdateIso(),
+        updateFrequency: 'Daily (Refreshed once a day)',
+      };
     })
     .finally(() => {
       inFlight.delete(key);
@@ -77,6 +144,92 @@ export async function fetchLiveNews(topicInput: string, apiKey?: string): Promis
 
   inFlight.set(key, request);
   return request;
+}
+
+/**
+ * Runs a single daily refresh across all primary topics.
+ */
+export async function runDailyNewsUpdate(
+  apiKey?: string,
+  force = false
+): Promise<{ updatedCount: number; dateKey: string }> {
+  const todayKey = getTodayDateKey();
+  const store = await loadCache();
+  let updatedCount = 0;
+
+  console.log(`[DailyNewsScheduler] Checking once-a-day news status for date: ${todayKey}`);
+
+  for (const topic of PRIMARY_DAILY_TOPICS) {
+    const key = topic.toLowerCase();
+    const entry = store[key];
+    const needsUpdate = force || !entry || entry.dateKey !== todayKey || Date.now() - entry.fetchedAt >= CACHE_TTL_MS;
+
+    if (needsUpdate) {
+      try {
+        await fetchLiveNews(topic, apiKey, true);
+        updatedCount++;
+      } catch (err) {
+        console.warn(`[DailyNewsScheduler] Could not update topic ${topic}:`, err);
+      }
+    }
+  }
+
+  console.log(`[DailyNewsScheduler] Daily news check complete. ${updatedCount} topics updated for ${todayKey}.`);
+  return { updatedCount, dateKey: todayKey };
+}
+
+/**
+ * Starts the daily news background scheduler ensuring news updates once a day.
+ */
+export function startDailyNewsScheduler(getApiKey?: () => string): () => void {
+  if (isSchedulerRunning) {
+    return () => {};
+  }
+  isSchedulerRunning = true;
+
+  const keyGetter = getApiKey || (() => process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '');
+
+  // 1. Initial warm-up check after server start
+  setTimeout(() => {
+    runDailyNewsUpdate(keyGetter(), false).catch((err) => {
+      console.warn('[DailyNewsScheduler] Initial daily check error:', err);
+    });
+  }, 4000);
+
+  // 2. Periodic hourly check to update as soon as calendar date rolls over
+  schedulerInterval = setInterval(() => {
+    runDailyNewsUpdate(keyGetter(), false).catch((err) => {
+      console.warn('[DailyNewsScheduler] Periodic daily rollover check error:', err);
+    });
+  }, 60 * 60 * 1000);
+
+  return () => {
+    if (schedulerInterval) {
+      clearInterval(schedulerInterval);
+      schedulerInterval = null;
+    }
+    isSchedulerRunning = false;
+  };
+}
+
+export async function getDailyNewsStatus(): Promise<{
+  frequency: string;
+  currentEdition: string;
+  dateKey: string;
+  nextScheduledUpdate: string;
+  cachedTopics: string[];
+}> {
+  const store = await loadCache();
+  const todayKey = getTodayDateKey();
+  const cachedTopics = Object.keys(store).filter((k) => store[k]?.dateKey === todayKey);
+
+  return {
+    frequency: 'Once a day (Daily Edition)',
+    currentEdition: getTodayFormatted(),
+    dateKey: todayKey,
+    nextScheduledUpdate: getNextDailyUpdateIso(),
+    cachedTopics,
+  };
 }
 
 function normalizeTopic(topicInput: string): string {
@@ -359,6 +512,9 @@ function getFallbackNews(topic: string): NewsResult {
     topic,
     generatedAt: new Date().toISOString(),
     cached: true,
+    dailyEdition: getTodayFormatted(),
+    nextDailyUpdate: getNextDailyUpdateIso(),
+    updateFrequency: 'Daily (Refreshed once a day)',
   };
 }
 

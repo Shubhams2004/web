@@ -10,11 +10,13 @@ import {
 
 const GROQ_MODEL = 'llama-3.3-70b-versatile';
 const CACHE_FILE = path.join(os.tmpdir(), 'v0-trending-case-studies-cache.json');
+const RSS_CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24-hour daily cycle
 
 interface CaseStudyCacheStore {
   generatedStudies: BusinessCaseStudy[];
   rssStories: BusinessRssStory[];
   lastRssFetch: number;
+  lastRssDateKey?: string;
 }
 
 let memoryCache: CaseStudyCacheStore | null = null;
@@ -28,12 +30,14 @@ async function loadCache(): Promise<CaseStudyCacheStore> {
       generatedStudies: Array.isArray(parsed?.generatedStudies) ? parsed.generatedStudies : [],
       rssStories: Array.isArray(parsed?.rssStories) ? parsed.rssStories : [],
       lastRssFetch: typeof parsed?.lastRssFetch === 'number' ? parsed.lastRssFetch : 0,
+      lastRssDateKey: typeof parsed?.lastRssDateKey === 'string' ? parsed.lastRssDateKey : '',
     };
   } catch {
     memoryCache = {
       generatedStudies: [],
       rssStories: [],
       lastRssFetch: 0,
+      lastRssDateKey: '',
     };
   }
   return memoryCache;
@@ -49,14 +53,19 @@ async function saveCache(store: CaseStudyCacheStore): Promise<void> {
 }
 
 /**
- * Fetch recent business stories from Google News Business RSS
+ * Fetch recent business stories from Google News Business RSS on a once-a-day schedule
  */
-export async function fetchBusinessRssStories(): Promise<BusinessRssStory[]> {
+export async function fetchBusinessRssStories(forceRefresh = false): Promise<BusinessRssStory[]> {
   const store = await loadCache();
   const now = Date.now();
+  const todayKey = new Date().toISOString().slice(0, 10);
 
-  // Cache RSS for 10 minutes
-  if (store.rssStories.length > 0 && now - store.lastRssFetch < 10 * 60 * 1000) {
+  // Return cached daily RSS stories if already fetched for today
+  if (
+    !forceRefresh &&
+    store.rssStories.length > 0 &&
+    (store.lastRssDateKey === todayKey || now - store.lastRssFetch < RSS_CACHE_TTL_MS)
+  ) {
     return store.rssStories;
   }
 
@@ -76,12 +85,18 @@ export async function fetchBusinessRssStories(): Promise<BusinessRssStory[]> {
       if (parsed.length > 0) {
         store.rssStories = parsed;
         store.lastRssFetch = now;
+        store.lastRssDateKey = todayKey;
         await saveCache(store);
         return parsed;
       }
     }
   } catch (err) {
     console.warn('[caseStudyService] Failed to fetch live business RSS:', err);
+  }
+
+  // If fetch failed, return existing cached stories if any
+  if (store.rssStories.length > 0) {
+    return store.rssStories;
   }
 
   // Return fallback if RSS unreachable

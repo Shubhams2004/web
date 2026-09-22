@@ -327,16 +327,41 @@ export const fallbackNewsData: Record<string, NewsResponse> = {
   },
 };
 
+function getDailyEditionString(): string {
+  return new Date().toLocaleDateString('en-US', {
+    weekday: 'long',
+    month: 'short',
+    day: 'numeric',
+    year: 'numeric',
+  });
+}
+
+function getNextDailyUpdateIsoString(): string {
+  const tomorrow = new Date();
+  tomorrow.setUTCHours(24, 0, 0, 0);
+  return tomorrow.toISOString();
+}
+
 export function getClientFallback(topic: string): NewsResponse {
   const normalized = (topic || 'Top World').trim().toLowerCase();
   const direct = fallbackNewsData[normalized];
-  if (direct) return direct;
+  if (direct) {
+    return {
+      ...direct,
+      dailyEdition: direct.dailyEdition || getDailyEditionString(),
+      nextDailyUpdate: direct.nextDailyUpdate || getNextDailyUpdateIsoString(),
+      updateFrequency: 'Daily (Refreshed once a day)',
+    };
+  }
 
   // Generic dynamic fallback for custom search queries
   return {
     topic,
     generatedAt: new Date().toISOString(),
     cached: true,
+    dailyEdition: getDailyEditionString(),
+    nextDailyUpdate: getNextDailyUpdateIsoString(),
+    updateFrequency: 'Daily (Refreshed once a day)',
     sources: [
       { title: 'Google News', uri: `https://news.google.com/search?q=${encodeURIComponent(topic)}` },
       { title: 'Reuters', uri: 'https://www.reuters.com' },
