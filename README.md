@@ -2,7 +2,7 @@
 
 A research-focused web application for discovering trending business case studies and corporate strategy insights. The site combines live market catalysts, business news, public filings, and AI-assisted research to turn current events into structured, empirical case studies.
 
-**Live site:** [shubhamsonale2004-ux.github.io/web](https://shubhamsonale2004-ux.github.io/web/)
+**Live site:** [shubhamsonale2004-ux.github.io/web](https://shubhams2004.github.io/web/)
 
 ## Features
 
