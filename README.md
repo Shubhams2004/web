@@ -125,7 +125,7 @@ For a Node-based deployment, start the Express server with:
 npm start
 ```
 
-The repository is also configured for the published site at [shubhamsonale2004-ux.github.io/web](https://shubhamsonale2004-ux.github.io/web/).
+The repository is also configured for the published site at [shubhamsonale2004-ux.github.io/web](https://shubhams2004.github.io/web/).
 
 ## License
 
