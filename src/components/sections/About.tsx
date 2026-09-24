@@ -13,10 +13,10 @@ import {
   BookOpen,
   PenTool,
 } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
-import { ScrollReveal } from './ScrollReveal';
-import { useInViewAnimation } from '../hooks/useInViewAnimation';
-import { BrandLogo } from './BrandLogo';
+import { portfolioData } from '../../data/portfolioData';
+import { ScrollReveal } from '../common/ScrollReveal';
+import { useInViewAnimation } from '../../hooks/useInViewAnimation';
+import { BrandLogo } from '../common/BrandLogo';
 
 const iconMap: Record<string, React.FC<{ className?: string }>> = {
   Users,

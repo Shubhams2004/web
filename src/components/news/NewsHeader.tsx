@@ -11,7 +11,7 @@ import {
   Share2,
 } from 'lucide-react';
 import { REGIONAL_WEATHER, MARKET_TICKERS } from '../../data/newsPlatformData';
-import { BrandLogo } from '../BrandLogo';
+import { BrandLogo } from '../common/BrandLogo';
 
 interface NewsHeaderProps {
   searchQuery: string;

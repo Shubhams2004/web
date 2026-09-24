@@ -16,7 +16,7 @@ import {
   Sparkles,
   Bookmark,
 } from 'lucide-react';
-import { BusinessCaseStudy } from '../types';
+import { BusinessCaseStudy } from '../../types';
 
 interface CaseStudyDetailModalProps {
   caseStudy: BusinessCaseStudy | null;

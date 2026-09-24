@@ -1,15 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { Navbar } from './components/Navbar';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { TrendingCaseStudies } from './components/TrendingCaseStudies';
-import { Contact } from './components/Contact';
-import { Footer } from './components/Footer';
-import { CaseStudyPage } from './components/CaseStudyPage';
-import { NewsPlatformPage } from './components/news/NewsPlatformPage';
-import { RetroGamePage } from './components/game/RetroGamePage';
-import { portfolioData } from './data/portfolioData';
-import { updatePageSEO, SECTION_SEO_PRESETS } from './utils/seo';
+import { Navbar, Footer } from './components/common';
+import { Hero, About, TrendingCaseStudies, Contact } from './components/sections';
+import { CaseStudyPage } from './components/case-studies';
+import { NewsPlatformPage } from './components/news';
+import { RetroGamePage } from './games';
+import { portfolioData } from './data';
+import { updatePageSEO, SECTION_SEO_PRESETS } from './utils';
 import { NewsCategory } from './types';
 
 export default function App() {

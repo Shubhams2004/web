@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Menu, X, ArrowUpRight, CheckCircle2, Gamepad2 } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../../data/portfolioData';
 import { BrandLogo } from './BrandLogo';
 
 interface NavbarProps {

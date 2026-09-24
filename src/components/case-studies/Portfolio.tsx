@@ -1,10 +1,10 @@
 import React, { useState, useMemo } from 'react';
 import { ArrowUpRight, CheckCircle, Tag, FileText, Sparkles, ExternalLink } from 'lucide-react';
-import { portfolioData, projects } from '../data/portfolioData';
-import { Project } from '../types';
+import { portfolioData, projects } from '../../data/portfolioData';
+import { Project } from '../../types';
 import { ProjectModal } from './ProjectModal';
-import { ScrollReveal } from './ScrollReveal';
-import { useInViewAnimation } from '../hooks/useInViewAnimation';
+import { ScrollReveal } from '../common/ScrollReveal';
+import { useInViewAnimation } from '../../hooks/useInViewAnimation';
 
 export const Portfolio: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);

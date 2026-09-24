@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowUp, Heart } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
+import { portfolioData } from '../../data/portfolioData';
 import { BrandLogo } from './BrandLogo';
 
 export const Footer: React.FC = () => {

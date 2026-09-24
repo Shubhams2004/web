@@ -11,9 +11,9 @@ import {
   AlertCircle,
   Sparkles,
 } from 'lucide-react';
-import { portfolioData } from '../data/portfolioData';
-import { ScrollReveal } from './ScrollReveal';
-import { useInViewAnimation } from '../hooks/useInViewAnimation';
+import { portfolioData } from '../../data/portfolioData';
+import { ScrollReveal } from '../common/ScrollReveal';
+import { useInViewAnimation } from '../../hooks/useInViewAnimation';
 
 export const Contact: React.FC = () => {
   const { ref, animationClasses } = useInViewAnimation<HTMLElement>({

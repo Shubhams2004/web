@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import useSWR from 'swr';
 import { motion } from 'motion/react';
 import { Newspaper, ExternalLink, RefreshCw, AlertTriangle, Search, Clock, Calendar, CheckCircle2 } from 'lucide-react';
-import { ScrollReveal } from './ScrollReveal';
-import { getClientFallback } from '../data/newsFallback';
-import type { NewsItem, NewsResponse } from '../types';
+import { ScrollReveal } from '../common/ScrollReveal';
+import { getClientFallback } from '../../data/newsFallback';
+import type { NewsItem, NewsResponse } from '../../types';
 
 const PRESET_TOPICS = [
   'Top World',

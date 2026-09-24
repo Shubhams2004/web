@@ -21,14 +21,14 @@ import {
   Check,
   ChevronRight,
 } from 'lucide-react';
-import { BusinessCaseStudy, BusinessRssStory } from '../types';
-import { CaseStudyDetailModal } from './CaseStudyDetailModal';
-import { RssDiscoveryDrawer } from './RssDiscoveryDrawer';
+import { BusinessCaseStudy, BusinessRssStory } from '../../types';
+import { CaseStudyDetailModal } from '../case-studies/CaseStudyDetailModal';
+import { RssDiscoveryDrawer } from '../case-studies/RssDiscoveryDrawer';
 import {
   fetchTrendingCaseStudies,
   fetchRecentBusinessStories,
   generateCaseStudyFromStory,
-} from '../utils/caseStudyApi';
+} from '../../utils/caseStudyApi';
 
 export const TrendingCaseStudies: React.FC = () => {
   const [caseStudies, setCaseStudies] = useState<BusinessCaseStudy[]>([]);

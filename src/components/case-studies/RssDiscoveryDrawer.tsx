@@ -13,7 +13,7 @@ import {
   ArrowRight,
   Flame,
 } from 'lucide-react';
-import { BusinessRssStory, BusinessCaseStudy } from '../types';
+import { BusinessRssStory, BusinessCaseStudy } from '../../types';
 
 interface RssDiscoveryDrawerProps {
   isOpen: boolean;

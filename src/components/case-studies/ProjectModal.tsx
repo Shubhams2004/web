@@ -13,8 +13,8 @@ import {
   Minimize2,
   ExternalLink,
 } from 'lucide-react';
-import { Project } from '../types';
-import { updatePageSEO, SECTION_SEO_PRESETS } from '../utils/seo';
+import { Project } from '../../types';
+import { updatePageSEO, SECTION_SEO_PRESETS } from '../../utils/seo';
 
 interface ProjectModalProps {
   project: Project | null;

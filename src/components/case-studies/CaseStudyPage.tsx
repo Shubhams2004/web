@@ -12,8 +12,8 @@ import {
   Check,
   Share2,
 } from 'lucide-react';
-import { Project } from '../types';
-import { updatePageSEO, SECTION_SEO_PRESETS } from '../utils/seo';
+import { Project } from '../../types';
+import { updatePageSEO, SECTION_SEO_PRESETS } from '../../utils/seo';
 
 interface CaseStudyPageProps {
   project: Project;

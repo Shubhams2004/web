@@ -1,7 +1,7 @@
 import React from 'react';
 import { ArrowDown, ArrowUpRight, TrendingUp, Sparkles, Rss, BarChart3 } from 'lucide-react';
 import { motion } from 'motion/react';
-import { BrandLogo } from './BrandLogo';
+import { BrandLogo } from '../common/BrandLogo';
 
 interface HeroProps {
   onOpenRssDiscovery?: () => void;
