@@ -94,7 +94,7 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
     }
   }, [gameState]);
 
-  // Keys state
+  // Combined Keys state (active inputs consumed by physics engine)
   const keysRef = useRef<KeyControls>({
     left: false,
     right: false,
@@ -102,15 +102,42 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
     brake: false,
   });
 
+  // Independent keyboard state
+  const keyboardKeysRef = useRef<KeyControls>({
+    left: false,
+    right: false,
+    accelerate: false,
+    brake: false,
+  });
+
+  // Independent touch/mobile state
+  const touchKeysRef = useRef<KeyControls>({
+    left: false,
+    right: false,
+    accelerate: false,
+    brake: false,
+  });
+
+  // Helper to recompute combined input states
+  const syncCombinedKeys = useCallback(() => {
+    keysRef.current = {
+      left: keyboardKeysRef.current.left || touchKeysRef.current.left,
+      right: keyboardKeysRef.current.right || touchKeysRef.current.right,
+      accelerate: keyboardKeysRef.current.accelerate || touchKeysRef.current.accelerate,
+      brake: keyboardKeysRef.current.brake || touchKeysRef.current.brake,
+    };
+  }, []);
+
   // Sync external mobile controls
   useEffect(() => {
-    keysRef.current = {
-      left: keysRef.current.left || externalControls.left,
-      right: keysRef.current.right || externalControls.right,
-      accelerate: keysRef.current.accelerate || externalControls.accelerate,
-      brake: keysRef.current.brake || externalControls.brake,
+    touchKeysRef.current = {
+      left: !!externalControls.left,
+      right: !!externalControls.right,
+      accelerate: !!externalControls.accelerate,
+      brake: !!externalControls.brake,
     };
-  }, [externalControls]);
+    syncCombinedKeys();
+  }, [externalControls, syncCombinedKeys]);
 
   // Player state
   const playerRef = useRef<PlayerCar>({
@@ -219,13 +246,17 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
       audio.userInteracted();
 
       if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
-        keysRef.current.left = true;
+        keyboardKeysRef.current.left = true;
+        syncCombinedKeys();
       } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
-        keysRef.current.right = true;
+        keyboardKeysRef.current.right = true;
+        syncCombinedKeys();
       } else if (e.code === 'ArrowUp' || e.code === 'KeyW') {
-        keysRef.current.accelerate = true;
+        keyboardKeysRef.current.accelerate = true;
+        syncCombinedKeys();
       } else if (e.code === 'ArrowDown' || e.code === 'KeyS') {
-        keysRef.current.brake = true;
+        keyboardKeysRef.current.brake = true;
+        syncCombinedKeys();
       } else if (e.code === 'Space') {
         e.preventDefault();
         const current = stateRef.current.gameState;
@@ -244,23 +275,49 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
 
     const handleKeyUp = (e: KeyboardEvent) => {
       if (e.code === 'ArrowLeft' || e.code === 'KeyA') {
-        keysRef.current.left = false;
+        keyboardKeysRef.current.left = false;
+        syncCombinedKeys();
       } else if (e.code === 'ArrowRight' || e.code === 'KeyD') {
-        keysRef.current.right = false;
+        keyboardKeysRef.current.right = false;
+        syncCombinedKeys();
       } else if (e.code === 'ArrowUp' || e.code === 'KeyW') {
-        keysRef.current.accelerate = false;
+        keyboardKeysRef.current.accelerate = false;
+        syncCombinedKeys();
       } else if (e.code === 'ArrowDown' || e.code === 'KeyS') {
-        keysRef.current.brake = false;
+        keyboardKeysRef.current.brake = false;
+        syncCombinedKeys();
+      }
+    };
+
+    // Prevent stuck keys when user switches tabs or window loses focus
+    const handleResetKeys = () => {
+      keyboardKeysRef.current = {
+        left: false,
+        right: false,
+        accelerate: false,
+        brake: false,
+      };
+      syncCombinedKeys();
+    };
+
+    const handleVisibilityChange = () => {
+      if (document.hidden) {
+        handleResetKeys();
       }
     };
 
     window.addEventListener('keydown', handleKeyDown);
     window.addEventListener('keyup', handleKeyUp);
+    window.addEventListener('blur', handleResetKeys);
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+
     return () => {
       window.removeEventListener('keydown', handleKeyDown);
       window.removeEventListener('keyup', handleKeyUp);
+      window.removeEventListener('blur', handleResetKeys);
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
     };
-  }, [onGameStateChange, startNewGame]);
+  }, [onGameStateChange, startNewGame, syncCombinedKeys]);
 
   // Main Canvas Game Loop
   useEffect(() => {

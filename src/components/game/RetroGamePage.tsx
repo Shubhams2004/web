@@ -66,8 +66,26 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack }) => {
     // Set page title for SEO & Browser tab
     const prevTitle = document.title;
     document.title = 'Retro Racer — 80s Arcade Highway Pursuit | Shubham Sonale';
+
+    const handleClearInputs = () => {
+      setExternalControls({
+        left: false,
+        right: false,
+        accelerate: false,
+        brake: false,
+      });
+    };
+
+    window.addEventListener('blur', handleClearInputs);
+    const handleVisChange = () => {
+      if (document.hidden) handleClearInputs();
+    };
+    document.addEventListener('visibilitychange', handleVisChange);
+
     return () => {
       document.title = prevTitle;
+      window.removeEventListener('blur', handleClearInputs);
+      document.removeEventListener('visibilitychange', handleVisChange);
     };
   }, []);
 
@@ -313,9 +331,15 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack }) => {
               </div>
 
               <div>
-                <p className="font-bold text-slate-100 mb-1">📱 Mobile & Touch Controls:</p>
-                <p className="text-slate-400 text-[11px]">
-                  Use the large on-screen steering pads and gas/brake buttons. Multi-touch is supported!
+                <p className="font-bold text-slate-100 mb-1">📱 Mobile Touch Control Pad:</p>
+                <ul className="space-y-1 font-mono text-[11px] text-slate-400 pl-2">
+                  <li>• <strong className="text-cyan-400">◀</strong> : Steer Left (press & hold)</li>
+                  <li>• <strong className="text-cyan-400">▶</strong> : Steer Right (press & hold)</li>
+                  <li>• <strong className="text-amber-400">▲</strong> : Accelerate / Gas / Boost</li>
+                  <li>• <strong className="text-red-400">▼</strong> : Brake / Reverse</li>
+                </ul>
+                <p className="text-slate-400 text-[10px] mt-1.5">
+                  Multi-touch enabled for simultaneous steering and acceleration. Toggle between Split-Thumb and D-Pad Cross layouts anytime.
                 </p>
               </div>
 
