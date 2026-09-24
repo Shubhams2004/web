@@ -211,8 +211,19 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack }) => {
             crtEnabled={crtEnabled}
           />
 
+          {/* Arcade Mobile / Touch Control Console (Directly below canvas inside the cabinet) */}
+          <div className="w-full mt-3">
+            <MobileControls
+              controls={externalControls}
+              onControlChange={handleControlChange}
+              onPause={handlePause}
+              onRestart={handleRestart}
+              gameState={gameState}
+            />
+          </div>
+
           {/* Cabinet Bottom Coin Slot & Speaker Grilles */}
-          <div className="mt-3 pt-3 border-t border-slate-800/80 flex items-center justify-between px-2 text-slate-500 text-[11px] font-mono">
+          <div className="mt-2 pt-2 border-t border-slate-800/80 flex items-center justify-between px-2 text-slate-500 text-[11px] font-mono">
             <div className="flex items-center gap-1">
               <span className="inline-block w-8 h-1 bg-slate-800 rounded-full" />
               <span className="inline-block w-8 h-1 bg-slate-800 rounded-full" />
@@ -227,17 +238,6 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack }) => {
               <span className="inline-block w-8 h-1 bg-slate-800 rounded-full" />
             </div>
           </div>
-        </div>
-
-        {/* Mobile On-Screen Touch Controls (Always ready for touch users) */}
-        <div className="w-full mt-4">
-          <MobileControls
-            controls={externalControls}
-            onControlChange={handleControlChange}
-            onPause={handlePause}
-            onRestart={handleRestart}
-            gameState={gameState}
-          />
         </div>
 
         {/* Arcade Feature Grid: Power-ups & Controls Summary */}
