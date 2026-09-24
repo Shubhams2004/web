@@ -23,6 +23,7 @@ export const portfolioData: PortfolioData = {
   navigation: [
     { label: 'Home', href: '#home' },
     { label: 'Case Studies', href: '#case-studies' },
+    { label: 'Game', href: '#/game' },
     { label: 'About', href: '#about' },
     { label: 'Contact', href: '#contact' },
   ],

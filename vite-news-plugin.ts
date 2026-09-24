@@ -32,6 +32,14 @@ export function newsApiPlugin(apiKey: string): Plugin {
         const rawUrl = req.url || '';
         const pathname = rawUrl.split('?')[0];
 
+        // Direct /game path support for Vite dev server base
+        if (pathname === '/game' || pathname === '/game/') {
+          res.statusCode = 302;
+          res.setHeader('Location', '/web/game');
+          res.end();
+          return;
+        }
+
         // 1. Check if this is an API route we handle
         const isCaseStudies = pathname.endsWith('/api/business-case-studies') || pathname.includes('/api/business-case-studies');
         const isGenerateCaseStudy = pathname.endsWith('/api/business-case-studies/generate') || pathname.includes('/api/business-case-studies/generate');

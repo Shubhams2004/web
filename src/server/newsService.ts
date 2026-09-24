@@ -27,7 +27,12 @@ export interface NewsResult {
   updateFrequency?: string;
 }
 
-const MODEL = 'llama-3.3-70b-versatile';
+const PREFERRED_NEWS_MODELS = [
+  'qwen/qwen3.8-27b',
+  'openai/gpt-oss-120b',
+  'openai/gpt-oss-20b',
+  'llama-3.3-70b-versatile',
+];
 const MAX_ITEMS = 6;
 const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24-hour daily cycle (run once a day)
 const CACHE_FILE = path.join(os.tmpdir(), 'v0-live-news-cache.json');
@@ -390,35 +395,47 @@ ${JSON.stringify(headlines)}
 Respond in valid JSON format as an object with a "summaries" property containing an array of exactly ${headlines.length} strings, one for each headline in order. Example:
 {"summaries": ["summary 1", "summary 2"]}`;
 
-    const groqCall = groq.chat.completions.create({
-      model: MODEL,
-      messages: [
-        {
-          role: 'system',
-          content: 'You are a research news analyst. You must respond strictly in JSON format.',
-        },
-        {
-          role: 'user',
-          content: prompt,
-        },
-      ],
-      response_format: { type: 'json_object' },
-      temperature: 0.2,
-    });
+    let summaries: string[] | undefined;
 
-    const timeout = new Promise<never>((_, reject) =>
-      setTimeout(() => reject(new Error('Groq enrich timeout')), 3500)
-    );
+    for (const modelCandidate of PREFERRED_NEWS_MODELS) {
+      try {
+        const groqCall = groq.chat.completions.create({
+          model: modelCandidate,
+          messages: [
+            {
+              role: 'system',
+              content: 'You are a research news analyst. You must respond strictly in JSON format.',
+            },
+            {
+              role: 'user',
+              content: prompt,
+            },
+          ],
+          response_format: { type: 'json_object' },
+          temperature: 0.2,
+        });
 
-    const res = await Promise.race([groqCall, timeout]);
+        const timeout = new Promise<never>((_, reject) =>
+          setTimeout(() => reject(new Error('Groq enrich timeout')), 6000)
+        );
 
-    const text = res.choices[0]?.message?.content?.trim() || '';
-    const parsed = JSON.parse(text);
-    const summaries = Array.isArray(parsed) ? parsed : parsed?.summaries;
+        const res = await Promise.race([groqCall, timeout]);
+        const text = res.choices[0]?.message?.content?.trim() || '';
+        const parsed = JSON.parse(text);
+        const candidateSummaries = Array.isArray(parsed) ? parsed : parsed?.summaries;
+        if (Array.isArray(candidateSummaries) && candidateSummaries.length === items.length) {
+          summaries = candidateSummaries;
+          break;
+        }
+      } catch {
+        // Continue to next model candidate
+      }
+    }
+
     if (Array.isArray(summaries) && summaries.length === items.length) {
       return items.map((item, idx) => ({
         ...item,
-        summary: typeof summaries[idx] === 'string' && summaries[idx].trim().length > 15 ? summaries[idx].trim() : item.summary,
+        summary: typeof summaries![idx] === 'string' && summaries![idx].trim().length > 15 ? summaries![idx].trim() : item.summary,
       }));
     }
   } catch {

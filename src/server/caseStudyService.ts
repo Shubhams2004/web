@@ -8,7 +8,12 @@ import {
   INITIAL_BUSINESS_RSS_STORIES,
 } from '../data/trendingCaseStudies';
 
-const GROQ_MODEL = 'llama-3.3-70b-versatile';
+const PREFERRED_GROQ_MODELS = [
+  'qwen/qwen3.8-27b',
+  'openai/gpt-oss-120b',
+  'openai/gpt-oss-20b',
+  'llama-3.3-70b-versatile',
+];
 const CACHE_FILE = path.join(os.tmpdir(), 'v0-trending-case-studies-cache.json');
 const RSS_CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24-hour daily cycle
 
@@ -273,22 +278,35 @@ Return a valid JSON object with the following fields:
   "tags": ["Tag1", "Tag2", "Tag3"]
 }`;
 
-      const groqCall = groq.chat.completions.create({
-        model: GROQ_MODEL,
-        messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: userPrompt },
-        ],
-        response_format: { type: 'json_object' },
-        temperature: 0.25,
-      });
+      let content: string | undefined;
 
-      const timeout = new Promise<never>((_, reject) =>
-        setTimeout(() => reject(new Error('Groq request timed out')), 18000)
-      );
+      for (const modelCandidate of PREFERRED_GROQ_MODELS) {
+        try {
+          const groqCall = groq.chat.completions.create({
+            model: modelCandidate,
+            messages: [
+              { role: 'system', content: systemPrompt },
+              { role: 'user', content: userPrompt },
+            ],
+            response_format: { type: 'json_object' },
+            temperature: 0.25,
+          });
 
-      const completion = await Promise.race([groqCall, timeout]);
-      const content = completion.choices[0]?.message?.content?.trim();
+          const timeout = new Promise<never>((_, reject) =>
+            setTimeout(() => reject(new Error('Groq request timed out')), 18000)
+          );
+
+          const completion = await Promise.race([groqCall, timeout]);
+          const candidateContent = completion.choices[0]?.message?.content?.trim();
+          if (candidateContent) {
+            content = candidateContent;
+            console.log(`[caseStudyService] Generated case study with Groq model: ${modelCandidate}`);
+            break;
+          }
+        } catch (modelErr) {
+          console.warn(`[caseStudyService] Candidate model ${modelCandidate} failed:`, modelErr instanceof Error ? modelErr.message : modelErr);
+        }
+      }
 
       if (content) {
         const parsed = JSON.parse(content);
