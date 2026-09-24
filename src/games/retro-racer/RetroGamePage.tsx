@@ -12,6 +12,7 @@ import {
   Gamepad2,
   Flame,
   Skull,
+  Radio,
 } from 'lucide-react';
 import { RetroRacerCanvas } from './RetroRacerCanvas';
 import { MobileControls } from './MobileControls';
@@ -234,8 +235,21 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack, onSwitchGa
             </button>
           </div>
 
-          <div className="text-[11px] font-mono text-slate-500 hidden sm:block">
-            <span>READY TO PLAY</span>
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => {
+                window.location.hash = '#/mission-control';
+              }}
+              className="px-2.5 py-1 rounded-lg font-mono text-[11px] font-semibold bg-slate-900 hover:bg-slate-800 text-slate-400 hover:text-cyan-300 border border-slate-800 transition-colors flex items-center gap-1.5 cursor-pointer"
+              title="Access Mission Control HQ"
+            >
+              <Radio className="w-3 h-3 text-cyan-400" />
+              <span>HQ</span>
+            </button>
+            <div className="text-[11px] font-mono text-slate-500 hidden sm:block">
+              <span>HIGHWAY PURSUIT</span>
+            </div>
           </div>
         </div>
       </div>

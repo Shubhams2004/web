@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Heart } from 'lucide-react';
+import { ArrowUp, Heart, Radio } from 'lucide-react';
 import { portfolioData } from '../../data/portfolioData';
 import { BrandLogo } from './BrandLogo';
 
@@ -40,7 +40,7 @@ export const Footer: React.FC = () => {
             type="button"
             onClick={scrollToTop}
             id="back-to-top-btn"
-            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium transition-colors"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-md bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white text-xs font-medium transition-colors cursor-pointer"
             aria-label="Scroll back to top"
           >
             <span>Back to top</span>
@@ -52,9 +52,28 @@ export const Footer: React.FC = () => {
           <p>
             &copy; {new Date().getFullYear()} {portfolioData.person.fullName}. All rights reserved.
           </p>
-          <p className="flex items-center gap-1.5">
-            Designed for clarity, empirical research, and publication-grade insights.
-          </p>
+
+          <div className="flex items-center gap-4">
+            <p className="flex items-center gap-1.5 text-slate-500">
+              Designed for clarity, empirical research, and publication-grade insights.
+            </p>
+
+            <button
+              type="button"
+              onClick={() => {
+                window.location.hash = '#/mission-control';
+              }}
+              className="inline-flex items-center gap-1.5 text-[11px] font-mono text-slate-500 hover:text-cyan-400 transition-colors py-1 px-2 rounded-md hover:bg-slate-800/60 cursor-pointer group"
+              title="Access Mission Control HQ (Shortcut: Ctrl+Shift+M)"
+              aria-label="Mission Control HQ"
+            >
+              <Radio className="w-3 h-3 text-slate-600 group-hover:text-cyan-400 transition-colors" />
+              <span className="hidden sm:inline">Mission Control</span>
+              <span className="text-[9px] text-slate-600 group-hover:text-cyan-500 font-mono hidden md:inline">
+                [⌘⇧M]
+              </span>
+            </button>
+          </div>
         </div>
       </div>
     </footer>

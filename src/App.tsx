@@ -4,6 +4,7 @@ import { Hero, About, TrendingCaseStudies, Contact } from './components/sections
 import { CaseStudyPage } from './components/case-studies';
 import { NewsPlatformPage } from './components/news';
 import { RetroGamePage, ZombieGamePage, PixelDungeonPage, GameId } from './games';
+import { MissionControlPage } from './mission-control';
 import { portfolioData } from './data';
 import { updatePageSEO, SECTION_SEO_PRESETS } from './utils';
 import { NewsCategory } from './types';
@@ -13,14 +14,34 @@ export default function App() {
   const [caseStudyProjectId, setCaseStudyProjectId] = useState<string | null>(null);
   const [isNewsPlatformPage, setIsNewsPlatformPage] = useState<boolean>(false);
   const [isGamePage, setIsGamePage] = useState<boolean>(false);
+  const [isMissionControlPage, setIsMissionControlPage] = useState<boolean>(false);
   const [activeGameId, setActiveGameId] = useState<GameId>('pixel-dungeon');
   const [newsInitialCategory, setNewsInitialCategory] = useState<NewsCategory>('All');
 
-  // Standalone routing for /game, dedicated case study page, and news platform
+  // Standalone routing for /game, dedicated case study page, news platform, and Mission Control
   useEffect(() => {
     const handleLocationChange = () => {
       const hash = window.location.hash || '';
       const path = window.location.pathname || '';
+
+      // Check Mission Control command center access
+      const isMissionControl =
+        hash === '#/mission-control' ||
+        hash === '#mission-control' ||
+        hash === '#control' ||
+        hash === '#/control' ||
+        hash === '#/hq' ||
+        hash === '#hq';
+
+      if (isMissionControl) {
+        setIsMissionControlPage(true);
+        setIsGamePage(false);
+        setIsNewsPlatformPage(false);
+        setCaseStudyProjectId(null);
+        return;
+      }
+
+      setIsMissionControlPage(false);
 
       // Check if user is navigating to /game or #/game or /web/game
       const isGame =
@@ -98,17 +119,34 @@ export default function App() {
     };
   }, []);
 
+  // Global shortcut to toggle Mission Control command center (Ctrl+Shift+M or Cmd+Shift+M)
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if ((e.ctrlKey || e.metaKey) && e.shiftKey && e.key.toLowerCase() === 'm') {
+        e.preventDefault();
+        if (isMissionControlPage) {
+          window.location.hash = '#home';
+        } else {
+          window.location.hash = '#/mission-control';
+        }
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isMissionControlPage]);
+
   // Update dynamic SEO meta tags whenever the active section context changes
   useEffect(() => {
-    if (caseStudyProjectId || isNewsPlatformPage || isGamePage) return;
+    if (caseStudyProjectId || isNewsPlatformPage || isGamePage || isMissionControlPage) return;
     const preset = SECTION_SEO_PRESETS[activeSection];
     if (preset) {
       updatePageSEO(preset);
     }
-  }, [activeSection, caseStudyProjectId, isNewsPlatformPage, isGamePage]);
+  }, [activeSection, caseStudyProjectId, isNewsPlatformPage, isGamePage, isMissionControlPage]);
 
   useEffect(() => {
-    if (caseStudyProjectId || isNewsPlatformPage || isGamePage) return;
+    if (caseStudyProjectId || isNewsPlatformPage || isGamePage || isMissionControlPage) return;
     const sections = ['home', 'case-studies', 'about', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140; // offset for sticky header
@@ -130,7 +168,30 @@ export default function App() {
     handleScroll(); // initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [caseStudyProjectId, isNewsPlatformPage, isGamePage]);
+  }, [caseStudyProjectId, isNewsPlatformPage, isGamePage, isMissionControlPage]);
+
+  // If the secret Mission Control command center is requested
+  if (isMissionControlPage) {
+    const handleBack = () => {
+      const base = import.meta.env.BASE_URL || '/';
+      if (window.history && window.history.pushState) {
+        window.history.pushState({}, '', base);
+      }
+      window.location.hash = '#home';
+      setIsMissionControlPage(false);
+    };
+
+    const handleLaunchGame = (route: string) => {
+      window.location.hash = route;
+    };
+
+    return (
+      <MissionControlPage
+        onBack={handleBack}
+        onLaunchGame={handleLaunchGame}
+      />
+    );
+  }
 
   // If the Arcade Game page is requested
   if (isGamePage) {
