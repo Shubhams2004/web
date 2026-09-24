@@ -95,18 +95,18 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   handleNavClick(item.href);
                 }}
                 className={`px-3.5 py-2 text-sm font-medium rounded-md transition-colors inline-flex items-center gap-1.5 ${
-                  item.label === 'Game'
+                  item.label === 'Game' || item.label === 'Games'
                     ? 'text-rose-600 hover:text-rose-700 hover:bg-rose-50/80 font-semibold'
                     : isActive
                     ? 'text-blue-600 bg-blue-50/80 font-semibold'
                     : 'text-slate-600 hover:text-slate-900 hover:bg-slate-100/70'
                 }`}
               >
-                {item.label === 'Game' && <Gamepad2 className="w-4 h-4 text-rose-500" />}
+                {(item.label === 'Game' || item.label === 'Games') && <Gamepad2 className="w-4 h-4 text-rose-500" />}
                 <span>{item.label}</span>
-                {item.label === 'Game' && (
-                  <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 bg-rose-100 text-rose-700 rounded-full">
-                    Retro
+                {(item.label === 'Game' || item.label === 'Games') && (
+                  <span className="text-[10px] uppercase font-bold tracking-wider px-1.5 py-0.2 bg-rose-100 text-rose-700 rounded-full font-mono">
+                    Arcade
                   </span>
                 )}
               </a>
@@ -180,7 +180,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                     handleNavClick(item.href);
                   }}
                   className={`px-3 py-2.5 rounded-md text-base font-medium transition-colors flex items-center justify-between ${
-                    item.label === 'Game'
+                    item.label === 'Game' || item.label === 'Games'
                       ? 'text-rose-600 bg-rose-50/70 font-semibold'
                       : isActive
                       ? 'text-blue-600 bg-blue-50 font-semibold'
@@ -188,10 +188,10 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                   }`}
                 >
                   <span className="flex items-center gap-2">
-                    {item.label === 'Game' && <Gamepad2 className="w-4 h-4 text-rose-500" />}
+                    {(item.label === 'Game' || item.label === 'Games') && <Gamepad2 className="w-4 h-4 text-rose-500" />}
                     <span>{item.label}</span>
                   </span>
-                  {item.label === 'Game' && (
+                  {(item.label === 'Game' || item.label === 'Games') && (
                     <span className="text-[10px] uppercase font-bold tracking-wider px-2 py-0.5 bg-rose-100 text-rose-700 rounded-full font-mono">
                       Arcade 80s
                     </span>

@@ -8,12 +8,12 @@ export interface GameDefinition {
   title: string;
   subtitle: string;
   description: string;
-  genre: 'Arcade' | 'Puzzle' | 'Action' | 'Racing' | 'Strategy';
+  genre: 'Arcade' | 'Puzzle' | 'Action' | 'Racing' | 'Strategy' | 'RPG';
   releaseYear: string;
   thumbnailUrl?: string;
   badge?: string;
   route: string;
-  component: React.ComponentType<{ onBack: () => void }>;
+  component: React.ComponentType<{ onBack: () => void; onSwitchGame?: (gameId: string) => void }>;
 }
 
-export type GameId = 'retro-racer';
+export type GameId = 'retro-racer' | 'zombie-survival' | 'pixel-dungeon';

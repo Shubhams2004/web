@@ -1,14 +1,40 @@
 import { RetroGamePage } from './retro-racer';
+import { ZombieGamePage } from './zombie-survival';
+import { PixelDungeonPage } from './pixel-dungeon';
 import type { GameDefinition } from './types';
 
 export * from './types';
-export * from './retro-racer';
+export { RetroGamePage } from './retro-racer';
+export { ZombieGamePage } from './zombie-survival';
+export { PixelDungeonPage } from './pixel-dungeon';
 
 /**
  * Registry of playable arcade games on the website.
  * Makes adding future games as simple as registering an entry here.
  */
 export const AVAILABLE_GAMES: GameDefinition[] = [
+  {
+    id: 'pixel-dungeon',
+    title: 'Pixel Dungeon',
+    subtitle: 'Procedural Roguelike Crypt Crawler',
+    description: 'Turn-based pixel dungeon crawler: explore rooms, slay goblins, bats and skeletons, find keys, and descend deeper.',
+    genre: 'RPG',
+    releaseYear: '1991 Edition',
+    badge: 'Pixel Roguelike',
+    route: '/game/pixel-dungeon',
+    component: PixelDungeonPage,
+  },
+  {
+    id: 'zombie-survival',
+    title: 'Zombie Survival',
+    subtitle: 'Quarantine Arena 1989',
+    description: 'Top-down retro zombie survival: fend off escalating waves with power-up weapons, shotguns, and tactical nukes.',
+    genre: 'Action',
+    releaseYear: '1989 Edition',
+    badge: 'Arcade Survival',
+    route: '/game/zombie-survival',
+    component: ZombieGamePage,
+  },
   {
     id: 'retro-racer',
     title: 'Retro Racer',
@@ -17,7 +43,7 @@ export const AVAILABLE_GAMES: GameDefinition[] = [
     genre: 'Racing',
     releaseYear: '1986 Edition',
     badge: 'Retro Arcade',
-    route: '/game',
+    route: '/game/retro-racer',
     component: RetroGamePage,
   },
 ];

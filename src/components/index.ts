@@ -10,5 +10,7 @@ export * from './case-studies';
 // News Platform
 export * from './news';
 
-// Backwards compatibility re-export for RetroGamePage
+// Backwards compatibility re-export for RetroGamePage and ZombieGamePage
 export { RetroGamePage } from '../games/retro-racer';
+export { ZombieGamePage } from '../games/zombie-survival';
+export * from '../games';

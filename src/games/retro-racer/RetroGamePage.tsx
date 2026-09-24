@@ -11,6 +11,7 @@ import {
   Star,
   Gamepad2,
   Flame,
+  Skull,
 } from 'lucide-react';
 import { RetroRacerCanvas } from './RetroRacerCanvas';
 import { MobileControls } from './MobileControls';
@@ -19,9 +20,10 @@ import type { GameState, KeyControls, GameScoreSnapshot } from './gameTypes';
 
 interface RetroGamePageProps {
   onBack: () => void;
+  onSwitchGame?: (gameId: string) => void;
 }
 
-export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack }) => {
+export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack, onSwitchGame }) => {
   const [gameState, setGameState] = useState<GameState>('start');
   const [isMuted, setIsMuted] = useState<boolean>(() => audio.isMuted());
   const [crtEnabled, setCrtEnabled] = useState<boolean>(true);
@@ -141,7 +143,19 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack }) => {
           </div>
 
           {/* Quick Controls: Audio, CRT, Help */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1.5 sm:gap-2">
+            {onSwitchGame && (
+              <button
+                type="button"
+                onClick={() => onSwitchGame('zombie-survival')}
+                className="hidden sm:inline-flex items-center gap-1 px-2.5 py-1.5 rounded-lg text-xs border border-emerald-800/60 bg-emerald-950/40 text-emerald-300 hover:bg-emerald-900/40 transition-colors"
+                title="Switch to Zombie Survival"
+              >
+                <Skull className="w-3.5 h-3.5 text-emerald-400" />
+                <span className="font-mono text-[11px]">Zombies</span>
+              </button>
+            )}
+
             <button
               type="button"
               onClick={handleToggleMute}
@@ -182,6 +196,49 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack }) => {
           </div>
         </div>
       </header>
+
+      {/* Arcade Games Launcher Bar */}
+      <div className="bg-slate-900/60 border-b border-slate-800/60 px-4 py-2">
+        <div className="max-w-5xl mx-auto flex items-center justify-between gap-2 text-xs">
+          <div className="flex items-center gap-1.5 text-slate-400 text-[11px] font-mono">
+            <Gamepad2 className="w-3.5 h-3.5 text-rose-500" />
+            <span className="hidden sm:inline">ARCADE VAULT:</span>
+          </div>
+
+          <div className="flex items-center gap-2">
+            <button
+              type="button"
+              onClick={() => onSwitchGame && onSwitchGame('pixel-dungeon')}
+              className="px-3 py-1 rounded-lg font-mono text-[11px] font-semibold bg-slate-900 text-slate-400 hover:text-amber-400 hover:bg-slate-850 border border-slate-800 transition-colors flex items-center gap-1.5"
+            >
+              <Shield className="w-3 h-3 text-amber-400" />
+              <span>Pixel Dungeon</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onSwitchGame && onSwitchGame('zombie-survival')}
+              className="px-3 py-1 rounded-lg font-mono text-[11px] font-semibold bg-slate-900 text-slate-400 hover:text-emerald-400 hover:bg-slate-850 border border-slate-800 transition-colors flex items-center gap-1.5"
+            >
+              <Skull className="w-3 h-3 text-emerald-400" />
+              <span>Zombie Survival</span>
+            </button>
+
+            <button
+              type="button"
+              onClick={() => onSwitchGame && onSwitchGame('retro-racer')}
+              className="px-3 py-1 rounded-lg font-mono text-[11px] font-bold bg-rose-950 text-rose-300 border border-rose-600 shadow-[0_0_8px_rgba(225,29,72,0.3)] flex items-center gap-1.5"
+            >
+              <Gamepad2 className="w-3 h-3 text-rose-400" />
+              <span>Retro Racer</span>
+            </button>
+          </div>
+
+          <div className="text-[11px] font-mono text-slate-500 hidden sm:block">
+            <span>READY TO PLAY</span>
+          </div>
+        </div>
+      </div>
 
       {/* Main Arcade Experience */}
       <main className="flex-1 max-w-5xl mx-auto w-full px-4 py-6 sm:py-8 flex flex-col items-center justify-center">

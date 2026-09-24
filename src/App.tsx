@@ -3,7 +3,7 @@ import { Navbar, Footer } from './components/common';
 import { Hero, About, TrendingCaseStudies, Contact } from './components/sections';
 import { CaseStudyPage } from './components/case-studies';
 import { NewsPlatformPage } from './components/news';
-import { RetroGamePage } from './games';
+import { RetroGamePage, ZombieGamePage, PixelDungeonPage, GameId } from './games';
 import { portfolioData } from './data';
 import { updatePageSEO, SECTION_SEO_PRESETS } from './utils';
 import { NewsCategory } from './types';
@@ -13,6 +13,7 @@ export default function App() {
   const [caseStudyProjectId, setCaseStudyProjectId] = useState<string | null>(null);
   const [isNewsPlatformPage, setIsNewsPlatformPage] = useState<boolean>(false);
   const [isGamePage, setIsGamePage] = useState<boolean>(false);
+  const [activeGameId, setActiveGameId] = useState<GameId>('pixel-dungeon');
   const [newsInitialCategory, setNewsInitialCategory] = useState<NewsCategory>('All');
 
   // Standalone routing for /game, dedicated case study page, and news platform
@@ -26,6 +27,7 @@ export default function App() {
         hash === '#/game' ||
         hash === '#game' ||
         hash.startsWith('#/game/') ||
+        hash.startsWith('#game-') ||
         path.endsWith('/game') ||
         path.endsWith('/game/');
 
@@ -33,6 +35,29 @@ export default function App() {
         setIsGamePage(true);
         setIsNewsPlatformPage(false);
         setCaseStudyProjectId(null);
+
+        // Check specific game requested in hash
+        if (
+          hash.includes('dungeon') ||
+          hash === '#game-dungeon' ||
+          hash.startsWith('#/game/pixel') ||
+          hash.startsWith('#/game/dungeon')
+        ) {
+          setActiveGameId('pixel-dungeon');
+        } else if (
+          hash.includes('zombie') ||
+          hash === '#game-zombie' ||
+          hash.startsWith('#/game/zombie')
+        ) {
+          setActiveGameId('zombie-survival');
+        } else if (
+          hash.includes('racer') ||
+          hash.includes('retro') ||
+          hash === '#game-racer' ||
+          hash.startsWith('#/game/retro')
+        ) {
+          setActiveGameId('retro-racer');
+        }
         return;
       }
 
@@ -107,18 +132,45 @@ export default function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [caseStudyProjectId, isNewsPlatformPage, isGamePage]);
 
-  // If the Retro Racing Game page is requested
+  // If the Arcade Game page is requested
   if (isGamePage) {
+    const handleBack = () => {
+      const base = import.meta.env.BASE_URL || '/';
+      if (window.history && window.history.pushState) {
+        window.history.pushState({}, '', base);
+      }
+      window.location.hash = '#home';
+      setIsGamePage(false);
+    };
+
+    const handleSwitchGame = (gameId: string) => {
+      const id = gameId as GameId;
+      setActiveGameId(id);
+      window.location.hash = `#/game/${id}`;
+    };
+
+    if (activeGameId === 'pixel-dungeon') {
+      return (
+        <PixelDungeonPage
+          onBack={handleBack}
+          onSwitchGame={handleSwitchGame}
+        />
+      );
+    }
+
+    if (activeGameId === 'zombie-survival') {
+      return (
+        <ZombieGamePage
+          onBack={handleBack}
+          onSwitchGame={handleSwitchGame}
+        />
+      );
+    }
+
     return (
       <RetroGamePage
-        onBack={() => {
-          const base = import.meta.env.BASE_URL || '/';
-          if (window.history && window.history.pushState) {
-            window.history.pushState({}, '', base);
-          }
-          window.location.hash = '#home';
-          setIsGamePage(false);
-        }}
+        onBack={handleBack}
+        onSwitchGame={handleSwitchGame}
       />
     );
   }
