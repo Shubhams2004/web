@@ -109,6 +109,30 @@ class MissionControlAudio {
     } catch {}
   }
 
+  // General retro UI beep
+  public playBeep(freq: number = 800, duration: number = 0.08) {
+    if (this.muted) return;
+    const ctx = this.initContext();
+    if (!ctx) return;
+
+    try {
+      const now = ctx.currentTime;
+      const osc = ctx.createOscillator();
+      const gain = ctx.createGain();
+
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, now);
+
+      gain.gain.setValueAtTime(0.06, now);
+      gain.gain.exponentialRampToValueAtTime(0.001, now + duration);
+
+      osc.connect(gain);
+      gain.connect(ctx.destination);
+      osc.start(now);
+      osc.stop(now + duration);
+    } catch {}
+  }
+
   // Diagnostic scanner sweep
   public playDiagnosticSweep() {
     if (this.muted) return;

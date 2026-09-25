@@ -46,15 +46,15 @@ app.get(['/api/business-rss', '/web/api/business-rss'], async (req, res) => {
   }
 });
 
-// API: GET /api/news (Once a day daily edition)
+// API: GET /api/news (Live News Wire)
 app.get(['/api/news', '/web/api/news'], async (req, res) => {
   try {
-    const topic = req.query.topic || 'Top World';
+    const topic = req.query.topic || 'All';
     const force = req.query.force === 'true';
     const data = await fetchLiveNews(topic, getGroqApiKey(), force);
     res.json(data);
   } catch (err) {
-    res.status(500).json({ error: 'Failed to fetch daily news', message: err instanceof Error ? err.message : String(err) });
+    res.status(500).json({ error: 'Failed to fetch live news', message: err instanceof Error ? err.message : String(err) });
   }
 });
 

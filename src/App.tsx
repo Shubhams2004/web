@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Footer } from './components/common';
 import { Hero, About, TrendingCaseStudies, Contact } from './components/sections';
+import { FeaturedExperienceCard, LiveWorldFeed } from './components/playground';
 import { CaseStudyPage } from './components/case-studies';
 import { NewsPlatformPage } from './components/news';
 import { RetroGamePage, ZombieGamePage, PixelDungeonPage, GameId } from './games';
@@ -270,9 +271,14 @@ export default function App() {
       {/* Navigation */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Content Sections: Brief Intro + Trending Business Case Studies centerpiece + About + Contact */}
+      {/* Main Content Sections: Living Retro Playground (Hero + Signal Console + Featured Experience + Live World Feed) + Trending Business Case Studies + About + Contact */}
       <main className="flex-1">
         <Hero
+          onLaunchGame={(id) => {
+            setActiveGameId(id as GameId);
+            setIsGamePage(true);
+            window.location.hash = `#/game/${id}`;
+          }}
           onOpenRssDiscovery={() => {
             const btn = document.getElementById('discover-rss-btn');
             if (btn) {
@@ -283,6 +289,14 @@ export default function App() {
             }
           }}
         />
+        <FeaturedExperienceCard
+          onLaunchGame={(id) => {
+            setActiveGameId(id as GameId);
+            setIsGamePage(true);
+            window.location.hash = `#/game/${id}`;
+          }}
+        />
+        <LiveWorldFeed />
         <TrendingCaseStudies />
         <About />
         <Contact />

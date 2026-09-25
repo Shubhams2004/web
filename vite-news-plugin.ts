@@ -1,5 +1,10 @@
 import type { Plugin } from 'vite';
-import { fetchLiveNews, startDailyNewsScheduler, getDailyNewsStatus } from './src/server/newsService';
+import {
+  fetchLiveNews,
+  startDailyNewsScheduler,
+  getDailyNewsStatus,
+  generateNewsSnapshotJson,
+} from './src/server/newsService';
 import { getClientFallback } from './src/data/newsFallback';
 import {
   getAllCaseStudies,
@@ -221,6 +226,19 @@ export function newsApiPlugin(apiKey: string): Plugin {
           }
         }
       });
+    },
+    async generateBundle() {
+      try {
+        const effectiveKey = apiKey || process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '';
+        const snapshot = await generateNewsSnapshotJson(effectiveKey);
+        this.emitFile({
+          type: 'asset',
+          fileName: 'data/live-news.json',
+          source: JSON.stringify(snapshot, null, 2),
+        });
+      } catch (err) {
+        console.warn('[vite-news-plugin] Could not generate live-news.json asset:', err);
+      }
     },
   };
 }

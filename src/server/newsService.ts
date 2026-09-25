@@ -33,17 +33,22 @@ const PREFERRED_NEWS_MODELS = [
   'openai/gpt-oss-20b',
   'llama-3.3-70b-versatile',
 ];
-const MAX_ITEMS = 6;
-const CACHE_TTL_MS = 24 * 60 * 60 * 1000; // 24-hour daily cycle (run once a day)
+const MAX_ITEMS = 16;
+const CACHE_TTL_MS = 15 * 60 * 1000; // 15-minute live cache cycle (prevents API hammering while keeping news fresh)
 const CACHE_FILE = path.join(os.tmpdir(), 'v0-live-news-cache.json');
 
 export const PRIMARY_DAILY_TOPICS = [
+  'All',
   'Top World',
   'Technology',
   'Business & Markets',
+  'India',
+  'Maharashtra',
+  'Politics',
+  'Sports',
+  'Entertainment',
   'AI & Research',
   'Science',
-  'Design & UX',
 ];
 
 export function getTodayDateKey(): string {
@@ -96,14 +101,14 @@ export async function fetchLiveNews(
   const entry = store[key];
   const now = Date.now();
 
-  // If today's edition is already cached and not forced, return immediately
-  if (!forceRefresh && entry && (entry.dateKey === todayKey || now - entry.fetchedAt < CACHE_TTL_MS)) {
+  // If live edition is already cached within TTL and not forced, return immediately
+  if (!forceRefresh && entry && now - entry.fetchedAt < CACHE_TTL_MS) {
     return {
       ...entry.data,
       cached: true,
       dailyEdition: entry.data.dailyEdition || getTodayFormatted(),
       nextDailyUpdate: entry.data.nextDailyUpdate || getNextDailyUpdateIso(),
-      updateFrequency: 'Daily (Refreshed once a day)',
+      updateFrequency: 'Live News Wire (15-min refresh cycle)',
     };
   }
 
@@ -112,16 +117,16 @@ export async function fetchLiveNews(
 
   const request = fetchFreshNews(topic, apiKey)
     .then(async (fresh) => {
-      const dailyData: NewsResult = {
+      const liveData: NewsResult = {
         ...fresh,
         dailyEdition: getTodayFormatted(),
-        nextDailyUpdate: getNextDailyUpdateIso(),
-        updateFrequency: 'Daily (Refreshed once a day)',
+        nextDailyUpdate: new Date(Date.now() + CACHE_TTL_MS).toISOString(),
+        updateFrequency: 'Live News Wire (15-min refresh cycle)',
       };
-      store[key] = { data: dailyData, fetchedAt: Date.now(), dateKey: todayKey };
+      store[key] = { data: liveData, fetchedAt: Date.now(), dateKey: todayKey };
       memoryCache = store;
       await saveCache(store);
-      return dailyData;
+      return liveData;
     })
     .catch((error) => {
       // Return stale cache if available
@@ -131,7 +136,7 @@ export async function fetchLiveNews(
           cached: true,
           dailyEdition: entry.data.dailyEdition || getTodayFormatted(),
           nextDailyUpdate: entry.data.nextDailyUpdate || getNextDailyUpdateIso(),
-          updateFrequency: 'Daily (Refreshed once a day)',
+          updateFrequency: 'Live News Wire (15-min refresh cycle)',
         };
       }
       // Fall back to curated live items rather than breaking the UI
@@ -139,8 +144,8 @@ export async function fetchLiveNews(
       return {
         ...fallback,
         dailyEdition: getTodayFormatted(),
-        nextDailyUpdate: getNextDailyUpdateIso(),
-        updateFrequency: 'Daily (Refreshed once a day)',
+        nextDailyUpdate: new Date(Date.now() + CACHE_TTL_MS).toISOString(),
+        updateFrequency: 'Live News Wire (15-min refresh cycle)',
       };
     })
     .finally(() => {
@@ -243,10 +248,18 @@ function normalizeTopic(topicInput: string): string {
 
 function getTopicQuery(topic: string): string {
   const map: Record<string, string> = {
-    'top world': 'world news international',
-    'technology': 'technology software tech industry',
-    'business & markets': 'business economy financial markets',
+    'all': 'top news headlines world business technology India',
+    'top world': 'world news international top stories foreign affairs',
+    'world': 'world international global diplomacy foreign affairs',
+    'india': 'India national news policy government economy development',
+    'maharashtra': 'Maharashtra Mumbai Pune infrastructure state civic',
+    'politics': 'politics parliament elections policy governance government',
+    'business & markets': 'business economy financial markets stock market corporate',
+    'business': 'business economy financial markets corporate earnings startup',
+    'technology': 'technology software artificial intelligence tech industry gadgets',
     'ai & research': 'artificial intelligence machine learning AI research',
+    'sports': 'sports cricket football tournament championship athletes',
+    'entertainment': 'entertainment cinema movies arts culture music streaming',
     'science': 'scientific discovery space science breakthrough',
     'design & ux': 'product design user experience UX technology',
   };
@@ -281,6 +294,22 @@ async function fetchFreshNews(topic: string, apiKey?: string): Promise<NewsResul
     return getFallbackNews(topic);
   }
 
+  // Deduplicate items by URL and normalized title
+  const seenUrls = new Set<string>();
+  const seenTitles = new Set<string>();
+  const deduplicatedItems: NewsItem[] = [];
+
+  for (const it of items) {
+    const normTitle = it.title.toLowerCase().replace(/[^a-z0-9]/g, '');
+    const urlKey = it.url ? it.url.toLowerCase() : normTitle;
+    if (!seenUrls.has(urlKey) && !seenTitles.has(normTitle)) {
+      seenUrls.add(urlKey);
+      seenTitles.add(normTitle);
+      deduplicatedItems.push(it);
+    }
+  }
+  items = deduplicatedItems;
+
   // If Groq API key is available, optionally enrich summaries (best-effort)
   if (apiKey && items.length > 0) {
     try {
@@ -290,7 +319,7 @@ async function fetchFreshNews(topic: string, apiKey?: string): Promise<NewsResul
     }
   }
 
-  // Deduplicate and extract unique sources
+  // Extract unique sources
   const seenSources = new Set<string>();
   for (const item of items) {
     if (item.source && !seenSources.has(item.source.toLowerCase())) {
@@ -554,3 +583,36 @@ async function saveCache(store: CacheStore): Promise<void> {
     // Non-fatal
   }
 }
+
+/**
+ * Generates a comprehensive static news snapshot across key beats.
+ * Used for building static datasets for GitHub Pages hosting.
+ */
+export async function generateNewsSnapshotJson(
+  apiKey?: string
+): Promise<Record<string, NewsResult>> {
+  const topics = [
+    'All',
+    'Technology',
+    'Business & Markets',
+    'India',
+    'Maharashtra',
+    'World',
+    'Politics',
+    'Sports',
+    'Entertainment',
+  ];
+  const snapshot: Record<string, NewsResult> = {};
+
+  for (const topic of topics) {
+    try {
+      const res = await fetchLiveNews(topic, apiKey, false);
+      snapshot[topic.toLowerCase()] = res;
+    } catch {
+      snapshot[topic.toLowerCase()] = getFallbackNews(topic);
+    }
+  }
+
+  return snapshot;
+}
+

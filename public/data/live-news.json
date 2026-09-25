@@ -1,0 +1,98 @@
+{
+  "all": {
+    "topic": "All",
+    "generatedAt": "2026-09-25T08:00:00.000Z",
+    "updateFrequency": "Live News Wire (15-min refresh cycle)",
+    "items": [
+      {
+        "title": "India Unveils $12 Billion National Semiconductor Fabrication Mission with 3 New Silicon Foundries",
+        "summary": "The Union Cabinet has cleared advanced fiscal incentives and technology transfer pacts to establish world-class semiconductor fabs and testing units across Gujarat and Maharashtra.",
+        "source": "Financial Express & Tech Wire",
+        "publishedAt": "25 minutes ago",
+        "url": "https://news.google.com/search?q=India+Semiconductor+Mission"
+      },
+      {
+        "title": "Global Central Banks Signal Coordinated Liquidity Frameworks as Inflation Normalizes",
+        "summary": "Monetary policy committees across North America, Europe, and Asia align on stable interest rate environments supporting sustained manufacturing expansion.",
+        "source": "Reuters",
+        "publishedAt": "35 minutes ago",
+        "url": "https://news.google.com/search?q=Global+Central+Banks"
+      },
+      {
+        "title": "Frontier AI Labs Deploy Dynamic Multi-Modal Reasoning Models with Sub-Second Latency",
+        "summary": "Engineering breakthroughs in dynamic test-time compute and local speculative decoding deliver unprecedented analytical throughput for enterprise systems.",
+        "source": "MIT Technology Review",
+        "publishedAt": "1 hour ago",
+        "url": "https://news.google.com/search?q=Frontier+AI+Models"
+      },
+      {
+        "title": "Mumbai Coastal Expressway Northern Corridor Passes Final Structural and Safety Inspections",
+        "summary": "Municipal corporation engineers verify ventilation and safety dampers inside the 2.07 km twin undersea tunnels, reducing South Mumbai to Bandra commute to 12 minutes.",
+        "source": "The Indian Express",
+        "publishedAt": "2 hours ago",
+        "url": "https://news.google.com/search?q=Mumbai+Coastal+Road"
+      },
+      {
+        "title": "Global Semiconductor Manufacturers Accelerate 2nm Fab Timelines with Advanced EUV Optics",
+        "summary": "Foundry expansions in the US and Europe signal intensified competition for next-generation computing hardware and AI accelerator silicon.",
+        "source": "Bloomberg",
+        "publishedAt": "3 hours ago",
+        "url": "https://news.google.com/search?q=Semiconductor+2nm"
+      },
+      {
+        "title": "International Space Agencies Coordinate Deep-Space Communications Relay for Lunar Missions",
+        "summary": "A multilateral telecommunications consortium establishes high-bandwidth optical laser links between lunar orbiters and terrestrial deep-space networks.",
+        "source": "Nature Science",
+        "publishedAt": "4 hours ago",
+        "url": "https://news.google.com/search?q=Lunar+Communications+Relay"
+      }
+    ]
+  },
+  "technology": {
+    "topic": "Technology",
+    "generatedAt": "2026-09-25T08:00:00.000Z",
+    "items": [
+      {
+        "title": "Frontier AI Labs Unveil New Architectures for Multi-Modal Reasoning",
+        "summary": "Recent benchmarks show breakthroughs in reasoning efficiency, dynamic test-time compute, and domain-specific validation systems.",
+        "source": "MIT Technology Review",
+        "publishedAt": "1 hour ago",
+        "url": "https://news.google.com/search?q=AI+Research"
+      },
+      {
+        "title": "Global Semiconductor Manufacturers Accelerate 2nm Fab Timelines",
+        "summary": "Foundry expansions in the US and Europe signal intensified competition for next-generation computing hardware.",
+        "source": "Reuters",
+        "publishedAt": "2 hours ago",
+        "url": "https://news.google.com/search?q=Technology+Hardware"
+      },
+      {
+        "title": "Cloud Infrastructure Providers Roll Out Zero-Trust Quantum-Safe Encryption",
+        "summary": "Major cloud platforms are migrating core cryptographic protocols to resist future quantum decryption risks.",
+        "source": "Ars Technica",
+        "publishedAt": "4 hours ago",
+        "url": "https://news.google.com/search?q=Cloud+Security"
+      }
+    ]
+  },
+  "business": {
+    "topic": "Business & Markets",
+    "generatedAt": "2026-09-25T08:00:00.000Z",
+    "items": [
+      {
+        "title": "Global Economic Forum Outlines Strategic Policy Shifts for Multilateral Trade",
+        "summary": "International finance ministers and trade authorities convene to address supply chain resilience, cross-border payments, and digital asset governance.",
+        "source": "Reuters",
+        "publishedAt": "2 hours ago",
+        "url": "https://news.google.com/search?q=World+Economic+Forum"
+      },
+      {
+        "title": "Central Banks Assess Quantitative Easing Impacts Amid Easing Inflationary Pressure",
+        "summary": "Monetary policy committees signal stable interest rate environments as consumer index markers normalize globally.",
+        "source": "Bloomberg",
+        "publishedAt": "3 hours ago",
+        "url": "https://news.google.com/search?q=Global+Central+Banks"
+      }
+    ]
+  }
+}
