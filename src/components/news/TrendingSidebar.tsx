@@ -55,16 +55,14 @@ export const TrendingSidebar: React.FC<TrendingSidebarProps> = ({
 
                 {/* Article Info */}
                 <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 text-[10px] text-slate-400 mb-1">
+                  <div className="flex items-center gap-1.5 text-[10px] text-slate-400 mb-1">
                     <span className="font-semibold text-slate-600 uppercase tracking-wider">
                       {article.category}
                     </span>
-                    {article.viewsCount && (
-                      <>
-                        <span>·</span>
-                        <span>{article.viewsCount} reads</span>
-                      </>
-                    )}
+                    <span>·</span>
+                    <span className="truncate max-w-[130px] font-medium text-slate-500">
+                      {article.source || 'Wire'}
+                    </span>
                   </div>
 
                   <h4 className="text-xs sm:text-sm font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug line-clamp-2">

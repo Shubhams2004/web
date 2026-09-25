@@ -83,6 +83,8 @@ export interface BusinessCaseStudy {
   rssHeadlineReference?: string;
   generatedByGroq?: boolean;
   generatedAt?: string;
+  isLive?: boolean;
+  rankingSignal?: string;
 }
 
 export interface BusinessRssStory {
@@ -203,9 +205,12 @@ export interface NewsArticle {
   summary: string;
   content: string[];
   category: NewsCategory;
-  author: {
+  source?: string;
+  url?: string;
+  isLive?: boolean;
+  author?: {
     name: string;
-    role: string;
+    role?: string;
     avatar?: string;
   };
   publishedAt: string;

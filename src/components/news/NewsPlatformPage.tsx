@@ -206,15 +206,15 @@ export const NewsPlatformPage: React.FC<NewsPlatformPageProps> = ({
         const query = searchQuery.toLowerCase().trim();
         const matchesTitle = article.title.toLowerCase().includes(query);
         const matchesSummary = article.summary.toLowerCase().includes(query);
-        const matchesLocation = article.location?.toLowerCase().includes(query);
-        const matchesAuthor = article.author.name.toLowerCase().includes(query);
+        const matchesSource = article.source?.toLowerCase().includes(query) || false;
+        const matchesAuthor = article.author?.name?.toLowerCase().includes(query) || false;
         const matchesTags = article.tags.some((tag) => tag.toLowerCase().includes(query));
         const matchesCategory = article.category.toLowerCase().includes(query);
 
         return (
           matchesTitle ||
           matchesSummary ||
-          matchesLocation ||
+          matchesSource ||
           matchesAuthor ||
           matchesTags ||
           matchesCategory

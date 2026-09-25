@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback, useRef } from 'react';
 import {
   Activity,
   Pause,
@@ -7,11 +7,14 @@ import {
   Radio,
   Gamepad2,
   Sparkles,
-  ShieldAlert,
   ChevronRight,
-  Filter,
+  ExternalLink,
+  RefreshCw,
+  Clock,
 } from 'lucide-react';
 import { missionAudio } from '../../mission-control/audio';
+import { fetchNewsArticles, formatRelativeTime } from '../../utils/newsApi';
+import { NewsArticle } from '../../types';
 
 export type FeedEventType = 'SYSTEM EVENT' | 'GAME DISCOVERED' | 'SECRET DETECTED' | 'SIGNAL RECEIVED';
 
@@ -23,98 +26,42 @@ export interface FeedItem {
   timestamp: string;
   source: string;
   linkRoute?: string;
+  externalUrl?: string;
   actionText?: string;
   isSecret?: boolean;
+  isLiveNews?: boolean;
 }
 
-const INITIAL_FEED_ITEMS: FeedItem[] = [
+const BASE_TELEMETRY_ITEMS: FeedItem[] = [
   {
-    id: 'ev-1',
-    type: 'SIGNAL RECEIVED',
-    title: 'Carrier Frequency Locked',
-    detail: 'Orbital relay beacon synchronized at 142.85 MHz. Clean telemetry.',
-    timestamp: 'Just now',
-    source: 'RELAY-07',
-  },
-  {
-    id: 'ev-2',
-    type: 'GAME DISCOVERED',
-    title: 'Pixel Dungeon Crypt Explored',
-    detail: 'Hero cleared Chamber Level 3, collected bronze chest and dagger.',
-    timestamp: '2m ago',
-    source: 'ARCADE-SUITE',
-    linkRoute: '#/game/pixel-dungeon',
-    actionText: 'Enter Dungeon',
-  },
-  {
-    id: 'ev-3',
+    id: 'ev-base-1',
     type: 'SYSTEM EVENT',
-    title: 'Market Catalyst Indexed',
-    detail: 'Breaking corporate restructuring synthesized into empirical case study.',
-    timestamp: '5m ago',
+    title: 'Quantum Telemetry Synchronized',
+    detail: 'Research cache & analytical processor running on nominal cycles.',
+    timestamp: 'Recent',
     source: 'RESEARCH-CORE',
     linkRoute: '#case-studies',
-    actionText: 'View Study',
+    actionText: 'View Case Studies',
   },
   {
-    id: 'ev-4',
+    id: 'ev-base-2',
+    type: 'GAME DISCOVERED',
+    title: 'Arcade Suite Primed',
+    detail: 'Pixel Dungeon, Zombie Survival, and Retro Racer active on 60 FPS canvas.',
+    timestamp: 'Recent',
+    source: 'ARCADE-SUITE',
+    linkRoute: '#/game',
+    actionText: 'Launch Arcade',
+  },
+  {
+    id: 'ev-base-3',
     type: 'SECRET DETECTED',
-    title: 'Subterranean Frequency Pinged',
-    detail: 'Cipher code accepted: [Ctrl+Shift+M] triggers subterranean command center.',
-    timestamp: '8m ago',
+    title: 'Subterranean Frequency Intercepted',
+    detail: 'Terminal shortcut [Ctrl+Shift+M] opens classified Mission Control HQ.',
+    timestamp: 'Recent',
     source: 'MISSION-CONTROL',
     linkRoute: '#/mission-control',
     actionText: 'Access HQ',
-    isSecret: true,
-  },
-  {
-    id: 'ev-5',
-    type: 'SIGNAL RECEIVED',
-    title: 'Newsroom Wire Feed Synced',
-    detail: 'Incoming live RSS bulletins deconstructed via Groq AI processor.',
-    timestamp: '12m ago',
-    source: 'NEWSROOM',
-    linkRoute: '#/news',
-    actionText: 'Read Wire',
-  },
-];
-
-const RANDOM_EVENT_TEMPLATES: Omit<FeedItem, 'id' | 'timestamp'>[] = [
-  {
-    type: 'SIGNAL RECEIVED',
-    title: 'Atmospheric Pulse Captured',
-    detail: 'Sub-audible carrier bounce registered across 88.40 MHz.',
-    source: 'RADAR-GRID',
-  },
-  {
-    type: 'GAME DISCOVERED',
-    title: 'Retro Highway Pursuit Recorded',
-    detail: 'Speed achieved: 210 MPH without bumper contact. Turbo active.',
-    source: 'RETRO-RACER',
-    linkRoute: '#/game/retro-racer',
-    actionText: 'Race Now',
-  },
-  {
-    type: 'SYSTEM EVENT',
-    title: 'Telemetry Buffer Purged',
-    detail: 'High-speed cache cycle executed. 0 memory leaks across components.',
-    source: 'SYS-MONITOR',
-  },
-  {
-    type: 'GAME DISCOVERED',
-    title: 'Zombie Quarantine Cleared',
-    detail: 'Tactical nuke power-up detonated in Sector 4. Wave 7 survived.',
-    source: 'ZOMBIE-SURVIVAL',
-    linkRoute: '#/game/zombie-survival',
-    actionText: 'Defend Arena',
-  },
-  {
-    type: 'SECRET DETECTED',
-    title: 'Chaos Subsystem Intercepted',
-    detail: 'Glitch generator primed with pixel rain, wobble, and alien relays.',
-    source: 'CHAOS-HQ',
-    linkRoute: '#/mission-control',
-    actionText: 'Inspect Chaos',
     isSecret: true,
   },
 ];
@@ -128,29 +75,82 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
   className = '',
   onItemClick,
 }) => {
-  const [items, setItems] = useState<FeedItem[]>(INITIAL_FEED_ITEMS);
+  const [items, setItems] = useState<FeedItem[]>(BASE_TELEMETRY_ITEMS);
   const [isPaused, setIsPaused] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isLiveWire, setIsLiveWire] = useState(false);
+  const [lastUpdated, setLastUpdated] = useState<Date | null>(null);
+  const [relativeUpdated, setRelativeUpdated] = useState('Just now');
   const [activeFilter, setActiveFilter] = useState<'ALL' | FeedEventType>('ALL');
   const [selectedItem, setSelectedItem] = useState<FeedItem | null>(null);
 
-  // Periodically prepend simulated live event if not paused
+  const isFetchingRef = useRef(false);
+
+  // Load real live news from repository API and transform into feed items
+  const loadLiveFeedNews = useCallback(async (isManual = false) => {
+    if (isFetchingRef.current) return;
+    isFetchingRef.current = true;
+    if (isManual) setIsLoading(true);
+
+    try {
+      const res = await fetchNewsArticles('All', isManual);
+      if (Array.isArray(res.articles) && res.articles.length > 0) {
+        // Convert real live articles into authentic feed items
+        const liveFeedItems: FeedItem[] = res.articles.map((art, idx) => ({
+          id: `news-${art.id}-${idx}`,
+          type: 'SIGNAL RECEIVED',
+          title: art.title,
+          detail: art.summary,
+          timestamp: art.publishedAt || 'Recent',
+          source: art.source ? art.source.toUpperCase() : 'NEWS WIRE',
+          externalUrl: art.url,
+          linkRoute: '#/news',
+          actionText: art.url ? 'Read Source' : 'View in Newsroom',
+          isLiveNews: true,
+        }));
+
+        setItems([
+          ...liveFeedItems.slice(0, 7),
+          ...BASE_TELEMETRY_ITEMS,
+          ...liveFeedItems.slice(7, 12),
+        ]);
+        setIsLiveWire(res.fromBackend);
+        const updateTime = new Date();
+        setLastUpdated(updateTime);
+        setRelativeUpdated(formatRelativeTime(updateTime));
+      }
+    } catch {
+      // Preserve existing items
+    } finally {
+      isFetchingRef.current = false;
+      setIsLoading(false);
+    }
+  }, []);
+
+  // Fetch on mount
   useEffect(() => {
-    if (isPaused) return;
+    loadLiveFeedNews(false);
+  }, [loadLiveFeedNews]);
 
-    const interval = window.setInterval(() => {
-      const template =
-        RANDOM_EVENT_TEMPLATES[Math.floor(Math.random() * RANDOM_EVENT_TEMPLATES.length)];
-      const newItem: FeedItem = {
-        ...template,
-        id: `ev-${Date.now()}-${Math.random().toString(36).substring(2, 6)}`,
-        timestamp: 'Just now',
-      };
-
-      setItems((prev) => [newItem, ...prev.slice(0, 11)]);
-    }, 11000);
+  // Periodic 15-minute refresh
+  useEffect(() => {
+    const interval = setInterval(() => {
+      if (!isPaused) {
+        loadLiveFeedNews(false);
+      }
+    }, 15 * 60 * 1000);
 
     return () => clearInterval(interval);
-  }, [isPaused]);
+  }, [isPaused, loadLiveFeedNews]);
+
+  // Tick relative time
+  useEffect(() => {
+    if (!lastUpdated) return;
+    const tick = setInterval(() => {
+      setRelativeUpdated(formatRelativeTime(lastUpdated));
+    }, 30000);
+    return () => clearInterval(tick);
+  }, [lastUpdated]);
 
   const filteredItems = items.filter((it) => {
     if (activeFilter === 'ALL') return true;
@@ -193,10 +193,15 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
     }
   };
 
-  const handleAction = (route?: string) => {
-    if (!route) return;
+  const handleAction = (item: FeedItem) => {
     missionAudio.playBeep(880, 0.08);
-    window.location.hash = route;
+    if (item.externalUrl) {
+      window.open(item.externalUrl, '_blank', 'noopener,noreferrer');
+      return;
+    }
+    if (item.linkRoute) {
+      window.location.hash = item.linkRoute;
+    }
   };
 
   return (
@@ -216,31 +221,50 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
               <Activity className="w-4 h-4" />
             </div>
             <div>
-              <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
-                <span>LIVE ACTIVITY & WORLD FEED</span>
-                <span className="flex h-2 w-2 relative">
-                  <span
-                    className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
-                      isPaused ? 'bg-amber-400' : 'bg-emerald-400'
-                    }`}
-                  />
-                  <span
-                    className={`relative inline-flex rounded-full h-2 w-2 ${
-                      isPaused ? 'bg-amber-500' : 'bg-emerald-500'
-                    }`}
-                  />
-                </span>
-              </h2>
-              <p className="text-[11px] text-slate-400 font-normal">
-                Real-time telemetry, arcade milestones, and secret discovery logs
+              <div className="flex items-center gap-2">
+                <h2 className="text-base sm:text-lg font-bold text-white tracking-tight flex items-center gap-2">
+                  <span>LIVE ACTIVITY & WORLD FEED</span>
+                  <span className="flex h-2 w-2 relative">
+                    <span
+                      className={`animate-ping absolute inline-flex h-full w-full rounded-full opacity-75 ${
+                        isPaused ? 'bg-amber-400' : 'bg-emerald-400'
+                      }`}
+                    />
+                    <span
+                      className={`relative inline-flex rounded-full h-2 w-2 ${
+                        isPaused ? 'bg-amber-500' : 'bg-emerald-500'
+                      }`}
+                    />
+                  </span>
+                </h2>
+
+                {isLiveWire ? (
+                  <span className="px-2 py-0.5 rounded bg-emerald-500/20 border border-emerald-500/40 text-emerald-300 text-[10px] font-bold">
+                    LIVE WIRE
+                  </span>
+                ) : (
+                  <span className="px-2 py-0.5 rounded bg-slate-800 border border-slate-700 text-slate-400 text-[10px]">
+                    ARCHIVE FEED
+                  </span>
+                )}
+              </div>
+              <p className="text-[11px] text-slate-400 font-normal mt-0.5">
+                Real-world news dispatches, research milestones, and telemetry signals
               </p>
             </div>
           </div>
 
           <div className="flex flex-wrap items-center gap-2 text-xs">
+            {lastUpdated && (
+              <span className="hidden md:inline-flex items-center gap-1 text-[11px] text-slate-400">
+                <Clock className="w-3 h-3 text-slate-400" />
+                <span>Updated {relativeUpdated}</span>
+              </span>
+            )}
+
             {/* Filter buttons */}
             <div className="flex items-center gap-1 bg-slate-950 p-1 rounded-lg border border-slate-800">
-              {(['ALL', 'SYSTEM EVENT', 'GAME DISCOVERED', 'SECRET DETECTED', 'SIGNAL RECEIVED'] as const).map(
+              {(['ALL', 'SIGNAL RECEIVED', 'SYSTEM EVENT', 'GAME DISCOVERED', 'SECRET DETECTED'] as const).map(
                 (filter) => (
                   <button
                     key={filter}
@@ -257,17 +281,32 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
                   >
                     {filter === 'ALL'
                       ? 'ALL'
+                      : filter === 'SIGNAL RECEIVED'
+                      ? 'WIRE NEWS'
                       : filter === 'SYSTEM EVENT'
                       ? 'SYSTEM'
                       : filter === 'GAME DISCOVERED'
                       ? 'GAMES'
-                      : filter === 'SECRET DETECTED'
-                      ? 'SECRETS'
-                      : 'SIGNALS'}
+                      : 'SECRETS'}
                   </button>
                 )
               )}
             </div>
+
+            {/* Manual Refresh Button */}
+            <button
+              type="button"
+              onClick={() => {
+                missionAudio.playBeep(640, 0.05);
+                loadLiveFeedNews(true);
+              }}
+              disabled={isLoading}
+              className="inline-flex items-center gap-1 px-2.5 py-1 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-300 text-xs font-semibold border border-slate-700 transition-colors cursor-pointer disabled:opacity-50"
+              title="Refresh live feed"
+            >
+              <RefreshCw className={`w-3 h-3 text-slate-400 ${isLoading ? 'animate-spin' : ''}`} />
+              <span className="text-[11px]">SYNC</span>
+            </button>
 
             {/* Pause/Play Stream Button */}
             <button
@@ -305,30 +344,42 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
                     )}`}
                   >
                     {getIcon(item.type)}
-                    <span>{item.type}</span>
+                    <span>{item.type === 'SIGNAL RECEIVED' ? 'LIVE DISPATCH' : item.type}</span>
                   </span>
                   <span className="text-slate-400">{item.timestamp}</span>
                 </div>
 
-                <h3 className="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors">
+                <h3 className="text-xs sm:text-sm font-bold text-white mb-1 group-hover:text-cyan-400 transition-colors line-clamp-2">
                   {item.title}
                 </h3>
-                <p className="text-[11px] text-slate-400 leading-relaxed font-normal mb-3">
+                <p className="text-[11px] text-slate-400 leading-relaxed font-normal mb-3 line-clamp-2">
                   {item.detail}
                 </p>
               </div>
 
               <div className="flex items-center justify-between pt-2 border-t border-slate-800/80 text-[10px] text-slate-400">
-                <span className="truncate max-w-[130px] font-semibold text-slate-400">
+                <span className="truncate max-w-[140px] font-semibold text-slate-300">
                   {item.source}
                 </span>
 
-                {item.linkRoute ? (
+                {item.externalUrl ? (
                   <button
                     type="button"
                     onClick={(e) => {
                       e.stopPropagation();
-                      handleAction(item.linkRoute);
+                      handleAction(item);
+                    }}
+                    className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 font-bold cursor-pointer"
+                  >
+                    <span>Read Source</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </button>
+                ) : item.linkRoute ? (
+                  <button
+                    type="button"
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      handleAction(item);
                     }}
                     className="inline-flex items-center gap-0.5 text-cyan-400 hover:text-cyan-300 font-bold cursor-pointer"
                   >
@@ -336,35 +387,50 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
                     <ChevronRight className="w-3 h-3 group-hover:translate-x-0.5 transition-transform" />
                   </button>
                 ) : (
-                  <span className="text-slate-400">NOMINAL</span>
+                  <span className="text-slate-500 font-mono">NOMINAL</span>
                 )}
               </div>
             </div>
           ))}
         </div>
 
-        {/* Selected Item Detail Modal / Banner */}
+        {/* Selected Item Detail Popover / Inspector */}
         {selectedItem && (
-          <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-cyan-500/40 flex items-center justify-between gap-4 text-xs">
-            <div className="flex items-center gap-2">
-              <span className="text-cyan-400 font-bold">INSPECTING:</span>
-              <span className="text-white font-semibold">{selectedItem.title}</span>
-              <span className="hidden sm:inline text-slate-400">— {selectedItem.detail}</span>
+          <div className="mt-4 p-3.5 rounded-xl bg-slate-950 border border-cyan-500/40 flex flex-col sm:flex-row sm:items-center justify-between gap-3 text-xs animate-fade-in">
+            <div className="min-w-0 flex-1">
+              <div className="flex items-center gap-2 mb-1">
+                <span className="text-cyan-400 font-bold uppercase tracking-wider text-[10px]">
+                  [CARRIER INSPECT]
+                </span>
+                <span className="text-slate-400 text-[10px]">{selectedItem.source}</span>
+              </div>
+              <h4 className="text-white font-bold text-xs sm:text-sm">{selectedItem.title}</h4>
+              <p className="text-slate-400 text-[11px] mt-1">{selectedItem.detail}</p>
             </div>
             <div className="flex items-center gap-2 shrink-0">
-              {selectedItem.linkRoute && (
+              {selectedItem.externalUrl ? (
+                <a
+                  href={selectedItem.externalUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs transition-colors cursor-pointer"
+                >
+                  <span>Open Source</span>
+                  <ExternalLink className="w-3.5 h-3.5" />
+                </a>
+              ) : selectedItem.linkRoute ? (
                 <button
                   type="button"
-                  onClick={() => handleAction(selectedItem.linkRoute)}
-                  className="px-2.5 py-1 rounded bg-blue-600 hover:bg-blue-500 text-white font-bold text-[11px] cursor-pointer"
+                  onClick={() => handleAction(selectedItem)}
+                  className="px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs cursor-pointer"
                 >
                   {selectedItem.actionText || 'Visit'}
                 </button>
-              )}
+              ) : null}
               <button
                 type="button"
                 onClick={() => setSelectedItem(null)}
-                className="px-2 py-1 rounded bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-[11px] cursor-pointer"
+                className="px-2.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-slate-400 hover:text-white text-xs cursor-pointer"
               >
                 Dismiss
               </button>

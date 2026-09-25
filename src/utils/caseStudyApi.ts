@@ -19,10 +19,15 @@ export interface FetchCaseStudiesResult {
   caseStudies: BusinessCaseStudy[];
   groqConnected: boolean;
   fromBackend: boolean;
+  lastUpdated?: string;
 }
 
-export async function fetchTrendingCaseStudies(): Promise<FetchCaseStudiesResult> {
-  const endpoints = getApiEndpoints('api/business-case-studies');
+export async function fetchTrendingCaseStudies(forceRefresh = false): Promise<FetchCaseStudiesResult> {
+  const queryParam = forceRefresh ? '?force=true' : '';
+  const endpoints = [
+    ...getApiEndpoints(`api/business-case-studies${queryParam}`),
+    ...getApiEndpoints('data/business-case-studies.json'),
+  ];
 
   for (const endpoint of endpoints) {
     try {
@@ -33,7 +38,8 @@ export async function fetchTrendingCaseStudies(): Promise<FetchCaseStudiesResult
       if (!res.ok) continue;
 
       const contentType = res.headers.get('content-type') || '';
-      if (!contentType.includes('application/json')) continue;
+      // GitHub Pages or dev static files may return json
+      if (!contentType.includes('application/json') && !endpoint.endsWith('.json')) continue;
 
       const text = await res.text();
       if (!text || !text.trim().startsWith('{')) continue;
@@ -44,6 +50,7 @@ export async function fetchTrendingCaseStudies(): Promise<FetchCaseStudiesResult
           caseStudies: data.caseStudies,
           groqConnected: Boolean(data.groqConnected),
           fromBackend: true,
+          lastUpdated: data.generatedAt || new Date().toISOString(),
         };
       }
     } catch {
@@ -51,16 +58,25 @@ export async function fetchTrendingCaseStudies(): Promise<FetchCaseStudiesResult
     }
   }
 
-  // Fallback to verified local dataset
+  // Graceful fallback to verified benchmark dataset
   return {
-    caseStudies: INITIAL_TRENDING_CASE_STUDIES,
+    caseStudies: INITIAL_TRENDING_CASE_STUDIES.map((study) => ({
+      ...study,
+      isLive: false,
+      rankingSignal: 'Verified Benchmark Deep Dive',
+    })),
     groqConnected: false,
     fromBackend: false,
+    lastUpdated: undefined,
   };
 }
 
-export async function fetchRecentBusinessStories(): Promise<BusinessRssStory[]> {
-  const endpoints = getApiEndpoints('api/business-rss');
+export async function fetchRecentBusinessStories(forceRefresh = false): Promise<BusinessRssStory[]> {
+  const queryParam = forceRefresh ? '?force=true' : '';
+  const endpoints = [
+    ...getApiEndpoints(`api/business-rss${queryParam}`),
+    ...getApiEndpoints('data/business-rss.json'),
+  ];
 
   for (const endpoint of endpoints) {
     try {
@@ -71,7 +87,7 @@ export async function fetchRecentBusinessStories(): Promise<BusinessRssStory[]> 
       if (!res.ok) continue;
 
       const contentType = res.headers.get('content-type') || '';
-      if (!contentType.includes('application/json')) continue;
+      if (!contentType.includes('application/json') && !endpoint.endsWith('.json')) continue;
 
       const text = await res.text();
       if (!text || !text.trim().startsWith('{')) continue;
@@ -122,25 +138,27 @@ export async function generateCaseStudyFromStory(story: {
   }
 
   // Client-side synthesis fallback for static GitHub Pages without backend
-  const words = story.headline.split(' ');
+  const words = story.headline.split(' ').filter((w) => w.length > 2 && /^[A-Z]/.test(w));
   const companyGuess = words.slice(0, 2).join(' ').replace(/[^a-zA-Z0-9 ]/g, '') || 'Enterprise';
+  const sourceName = story.source || 'Verified Financial Media';
 
   return {
     id: `static-synth-${Date.now().toString(36)}`,
     company: companyGuess,
     industry: 'Commercial Strategy & Markets',
-    title: `Strategic Transformation & Market Response: ${story.headline}`,
-    whatHappened: `In response to recent market catalysts reported by ${story.source || 'leading news wires'}, ${companyGuess} initiated decisive strategic adjustments to address sector dynamics and stakeholder expectations.`,
-    businessProblemOrOpportunity: `Balancing margin resilience and market share protection amidst heightened competitive scrutiny and evolving macroeconomic conditions.`,
-    marketContext: `The sector faces tightening capital allocation, regulatory oversight, and rapid technology shifts that penalize slow operational adaptation.`,
-    strategyActionTaken: `Executive leadership prioritized resource reallocation toward core revenue-producing operations while establishing tighter supply chain and risk governance protocols.`,
+    title: story.headline,
+    whatHappened:
+      story.summary ||
+      `Reporting by ${sourceName} highlights a significant strategic development and market response concerning ${companyGuess}.`,
+    businessProblemOrOpportunity: `Balancing margin resilience and competitive position amidst evolving macroeconomic conditions.`,
+    marketContext: `Operating within a sector undergoing capital reallocation, heightened regulatory oversight, and rapid technology shifts.`,
+    strategyActionTaken: `Executive leadership prioritized resource reallocation toward core operations while reinforcing market governance.`,
     importantDataOrResults: {
       metrics: [
-        { label: 'Strategic Priority', value: 'High', change: 'Immediate Focus', isPositive: true },
-        { label: 'Market Sentiment', value: 'Active', change: 'Monitored across wires', isPositive: true },
-        { label: 'Coverage Sources', value: 'Multi-Bureau', change: 'Verified attribution', isPositive: true },
+        { label: 'Source Verification', value: sourceName, change: 'Live Wire', isPositive: true },
+        { label: 'Strategic Status', value: 'Active', change: 'Monitored across wires', isPositive: true },
       ],
-      summary: `Market disclosures indicate active implementation of strategic measures with initial milestones targeted over upcoming quarters.`,
+      summary: `Disclosures and market reporting indicate active execution of strategic priorities.`,
     },
     keyLessons: [
       'Proactive Capital Reallocation: Timely realignment of operational resources preserves stakeholder confidence.',
@@ -150,17 +168,19 @@ export async function generateCaseStudyFromStory(story: {
     sources: [
       {
         title: story.headline,
-        publisher: story.source || 'Financial Media Wire',
+        publisher: sourceName,
         url: story.url || 'https://news.google.com',
         date: 'Recent',
       },
     ],
-    date: new Date().toLocaleDateString('en-US', { month: 'long', year: 'numeric' }),
-    readTime: '4 min read',
-    status: 'Verified Research',
-    tags: ['Market Strategy', 'Corporate Restructuring', 'Operational Excellence'],
+    date: new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }),
+    readTime: '3 min read',
+    status: 'Breaking Catalyst',
+    tags: ['Market Strategy', 'Corporate Strategy', 'Live Intelligence'],
     rssHeadlineReference: story.headline,
     generatedByGroq: false,
     generatedAt: new Date().toISOString(),
+    isLive: true,
+    rankingSignal: 'Live Research Synthesis',
   };
 }

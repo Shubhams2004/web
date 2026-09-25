@@ -12,6 +12,7 @@ import {
   Zap,
 } from 'lucide-react';
 import { missionAudio } from '../../mission-control/audio';
+import { fetchNewsArticles } from '../../utils/newsApi';
 
 interface SignalMessage {
   id: string;
@@ -127,6 +128,32 @@ export const SignalConsole: React.FC<SignalConsoleProps> = ({
 
   const currentSignal = signalHistory[activeSignalIndex] || DEFAULT_SIGNALS[0];
   const timerRef = useRef<number | null>(null);
+
+  // Ingest real live news wire transmissions into signal rotation
+  useEffect(() => {
+    let isMounted = true;
+    fetchNewsArticles('All')
+      .then((res) => {
+        if (!isMounted || !Array.isArray(res.articles) || res.articles.length === 0) return;
+        const liveArticles = res.articles.slice(0, 2);
+        const liveSignals: SignalMessage[] = liveArticles.map((art, idx) => ({
+          id: `sig-wire-${art.id}-${idx}`,
+          frequency: `${(104.2 + idx * 3.8).toFixed(2)} MHz`,
+          source: `WIRE // ${art.source ? art.source.toUpperCase() : 'LIVE NEWS'}`,
+          status: 'LIVE_DISPATCH',
+          message: art.title,
+          actionLabel: 'Read Dispatch',
+          actionRoute: '#/news',
+        }));
+
+        setSignalHistory((prev) => [...liveSignals, ...prev]);
+      })
+      .catch(() => {});
+
+    return () => {
+      isMounted = false;
+    };
+  }, []);
 
   // Auto-cycle through signals slowly if not scanning
   useEffect(() => {

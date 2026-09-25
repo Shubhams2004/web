@@ -10,8 +10,11 @@ import {
   getAllCaseStudies,
   fetchBusinessRssStories,
   generateCaseStudyWithGroq,
+  generateCaseStudiesSnapshotJson,
 } from './src/server/caseStudyService';
 import { INITIAL_TRENDING_CASE_STUDIES, INITIAL_BUSINESS_RSS_STORIES } from './src/data/trendingCaseStudies';
+import * as fs from 'node:fs';
+import * as path from 'node:path';
 
 /**
  * Dev-server middleware exposing:
@@ -117,10 +120,12 @@ export function newsApiPlugin(apiKey: string): Plugin {
           return;
         }
 
+        const forceRefresh = rawUrl.includes('force=true');
+
         // --- Route: GET /api/business-rss ---
         if (isBusinessRss) {
           try {
-            const stories = await fetchBusinessRssStories();
+            const stories = await fetchBusinessRssStories(forceRefresh);
             res.statusCode = 200;
             res.end(JSON.stringify({ stories, count: stories.length, source: 'Business RSS Feed' }));
           } catch (err) {
@@ -140,7 +145,7 @@ export function newsApiPlugin(apiKey: string): Plugin {
         // --- Route: GET /api/business-case-studies ---
         if (isCaseStudies) {
           try {
-            const caseStudies = await getAllCaseStudies();
+            const caseStudies = await getAllCaseStudies(forceRefresh);
             res.statusCode = 200;
             res.end(
               JSON.stringify({
@@ -236,8 +241,60 @@ export function newsApiPlugin(apiKey: string): Plugin {
           fileName: 'data/live-news.json',
           source: JSON.stringify(snapshot, null, 2),
         });
+
+        // Also emit business case studies & RSS snapshots for GitHub Pages
+        const caseStudySnapshot = await generateCaseStudiesSnapshotJson();
+        this.emitFile({
+          type: 'asset',
+          fileName: 'data/business-case-studies.json',
+          source: JSON.stringify({
+            caseStudies: caseStudySnapshot.caseStudies,
+            count: caseStudySnapshot.caseStudies.length,
+            groqConnected: Boolean(effectiveKey),
+            generatedAt: caseStudySnapshot.generatedAt,
+          }, null, 2),
+        });
+
+        this.emitFile({
+          type: 'asset',
+          fileName: 'data/business-rss.json',
+          source: JSON.stringify({
+            stories: caseStudySnapshot.stories,
+            count: caseStudySnapshot.stories.length,
+            source: 'Business RSS Feed',
+            generatedAt: caseStudySnapshot.generatedAt,
+          }, null, 2),
+        });
+
+        // Also write to public/data if public folder exists for dev
+        try {
+          const publicDataDir = path.resolve(process.cwd(), 'public', 'data');
+          if (!fs.existsSync(publicDataDir)) {
+            fs.mkdirSync(publicDataDir, { recursive: true });
+          }
+          fs.writeFileSync(
+            path.join(publicDataDir, 'business-case-studies.json'),
+            JSON.stringify({
+              caseStudies: caseStudySnapshot.caseStudies,
+              count: caseStudySnapshot.caseStudies.length,
+              groqConnected: Boolean(effectiveKey),
+              generatedAt: caseStudySnapshot.generatedAt,
+            }, null, 2)
+          );
+          fs.writeFileSync(
+            path.join(publicDataDir, 'business-rss.json'),
+            JSON.stringify({
+              stories: caseStudySnapshot.stories,
+              count: caseStudySnapshot.stories.length,
+              source: 'Business RSS Feed',
+              generatedAt: caseStudySnapshot.generatedAt,
+            }, null, 2)
+          );
+        } catch {
+          // Non-fatal
+        }
       } catch (err) {
-        console.warn('[vite-news-plugin] Could not generate live-news.json asset:', err);
+        console.warn('[vite-news-plugin] Could not generate snapshots:', err);
       }
     },
   };

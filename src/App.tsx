@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Footer } from './components/common';
-import { Hero, About, TrendingCaseStudies, Contact } from './components/sections';
+import { Hero, About, TrendingCaseStudies, Contact, CuratedLiveWire } from './components/sections';
 import { FeaturedExperienceCard, LiveWorldFeed } from './components/playground';
 import { CaseStudyPage } from './components/case-studies';
-import { NewsPlatformPage } from './components/news';
+import { NewsPlatformPage, NewsArticleModal } from './components/news';
 import { RetroGamePage, ZombieGamePage, PixelDungeonPage, GameId } from './games';
 import { MissionControlPage } from './mission-control';
 import { portfolioData } from './data';
 import { updatePageSEO, SECTION_SEO_PRESETS } from './utils';
-import { NewsCategory } from './types';
+import { NewsCategory, NewsArticle } from './types';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -18,6 +18,7 @@ export default function App() {
   const [isMissionControlPage, setIsMissionControlPage] = useState<boolean>(false);
   const [activeGameId, setActiveGameId] = useState<GameId>('pixel-dungeon');
   const [newsInitialCategory, setNewsInitialCategory] = useState<NewsCategory>('All');
+  const [selectedHomeArticle, setSelectedHomeArticle] = useState<NewsArticle | null>(null);
 
   // Standalone routing for /game, dedicated case study page, news platform, and Mission Control
   useEffect(() => {
@@ -297,6 +298,12 @@ export default function App() {
           }}
         />
         <LiveWorldFeed />
+        <CuratedLiveWire
+          onOpenNewsroom={() => {
+            window.location.hash = '#/news';
+          }}
+          onSelectArticle={(art) => setSelectedHomeArticle(art)}
+        />
         <TrendingCaseStudies />
         <About />
         <Contact />
@@ -304,6 +311,12 @@ export default function App() {
 
       {/* Footer */}
       <Footer />
+
+      {/* Article Detail Reader Modal for Home Page */}
+      <NewsArticleModal
+        article={selectedHomeArticle}
+        onClose={() => setSelectedHomeArticle(null)}
+      />
     </div>
   );
 }

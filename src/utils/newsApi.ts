@@ -189,7 +189,8 @@ export function inferCategory(title: string, summary: string, topicHint?: string
 }
 
 /**
- * Normalizes an API NewsItem into the full NewsArticle shape expected by Newsroom UI
+ * Normalizes an API NewsItem into the full NewsArticle shape expected by Newsroom and Home page UI.
+ * Strictly avoids fabricating authors, bylines, desks, bureaus, fake view counts, or false dates.
  */
 export function normalizeNewsItemToArticle(
   item: NewsItem,
@@ -199,7 +200,6 @@ export function normalizeNewsItemToArticle(
   const category = inferCategory(item.title, item.summary, topicHint);
   const images = CATEGORY_IMAGES[category] || CATEGORY_IMAGES.All;
   const imageUrl = images[index % images.length];
-  const avatar = CORRESPONDENT_AVATARS[index % CORRESPONDENT_AVATARS.length];
 
   // Stable ID based on URL or title
   const rawId = item.url || item.title;
@@ -215,23 +215,20 @@ export function normalizeNewsItemToArticle(
     .slice(0, 75);
 
   const wordCount = (item.title + ' ' + item.summary).split(/\s+/).length;
-  const readTime = `${Math.max(2, Math.min(6, Math.ceil(wordCount / 25)))} min read`;
+  const readTime = `${Math.max(2, Math.min(5, Math.ceil(wordCount / 30)))} min read`;
 
-  // Build realistic multi-paragraph content from summary & source
-  const sourceName = item.source || 'News Wire';
+  // Authentic source publisher attribution (e.g. "The Indian Express", "Reuters", "Bloomberg")
+  const sourceName = item.source ? item.source.trim() : 'News Wire';
+
+  // Authentic content strictly reflecting the real summary and real source reference
   const content = [
     item.summary,
-    `Correspondents reporting for ${sourceName} indicate that this development represents a significant catalyst in the ${category.toLowerCase()} sector. Industry observers are monitoring follow-through movements, policy guidelines, and broader stakeholder responses across regional and international hubs.`,
     item.url
-      ? `Full ongoing reporting and verifiable dispatches can be reviewed directly via ${sourceName} documentation and public wires.`
-      : `Further updates will be dispatched as official verification and statements emerge from primary desks.`,
+      ? `Full reporting and verified dispatches are published directly by ${sourceName}.`
+      : `Reporting provided via verified ${sourceName} wire coverage.`,
   ];
 
   const tags = [category, sourceName];
-  if (category === 'Technology') tags.push('Innovation', 'Tech Wire');
-  if (category === 'Business') tags.push('Markets', 'Economy');
-  if (category === 'Maharashtra') tags.push('Mumbai', 'Urban Affairs');
-  if (category === 'India') tags.push('National', 'Policy');
 
   return {
     id,
@@ -240,22 +237,18 @@ export function normalizeNewsItemToArticle(
     summary: item.summary,
     content,
     category,
-    author: {
-      name: sourceName,
-      role: `${sourceName} Desk`,
-      avatar,
-    },
-    publishedAt: item.publishedAt || 'Just now',
+    source: sourceName,
+    url: item.url || undefined,
+    isLive: true,
+    publishedAt: item.publishedAt || 'Recent dispatch',
     readTime,
     imageUrl,
-    imageCaption: `Reporting from ${sourceName} on ${item.title.slice(0, 60)}...`,
+    imageCaption: `Coverage from ${sourceName}`,
     isBreaking: index === 0,
-    isFeatured: index < 3,
-    isTrending: index < 5,
-    trendingRank: index < 5 ? index + 1 : undefined,
+    isFeatured: index < 2,
+    isTrending: index < 4,
+    trendingRank: index < 4 ? index + 1 : undefined,
     tags,
-    viewsCount: `${(Math.random() * 18 + 12).toFixed(1)}K`,
-    location: category === 'Maharashtra' ? 'Mumbai' : category === 'India' ? 'New Delhi' : 'Global Bureau',
   };
 }
 

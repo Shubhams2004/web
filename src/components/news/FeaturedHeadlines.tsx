@@ -101,23 +101,10 @@ export const FeaturedHeadlines: React.FC<FeaturedHeadlinesProps> = ({
               </p>
 
               <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-500">
-                <div className="flex items-center gap-2.5">
-                  {leadArticle.author.avatar && (
-                    <img
-                      src={leadArticle.author.avatar}
-                      alt={leadArticle.author.name}
-                      referrerPolicy="no-referrer"
-                      className="w-6 h-6 rounded-full object-cover border border-slate-200"
-                    />
-                  )}
-                  <div>
-                    <span className="font-semibold text-slate-800 block text-xs">
-                      {leadArticle.author.name}
-                    </span>
-                    <span className="text-[10px] text-slate-400 block">
-                      {leadArticle.author.role}
-                    </span>
-                  </div>
+                <div className="flex items-center gap-2">
+                  <span className="font-semibold text-slate-800 text-xs">
+                    {leadArticle.source || leadArticle.author?.name || 'Verified Wire'}
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-3 text-[11px]">
@@ -174,7 +161,9 @@ export const FeaturedHeadlines: React.FC<FeaturedHeadlinesProps> = ({
                   </div>
 
                   <div className="flex items-center justify-between mt-3 pt-2 border-t border-slate-100 text-[11px] text-slate-500">
-                    <span className="font-medium text-slate-700">{article.author.name}</span>
+                    <span className="font-medium text-slate-700">
+                      {article.source || article.author?.name || 'Verified Wire'}
+                    </span>
                     <button
                       type="button"
                       onClick={(e) => onToggleSave(article.id, e)}
