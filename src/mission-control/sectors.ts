@@ -6,6 +6,24 @@ import type { SectorMission } from './types';
  */
 export const SECTOR_MISSIONS: SectorMission[] = [
   {
+    id: 'shadow-hunt',
+    sectorCode: 'SEC-00',
+    codeName: 'OPERATION SHADOW VEIL',
+    title: 'Shadow Hunt',
+    subtitle: 'Tactical Stealth Assassin Infiltration',
+    description:
+      'Covert shadow infiltration. Bypass enemy vision cones, evade long-range laser watchers, execute lethal close-quarters assassinations, and exfiltrate without raising facility alarms.',
+    genre: 'Stealth Action',
+    status: 'ONLINE',
+    clearanceLevel: 'LEVEL 1',
+    threatLevel: 'CRITICAL',
+    route: '#/game/shadow-hunt',
+    gameId: 'shadow-hunt',
+    highScoreKey: 'shadow_hunt_highscore',
+    iconName: 'Crosshair',
+    statsLabel: 'Stealth Rank & VIP Takedowns',
+  },
+  {
     id: 'pixel-dungeon',
     sectorCode: 'SEC-01',
     codeName: 'OPERATION CRYPTWALKER',

@@ -4,7 +4,7 @@ import { Hero, About, TrendingCaseStudies, Contact, CuratedLiveWire } from './co
 import { FeaturedExperienceCard, LiveWorldFeed } from './components/playground';
 import { CaseStudyPage } from './components/case-studies';
 import { NewsPlatformPage, NewsArticleModal } from './components/news';
-import { RetroGamePage, ZombieGamePage, PixelDungeonPage, GameId } from './games';
+import { RetroGamePage, ZombieGamePage, PixelDungeonPage, ShadowHuntPage, GameId } from './games';
 import { MissionControlPage } from './mission-control';
 import { ExperimentalPlaygroundPage } from './components/experimental-playground';
 import { portfolioData } from './data';
@@ -64,6 +64,13 @@ export default function App() {
 
         // Check specific game requested in hash
         if (
+          hash.includes('shadow') ||
+          hash.includes('hunt') ||
+          hash === '#game-shadow' ||
+          hash.startsWith('#/game/shadow')
+        ) {
+          setActiveGameId('shadow-hunt');
+        } else if (
           hash.includes('dungeon') ||
           hash === '#game-dungeon' ||
           hash.startsWith('#/game/pixel') ||
@@ -243,6 +250,15 @@ export default function App() {
       setActiveGameId(id);
       window.location.hash = `#/game/${id}`;
     };
+
+    if (activeGameId === 'shadow-hunt') {
+      return (
+        <ShadowHuntPage
+          onBack={handleBack}
+          onSwitchGame={handleSwitchGame}
+        />
+      );
+    }
 
     if (activeGameId === 'pixel-dungeon') {
       return (

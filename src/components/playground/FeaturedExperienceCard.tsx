@@ -46,6 +46,13 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
   // Game-specific highlights
   const getGameHighlights = (id: string) => {
     switch (id) {
+      case 'shadow-hunt':
+        return [
+          { label: 'Style', val: 'Touch-First Stealth Assassin' },
+          { label: 'Mechanics', val: 'Vision Cones, Takedowns, Cover' },
+          { label: 'Tactics', val: 'Raycasted Line-of-Sight AI' },
+          { label: 'Visuals', val: 'Modern Stylized Operative' },
+        ];
       case 'pixel-dungeon':
         return [
           { label: 'Style', val: 'Turn-Based Crypt Roguelike' },

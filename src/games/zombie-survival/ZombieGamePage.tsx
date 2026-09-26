@@ -210,6 +210,15 @@ export const ZombieGamePage: React.FC<ZombieGamePageProps> = ({ onBack, onSwitch
           <div className="flex items-center gap-2">
             <button
               type="button"
+              onClick={() => onSwitchGame && onSwitchGame('shadow-hunt')}
+              className="px-3 py-1 rounded-lg font-mono text-[11px] font-semibold bg-slate-900 text-slate-400 hover:text-cyan-400 hover:bg-slate-850 border border-slate-800 transition-colors flex items-center gap-1.5"
+            >
+              <span>🗡️</span>
+              <span>Shadow Hunt</span>
+            </button>
+
+            <button
+              type="button"
               onClick={() => onSwitchGame && onSwitchGame('zombie-survival')}
               className="px-3 py-1 rounded-lg font-mono text-[11px] font-bold bg-emerald-950 text-emerald-300 border border-emerald-600 shadow-[0_0_8px_rgba(16,185,129,0.3)] flex items-center gap-1.5"
             >

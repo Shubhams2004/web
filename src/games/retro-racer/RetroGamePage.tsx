@@ -209,6 +209,15 @@ export const RetroGamePage: React.FC<RetroGamePageProps> = ({ onBack, onSwitchGa
           <div className="flex items-center gap-2">
             <button
               type="button"
+              onClick={() => onSwitchGame && onSwitchGame('shadow-hunt')}
+              className="px-3 py-1 rounded-lg font-mono text-[11px] font-semibold bg-slate-900 text-slate-400 hover:text-cyan-400 hover:bg-slate-850 border border-slate-800 transition-colors flex items-center gap-1.5"
+            >
+              <span>🗡️</span>
+              <span>Shadow Hunt</span>
+            </button>
+
+            <button
+              type="button"
               onClick={() => onSwitchGame && onSwitchGame('pixel-dungeon')}
               className="px-3 py-1 rounded-lg font-mono text-[11px] font-semibold bg-slate-900 text-slate-400 hover:text-amber-400 hover:bg-slate-850 border border-slate-800 transition-colors flex items-center gap-1.5"
             >
