@@ -16,6 +16,22 @@ import { INITIAL_TRENDING_CASE_STUDIES, INITIAL_BUSINESS_RSS_STORIES } from './s
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
+// In-memory rate limiting map for dev server
+const devRateLimits = new Map<string, { count: number; resetAt: number }>();
+function checkDevRateLimit(key: string, maxRequests: number, windowMs: number): boolean {
+  const now = Date.now();
+  const bucket = devRateLimits.get(key);
+  if (!bucket || now > bucket.resetAt) {
+    devRateLimits.set(key, { count: 1, resetAt: now + windowMs });
+    return true;
+  }
+  if (bucket.count >= maxRequests) {
+    return false;
+  }
+  bucket.count++;
+  return true;
+}
+
 /**
  * Dev-server middleware exposing:
  * - GET /api/business-case-studies: returns all trending business case studies
@@ -63,39 +79,98 @@ export function newsApiPlugin(apiKey: string): Plugin {
         res.setHeader('Content-Type', 'application/json; charset=utf-8');
         res.setHeader('Cache-Control', 'no-store, no-cache, must-revalidate');
         res.setHeader('X-Content-Type-Options', 'nosniff');
+        res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+        res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
 
         const effectiveKey = apiKey || process.env.GROQ_API_KEY || process.env.GROK_API_KEY || '';
 
         // --- Route: GET /api/news/daily-status ---
         if (isNewsStatus) {
+          if (req.method !== 'GET' && req.method !== 'HEAD') {
+            res.statusCode = 405;
+            res.setHeader('Allow', 'GET, HEAD');
+            res.end(JSON.stringify({ error: 'Method not allowed' }));
+            return;
+          }
           try {
             const status = await getDailyNewsStatus();
             res.statusCode = 200;
             res.end(JSON.stringify(status));
-          } catch (err) {
+          } catch {
             res.statusCode = 500;
-            res.end(JSON.stringify({ error: 'Failed to retrieve daily status', message: String(err) }));
+            res.end(JSON.stringify({ error: 'Failed to retrieve daily status' }));
           }
           return;
         }
 
         // --- Route: POST /api/business-case-studies/generate ---
-        if (isGenerateCaseStudy && req.method === 'POST') {
+        if (isGenerateCaseStudy) {
+          if (req.method !== 'POST') {
+            res.statusCode = 405;
+            res.setHeader('Allow', 'POST');
+            res.end(JSON.stringify({ error: 'Method not allowed' }));
+            return;
+          }
+
+          // Rate limit: max 5 generation requests per 15 minutes
+          if (!checkDevRateLimit('dev:generate', 5, 15 * 60 * 1000)) {
+            res.statusCode = 429;
+            res.end(JSON.stringify({ error: 'Generation quota exceeded. Please wait 15 minutes.' }));
+            return;
+          }
+
           let body = '';
+          let bodySize = 0;
+          const MAX_BODY_SIZE = 32 * 1024; // 32 KB limit
+
           req.on('data', (chunk) => {
+            bodySize += chunk.length;
+            if (bodySize > MAX_BODY_SIZE) {
+              res.statusCode = 413;
+              res.end(JSON.stringify({ error: 'Payload too large (max 32KB)' }));
+              req.destroy();
+              return;
+            }
             body += chunk;
           });
-          req.on('end', async () => {
-            try {
-              const parsed = body ? JSON.parse(body) : {};
-              const headline = parsed.headline || parsed.title || '';
-              const source = parsed.source || 'Financial Media';
-              const url = parsed.url || 'https://news.google.com';
-              const summary = parsed.summary || '';
 
-              if (!headline) {
+          req.on('end', async () => {
+            if (bodySize > MAX_BODY_SIZE) return;
+
+            try {
+              let parsed: Record<string, unknown> = {};
+              try {
+                parsed = body ? JSON.parse(body) : {};
+              } catch {
                 res.statusCode = 400;
-                res.end(JSON.stringify({ error: 'Headline is required' }));
+                res.end(JSON.stringify({ error: 'Malformed JSON payload' }));
+                return;
+              }
+
+              const headline = typeof parsed.headline === 'string' ? parsed.headline.trim() : '';
+              const source = typeof parsed.source === 'string' ? parsed.source.trim() : 'Financial Media';
+              const url = typeof parsed.url === 'string' ? parsed.url.trim() : 'https://news.google.com';
+              const summary = typeof parsed.summary === 'string' ? parsed.summary.trim() : '';
+
+              // Strict input constraints
+              if (!headline || headline.length < 5 || headline.length > 200) {
+                res.statusCode = 400;
+                res.end(JSON.stringify({ error: 'Headline must be between 5 and 200 characters' }));
+                return;
+              }
+              if (source.length > 100) {
+                res.statusCode = 400;
+                res.end(JSON.stringify({ error: 'Source exceeds 100 characters limit' }));
+                return;
+              }
+              if (summary.length > 1000) {
+                res.statusCode = 400;
+                res.end(JSON.stringify({ error: 'Summary exceeds 1000 characters limit' }));
+                return;
+              }
+              if (url && !/^https:\/\//i.test(url)) {
+                res.statusCode = 400;
+                res.end(JSON.stringify({ error: 'URL must use safe HTTPS protocol' }));
                 return;
               }
 
@@ -106,30 +181,28 @@ export function newsApiPlugin(apiKey: string): Plugin {
 
               res.statusCode = 200;
               res.end(JSON.stringify(newCaseStudy));
-            } catch (err) {
-              console.warn('[case-study-api] Generate error:', err);
+            } catch {
               res.statusCode = 500;
-              res.end(
-                JSON.stringify({
-                  error: 'Failed to generate case study',
-                  message: err instanceof Error ? err.message : String(err),
-                })
-              );
+              res.end(JSON.stringify({ error: 'Case study generation unavailable' }));
             }
           });
           return;
         }
 
-        const forceRefresh = rawUrl.includes('force=true');
-
         // --- Route: GET /api/business-rss ---
         if (isBusinessRss) {
+          if (req.method !== 'GET' && req.method !== 'HEAD') {
+            res.statusCode = 405;
+            res.setHeader('Allow', 'GET, HEAD');
+            res.end(JSON.stringify({ error: 'Method not allowed' }));
+            return;
+          }
           try {
-            const stories = await fetchBusinessRssStories(forceRefresh);
+            // Public callers cannot force cache bypass
+            const stories = await fetchBusinessRssStories(false);
             res.statusCode = 200;
             res.end(JSON.stringify({ stories, count: stories.length, source: 'Business RSS Feed' }));
-          } catch (err) {
-            console.warn('[case-study-api] RSS fetch error:', err);
+          } catch {
             res.statusCode = 200;
             res.end(
               JSON.stringify({
@@ -144,8 +217,14 @@ export function newsApiPlugin(apiKey: string): Plugin {
 
         // --- Route: GET /api/business-case-studies ---
         if (isCaseStudies) {
+          if (req.method !== 'GET' && req.method !== 'HEAD') {
+            res.statusCode = 405;
+            res.setHeader('Allow', 'GET, HEAD');
+            res.end(JSON.stringify({ error: 'Method not allowed' }));
+            return;
+          }
           try {
-            const caseStudies = await getAllCaseStudies(forceRefresh);
+            const caseStudies = await getAllCaseStudies(false);
             res.statusCode = 200;
             res.end(
               JSON.stringify({
@@ -154,8 +233,7 @@ export function newsApiPlugin(apiKey: string): Plugin {
                 groqConnected: Boolean(effectiveKey),
               })
             );
-          } catch (err) {
-            console.warn('[case-study-api] Get all error:', err);
+          } catch {
             res.statusCode = 200;
             res.end(
               JSON.stringify({
@@ -170,28 +248,31 @@ export function newsApiPlugin(apiKey: string): Plugin {
 
         // --- Route: GET /api/news (Legacy or General News Wire) ---
         if (isNews) {
+          if (req.method !== 'GET' && req.method !== 'HEAD') {
+            res.statusCode = 405;
+            res.setHeader('Allow', 'GET, HEAD');
+            res.end(JSON.stringify({ error: 'Method not allowed' }));
+            return;
+          }
+
           let topic = 'Top World';
-          let force = false;
           try {
             const parsedUrl = new URL(rawUrl, 'http://localhost');
-            topic = parsedUrl.searchParams.get('topic') || 'Top World';
-            force = parsedUrl.searchParams.get('force') === 'true';
+            topic = (parsedUrl.searchParams.get('topic') || 'Top World').slice(0, 100);
           } catch {
             const match = rawUrl.match(/[?&]topic=([^&]+)/);
             if (match) {
               try {
-                topic = decodeURIComponent(match[1]);
+                topic = decodeURIComponent(match[1]).slice(0, 100);
               } catch {
-                topic = match[1];
+                topic = match[1].slice(0, 100);
               }
-            }
-            if (rawUrl.includes('force=true')) {
-              force = true;
             }
           }
 
           try {
-            const data = await fetchLiveNews(topic, effectiveKey, force);
+            // Public callers cannot force cache bypass
+            const data = await fetchLiveNews(topic, effectiveKey, false);
 
             if (data && Array.isArray(data.items) && data.items.length > 0) {
               res.statusCode = 200;
@@ -202,8 +283,7 @@ export function newsApiPlugin(apiKey: string): Plugin {
             const fallback = getClientFallback(topic);
             res.statusCode = 200;
             res.end(JSON.stringify(fallback));
-          } catch (error) {
-            console.warn('[live-news-api] error in handler:', error instanceof Error ? error.message : error);
+          } catch {
             try {
               const fallback = getClientFallback(topic);
               res.statusCode = 200;

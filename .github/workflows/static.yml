@@ -29,7 +29,10 @@ jobs:
           node-version: 22
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Security & Integrity Audit
+        run: npm run security-check
 
       - name: Build
         run: npm run build

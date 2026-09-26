@@ -3,6 +3,7 @@ import {
   INITIAL_TRENDING_CASE_STUDIES,
   INITIAL_BUSINESS_RSS_STORIES,
 } from '../data/trendingCaseStudies';
+import { sanitizeExternalUrl, sanitizeInputText } from './security';
 
 const getApiEndpoints = (path: string): string[] => {
   const base = import.meta.env.BASE_URL || '/';
@@ -110,6 +111,18 @@ export async function generateCaseStudyFromStory(story: {
   url?: string;
   summary?: string;
 }): Promise<BusinessCaseStudy> {
+  const cleanHeadline = sanitizeInputText(story.headline || '', 200);
+  const cleanSource = sanitizeInputText(story.source || '', 100) || 'Verified Financial Media';
+  const cleanUrl = sanitizeExternalUrl(story.url) || 'https://news.google.com';
+  const cleanSummary = sanitizeInputText(story.summary || '', 1000);
+
+  const payload = {
+    headline: cleanHeadline,
+    source: cleanSource,
+    url: cleanUrl,
+    summary: cleanSummary,
+  };
+
   const endpoints = getApiEndpoints('api/business-case-studies/generate');
 
   for (const endpoint of endpoints) {
@@ -120,7 +133,7 @@ export async function generateCaseStudyFromStory(story: {
           'Content-Type': 'application/json',
           Accept: 'application/json',
         },
-        body: JSON.stringify(story),
+        body: JSON.stringify(payload),
       });
 
       if (!res.ok) continue;
@@ -138,17 +151,17 @@ export async function generateCaseStudyFromStory(story: {
   }
 
   // Client-side synthesis fallback for static GitHub Pages without backend
-  const words = story.headline.split(' ').filter((w) => w.length > 2 && /^[A-Z]/.test(w));
+  const words = cleanHeadline.split(' ').filter((w) => w.length > 2 && /^[A-Z]/.test(w));
   const companyGuess = words.slice(0, 2).join(' ').replace(/[^a-zA-Z0-9 ]/g, '') || 'Enterprise';
-  const sourceName = story.source || 'Verified Financial Media';
+  const sourceName = cleanSource;
 
   return {
     id: `static-synth-${Date.now().toString(36)}`,
     company: companyGuess,
     industry: 'Commercial Strategy & Markets',
-    title: story.headline,
+    title: cleanHeadline,
     whatHappened:
-      story.summary ||
+      cleanSummary ||
       `Reporting by ${sourceName} highlights a significant strategic development and market response concerning ${companyGuess}.`,
     businessProblemOrOpportunity: `Balancing margin resilience and competitive position amidst evolving macroeconomic conditions.`,
     marketContext: `Operating within a sector undergoing capital reallocation, heightened regulatory oversight, and rapid technology shifts.`,
@@ -167,9 +180,9 @@ export async function generateCaseStudyFromStory(story: {
     ],
     sources: [
       {
-        title: story.headline,
+        title: cleanHeadline,
         publisher: sourceName,
-        url: story.url || 'https://news.google.com',
+        url: cleanUrl,
         date: 'Recent',
       },
     ],
@@ -177,7 +190,7 @@ export async function generateCaseStudyFromStory(story: {
     readTime: '3 min read',
     status: 'Breaking Catalyst',
     tags: ['Market Strategy', 'Corporate Strategy', 'Live Intelligence'],
-    rssHeadlineReference: story.headline,
+    rssHeadlineReference: cleanHeadline,
     generatedByGroq: false,
     generatedAt: new Date().toISOString(),
     isLive: true,

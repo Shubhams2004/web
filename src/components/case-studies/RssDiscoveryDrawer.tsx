@@ -14,6 +14,7 @@ import {
   Flame,
 } from 'lucide-react';
 import { BusinessRssStory, BusinessCaseStudy } from '../../types';
+import { safeExternalLinkProps } from '../../utils/security';
 
 interface RssDiscoveryDrawerProps {
   isOpen: boolean;
@@ -262,9 +263,7 @@ export const RssDiscoveryDrawer: React.FC<RssDiscoveryDrawerProps> = ({
 
                   <div className="flex items-center gap-2 shrink-0">
                     <a
-                      href={story.url}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...safeExternalLinkProps(story.url)}
                       className="p-2 rounded-lg text-slate-400 hover:text-slate-700 hover:bg-slate-100 transition-colors"
                       title="View original news source"
                     >

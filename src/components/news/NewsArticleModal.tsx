@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { NewsArticle } from '../../types';
+import { safeExternalLinkProps } from '../../utils/security';
 import {
   X,
   Clock,
@@ -209,9 +210,7 @@ export const NewsArticleModal: React.FC<NewsArticleModalProps> = ({
 
               {article.url && (
                 <a
-                  href={article.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...safeExternalLinkProps(article.url)}
                   className="inline-flex items-center gap-1.5 px-3.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-2xs transition-colors cursor-pointer"
                 >
                   <span>Read on {article.source || 'Source Wire'}</span>

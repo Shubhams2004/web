@@ -13,6 +13,7 @@ import {
 import { NewsArticle } from '../../types';
 import { fetchNewsArticles, formatRelativeTime } from '../../utils/newsApi';
 import { missionAudio } from '../../mission-control/audio';
+import { safeOpenExternal, safeExternalLinkProps } from '../../utils/security';
 
 interface CuratedLiveWireProps {
   onOpenNewsroom?: () => void;
@@ -95,7 +96,10 @@ export const CuratedLiveWire: React.FC<CuratedLiveWireProps> = ({
     if (onSelectArticle) {
       onSelectArticle(art);
     } else if (art.url) {
-      window.open(art.url, '_blank', 'noopener,noreferrer');
+      const opened = safeOpenExternal(art.url);
+      if (!opened) {
+        window.location.hash = '#/news';
+      }
     } else {
       window.location.hash = '#/news';
     }
@@ -232,9 +236,7 @@ export const CuratedLiveWire: React.FC<CuratedLiveWireProps> = ({
                   <div className="flex items-center gap-2">
                     {leadStory.url ? (
                       <a
-                        href={leadStory.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...safeExternalLinkProps(leadStory.url)}
                         onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-bold text-xs transition-colors cursor-pointer"
                       >
@@ -289,9 +291,7 @@ export const CuratedLiveWire: React.FC<CuratedLiveWireProps> = ({
 
                     {story.url ? (
                       <a
-                        href={story.url}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        {...safeExternalLinkProps(story.url)}
                         onClick={(e) => e.stopPropagation()}
                         className="inline-flex items-center gap-1 text-blue-600 hover:text-blue-800 font-bold"
                       >

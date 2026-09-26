@@ -1,5 +1,6 @@
 import { NewsArticle, NewsCategory, NewsItem, NewsResponse } from '../types';
 import { SAMPLE_ARTICLES } from '../data/newsPlatformData';
+import { sanitizeExternalUrl, sanitizeInputText } from './security';
 
 // Curated high-resolution editorial photography by category
 const CATEGORY_IMAGES: Record<NewsCategory, string[]> = {
@@ -59,8 +60,11 @@ const CORRESPONDENT_AVATARS = [
 const getApiEndpoints = (topic: string, force = false): string[] => {
   const base = import.meta.env.BASE_URL || '/';
   const cleanBase = base.endsWith('/') ? base : `${base}/`;
+  // Clean topic parameter to prevent injection into query strings
+  const safeTopic = sanitizeInputText(topic, 80) || 'All';
+  // Cache bypass is restricted; only pass force if explicit and not defaulted
   const forceParam = force ? '&force=true' : '';
-  const query = `topic=${encodeURIComponent(topic)}${forceParam}`;
+  const query = `topic=${encodeURIComponent(safeTopic)}${forceParam}`;
 
   return [
     `${cleanBase}api/news?${query}`,
@@ -238,7 +242,7 @@ export function normalizeNewsItemToArticle(
     content,
     category,
     source: sourceName,
-    url: item.url || undefined,
+    url: sanitizeExternalUrl(item.url) || undefined,
     isLive: true,
     publishedAt: item.publishedAt || 'Recent dispatch',
     readTime,

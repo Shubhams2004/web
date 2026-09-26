@@ -5,6 +5,7 @@ import { Newspaper, ExternalLink, RefreshCw, AlertTriangle, Search, Clock, Calen
 import { ScrollReveal } from '../common/ScrollReveal';
 import { getClientFallback } from '../../data/newsFallback';
 import type { NewsItem, NewsResponse } from '../../types';
+import { safeExternalLinkProps } from '../../utils/security';
 
 const PRESET_TOPICS = [
   'Top World',
@@ -266,9 +267,7 @@ export const LiveNews: React.FC = () => {
                   {data.sources.map((source) => (
                     <a
                       key={source.uri}
-                      href={source.uri}
-                      target="_blank"
-                      rel="noopener noreferrer"
+                      {...safeExternalLinkProps(source.uri)}
                       className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-white border border-slate-200 text-xs text-slate-600 hover:border-blue-300 hover:text-blue-600 transition-colors max-w-full"
                     >
                       <ExternalLink className="w-3 h-3 shrink-0" />
@@ -336,7 +335,7 @@ const NewsCard: React.FC<{ item: NewsItem; index: number }> = ({ item, index }) 
 
   if (item.url) {
     return (
-      <a href={item.url} target="_blank" rel="noopener noreferrer" className="block h-full">
+      <a {...safeExternalLinkProps(item.url)} className="block h-full">
         {content}
       </a>
     );

@@ -15,6 +15,7 @@ import {
 import { missionAudio } from '../../mission-control/audio';
 import { fetchNewsArticles, formatRelativeTime } from '../../utils/newsApi';
 import { NewsArticle } from '../../types';
+import { safeOpenExternal, safeExternalLinkProps } from '../../utils/security';
 
 export type FeedEventType = 'SYSTEM EVENT' | 'GAME DISCOVERED' | 'SECRET DETECTED' | 'SIGNAL RECEIVED';
 
@@ -206,7 +207,7 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
   const handleAction = (item: FeedItem) => {
     missionAudio.playBeep(880, 0.08);
     if (item.externalUrl) {
-      window.open(item.externalUrl, '_blank', 'noopener,noreferrer');
+      safeOpenExternal(item.externalUrl);
       return;
     }
     if (item.linkRoute) {
@@ -420,9 +421,7 @@ export const LiveWorldFeed: React.FC<LiveWorldFeedProps> = ({
             <div className="flex items-center gap-2 shrink-0">
               {selectedItem.externalUrl ? (
                 <a
-                  href={selectedItem.externalUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...safeExternalLinkProps(selectedItem.externalUrl)}
                   className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-cyan-600 hover:bg-cyan-500 text-slate-950 font-bold text-xs transition-colors cursor-pointer"
                 >
                   <span>Open Source</span>

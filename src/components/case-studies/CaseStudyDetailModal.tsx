@@ -17,6 +17,7 @@ import {
   Bookmark,
 } from 'lucide-react';
 import { BusinessCaseStudy } from '../../types';
+import { safeExternalLinkProps } from '../../utils/security';
 
 interface CaseStudyDetailModalProps {
   caseStudy: BusinessCaseStudy | null;
@@ -324,9 +325,7 @@ ${caseStudy.sources.map((s) => `- [${s.title}](${s.url}) — *${s.publisher || '
               {caseStudy.sources.map((source, idx) => (
                 <a
                   key={idx}
-                  href={source.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  {...safeExternalLinkProps(source.url)}
                   className="p-3 rounded-xl bg-slate-50 hover:bg-blue-50/60 border border-slate-200 hover:border-blue-200 transition-all flex items-start justify-between gap-3 group"
                 >
                   <div className="space-y-0.5 min-w-0">

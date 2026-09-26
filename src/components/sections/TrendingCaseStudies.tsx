@@ -31,6 +31,7 @@ import {
   fetchRecentBusinessStories,
   generateCaseStudyFromStory,
 } from '../../utils/caseStudyApi';
+import { safeExternalLinkProps } from '../../utils/security';
 
 export const TrendingCaseStudies: React.FC = () => {
   const [caseStudies, setCaseStudies] = useState<BusinessCaseStudy[]>([]);
@@ -499,9 +500,7 @@ export const TrendingCaseStudies: React.FC = () => {
                     <div className="flex items-center gap-2 min-w-0">
                       {primarySource ? (
                         <a
-                          href={primarySource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          {...safeExternalLinkProps(primarySource.url)}
                           onClick={(e) => e.stopPropagation()}
                           className="flex items-center gap-1 text-[11px] font-semibold text-slate-600 hover:text-blue-600 transition-colors truncate"
                           title={`Original reporting by ${primarySource.publisher || 'Source'}`}
@@ -588,9 +587,7 @@ export const TrendingCaseStudies: React.FC = () => {
                       <div className="text-[11px] text-slate-500 flex items-center gap-1 pt-0.5">
                         <span>Source:</span>
                         <a
-                          href={primarySource.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
+                          {...safeExternalLinkProps(primarySource.url)}
                           onClick={(e) => e.stopPropagation()}
                           className="font-medium text-blue-600 hover:underline flex items-center gap-0.5"
                         >
