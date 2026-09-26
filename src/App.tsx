@@ -6,6 +6,7 @@ import { CaseStudyPage } from './components/case-studies';
 import { NewsPlatformPage, NewsArticleModal } from './components/news';
 import { RetroGamePage, ZombieGamePage, PixelDungeonPage, GameId } from './games';
 import { MissionControlPage } from './mission-control';
+import { ExperimentalPlaygroundPage } from './components/experimental-playground';
 import { portfolioData } from './data';
 import { updatePageSEO, SECTION_SEO_PRESETS } from './utils';
 import { NewsCategory, NewsArticle } from './types';
@@ -16,6 +17,8 @@ export default function App() {
   const [isNewsPlatformPage, setIsNewsPlatformPage] = useState<boolean>(false);
   const [isGamePage, setIsGamePage] = useState<boolean>(false);
   const [isMissionControlPage, setIsMissionControlPage] = useState<boolean>(false);
+  const [isPlaygroundPage, setIsPlaygroundPage] = useState<boolean>(false);
+  const [playgroundInitialExpId, setPlaygroundInitialExpId] = useState<string | undefined>(undefined);
   const [activeGameId, setActiveGameId] = useState<GameId>('pixel-dungeon');
   const [newsInitialCategory, setNewsInitialCategory] = useState<NewsCategory>('All');
   const [selectedHomeArticle, setSelectedHomeArticle] = useState<NewsArticle | null>(null);
@@ -86,6 +89,35 @@ export default function App() {
 
       setIsGamePage(false);
 
+      // Check if user is navigating to Experimental Playground /lab or #/playground
+      const isPlayground =
+        hash === '#/playground' ||
+        hash === '#playground' ||
+        hash === '#/lab' ||
+        hash === '#lab' ||
+        hash === '#/experiments' ||
+        hash === '#experiments' ||
+        hash.startsWith('#/experiment') ||
+        hash.startsWith('#/lab/') ||
+        path.endsWith('/playground') ||
+        path.endsWith('/lab');
+
+      if (isPlayground) {
+        setIsPlaygroundPage(true);
+        setIsMissionControlPage(false);
+        setIsGamePage(false);
+        setIsNewsPlatformPage(false);
+        setCaseStudyProjectId(null);
+        if (hash.startsWith('#/experiment/')) {
+          setPlaygroundInitialExpId(hash.replace('#/experiment/', ''));
+        } else {
+          setPlaygroundInitialExpId(undefined);
+        }
+        return;
+      }
+
+      setIsPlaygroundPage(false);
+
       if (hash.startsWith('#/case-study/') || hash.startsWith('#case-study-')) {
         const id = hash.replace('#/case-study/', '').replace('#case-study-', '');
         setCaseStudyProjectId(id);
@@ -140,15 +172,15 @@ export default function App() {
 
   // Update dynamic SEO meta tags whenever the active section context changes
   useEffect(() => {
-    if (caseStudyProjectId || isNewsPlatformPage || isGamePage || isMissionControlPage) return;
+    if (caseStudyProjectId || isNewsPlatformPage || isGamePage || isMissionControlPage || isPlaygroundPage) return;
     const preset = SECTION_SEO_PRESETS[activeSection];
     if (preset) {
       updatePageSEO(preset);
     }
-  }, [activeSection, caseStudyProjectId, isNewsPlatformPage, isGamePage, isMissionControlPage]);
+  }, [activeSection, caseStudyProjectId, isNewsPlatformPage, isGamePage, isMissionControlPage, isPlaygroundPage]);
 
   useEffect(() => {
-    if (caseStudyProjectId || isNewsPlatformPage || isGamePage || isMissionControlPage) return;
+    if (caseStudyProjectId || isNewsPlatformPage || isGamePage || isMissionControlPage || isPlaygroundPage) return;
     const sections = ['home', 'case-studies', 'about', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140; // offset for sticky header
@@ -170,7 +202,7 @@ export default function App() {
     handleScroll(); // initial check
 
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [caseStudyProjectId, isNewsPlatformPage, isGamePage, isMissionControlPage]);
+  }, [caseStudyProjectId, isNewsPlatformPage, isGamePage, isMissionControlPage, isPlaygroundPage]);
 
   // If the secret Mission Control command center is requested
   if (isMissionControlPage) {
@@ -245,6 +277,23 @@ export default function App() {
         initialCategory={newsInitialCategory}
         onBackToPortfolio={() => {
           window.location.hash = '#home';
+        }}
+      />
+    );
+  }
+
+  // If the Experimental Playground laboratory is requested
+  if (isPlaygroundPage) {
+    return (
+      <ExperimentalPlaygroundPage
+        initialExperimentId={playgroundInitialExpId}
+        onBack={() => {
+          const base = import.meta.env.BASE_URL || '/';
+          if (window.history && window.history.pushState) {
+            window.history.pushState({}, '', base);
+          }
+          window.location.hash = '#home';
+          setIsPlaygroundPage(false);
         }}
       />
     );

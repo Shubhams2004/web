@@ -125,6 +125,12 @@ export const Footer: React.FC = () => {
               </a>
             ))}
             <a
+              href="#/playground"
+              className="hover:text-blue-400 transition-colors flex items-center gap-1 font-semibold text-blue-400"
+            >
+              <span>🧪 Lab</span>
+            </a>
+            <a
               href="#/game"
               className="hover:text-rose-400 transition-colors flex items-center gap-1 font-bold text-rose-400"
             >

@@ -10,6 +10,7 @@ import {
   Terminal,
   Compass,
   Zap,
+  FlaskConical,
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { BrandLogo } from '../common/BrandLogo';
@@ -144,6 +145,13 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRssDiscovery, onLaunchGame }) 
                 <Radio className="w-3.5 h-3.5 text-emerald-400" />
                 <span>VHF Signal Console</span>
               </div>
+              <a
+                href="#/playground"
+                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-cyan-300 hover:text-cyan-200 hover:border-cyan-800 transition-colors"
+              >
+                <FlaskConical className="w-3.5 h-3.5 text-cyan-400" />
+                <span>🧪 Lab Sandbox</span>
+              </a>
             </div>
 
             {/* Action CTAs */}
@@ -156,6 +164,19 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRssDiscovery, onLaunchGame }) 
               >
                 <span>Explore Research Studies</span>
                 <ArrowDown className="w-4 h-4" />
+              </button>
+
+              <button
+                id="hero-cta-lab"
+                type="button"
+                onClick={() => {
+                  missionAudio.playBeep(880, 0.08);
+                  window.location.hash = '#/playground';
+                }}
+                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-cyan-300 font-bold text-xs sm:text-sm border border-slate-700 hover:border-cyan-600/50 shadow-md transition-all cursor-pointer active:scale-95"
+              >
+                <FlaskConical className="w-4 h-4 text-cyan-400" />
+                <span>🧪 Experimental Lab</span>
               </button>
 
               <button

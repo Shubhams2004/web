@@ -50,6 +50,15 @@ const DEFAULT_SIGNALS: SignalMessage[] = [
     actionRoute: '#/game',
   },
   {
+    id: 'sig-lab',
+    frequency: '512.00 MHz',
+    source: 'EXPERIMENTAL-LAB // SEC-7',
+    status: 'SANDBOX_ACTIVE',
+    message: 'N-body Gravity Sandbox & quantum particles active. Interactive tests online.',
+    actionLabel: 'Enter Lab',
+    actionRoute: '#/playground',
+  },
+  {
     id: 'sig-04',
     frequency: '88.70 MHz',
     source: 'NEWSROOM-RELAY',

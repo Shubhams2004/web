@@ -1,20 +1,20 @@
 {
   "caseStudies": [
     {
-      "id": "live-study-dabur%20nclt-rss-1-Dabur%20NCLT-mugnnm68",
-      "company": "Dabur NCLT",
-      "industry": "Automotive & Mobility",
-      "title": "Dabur gets NCLT approval for Sesa Care merger",
-      "whatHappened": "Financial reporting by The Hindu highlights a strategic operational and market development for Dabur NCLT.",
+      "id": "live-study-meta%20platforms-rss-1-Meta%20Platf-muhjuwqo",
+      "company": "Meta Platforms",
+      "industry": "Social Networks & AI",
+      "title": "New Mexico jury finds Facebook liable for deceiving users about privacy protections",
+      "whatHappened": "Financial reporting by AP News highlights a strategic operational and market development for Meta Platforms.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Automotive & Mobility industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "The Hindu",
-            "change": "Just now",
+            "value": "AP News",
+            "change": "8h ago",
             "isPositive": true
           },
           {
@@ -24,7 +24,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by The Hindu. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by AP News. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -33,34 +33,87 @@
       ],
       "sources": [
         {
-          "title": "Dabur gets NCLT approval for Sesa Care merger",
-          "publisher": "The Hindu",
-          "url": "https://news.google.com/rss/articles/CBMioAFBVV95cUxNejQ5b291UVp3UTk0N3JvUnNhWjZtNDA0cDdDYjgtRVE5dFlhMkxESEFLSzg1UzZQVHJueEQzT1hGZUJMYnB3bmxuNDktX0wzOW9SbkliTEF3R2NmWGtOMnRVWDVaRFU0UHpYdTY3OE15TWk1Z3JIUVBRc0c5cjRMQ0NtZjI5bF9SVWRmQ2hlcUhEenpEX2cyOFJ6S0RqT3JT0gGnAUFVX3lxTE1ySlpEN2ZkU3lZbDYwNXpjM2s0ZUp3THQ1dUJ6VzFobUltemljTnVZcWR2SHRxLTdwcDJKTzVnZThDZ1d1UlExMnNiRmN2X1F0UWRmd1RUdUFoZjNsWkVIMldjQ2R0NjltR0d0b284QnVPM1VKQXJYTDE1dnFvOG4wMVhuV204REo3cTFGaWNxUk9zblVxYUs2bnVZTHp4WE1mMTFMeWRB?oc=5",
-          "date": "Just now"
+          "title": "New Mexico jury finds Facebook liable for deceiving users about privacy protections",
+          "publisher": "AP News",
+          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWG40YndwZnVtdGtfVGxGd01iWWxMcUlSNEVTYzR3bVJETERWMFFlMGVoUnFUWUZZbUVLMTEtTW14VEtLQmdqbVIxQlN6OHdYQkc5ZEZkZlY4VnVzVy1Qemc5WTRIUkFtWjRra0s3UWt0ck1Bblk2WkhtWUxENXNTVTgxMmxUaEpoLTloRzV3eGFCYl9YU0RPd1ZjeFdyck9JMXc?oc=5",
+          "date": "8h ago"
         }
       ],
-      "date": "Sep 25, 2026",
+      "date": "Sep 26, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Automotive & Mobility",
+        "Social Networks & AI",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Dabur gets NCLT approval for Sesa Care merger",
+      "rssHeadlineReference": "New Mexico jury finds Facebook liable for deceiving users about privacy protections",
       "isLive": true,
       "rankingSignal": "Top Recency & Wire Consensus",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-25T09:08:22.116Z"
+      "generatedAt": "2026-09-26T07:15:41.444Z"
     },
     {
-      "id": "live-study-costco%20reports-rss-2-Costco%20Rep-mug48mlc",
-      "company": "Costco Reports",
-      "industry": "Retail & Consumer Goods",
-      "title": "Costco Reports Higher Fourth-Quarter Profit, Revenue on Resilient Consumer Spending",
-      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Costco Reports.",
+      "id": "live-study-meta%20platforms-rss-2-Meta%20Platf-muhf6aiw",
+      "company": "Meta Platforms",
+      "industry": "Social Networks & AI",
+      "title": "Meta opens early access program for new Muse features",
+      "whatHappened": "Financial reporting by TechCrunch highlights a strategic operational and market development for Meta Platforms.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Retail & Consumer Goods industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
+      "importantDataOrResults": {
+        "metrics": [
+          {
+            "label": "Source Verification",
+            "value": "TechCrunch",
+            "change": "11h ago",
+            "isPositive": true
+          },
+          {
+            "label": "Catalyst Status",
+            "value": "Live Wire",
+            "change": "Active Strategic Development",
+            "isPositive": true
+          }
+        ],
+        "summary": "Active corporate development reported by TechCrunch. Disclosures and stakeholder commentary reflect current strategic positioning."
+      },
+      "keyLessons": [
+        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
+        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
+        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
+      ],
+      "sources": [
+        {
+          "title": "Meta opens early access program for new Muse features",
+          "publisher": "TechCrunch",
+          "url": "https://news.google.com/rss/articles/CBMikgFBVV95cUxPUmxhSllzR09DVlVGcmdtbkdfLW5vR2hVNVE2Sk1nWURSTEhRMUk0YVhUX0RXZXB2MUo3YWFWWVZoZ0FJTHVlWUNvaGFCa25lVjd5bE9sazR6aWV5MloyV1N0MG4zTGI0VGRVODJyVlVFaEVvVEhIWWZEel8ycFp2dkNlZXcxaEtEZXBjMXJQTVpRQQ?oc=5",
+          "date": "11h ago"
+        }
+      ],
+      "date": "Sep 26, 2026",
+      "readTime": "3 min read",
+      "status": "Breaking Catalyst",
+      "tags": [
+        "Social Networks & AI",
+        "Corporate Strategy",
+        "Live Intelligence"
+      ],
+      "rssHeadlineReference": "Meta opens early access program for new Muse features",
+      "isLive": true,
+      "rankingSignal": "High Strategic Market Impact",
+      "generatedByGroq": false,
+      "generatedAt": "2026-09-26T07:15:41.444Z"
+    },
+    {
+      "id": "live-study-stocks%20rise-rss-3-Stocks%20Ris-muhgab40",
+      "company": "Stocks Rise",
+      "industry": "Energy & Infrastructure",
+      "title": "Stocks Rise to Cap Week of Increasing Yields, Volatile Oil Prices",
+      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Stocks Rise.",
+      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
+      "marketContext": "The Energy & Infrastructure industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
@@ -86,85 +139,32 @@
       ],
       "sources": [
         {
-          "title": "Costco Reports Higher Fourth-Quarter Profit, Revenue on Resilient Consumer Spending",
+          "title": "Stocks Rise to Cap Week of Increasing Yields, Volatile Oil Prices",
           "publisher": "WSJ",
-          "url": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNcm9PTDUtSVlCWUUyY2hNRkFkRzhZSkNFN21NOUNBemdrSjBRdjJ3ZEt2akVCQmtvamc2OTBnU00wOTRja2ZYRjB0RDN4T3NGRjVBdm50dmtEUEYyLTJ1NzFIanZqcUJHYzhRXzg5aERTaWdacEc1aGtIR3ZFY3dUYzU4eGlsZVEzSmoyZVRNcE5Tc0FheEo4OXBpWmNrb01KX2VReEZ6X1dmSUJLS1A4dHpOTUhCM3l5M2pLdw?oc=5",
+          "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSEVnSDJQSW85S2ZsX3J4VjI4cFBQMjU1QkpfRnR6ckRRT1FnZGFRRzRoZFdiYlFTR00xRHpMWGpOYVNBdUg2dXNnUlZmSTcxbmFDNXVfNGd6ZVFieU1keVhqOG5QRlptMDA4Y1ZkZllsRThFVXRKd1dLYzRzSXRpYTJKWWFleldEUmhHcTVkZGhFSl81Y1pzc2dLaXc5X3lUdG5WWjliMVVHVkY3?oc=5",
           "date": "10h ago"
         }
       ],
-      "date": "Sep 25, 2026",
+      "date": "Sep 26, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Retail & Consumer Goods",
+        "Energy & Infrastructure",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Costco Reports Higher Fourth-Quarter Profit, Revenue on Resilient Consumer Spending",
+      "rssHeadlineReference": "Stocks Rise to Cap Week of Increasing Yields, Volatile Oil Prices",
       "isLive": true,
       "rankingSignal": "High Strategic Market Impact",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-25T09:08:22.116Z"
+      "generatedAt": "2026-09-26T07:15:41.444Z"
     },
     {
-      "id": "live-study-us%20elon-rss-3-US%20Elon-mugeckg0",
-      "company": "US Elon",
+      "id": "live-study-blackstones-rss-4-Blackstones-muheb2ao",
+      "company": "Blackstones",
       "industry": "Commercial Strategy & Markets",
-      "title": "U.S. government seeks to join Elon Musk in challenge against EU's fine on X",
-      "whatHappened": "Financial reporting by CNBC highlights a strategic operational and market development for US Elon.",
-      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
-      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
-      "importantDataOrResults": {
-        "metrics": [
-          {
-            "label": "Source Verification",
-            "value": "CNBC",
-            "change": "6h ago",
-            "isPositive": true
-          },
-          {
-            "label": "Catalyst Status",
-            "value": "Live Wire",
-            "change": "Active Strategic Development",
-            "isPositive": true
-          }
-        ],
-        "summary": "Active corporate development reported by CNBC. Disclosures and stakeholder commentary reflect current strategic positioning."
-      },
-      "keyLessons": [
-        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
-        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
-        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
-      ],
-      "sources": [
-        {
-          "title": "U.S. government seeks to join Elon Musk in challenge against EU's fine on X",
-          "publisher": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPT19sa3dET0lPd3M4dTdDZ05xTWRaeEdDTVAwNFhobmV5ejY1TUNxVGxDcXJ5TVBMS3E0N1pYR1VGSTRxLTQ0endCNEFTb2RVSzBSanlDam5Xdk4xLWp5d3lWaGxfUV9XTk1ha2tEdWZ5c25Na0tJTHJrNFNYR18tU3FiZm94TkFOWER3X1RreWtJMDI3dDllRHNpV0p0a3piMjNCRURFa9IBrAFBVV95cUxORUlyeFVfSS1uOC1XNTBwdXRLLVN3Q2lhSzZrTDNiSWdra1hOV3puLVZPZGhzRjRLa1Rjel8tallSTGppalZkZkVyeXpFbENSVHkyVnpzVHRjU3pOeHZlMWVaUGRTTDdmMGZHNTIyc2gxYnp5Z1RaZmtXQUdZUGtRa0liRW8xWnpmbHVEOUxISmY4NERaekRZVndQMkZxWGRGcnQ4MVVLMTJFYU8y?oc=5",
-          "date": "6h ago"
-        }
-      ],
-      "date": "Sep 25, 2026",
-      "readTime": "3 min read",
-      "status": "Breaking Catalyst",
-      "tags": [
-        "Commercial Strategy & Markets",
-        "Corporate Strategy",
-        "Live Intelligence"
-      ],
-      "rssHeadlineReference": "U.S. government seeks to join Elon Musk in challenge against EU's fine on X",
-      "isLive": true,
-      "rankingSignal": "High Strategic Market Impact",
-      "generatedByGroq": false,
-      "generatedAt": "2026-09-25T09:08:22.116Z"
-    },
-    {
-      "id": "live-study-oracle-rss-4-Oracle-mug6m95k",
-      "company": "Oracle",
-      "industry": "Commercial Strategy & Markets",
-      "title": "Oracle on the hook to pay data centre investors even if site has no electricity",
-      "whatHappened": "Financial reporting by Financial Times highlights a strategic operational and market development for Oracle.",
+      "title": "Blackstone’s top private equity executive prepares exit for possible public service move",
+      "whatHappened": "Financial reporting by Financial Times highlights a strategic operational and market development for Blackstones.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
       "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
@@ -173,7 +173,7 @@
           {
             "label": "Source Verification",
             "value": "Financial Times",
-            "change": "9h ago",
+            "change": "11h ago",
             "isPositive": true
           },
           {
@@ -192,13 +192,13 @@
       ],
       "sources": [
         {
-          "title": "Oracle on the hook to pay data centre investors even if site has no electricity",
+          "title": "Blackstone’s top private equity executive prepares exit for possible public service move",
           "publisher": "Financial Times",
-          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxPRnZrNVVKTGFRazBJWHdDXzMwYnM0dWp2SUlhcENBS09rTnAxOGpwSkN2NzBfemtQZ0l0RG1JcEluYWh6enZlLXdqRVBXRWMxR2xuLXBtbWF1X2w4RFFUOGp6SHlxZ2ZUMU5UVml1MFdEYl9ydTl3LS14OXVocTBCbENLMUc?oc=5",
-          "date": "9h ago"
+          "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQZEctcnRqZ3Z3djR6Tm9QbnZvc0M4V0RzQ1NWRGJRelJ0MTJQNzVJaU04eUVmUUJpWVlxYW9zMnoyV2o5eC1Td0tRaS0xRHkzRUhXZ1NxLTZQWUFKU3RnVEcxQ09JWUNxLVltQ1hhTks5Y2pCMjFYQTlaSncwUlNRUm82WDQ?oc=5",
+          "date": "11h ago"
         }
       ],
-      "date": "Sep 25, 2026",
+      "date": "Sep 26, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
@@ -206,26 +206,26 @@
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Oracle on the hook to pay data centre investors even if site has no electricity",
+      "rssHeadlineReference": "Blackstone’s top private equity executive prepares exit for possible public service move",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-25T09:08:22.117Z"
+      "generatedAt": "2026-09-26T07:15:41.444Z"
     },
     {
-      "id": "live-study-asia%20trumpxi-rss-5-Asia%20Trump-mugegfc0",
-      "company": "Asia TrumpXi",
-      "industry": "Banking & Macro Finance",
-      "title": "Asia stocks slip as bond selloff weighs; Trump-Xi summit offers little relief",
-      "whatHappened": "Financial reporting by Investing.com highlights a strategic operational and market development for Asia TrumpXi.",
+      "id": "live-study-openai-rss-5-OpenAI-muhq03pc",
+      "company": "OpenAI",
+      "industry": "Generative AI Systems",
+      "title": "Rogue OpenAI agents accessed US government websites",
+      "whatHappened": "Financial reporting by Politico highlights a strategic operational and market development for OpenAI.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Banking & Macro Finance industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Generative AI Systems industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "Investing.com",
+            "value": "Politico",
             "change": "6h ago",
             "isPositive": true
           },
@@ -236,7 +236,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by Investing.com. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by Politico. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -245,41 +245,41 @@
       ],
       "sources": [
         {
-          "title": "Asia stocks slip as bond selloff weighs; Trump-Xi summit offers little relief",
-          "publisher": "Investing.com",
-          "url": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQYlNNdEp5b0IzaXh4Z3puZ1VsQlVMaUFJXzV0VE84Q0dGVkh4dEl2VlY1WmxVdTVldmZVcWJpVW9FcDRGVVZ6N3U3SDJmTWkxQzFLQzJiUnFTc0tvcTlpOTkwV0lMSk9xekFOWm41eG1UbjdKckhsQXl5U2MtRElCMkxfOVVaLVYzOVdiQ050WDFuRE9yd0NTN29BMFRGX0cxUVBTTXloS0JCVnZrXzVXQ2x2OWpTUVljUFpTMlQ5NnROdmlndG9URE9qNTg?oc=5",
+          "title": "Rogue OpenAI agents accessed US government websites",
+          "publisher": "Politico",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPZDFBeDhjMVNRTFUtUVNrcmE4Uk9PQ3Nmdnp0Z0hXSWhCSGRFMkI0U05ueXViaFFycmNpODhSRDgxVFFUUFA2T3FpLWRTV20tNTR2SURkVjk0ZUJPTkVGZXFXQmtBRUZnWlRlQkE3bGx3eUJESTBtQWpoWUFma24tMEJMc1BMQTlIMUdNbkloQW9raVdIMWxic0J0UTMtWDdPZlJV?oc=5",
           "date": "6h ago"
         }
       ],
-      "date": "Sep 25, 2026",
+      "date": "Sep 26, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Banking & Macro Finance",
+        "Generative AI Systems",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Asia stocks slip as bond selloff weighs; Trump-Xi summit offers little relief",
+      "rssHeadlineReference": "Rogue OpenAI agents accessed US government websites",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-25T09:08:22.117Z"
+      "generatedAt": "2026-09-26T07:15:41.444Z"
     },
     {
-      "id": "live-study-direct%20capital-rss-6-Direct%20Cap-mugbcjk0",
-      "company": "Direct Capital",
-      "industry": "Healthcare & Biotech",
-      "title": "Direct Capital, Fisher Funds strike NZ Health Group deal",
-      "whatHappened": "Financial reporting by businessdesk.co.nz highlights a strategic operational and market development for Direct Capital.",
+      "id": "live-study-tiktok%20alabama-rss-6-TikTok%20Ala-muhvr5eo",
+      "company": "TikTok Alabama",
+      "industry": "Commercial Strategy & Markets",
+      "title": "TikTok to pay Alabama $100m and limit teenage use in first state settlement",
+      "whatHappened": "Financial reporting by The Guardian highlights a strategic operational and market development for TikTok Alabama.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Healthcare & Biotech industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "businessdesk.co.nz",
-            "change": "7h ago",
+            "value": "The Guardian",
+            "change": "3h ago",
             "isPositive": true
           },
           {
@@ -289,7 +289,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by businessdesk.co.nz. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by The Guardian. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -298,25 +298,25 @@
       ],
       "sources": [
         {
-          "title": "Direct Capital, Fisher Funds strike NZ Health Group deal",
-          "publisher": "businessdesk.co.nz",
-          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxPdmtFZ1JvRGFsMUhUMjJxSEY0OF94cGZRLUpkY3EwTHlUV3EzVDNGZl9WUnh1djRWM01US3lMQ3g1bFhBSm5sVkN4aFVGRUhJMVo1M0YyamJxZFVlM3dRUlVkckVnOWpWanE4RkFQbU5JUzg2WWdSZTktUlJTYjVKa3Z0VFN2VGgwS3JNenQ5TEJpelhNaU52cGE0elVydw?oc=5",
-          "date": "7h ago"
+          "title": "TikTok to pay Alabama $100m and limit teenage use in first state settlement",
+          "publisher": "The Guardian",
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTDdtb3ZrRVhJSlVjU2UzU0ZrYTZHNHB2a1BVS3F4b3hHSjZtbGl2ZWl2dExJYVpfX25ab3IzZXBjSFRvZ0M4ckYzdEphTWIydUhIS1kwOU1YWTc2RGdoOWZYSzExQ3FiRmROLXBDVUs0cnptc2tqZ0psM0kwMnBicFJhcHA0T2VsR2ROU080X3BPSC1GU3oyNmFfMVFkcXd3NkJSZQ?oc=5",
+          "date": "3h ago"
         }
       ],
-      "date": "Sep 25, 2026",
+      "date": "Sep 26, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Healthcare & Biotech",
+        "Commercial Strategy & Markets",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Direct Capital, Fisher Funds strike NZ Health Group deal",
+      "rssHeadlineReference": "TikTok to pay Alabama $100m and limit teenage use in first state settlement",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-25T09:08:22.117Z"
+      "generatedAt": "2026-09-26T07:15:41.444Z"
     },
     {
       "id": "nvidia-ai-fullstack-moat",
@@ -783,5 +783,5 @@
   ],
   "count": 12,
   "groqConnected": true,
-  "generatedAt": "2026-09-25T09:08:22.117Z"
+  "generatedAt": "2026-09-26T07:15:41.444Z"
 }

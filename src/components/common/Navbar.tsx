@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowUpRight, CheckCircle2, Gamepad2 } from 'lucide-react';
+import { Menu, X, ArrowUpRight, CheckCircle2, Gamepad2, FlaskConical } from 'lucide-react';
 import { portfolioData } from '../../data/portfolioData';
 import { BrandLogo } from './BrandLogo';
 
@@ -115,6 +115,17 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
 
           <div className="h-4 w-px bg-slate-200 mx-2" aria-hidden="true" />
 
+          {/* Dedicated Experimental Playground Button */}
+          <a
+            href="#/playground"
+            id="nav-link-playground"
+            className="inline-flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold text-slate-800 hover:text-blue-600 bg-slate-100 hover:bg-slate-200/80 rounded-md transition-all border border-slate-200"
+            title="Open Experimental Playground Lab"
+          >
+            <FlaskConical className="w-3.5 h-3.5 text-blue-600" />
+            <span>Lab</span>
+          </a>
+
           {/* Dedicated Newsroom / News Platform Button */}
           <a
             href="#/news"
@@ -199,6 +210,20 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
                 </a>
               );
             })}
+
+            {/* Dedicated Experimental Playground link in mobile drawer */}
+            <a
+              href="#/playground"
+              id="mobile-nav-link-playground"
+              onClick={() => setMobileMenuOpen(false)}
+              className="px-3 py-2.5 rounded-md text-base font-bold text-slate-900 bg-blue-50/70 hover:bg-blue-100/70 transition-colors flex items-center justify-between mt-1 border border-blue-200"
+            >
+              <span className="flex items-center gap-2">
+                <FlaskConical className="w-4 h-4 text-blue-600" />
+                <span>🧪 Experimental Playground</span>
+              </span>
+              <ArrowUpRight className="w-4 h-4 text-blue-600" />
+            </a>
 
             {/* Dedicated News Portal link in mobile drawer */}
             <a

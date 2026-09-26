@@ -34,6 +34,16 @@ export interface FeedItem {
 
 const BASE_TELEMETRY_ITEMS: FeedItem[] = [
   {
+    id: 'ev-base-lab',
+    type: 'SYSTEM EVENT',
+    title: 'Experimental Laboratory Online',
+    detail: 'Gravity Sandbox, N-body particle physics & vector swarm active on SEC-7 stage.',
+    timestamp: 'Recent',
+    source: 'PHYSICS-LAB',
+    linkRoute: '#/playground',
+    actionText: 'Enter Lab',
+  },
+  {
     id: 'ev-base-1',
     type: 'SYSTEM EVENT',
     title: 'Quantum Telemetry Synchronized',
