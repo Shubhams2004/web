@@ -1,10 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Footer } from './components/common';
-import { Hero, About, TrendingCaseStudies, Contact, CuratedLiveWire } from './components/sections';
-import { FeaturedExperienceCard, LiveWorldFeed } from './components/playground';
+import { Hero, About, TrendingCaseStudies, Contact, CuratedLiveWire, ExploreShowcase } from './components/sections';
 import { CaseStudyPage } from './components/case-studies';
 import { NewsPlatformPage, NewsArticleModal } from './components/news';
-import { RetroGamePage, ZombieGamePage, PixelDungeonPage, ShadowHuntPage, GameId } from './games';
+import { SprintRunPage, RetroGamePage, ZombieGamePage, PixelDungeonPage, ShadowHuntPage, GameId } from './games';
 import { MissionControlPage } from './mission-control';
 import { ExperimentalPlaygroundPage } from './components/experimental-playground';
 import { portfolioData } from './data';
@@ -48,6 +47,26 @@ export default function App() {
 
       setIsMissionControlPage(false);
 
+      // Check direct Sprint Run dedicated route
+      const isSprintRun =
+        hash === '#/sprint-run' ||
+        hash === '#sprint-run' ||
+        hash === '#/sprint' ||
+        hash === '#sprint' ||
+        hash === '#game-sprint' ||
+        hash.startsWith('#/game/sprint') ||
+        path.endsWith('/sprint-run') ||
+        path.endsWith('/sprint-run/') ||
+        path.endsWith('/sprint');
+
+      if (isSprintRun) {
+        setIsGamePage(true);
+        setActiveGameId('sprint-run');
+        setIsNewsPlatformPage(false);
+        setCaseStudyProjectId(null);
+        return;
+      }
+
       // Check if user is navigating to /game or #/game or /web/game
       const isGame =
         hash === '#/game' ||
@@ -64,6 +83,12 @@ export default function App() {
 
         // Check specific game requested in hash
         if (
+          hash.includes('sprint') ||
+          hash === '#game-sprint' ||
+          hash.startsWith('#/game/sprint')
+        ) {
+          setActiveGameId('sprint-run');
+        } else if (
           hash.includes('shadow') ||
           hash.includes('hunt') ||
           hash === '#game-shadow' ||
@@ -188,7 +213,7 @@ export default function App() {
 
   useEffect(() => {
     if (caseStudyProjectId || isNewsPlatformPage || isGamePage || isMissionControlPage || isPlaygroundPage) return;
-    const sections = ['home', 'case-studies', 'about', 'contact'];
+    const sections = ['home', 'live-wire', 'case-studies', 'explore', 'about', 'contact'];
     const handleScroll = () => {
       const scrollPosition = window.scrollY + 140; // offset for sticky header
 
@@ -250,6 +275,15 @@ export default function App() {
       setActiveGameId(id);
       window.location.hash = `#/game/${id}`;
     };
+
+    if (activeGameId === 'sprint-run') {
+      return (
+        <SprintRunPage
+          onBack={handleBack}
+          onSwitchGame={handleSwitchGame}
+        />
+      );
+    }
 
     if (activeGameId === 'shadow-hunt') {
       return (
@@ -337,7 +371,7 @@ export default function App() {
       {/* Navigation */}
       <Navbar activeSection={activeSection} />
 
-      {/* Main Content Sections: Living Retro Playground (Hero + Signal Console + Featured Experience + Live World Feed) + Trending Business Case Studies + About + Contact */}
+      {/* Main Content Sections: Editorial Portfolio & Digital Publication Homepage */}
       <main className="flex-1">
         <Hero
           onLaunchGame={(id) => {
@@ -355,22 +389,31 @@ export default function App() {
             }
           }}
         />
-        <FeaturedExperienceCard
-          onLaunchGame={(id) => {
-            setActiveGameId(id as GameId);
-            setIsGamePage(true);
-            window.location.hash = `#/game/${id}`;
-          }}
-        />
-        <LiveWorldFeed />
+
+        {/* Curated Digital Dispatch & Live News Catalysts */}
         <CuratedLiveWire
           onOpenNewsroom={() => {
             window.location.hash = '#/news';
           }}
           onSelectArticle={(art) => setSelectedHomeArticle(art)}
         />
+
+        {/* In-Depth Empirical Business Case Studies */}
         <TrendingCaseStudies />
+
+        {/* Curated Explore Ecosystem: 3D Arcade & Sprint Run, Experimental Lab, Newsroom, Command Deck */}
+        <ExploreShowcase
+          onLaunchGame={(id) => {
+            setActiveGameId(id as GameId);
+            setIsGamePage(true);
+            window.location.hash = `#/game/${id}`;
+          }}
+        />
+
+        {/* Research Methodology, Analytical Rigor & Professional Background */}
         <About />
+
+        {/* Direct Inquiries & Contact Form */}
         <Contact />
       </main>
 

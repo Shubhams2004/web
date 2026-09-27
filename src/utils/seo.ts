@@ -309,6 +309,32 @@ export const SECTION_SEO_PRESETS: Record<string, PageMetaContext> = {
       'Shubham Sonale',
     ],
   },
+  'live-wire': {
+    title: 'Current Dispatches & Market Catalysts | Shubham Sonale',
+    description:
+      'Real-time curated market intelligence, corporate filings, and global news catalysts synthesized from verified wires.',
+    section: 'Market Dispatches',
+    keywords: [
+      'Market Catalysts',
+      'Corporate Dispatches',
+      'Live Wire News',
+      'Market Intelligence',
+      'Shubham Sonale',
+    ],
+  },
+  explore: {
+    title: 'Explore Interactive Systems & Digital Lab | Shubham Sonale',
+    description:
+      'Explore the interactive digital ecosystem: 3D Sprint Run arcade runner, browser laboratory sandbox, newsroom platform, and command deck.',
+    section: 'Explore Ecosystem',
+    keywords: [
+      'Interactive Lab',
+      'Sprint Run 3D',
+      'Browser Laboratory',
+      'Mission Control',
+      'Digital Ecosystem',
+    ],
+  },
   contact: {
     title: 'Hire a Research Writer | Contact & Inquiries',
     description:

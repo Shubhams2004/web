@@ -23,7 +23,7 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
   onLaunchGame,
   className = '',
 }) => {
-  const [selectedGameId, setSelectedGameId] = useState<string>('pixel-dungeon');
+  const [selectedGameId, setSelectedGameId] = useState<string>('sprint-run');
 
   const selectedGame: GameDefinition =
     AVAILABLE_GAMES.find((g) => g.id === selectedGameId) || AVAILABLE_GAMES[0];
@@ -46,6 +46,13 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
   // Game-specific highlights
   const getGameHighlights = (id: string) => {
     switch (id) {
+      case 'sprint-run':
+        return [
+          { label: 'Style', val: '3D Endless Jungle Runner' },
+          { label: 'Mechanics', val: 'Leap, Slide, Lane Shift, Sprint' },
+          { label: 'Camera', val: 'Dynamic 3D Chase Cam' },
+          { label: 'Visuals', val: 'Full-Size Stylized 3D Human' },
+        ];
       case 'shadow-hunt':
         return [
           { label: 'Style', val: 'Touch-First Stealth Assassin' },
@@ -195,7 +202,7 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
                   className="inline-flex items-center gap-1.5 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-300 hover:text-white font-semibold text-xs sm:text-sm transition-colors cursor-pointer"
                 >
                   <Layers className="w-4 h-4 text-cyan-400" />
-                  <span>Browse All 3 Games</span>
+                  <span>Browse All Games</span>
                 </button>
               </div>
             </div>
@@ -212,29 +219,39 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
                 </div>
 
                 {/* Simulated CRT Screen Preview */}
-                <div className="relative rounded-xl bg-black border-2 border-slate-700/80 p-4 aspect-4/3 flex flex-col items-center justify-center text-center overflow-hidden shadow-inner group">
-                  <div className="absolute inset-0 retro-scanlines opacity-40 pointer-events-none" />
-                  <div className="absolute inset-0 bg-radial from-transparent via-black/40 to-black pointer-events-none" />
+                <div className="relative rounded-xl bg-black border-2 border-slate-700/80 p-2 sm:p-3 aspect-4/3 flex flex-col items-center justify-center text-center overflow-hidden shadow-inner group">
+                  {selectedGame.thumbnailUrl ? (
+                    <img
+                      src={selectedGame.thumbnailUrl}
+                      alt={selectedGame.title}
+                      referrerPolicy="no-referrer"
+                      className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
+                  ) : null}
+                  <div className="absolute inset-0 retro-scanlines opacity-30 pointer-events-none" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/40 to-transparent pointer-events-none" />
 
-                  {/* Icon illustration per game */}
-                  <div className="relative z-10 mb-3 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 group-hover:scale-110 transition-transform duration-300">
-                    {selectedGame.id === 'pixel-dungeon' && (
-                      <Shield className="w-12 h-12 text-amber-400" />
-                    )}
-                    {selectedGame.id === 'zombie-survival' && (
-                      <Crosshair className="w-12 h-12 text-emerald-400" />
-                    )}
-                    {selectedGame.id === 'retro-racer' && (
-                      <Gauge className="w-12 h-12 text-cyan-400" />
-                    )}
-                  </div>
+                  {/* Icon illustration per game if no thumbnail */}
+                  {!selectedGame.thumbnailUrl && (
+                    <div className="relative z-10 mb-3 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 group-hover:scale-110 transition-transform duration-300">
+                      {selectedGame.id === 'pixel-dungeon' && (
+                        <Shield className="w-12 h-12 text-amber-400" />
+                      )}
+                      {selectedGame.id === 'zombie-survival' && (
+                        <Crosshair className="w-12 h-12 text-emerald-400" />
+                      )}
+                      {selectedGame.id === 'retro-racer' && (
+                        <Gauge className="w-12 h-12 text-cyan-400" />
+                      )}
+                    </div>
+                  )}
 
-                  <div className="relative z-10 font-mono text-xs text-slate-300">
-                    <span className="text-cyan-400 font-bold tracking-widest block text-sm">
+                  <div className="relative z-10 font-mono text-xs text-slate-200 mt-auto pb-1 text-center w-full">
+                    <span className="text-cyan-300 font-bold tracking-widest block text-sm drop-shadow-md">
                       {selectedGame.title}
                     </span>
-                    <span className="text-slate-400 text-[11px]">
-                      Press [Play] to enter retro full arena
+                    <span className="text-slate-300 text-[11px] drop-shadow-sm">
+                      Press [Play] to enter full arena
                     </span>
                   </div>
 

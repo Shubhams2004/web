@@ -1,20 +1,17 @@
 import React, { useState } from 'react';
 import {
   ArrowDown,
-  ArrowUpRight,
+  ArrowRight,
   TrendingUp,
   Sparkles,
   Rss,
-  Gamepad2,
-  Radio,
-  Terminal,
+  Layers,
   Compass,
-  Zap,
-  FlaskConical,
+  CheckCircle2,
+  FileText,
 } from 'lucide-react';
 import { motion } from 'motion/react';
 import { BrandLogo } from '../common/BrandLogo';
-import { SignalConsole } from '../playground/SignalConsole';
 import { DiscoveryModal } from '../playground/DiscoveryModal';
 import { missionAudio } from '../../mission-control/audio';
 
@@ -55,197 +52,173 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRssDiscovery, onLaunchGame }) 
     }
   };
 
-  const handleSecretPing = (msg?: string) => {
-    missionAudio.playTerminalBlip();
-    setSecretToast(msg || '✨ ANOMALY DETECTED: Unknown carrier signal tuned.');
-    setTimeout(() => {
-      setSecretToast(null);
-    }, 4500);
-  };
-
   return (
     <section
       id="home"
-      className="relative pt-24 pb-12 sm:pt-28 sm:pb-16 lg:pt-32 lg:pb-20 overflow-hidden bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white border-b border-slate-800"
+      className="relative pt-28 pb-16 sm:pt-36 sm:pb-24 lg:pt-40 lg:pb-28 bg-gradient-to-b from-slate-950 via-slate-900 to-slate-950 text-white border-b border-slate-800 overflow-hidden"
     >
-      {/* Retro playground backdrop effects */}
-      <div className="absolute inset-0 retro-grid-bg opacity-30 pointer-events-none" />
-      <div className="absolute inset-0 retro-scanlines opacity-15 pointer-events-none" />
+      {/* Subtle background ambient gradients */}
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute bottom-10 right-10 w-[500px] h-[300px] bg-emerald-600/8 rounded-full blur-3xl pointer-events-none" />
 
-      {/* Subtle top ambient glow */}
-      <div className="absolute -top-32 left-1/2 -translate-x-1/2 w-[700px] h-[350px] bg-blue-600/15 rounded-full blur-3xl pointer-events-none" />
-
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-10 items-center">
-          {/* Left Column: Identity, Powerful Headline, Philosophy & Action Hub */}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
+          {/* Left Column: Authoritative Editorial Statement & Action Hub (Span 7) */}
           <motion.div
-            className="lg:col-span-7"
-            initial={{ opacity: 0, y: 14 }}
+            className="lg:col-span-7 flex flex-col items-start"
+            initial={{ opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.35, ease: 'easeOut' }}
+            transition={{ duration: 0.4, ease: 'easeOut' }}
           >
-            {/* Identity Status Pill + Secret Discovery Glyph */}
-            <div className="flex flex-wrap items-center gap-2 mb-4">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-slate-800/90 border border-slate-700/80 text-cyan-300 text-xs font-mono font-semibold shadow-2xs">
-                <BrandLogo size="sm" className="w-4 h-4 -ml-0.5" />
-                <span>Shubham Sonale · Research Analyst & Digital Lab</span>
-              </div>
-
-              {/* Secret Clickable Glyph / Anomaly */}
-              <button
-                type="button"
-                onClick={() => {
-                  missionAudio.playRadarPing();
-                  setIsDiscoveryOpen(true);
-                }}
-                className="inline-flex items-center gap-1 px-2.5 py-1 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-300 hover:text-amber-200 hover:bg-amber-500/25 text-[11px] font-mono transition-all cursor-pointer group"
-                title="Discover hidden digital playground secrets (Shortcut: ?)"
-              >
-                <Sparkles className="w-3 h-3 group-hover:rotate-45 transition-transform" />
-                <span>[DISCOVER CODEX]</span>
-              </button>
+            {/* Clean unboxed editorial kicker */}
+            <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-cyan-300 mb-4 sm:mb-5 tracking-wider uppercase">
+              <span className="font-semibold">Corporate Strategy</span>
+              <span aria-hidden="true" className="text-slate-600">·</span>
+              <span className="font-semibold">Market Catalysts</span>
+              <span aria-hidden="true" className="text-slate-600">·</span>
+              <span className="font-semibold">Interactive Software</span>
             </div>
 
-            {/* Core Hero Headline */}
-            <div className="space-y-1 mb-3">
-              <span className="text-xs sm:text-sm font-mono font-bold tracking-widest text-cyan-400 uppercase flex items-center gap-2">
-                <Terminal className="w-3.5 h-3.5" />
-                <span>NODE 0x01 // DIGITAL PLAYGROUND</span>
-              </span>
-              <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08]">
-                WELCOME TO THE WEB
-              </h1>
-            </div>
+            {/* Core Headline */}
+            <h1 className="text-3xl sm:text-5xl lg:text-6xl font-black text-white tracking-tight leading-[1.08] font-serif mb-5 sm:mb-6 text-balance">
+              Synthesizing market catalysts, corporate disruptions & strategic intelligence.
+            </h1>
 
-            {/* Supporting line */}
-            <p className="text-lg sm:text-xl font-semibold text-cyan-300/90 mb-3 tracking-tight font-sans">
-              You never know what you'll find.
+            {/* Lead Narrative */}
+            <p className="text-base sm:text-lg text-slate-300 leading-relaxed font-normal max-w-2xl mb-6">
+              I combine investigative corporate inquiry with quantitative rigor to produce publication-grade business case studies and strategic intelligence. From public filings to live market catalysts, every study evaluates capital allocation, competitive moats, and operational inflection points.
             </p>
 
-            {/* Identity & Discovery synthesis description */}
-            <p className="text-sm sm:text-base text-slate-300 leading-relaxed mb-6 font-normal max-w-xl">
-              An open digital lab bridging corporate strategy research, live market catalyst discovery, and playable retro-futuristic arcade machines. Explore empirical findings, tune electromagnetic carrier waves, or uncover hidden command decks.
-            </p>
-
-            {/* Core Capability Badges */}
-            <div className="flex flex-wrap gap-2 mb-7 text-xs font-mono">
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
-                <TrendingUp className="w-3.5 h-3.5 text-blue-400" />
+            {/* Quiet Curatorial Metadata */}
+            <div className="flex flex-wrap items-center gap-3 sm:gap-4 text-xs font-mono text-slate-400 mb-8 sm:mb-10">
+              <div className="flex items-center gap-1.5 text-slate-300">
+                <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" />
                 <span>Empirical Case Studies</span>
               </div>
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
+              <span aria-hidden="true" className="text-slate-700">·</span>
+              <div className="flex items-center gap-1.5 text-slate-300">
                 <Rss className="w-3.5 h-3.5 text-amber-400" />
-                <span>Live RSS Catalyst Discovery</span>
+                <span>Live Wire Catalysts</span>
               </div>
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
-                <Gamepad2 className="w-3.5 h-3.5 text-rose-400" />
-                <span>3 Playable Retro Games</span>
+              <span aria-hidden="true" className="text-slate-700">·</span>
+              <div className="flex items-center gap-1.5 text-slate-300">
+                <Compass className="w-3.5 h-3.5 text-emerald-400" />
+                <span>Open Digital Lab</span>
               </div>
-              <div className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-slate-300">
-                <Radio className="w-3.5 h-3.5 text-emerald-400" />
-                <span>VHF Signal Console</span>
-              </div>
-              <a
-                href="#/playground"
-                className="flex items-center gap-1.5 px-2.5 py-1 rounded-lg bg-slate-900 border border-slate-800 text-cyan-300 hover:text-cyan-200 hover:border-cyan-800 transition-colors"
-              >
-                <FlaskConical className="w-3.5 h-3.5 text-cyan-400" />
-                <span>🧪 Lab Sandbox</span>
-              </a>
             </div>
 
-            {/* Action CTAs */}
-            <div className="flex flex-wrap items-center gap-3">
+            {/* Clean Action Button Row */}
+            <div className="flex flex-wrap items-center gap-3.5">
               <button
                 id="hero-cta-case-studies"
                 type="button"
                 onClick={() => handleScrollTo('case-studies')}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-900/40 transition-all cursor-pointer active:scale-95"
+                className="inline-flex items-center justify-center gap-2 px-6 py-3.5 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm shadow-lg shadow-blue-900/30 transition-all cursor-pointer active:scale-95"
               >
-                <span>Explore Research Studies</span>
+                <span>Read Case Studies</span>
                 <ArrowDown className="w-4 h-4" />
               </button>
 
               <button
-                id="hero-cta-lab"
+                id="hero-cta-dispatches"
                 type="button"
-                onClick={() => {
-                  missionAudio.playBeep(880, 0.08);
-                  window.location.hash = '#/playground';
-                }}
-                className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-cyan-300 font-bold text-xs sm:text-sm border border-slate-700 hover:border-cyan-600/50 shadow-md transition-all cursor-pointer active:scale-95"
+                onClick={() => handleScrollTo('live-wire')}
+                className="inline-flex items-center justify-center gap-2 px-5 py-3.5 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white font-semibold text-xs sm:text-sm border border-slate-700 hover:border-slate-600 transition-all cursor-pointer active:scale-95"
               >
-                <FlaskConical className="w-4 h-4 text-cyan-400" />
-                <span>🧪 Experimental Lab</span>
+                <span>Latest Dispatches</span>
+                <ArrowRight className="w-4 h-4 text-slate-400" />
               </button>
 
               <button
-                id="hero-cta-arcade"
+                id="hero-cta-explore"
                 type="button"
-                onClick={() => {
-                  missionAudio.playBeep(920, 0.08);
-                  if (onLaunchGame) {
-                    onLaunchGame('pixel-dungeon');
-                  } else {
-                    window.location.hash = '#/game';
-                  }
-                }}
-                className="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-xl bg-rose-600/90 hover:bg-rose-600 text-white font-bold text-xs sm:text-sm shadow-md shadow-rose-900/30 transition-all cursor-pointer active:scale-95"
+                onClick={() => handleScrollTo('explore')}
+                className="inline-flex items-center justify-center gap-1.5 px-4 py-3.5 rounded-xl text-slate-400 hover:text-cyan-300 text-xs sm:text-sm font-medium transition-colors cursor-pointer"
               >
-                <Gamepad2 className="w-4 h-4" />
-                <span>Enter Arcade</span>
-              </button>
-
-              {onOpenRssDiscovery && (
-                <button
-                  id="hero-cta-discover-rss"
-                  type="button"
-                  onClick={onOpenRssDiscovery}
-                  className="inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-xs sm:text-sm border border-slate-700 transition-colors cursor-pointer"
-                >
-                  <Rss className="w-3.5 h-3.5 text-amber-400" />
-                  <span className="hidden sm:inline">Discover Live RSS</span>
-                  <span className="sm:hidden">Live RSS</span>
-                </button>
-              )}
-
-              <button
-                id="hero-cta-contact"
-                type="button"
-                onClick={() => handleScrollTo('contact')}
-                className="inline-flex items-center justify-center gap-1.5 px-3 py-2.5 rounded-xl text-slate-400 hover:text-white text-xs sm:text-sm font-semibold transition-colors cursor-pointer"
-              >
-                <span>Inquiries</span>
-                <ArrowUpRight className="w-3.5 h-3.5" />
+                <span>Explore Lab & 3D Games</span>
+                <ArrowRight className="w-3.5 h-3.5" />
               </button>
             </div>
           </motion.div>
 
-          {/* Right Column: Visual Interactive Signal Console */}
-          <div className="lg:col-span-5">
-            <SignalConsole
-              onSignalDiscovered={(msg) => handleSecretPing(msg)}
-              className="w-full"
-            />
-          </div>
-        </div>
+          {/* Right Column: Editorial Featured Study Spotlight (Span 5) */}
+          <motion.div
+            className="lg:col-span-5"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.45, delay: 0.1, ease: 'easeOut' }}
+          >
+            <div className="bg-slate-900/80 border border-slate-800 rounded-3xl p-6 sm:p-8 backdrop-blur-sm shadow-xl flex flex-col justify-between relative overflow-hidden group hover:border-slate-700 transition-all">
+              {/* Subtle top accent rule */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-500 via-cyan-400 to-emerald-400" />
 
-        {/* Discovery Notification Toast if triggered */}
-        {secretToast && (
-          <div className="mt-4 p-3 rounded-xl bg-amber-950/80 border border-amber-500/50 text-amber-200 text-xs font-mono flex items-center justify-between gap-3 animate-fade-in">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-4 h-4 text-amber-400 shrink-0" />
-              <span>{secretToast}</span>
+              <div>
+                {/* Spotlight Header */}
+                <div className="flex items-center justify-between gap-3 mb-4">
+                  <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                    <FileText className="w-3.5 h-3.5" />
+                    <span>Featured Case Study</span>
+                  </div>
+                  <span className="text-[11px] font-mono text-slate-400">
+                    Q3 Edition
+                  </span>
+                </div>
+
+                {/* Spotlight Title */}
+                <h2 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug font-serif mb-3 group-hover:text-blue-300 transition-colors">
+                  AI Personal Assistant & Task Automation
+                </h2>
+
+                <p className="text-xs sm:text-sm text-slate-300 leading-relaxed mb-5">
+                  Low-cost agentic task automation infrastructure leveraging Groq API reasoning, Supabase persistent state, and Cloudflare Workers serverless execution.
+                </p>
+
+                {/* Key Spec Pillars */}
+                <div className="space-y-2 mb-6 text-xs text-slate-300 font-mono">
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-800">
+                    <span className="text-slate-400">Architecture</span>
+                    <span className="font-semibold text-white">Triad Serverless Model</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-800">
+                    <span className="text-slate-400">Inference Core</span>
+                    <span className="font-semibold text-cyan-300">Groq LPU Engine</span>
+                  </div>
+                  <div className="flex items-center justify-between py-1.5 border-b border-slate-800">
+                    <span className="text-slate-400">Execution Tier</span>
+                    <span className="font-semibold text-emerald-300">100% Free-Tier Architecture</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Action */}
+              <div className="pt-2 flex items-center justify-between gap-4">
+                <button
+                  type="button"
+                  onClick={() => {
+                    missionAudio.playTerminalBlip();
+                    window.location.hash = '#/case-study/project-ai-assistant';
+                  }}
+                  className="inline-flex items-center gap-2 text-xs sm:text-sm font-bold text-blue-400 hover:text-blue-300 transition-colors cursor-pointer"
+                >
+                  <span>Read Full Architecture Study</span>
+                  <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                </button>
+
+                <button
+                  type="button"
+                  onClick={() => {
+                    missionAudio.playRadarPing();
+                    setIsDiscoveryOpen(true);
+                  }}
+                  className="text-[11px] font-mono text-slate-500 hover:text-slate-300 transition-colors"
+                  title="Discover Codex (Shortcut: ?)"
+                >
+                  Codex [?]
+                </button>
+              </div>
             </div>
-            <button
-              type="button"
-              onClick={() => setIsDiscoveryOpen(true)}
-              className="px-2 py-0.5 rounded bg-amber-500 text-slate-950 font-bold text-[10px] hover:bg-amber-400 transition-colors cursor-pointer shrink-0"
-            >
-              View Codex
-            </button>
-          </div>
-        )}
+          </motion.div>
+        </div>
       </div>
 
       {/* Discovery Codex Modal */}
@@ -255,7 +228,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenRssDiscovery, onLaunchGame }) 
         onNavigate={(route) => {
           if (route.startsWith('#/game') && onLaunchGame) {
             const id = route.replace('#/game/', '').replace('#/game', '');
-            onLaunchGame(id || 'pixel-dungeon');
+            onLaunchGame(id || 'sprint-run');
           } else {
             window.location.hash = route;
           }
