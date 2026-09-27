@@ -1,7 +1,60 @@
 {
   "caseStudies": [
     {
-      "id": "live-study-meta%20platforms-rss-1-Meta%20Platf-mui5sio0",
+      "id": "live-study-scoop%20top-rss-1-Scoop%20Top-mujgq3ig",
+      "company": "Scoop Top",
+      "industry": "Technology & Software",
+      "title": "Scoop: Top AI companies probing tens of thousands of security incidents",
+      "whatHappened": "Financial reporting by Axios highlights a strategic operational and market development for Scoop Top.",
+      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
+      "marketContext": "The Technology & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
+      "importantDataOrResults": {
+        "metrics": [
+          {
+            "label": "Source Verification",
+            "value": "Axios",
+            "change": "2h ago",
+            "isPositive": true
+          },
+          {
+            "label": "Catalyst Status",
+            "value": "Live Wire",
+            "change": "Active Strategic Development",
+            "isPositive": true
+          }
+        ],
+        "summary": "Active corporate development reported by Axios. Disclosures and stakeholder commentary reflect current strategic positioning."
+      },
+      "keyLessons": [
+        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
+        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
+        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
+      ],
+      "sources": [
+        {
+          "title": "Scoop: Top AI companies probing tens of thousands of security incidents",
+          "publisher": "Axios",
+          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaUlRV1JkUEZFRkRINVBlWTR1SWxkZ1hjcUdOMkJDNzF4UXdBVHd2LVlqQmlwb0R3cTVuTFk3MEp1eHlUT0hsRTAzekszcl81ZjNoWDZCMkZBTlk4Z3dlV1RoZnd3YVZSQmpUWWEyc3EyWUFnRHFiQjNacUVEYmxuYXFxVldIdVJ3?oc=5",
+          "date": "2h ago"
+        }
+      ],
+      "date": "Sep 27, 2026",
+      "readTime": "3 min read",
+      "status": "Breaking Catalyst",
+      "tags": [
+        "Technology & Software",
+        "Corporate Strategy",
+        "Live Intelligence"
+      ],
+      "rssHeadlineReference": "Scoop: Top AI companies probing tens of thousands of security incidents",
+      "isLive": true,
+      "rankingSignal": "Top Recency & Wire Consensus",
+      "generatedByGroq": false,
+      "generatedAt": "2026-09-27T08:43:31.030Z"
+    },
+    {
+      "id": "live-study-meta%20platforms-rss-2-Meta%20Platf-mui5sio0",
       "company": "Meta Platforms",
       "industry": "Social Networks & AI",
       "title": "Inside Meta's months-long grind to turn Muse into a hit",
@@ -49,62 +102,9 @@
       ],
       "rssHeadlineReference": "Inside Meta's months-long grind to turn Muse into a hit",
       "isLive": true,
-      "rankingSignal": "Top Recency & Wire Consensus",
-      "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:32:44.620Z"
-    },
-    {
-      "id": "live-study-openai-rss-2-OpenAI-muj7eoo0",
-      "company": "OpenAI",
-      "industry": "Generative AI Systems",
-      "title": "OpenAI halts training of latest models as reports mount of AI agents going rogue",
-      "whatHappened": "Financial reporting by The Guardian highlights a strategic operational and market development for OpenAI.",
-      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Generative AI Systems industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
-      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
-      "importantDataOrResults": {
-        "metrics": [
-          {
-            "label": "Source Verification",
-            "value": "The Guardian",
-            "change": "6h ago",
-            "isPositive": true
-          },
-          {
-            "label": "Catalyst Status",
-            "value": "Live Wire",
-            "change": "Active Strategic Development",
-            "isPositive": true
-          }
-        ],
-        "summary": "Active corporate development reported by The Guardian. Disclosures and stakeholder commentary reflect current strategic positioning."
-      },
-      "keyLessons": [
-        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
-        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
-        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
-      ],
-      "sources": [
-        {
-          "title": "OpenAI halts training of latest models as reports mount of AI agents going rogue",
-          "publisher": "The Guardian",
-          "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdWZCRDBDd0E2YnBTeGJZNXhZLURBOXlJZTR2dGhwY0c1bWlNX3N6MkhWcVRiSF9oNjJLWmJfY0Nwcy05SFB0RGJ2ckhaNjdueWFxMjdnWHhodFM1MEJkRXVnUzJZTTJidXdGckk1ZkI0RDZRNmVQQXYyTmxtbnJKZFdMNFRMbFhwcWY5RHdFeGpIY3prOVo1RWstRWhPVVRldXgyV1E1Q2FaOEZxSC1rTld2eFFHWnJTcXk2WmgxRG15a0ViblgzYzh3TQ?oc=5",
-          "date": "6h ago"
-        }
-      ],
-      "date": "Sep 27, 2026",
-      "readTime": "3 min read",
-      "status": "Breaking Catalyst",
-      "tags": [
-        "Generative AI Systems",
-        "Corporate Strategy",
-        "Live Intelligence"
-      ],
-      "rssHeadlineReference": "OpenAI halts training of latest models as reports mount of AI agents going rogue",
-      "isLive": true,
       "rankingSignal": "High Strategic Market Impact",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:32:44.620Z"
+      "generatedAt": "2026-09-27T08:43:31.030Z"
     },
     {
       "id": "live-study-storied%20indian-rss-3-Storied%20In-muj688w0",
@@ -157,7 +157,7 @@
       "isLive": true,
       "rankingSignal": "High Strategic Market Impact",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:32:44.621Z"
+      "generatedAt": "2026-09-27T08:43:31.030Z"
     },
     {
       "id": "live-study-meta%20platforms-rss-4-Meta%20Platf-muhjuwqo",
@@ -210,7 +210,7 @@
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:32:44.621Z"
+      "generatedAt": "2026-09-27T08:43:31.030Z"
     },
     {
       "id": "live-study-apple-rss-5-Apple-muiwl1ns",
@@ -263,7 +263,7 @@
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:32:44.621Z"
+      "generatedAt": "2026-09-27T08:43:31.030Z"
     },
     {
       "id": "live-study-iced%20coffee-rss-6-Iced%20Coffe-muia2u80",
@@ -316,7 +316,7 @@
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:32:44.621Z"
+      "generatedAt": "2026-09-27T08:43:31.030Z"
     },
     {
       "id": "nvidia-ai-fullstack-moat",
@@ -783,5 +783,5 @@
   ],
   "count": 12,
   "groqConnected": true,
-  "generatedAt": "2026-09-27T08:32:44.621Z"
+  "generatedAt": "2026-09-27T08:43:31.030Z"
 }

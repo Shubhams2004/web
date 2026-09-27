@@ -1,22 +1,22 @@
 {
   "stories": [
     {
-      "id": "rss-1-Meta%20Platf-mui5sio0",
+      "id": "rss-1-Scoop%20Top-mujgq3ig",
+      "title": "Scoop: Top AI companies probing tens of thousands of security incidents",
+      "source": "Axios",
+      "publishedAt": "2h ago",
+      "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaUlRV1JkUEZFRkRINVBlWTR1SWxkZ1hjcUdOMkJDNzF4UXdBVHd2LVlqQmlwb0R3cTVuTFk3MEp1eHlUT0hsRTAzekszcl81ZjNoWDZCMkZBTlk4Z3dlV1RoZnd3YVZSQmpUWWEyc3EyWUFnRHFiQjNacUVEYmxuYXFxVldIdVJ3?oc=5",
+      "suggestedCompany": "Scoop Top",
+      "suggestedIndustry": "Technology & Software"
+    },
+    {
+      "id": "rss-2-Meta%20Platf-mui5sio0",
       "title": "Inside Meta's months-long grind to turn Muse into a hit",
       "source": "Business Insider",
       "publishedAt": "1d ago",
       "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMFdNbDd4b3h0S2pGYnY2dEsteUplS1hEQXh0SXVQM2QydWJIUjVVNWVVbnc1YlAyNERBT2NhbXJ6emtqaW9sTDE0MW0tNjF6VUV2SkEzbjVYa2JDcUhWODI2Rm1uSnMxUmVxWW93aUU4SnlOUlF2ejRwVGtKU0pDOENJTWF2Zw?oc=5",
       "suggestedCompany": "Meta Platforms",
       "suggestedIndustry": "Social Networks & AI"
-    },
-    {
-      "id": "rss-2-OpenAI-muj7eoo0",
-      "title": "OpenAI halts training of latest models as reports mount of AI agents going rogue",
-      "source": "The Guardian",
-      "publishedAt": "6h ago",
-      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdWZCRDBDd0E2YnBTeGJZNXhZLURBOXlJZTR2dGhwY0c1bWlNX3N6MkhWcVRiSF9oNjJLWmJfY0Nwcy05SFB0RGJ2ckhaNjdueWFxMjdnWHhodFM1MEJkRXVnUzJZTTJidXdGckk1ZkI0RDZRNmVQQXYyTmxtbnJKZFdMNFRMbFhwcWY5RHdFeGpIY3prOVo1RWstRWhPVVRldXgyV1E1Q2FaOEZxSC1rTld2eFFHWnJTcXk2WmgxRG15a0ViblgzYzh3TQ?oc=5",
-      "suggestedCompany": "OpenAI",
-      "suggestedIndustry": "Generative AI Systems"
     },
     {
       "id": "rss-3-Storied%20In-muj688w0",
@@ -67,7 +67,7 @@
       "id": "rss-8-Appeals%20Ka-muhgatmo",
       "title": "Appeals court rules that states can regulate Kalshi’s sports prediction markets, dealing another legal blow to platforms",
       "source": "CNBC",
-      "publishedAt": "1d ago",
+      "publishedAt": "2d ago",
       "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPTTNOZ0M4eHBEV0c2eEVoQVdOUXh1M1dQUmhwN2pES21TaGJnQVlvT3pNdU54LWpZbTY4WkdXT2VXTFdXNUExcVk4c2x4N1dtQ0RrdlJqR3FMUjlSN0dwTUNmd1BuTEpmMEVxMFF1VjBVTDNhRzlJbmh5SWVnbTdUTUtjMDhQSmhKSUNpUXBDT0NfLXUzd0IxbFhXdlpzMFZaMzdvbNIBqgFBVV95cUxQMWRUSUw5eUFIY3M0WGNOcDBhQ0dOeFJ0UHYxNkF2LWo1Wk9fSnBEY2Z3b0RoN3pBdFJ2ZTB6RmY4MWcycGRZbWR6bGNrV0V4dU42NFU2QUJRbzdsQ1JGOHp6RmphVVMwanB4a29XQmJNWEVaTEw0SWQyd3pucUtYUHJ0QURpaHlVNWpWVUF5N0s4UWRiVTJ4bXRrdkZyVnltdGwxcmh3LXdpZw?oc=5",
       "suggestedCompany": "Appeals Kalshis",
       "suggestedIndustry": "Commercial Strategy & Markets"
@@ -76,7 +76,7 @@
       "id": "rss-9-Stocks%20Ris-muhgab40",
       "title": "Stocks Rise to Cap Week of Increasing Yields, Volatile Oil Prices",
       "source": "WSJ",
-      "publishedAt": "1d ago",
+      "publishedAt": "2d ago",
       "url": "https://news.google.com/rss/articles/CBMirAFBVV95cUxOSEVnSDJQSW85S2ZsX3J4VjI4cFBQMjU1QkpfRnR6ckRRT1FnZGFRRzRoZFdiYlFTR00xRHpMWGpOYVNBdUg2dXNnUlZmSTcxbmFDNXVfNGd6ZVFieU1keVhqOG5QRlptMDA4Y1ZkZllsRThFVXRKd1dLYzRzSXRpYTJKWWFleldEUmhHcTVkZGhFSl81Y1pzc2dLaXc5X3lUdG5WWjliMVVHVkY3?oc=5",
       "suggestedCompany": "Stocks Rise",
       "suggestedIndustry": "Energy & Infrastructure"
@@ -100,34 +100,25 @@
       "suggestedIndustry": "Banking & Macro Finance"
     },
     {
-      "id": "rss-12-Trump%20Bide-muizih6o",
+      "id": "rss-12-OpenAI-muj7eoo0",
+      "title": "OpenAI halts training of latest models as reports mount of AI agents going rogue",
+      "source": "The Guardian",
+      "publishedAt": "6h ago",
+      "url": "https://news.google.com/rss/articles/CBMiywFBVV95cUxQdWZCRDBDd0E2YnBTeGJZNXhZLURBOXlJZTR2dGhwY0c1bWlNX3N6MkhWcVRiSF9oNjJLWmJfY0Nwcy05SFB0RGJ2ckhaNjdueWFxMjdnWHhodFM1MEJkRXVnUzJZTTJidXdGckk1ZkI0RDZRNmVQQXYyTmxtbnJKZFdMNFRMbFhwcWY5RHdFeGpIY3prOVo1RWstRWhPVVRldXgyV1E1Q2FaOEZxSC1rTld2eFFHWnJTcXk2WmgxRG15a0ViblgzYzh3TQ?oc=5",
+      "suggestedCompany": "OpenAI",
+      "suggestedIndustry": "Generative AI Systems"
+    },
+    {
+      "id": "rss-13-Trump%20Bide-muizih6o",
       "title": "Trump says he ended Biden electric vehicle rule, updated fuel economy standards",
-      "source": "thehill.com",
+      "source": "The Hill",
       "publishedAt": "10h ago",
       "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNRmticTJxMlhfTzkxZ0pEOHE5VGtTeF9LUHZjVDI4RGp5YzZPREtLUTdvZndWQk1KQjJnQXR6eXBWQkU5MkdiXzlWQUc1QzFNakVEM3FBZ21CdTJCV05xc1pzVTBQcGFzTXQ2cmlOV2FMcGxWdEhMRnAyMU1JaVZIZmtRaU9zMHlOeXhtcThPb9IBlAFBVV95cUxQakF3Sk1yQVdqX0lTSVJRelBDbkVFbHFCaExzY3VidUV1c09FLWdlYlYwUUw3bWFHbUpFN3c4dl9LOXNub0NZbFNoYnVMREVvSDB4RGtFZE1tSmRFbzFITDJadmthYWFwMXNnYXc5azNqaGRlR2F3eGJVZThRU3VBRFlBT2NLRUVHaHhCcndxNDZVZWcy?oc=5",
       "suggestedCompany": "Trump Biden",
       "suggestedIndustry": "Automotive & Mobility"
     },
     {
-      "id": "rss-13-Starbucks-muiujyhk",
-      "title": "6 WA Starbucks locations closing amid broader shutdown. Here's where",
-      "source": "FOX 13 Seattle",
-      "publishedAt": "12h ago",
-      "url": "https://news.google.com/rss/articles/CBMickFVX3lxTFBGQlRqbEFidVpBcWJmZmpoWEl0Z3c0cnVlWEREcGZVVmt3VGhNTFpRdXgzVkZSY0t3dzdKS3NqdlFldDV1RkFZU182enk3RnZRZWYyTk5DbjM0WjdDeTllZHFsb3dFU2tBNVJGRUFXNW5nUQ?oc=5",
-      "suggestedCompany": "Starbucks",
-      "suggestedIndustry": "Retail Foodservice"
-    },
-    {
-      "id": "rss-14-BREAKING-muj1sjns",
-      "title": "BREAKING: AI agent incident toll has risen to tens of thousands",
-      "source": "garymarcus.substack.com",
-      "publishedAt": "9h ago",
-      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTFBZOHpXdmNjSHNudXpCQjdBbTVTSlhzOThWVEl3MEEyU09SQ3RObVhjbEpCZW9Zbk5tZ0dhMm9VcFNIRUFoSFEtYW1rQU5mWmptSDhYVkItTDdwb1Z5T3k4SmNndGFVeDVDdnVpRnJpX3NUUXVoMDR6OQ?oc=5",
-      "suggestedCompany": "BREAKING",
-      "suggestedIndustry": "Technology & Software"
-    },
-    {
-      "id": "rss-15-US%20FDA-muj2fxhc",
+      "id": "rss-14-US%20FDA-muj2fxhc",
       "title": "E. coli outbreak linked to raw milk cheese leads to 13 illnesses and eight hospitalizations across the US: FDA",
       "source": "foxbusiness.com",
       "publishedAt": "8h ago",
@@ -136,16 +127,25 @@
       "suggestedIndustry": "Commercial Strategy & Markets"
     },
     {
-      "id": "rss-16-Boeing-muj58rvs",
+      "id": "rss-15-Boeing-muj58rvs",
       "title": "FAA investigates software glitch in some Boeing 737 Max jets that could cause issues during aborted landings",
-      "source": "cbsnews.com",
+      "source": "CBS News",
       "publishedAt": "7h ago",
       "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxOdk80YXJpcFNtRDZjYUxvNGliaU1ZZ3NzZDI5Wlh2VFhxNnk3N3IzdnFncURuNW14bUJVVlN0aTlnU29WVkxNQW5fMmNhSVJSc1NnSzVsLVVuMDRNMzJMZnU2a0ZsZFB4eWQ1RzRnaHo1S1NPdzY4MEdITmpRXzR5ZGFxQ2ljOF9TSllSRlZjRG1mRzlRQ0c0UnJ3cw?oc=5",
       "suggestedCompany": "Boeing",
       "suggestedIndustry": "Aerospace & Defense"
+    },
+    {
+      "id": "rss-16-Alabama%20Ti-muitapmo",
+      "title": "Alabama teens getting their own version of TikTok under sweeping $100M deal",
+      "source": "foxbusiness.com",
+      "publishedAt": "13h ago",
+      "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxPUUJORGFmODB0QUFNdlg4OG9KVlFXYVBWMzVpbFFJY3hQSDNoNHd4TExKdDNMcEZHa29ETHc3R0tQVmQwSFJuWmN2eHpMMnZ3djhSSUNrNmE2a1k5VkJJWHVydjVCU0JwTFZwZV9GZmVrd3JFNHpFNUlqWWNlSlY4WjJMTmtRYzhsSUlYeUNOZHRjaW9iemhTUjFWOHRWNmxQUm5Mb9IBqgFBVV95cUxQTzF4a3hhek00SXRrSHZ0Y3ZhOW90TjFQT2MzOXZ0amVOV0xYNGZYQWd6UVl0NWp4dW9QZzlvMWVpQk5KYzRCQ0ZDZHVPa1UweFBuaDZiQWpVNTVjUU0zaXJLZV9nN3VocHdDSW56MVhZWTUwNlM1NTlDX2xtc1dkTElqbHNudkdkSVNya2xzdE9lMGp3MTc5VC0tcFpPbkJQQXRIV0g2Qmdndw?oc=5",
+      "suggestedCompany": "Alabama TikTok",
+      "suggestedIndustry": "Commercial Strategy & Markets"
     }
   ],
   "count": 16,
   "source": "Business RSS Feed",
-  "generatedAt": "2026-09-27T08:32:44.621Z"
+  "generatedAt": "2026-09-27T08:43:31.030Z"
 }
