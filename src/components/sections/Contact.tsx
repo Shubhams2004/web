@@ -103,9 +103,8 @@ export const Contact: React.FC = () => {
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <ScrollReveal className="max-w-3xl mb-16">
-          <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600 mb-2">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
-            Contact
+          <div className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600 mb-2">
+            Contact & Inquiries
           </div>
           <h2 className="text-3xl sm:text-4xl font-bold text-slate-900 tracking-tight mb-4">
             Let’s discuss your research writing or publication project.

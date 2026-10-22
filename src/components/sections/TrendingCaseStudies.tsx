@@ -158,19 +158,17 @@ export const TrendingCaseStudies: React.FC = () => {
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 pb-10 border-b border-slate-200">
           <div className="space-y-3 max-w-3xl">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider bg-blue-100 text-blue-800 border border-blue-200">
-                <TrendingUp className="w-3.5 h-3.5 text-blue-600" />
-                <span>Executive Research & Intelligence</span>
-              </span>
-              <span className="inline-flex items-center gap-1 text-xs text-slate-500 font-medium">
-                <Radio className="w-3 h-3 text-emerald-600 animate-pulse" />
-                <span>Live Business Wire Sourced</span>
-              </span>
+            <div className="flex items-center gap-2 flex-wrap text-xs font-mono text-slate-500 uppercase tracking-wider">
+              <span className="font-bold text-blue-600">Executive Research & Intelligence</span>
+              <span aria-hidden="true">·</span>
+              <span>Live Business Wire Sourced</span>
               {lastUpdated && (
-                <span className="hidden sm:inline-flex items-center gap-1 text-[11px] text-slate-400 font-mono">
-                  • Updated {lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
-                </span>
+                <>
+                  <span aria-hidden="true">·</span>
+                  <span className="hidden sm:inline text-slate-400">
+                    Updated {lastUpdated.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                  </span>
+                </>
               )}
             </div>
 
@@ -397,45 +395,33 @@ export const TrendingCaseStudies: React.FC = () => {
                   onClick={() => setSelectedCaseStudy(study)}
                   className="bg-white rounded-2xl border border-slate-200/90 hover:border-blue-400/80 shadow-2xs hover:shadow-lg transition-all duration-200 flex flex-col overflow-hidden cursor-pointer group hover:-translate-y-0.5"
                 >
-                  {/* Card Top Pill Bar with Authentic Ranking Badge & Company */}
+                  {/* Card Header: Clean unboxed metadata */}
                   <div className="p-5 pb-3 border-b border-slate-100 flex items-start justify-between gap-3">
-                    <div className="space-y-1.5 min-w-0">
-                      <div className="flex items-center gap-1.5 flex-wrap">
-                        <span className="inline-flex items-center gap-1 text-xs font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded-md border border-blue-100">
-                          <Building2 className="w-3 h-3 text-blue-600" />
-                          <span>{study.company}</span>
-                          {study.ticker && (
-                            <span className="font-mono text-[10px] text-blue-500">
-                              ({study.ticker})
-                            </span>
-                          )}
+                    <div className="space-y-1 min-w-0">
+                      <div className="flex items-center gap-1.5 flex-wrap text-xs font-mono text-slate-600">
+                        <span className="font-bold text-slate-900">
+                          {study.company}
                         </span>
-
-                        <span className="text-[11px] font-medium text-slate-500 px-2 py-0.5 rounded-md bg-slate-100 truncate max-w-[130px]">
+                        {study.ticker && (
+                          <span className="text-blue-600 font-semibold">
+                            ({study.ticker})
+                          </span>
+                        )}
+                        <span aria-hidden="true" className="text-slate-300">·</span>
+                        <span className="text-slate-500 truncate max-w-[140px]">
                           {study.industry}
                         </span>
                       </div>
 
-                      {/* Genuine Ranking Signal Badge */}
                       {study.rankingSignal && (
-                        <div className="flex items-center gap-1">
-                          <span
-                            className={`inline-flex items-center gap-1 text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                              study.isLive
-                                ? 'bg-amber-100 text-amber-900 border border-amber-200'
-                                : 'bg-slate-100 text-slate-700 border border-slate-200'
-                            }`}
-                          >
-                            {study.isLive && <Radio className="w-2.5 h-2.5 text-amber-600" />}
-                            <span>{study.rankingSignal}</span>
-                          </span>
+                        <div className="text-[11px] font-mono text-amber-700 font-medium">
+                          {study.rankingSignal}
                         </div>
                       )}
                     </div>
 
-                    <span className="text-[11px] font-medium text-slate-400 shrink-0 flex items-center gap-1">
-                      <Calendar className="w-3 h-3 text-slate-400" />
-                      <span>{study.date}</span>
+                    <span className="text-[11px] font-mono text-slate-400 shrink-0">
+                      {study.date}
                     </span>
                   </div>
 
@@ -553,26 +539,27 @@ export const TrendingCaseStudies: React.FC = () => {
                   className="bg-white rounded-xl border border-slate-200 hover:border-blue-400 p-4 sm:p-5 transition-all shadow-2xs hover:shadow-xs flex flex-col sm:flex-row sm:items-center justify-between gap-4 cursor-pointer group"
                 >
                   <div className="space-y-1.5 min-w-0 flex-1">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="text-xs font-bold text-blue-700 bg-blue-50 px-2 py-0.5 rounded border border-blue-100">
+                    <div className="flex flex-wrap items-center gap-2 text-xs font-mono text-slate-600">
+                      <span className="font-bold text-slate-900">
                         {study.company}
                       </span>
-                      <span className="text-xs text-slate-500 px-2 py-0.5 rounded bg-slate-100">
+                      {study.ticker && (
+                        <span className="text-blue-600 font-semibold">
+                          ({study.ticker})
+                        </span>
+                      )}
+                      <span aria-hidden="true" className="text-slate-300">·</span>
+                      <span className="text-slate-500">
                         {study.industry}
                       </span>
                       {study.rankingSignal && (
-                        <span
-                          className={`text-[10px] font-bold px-2 py-0.5 rounded-full ${
-                            study.isLive
-                              ? 'bg-amber-100 text-amber-900 border border-amber-200'
-                              : 'bg-slate-100 text-slate-700'
-                          }`}
-                        >
-                          {study.rankingSignal}
-                        </span>
+                        <>
+                          <span aria-hidden="true" className="text-slate-300">·</span>
+                          <span className="text-amber-700 font-medium">{study.rankingSignal}</span>
+                        </>
                       )}
-                      <span className="text-xs text-slate-400">·</span>
-                      <span className="text-xs text-slate-400">{study.date}</span>
+                      <span aria-hidden="true" className="text-slate-300">·</span>
+                      <span className="text-slate-400">{study.date}</span>
                     </div>
 
                     <h3 className="text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug">

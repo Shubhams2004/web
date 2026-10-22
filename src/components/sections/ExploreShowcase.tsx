@@ -80,11 +80,8 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
 
             <div className="relative z-10">
               <div className="flex items-center justify-between gap-3 mb-4">
-                <div className="flex items-center gap-2 text-xs font-mono">
-                  <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                  <span className="text-emerald-400 font-bold uppercase tracking-wider">
-                    New 3D Release
-                  </span>
+                <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">
+                  <span>3D Spatial Experience</span>
                 </div>
                 <span className="text-xs font-mono text-slate-400">
                   4 Playable Games

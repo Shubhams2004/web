@@ -1,126 +1,20 @@
 {
   "caseStudies": [
     {
-      "id": "live-study-scoop%20top-rss-1-Scoop%20Top-mujgq3ig",
-      "company": "Scoop Top",
-      "industry": "Technology & Software",
-      "title": "Scoop: Top AI companies probing tens of thousands of security incidents",
-      "whatHappened": "Financial reporting by Axios highlights a strategic operational and market development for Scoop Top.",
+      "id": "live-study-tesla-rss-1-Tesla-mvjjpg80",
+      "company": "Tesla",
+      "industry": "Automotive & Clean Energy",
+      "title": "SpaceX and Tesla Are Already Joined at the Hip. What a Formal Merger Would Mean.",
+      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Tesla.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Technology & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
-      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
-      "importantDataOrResults": {
-        "metrics": [
-          {
-            "label": "Source Verification",
-            "value": "Axios",
-            "change": "2h ago",
-            "isPositive": true
-          },
-          {
-            "label": "Catalyst Status",
-            "value": "Live Wire",
-            "change": "Active Strategic Development",
-            "isPositive": true
-          }
-        ],
-        "summary": "Active corporate development reported by Axios. Disclosures and stakeholder commentary reflect current strategic positioning."
-      },
-      "keyLessons": [
-        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
-        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
-        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
-      ],
-      "sources": [
-        {
-          "title": "Scoop: Top AI companies probing tens of thousands of security incidents",
-          "publisher": "Axios",
-          "url": "https://news.google.com/rss/articles/CBMiiAFBVV95cUxOaUlRV1JkUEZFRkRINVBlWTR1SWxkZ1hjcUdOMkJDNzF4UXdBVHd2LVlqQmlwb0R3cTVuTFk3MEp1eHlUT0hsRTAzekszcl81ZjNoWDZCMkZBTlk4Z3dlV1RoZnd3YVZSQmpUWWEyc3EyWUFnRHFiQjNacUVEYmxuYXFxVldIdVJ3?oc=5",
-          "date": "2h ago"
-        }
-      ],
-      "date": "Sep 27, 2026",
-      "readTime": "3 min read",
-      "status": "Breaking Catalyst",
-      "tags": [
-        "Technology & Software",
-        "Corporate Strategy",
-        "Live Intelligence"
-      ],
-      "rssHeadlineReference": "Scoop: Top AI companies probing tens of thousands of security incidents",
-      "isLive": true,
-      "rankingSignal": "Top Recency & Wire Consensus",
-      "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:43:31.030Z"
-    },
-    {
-      "id": "live-study-meta%20platforms-rss-2-Meta%20Platf-mui5sio0",
-      "company": "Meta Platforms",
-      "industry": "Social Networks & AI",
-      "title": "Inside Meta's months-long grind to turn Muse into a hit",
-      "whatHappened": "Financial reporting by Business Insider highlights a strategic operational and market development for Meta Platforms.",
-      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
-      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
-      "importantDataOrResults": {
-        "metrics": [
-          {
-            "label": "Source Verification",
-            "value": "Business Insider",
-            "change": "1d ago",
-            "isPositive": true
-          },
-          {
-            "label": "Catalyst Status",
-            "value": "Live Wire",
-            "change": "Active Strategic Development",
-            "isPositive": true
-          }
-        ],
-        "summary": "Active corporate development reported by Business Insider. Disclosures and stakeholder commentary reflect current strategic positioning."
-      },
-      "keyLessons": [
-        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
-        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
-        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
-      ],
-      "sources": [
-        {
-          "title": "Inside Meta's months-long grind to turn Muse into a hit",
-          "publisher": "Business Insider",
-          "url": "https://news.google.com/rss/articles/CBMihgFBVV95cUxOMFdNbDd4b3h0S2pGYnY2dEsteUplS1hEQXh0SXVQM2QydWJIUjVVNWVVbnc1YlAyNERBT2NhbXJ6emtqaW9sTDE0MW0tNjF6VUV2SkEzbjVYa2JDcUhWODI2Rm1uSnMxUmVxWW93aUU4SnlOUlF2ejRwVGtKU0pDOENJTWF2Zw?oc=5",
-          "date": "1d ago"
-        }
-      ],
-      "date": "Sep 27, 2026",
-      "readTime": "3 min read",
-      "status": "Breaking Catalyst",
-      "tags": [
-        "Social Networks & AI",
-        "Corporate Strategy",
-        "Live Intelligence"
-      ],
-      "rssHeadlineReference": "Inside Meta's months-long grind to turn Muse into a hit",
-      "isLive": true,
-      "rankingSignal": "High Strategic Market Impact",
-      "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:43:31.030Z"
-    },
-    {
-      "id": "live-study-storied%20indian-rss-3-Storied%20In-muj688w0",
-      "company": "Storied Indian",
-      "industry": "Commercial Strategy & Markets",
-      "title": "A Storied Indian Business Empire Is Being Torn Apart by Infighting",
-      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Storied Indian.",
-      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Automotive & Clean Energy industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
             "value": "WSJ",
-            "change": "7h ago",
+            "change": "Just now",
             "isPositive": true
           },
           {
@@ -139,13 +33,66 @@
       ],
       "sources": [
         {
-          "title": "A Storied Indian Business Empire Is Being Torn Apart by Infighting",
+          "title": "SpaceX and Tesla Are Already Joined at the Hip. What a Formal Merger Would Mean.",
           "publisher": "WSJ",
-          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNMmRwdlpxTlZDbkUyZllWTjEtNWl4dlhyNXo2cTRHYTZPa3U1NkRIU0JhMEdQUUVrVTJSMGRfWWxNV3VhWnJyTzRmamh4VlA1YVdNY0xUamU1cVVtUThYRkRpSHB0a1R6YkxFM3NIMmtJaFF6cHZ3YWUwYnJxR1JfTktOLVpsanBpc255Y05xUDRoNUNZb1ZEVjdPUUw2MzhybW1F?oc=5",
-          "date": "7h ago"
+          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMzUyNDRqaUN5bzNjOUtHdmk2VHZFTHpPbjRSR0VOM3JnM1BRZjFDZ1dfVWZYd1NkZnpEMUF0WVRGRndJQnEzU0hyMUNES1F4YVc1Q3hGNkpyQnQ2ZTZ4Y09EcUU1V2l1bFV3VHo3RG5wbk9VUjB5dTRmMGUxcXBsTXZxVlk4Snh0RXRKTWNKMkpxQzFiZ2FRaGlzNWUwMkZtbVM2Rg?oc=5",
+          "date": "Just now"
         }
       ],
-      "date": "Sep 27, 2026",
+      "date": "Oct 22, 2026",
+      "readTime": "3 min read",
+      "status": "Breaking Catalyst",
+      "tags": [
+        "Automotive & Clean Energy",
+        "Corporate Strategy",
+        "Live Intelligence"
+      ],
+      "rssHeadlineReference": "SpaceX and Tesla Are Already Joined at the Hip. What a Formal Merger Would Mean.",
+      "isLive": true,
+      "rankingSignal": "Top Recency & Wire Consensus",
+      "generatedByGroq": false,
+      "generatedAt": "2026-10-22T13:05:51.601Z"
+    },
+    {
+      "id": "live-study-american%20airlines-rss-2-American%20A-mvjfvwu0",
+      "company": "American Airlines",
+      "industry": "Commercial Strategy & Markets",
+      "title": "American Airlines expects deeper 2026 loss on pricier fuel despite record revenue",
+      "whatHappened": "Financial reporting by CNBC highlights a strategic operational and market development for American Airlines.",
+      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
+      "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
+      "importantDataOrResults": {
+        "metrics": [
+          {
+            "label": "Source Verification",
+            "value": "CNBC",
+            "change": "2h ago",
+            "isPositive": true
+          },
+          {
+            "label": "Catalyst Status",
+            "value": "Live Wire",
+            "change": "Active Strategic Development",
+            "isPositive": true
+          }
+        ],
+        "summary": "Active corporate development reported by CNBC. Disclosures and stakeholder commentary reflect current strategic positioning."
+      },
+      "keyLessons": [
+        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
+        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
+        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
+      ],
+      "sources": [
+        {
+          "title": "American Airlines expects deeper 2026 loss on pricier fuel despite record revenue",
+          "publisher": "CNBC",
+          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNak80bjFjS2pOdmVwM2RueXhEbnJZU1hpMWdZckJMbEgtaEl4b2dTdHV2VkpsVWdvWGFzeW1mVDkzWUVhNUtseWpOSTlaLU44R0JKN196bHQwbEFOT0pWUENEaWF5aGs3TVluYkdGVU5XcENSdE15QldhaTk5Z2ZGddIBhgFBVV95cUxNUXdObGpBeW01bjVUbkhmcHZqU2JXeDJKRUN5U0xvQ2FDRGZHa0J4Vk5KTDk3M2RyaEw3TDFYd0ZrSzh6eUthUENPeE9fQlBUaUtzaUVEckhoMVNNampaVVFaXzBBQ2FiQlh4WjlDeXotZEg5Q1AzNGNfejdITUtveVJCS2tpUQ?oc=5",
+          "date": "2h ago"
+        }
+      ],
+      "date": "Oct 22, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
@@ -153,18 +100,124 @@
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "A Storied Indian Business Empire Is Being Torn Apart by Infighting",
+      "rssHeadlineReference": "American Airlines expects deeper 2026 loss on pricier fuel despite record revenue",
       "isLive": true,
       "rankingSignal": "High Strategic Market Impact",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:43:31.030Z"
+      "generatedAt": "2026-10-22T13:05:51.601Z"
     },
     {
-      "id": "live-study-meta%20platforms-rss-4-Meta%20Platf-muhjuwqo",
+      "id": "live-study-nasdaq-rss-3-Nasdaq-mvjgyemw",
+      "company": "Nasdaq",
+      "industry": "Technology & Software",
+      "title": "Nasdaq futures sink as AI doubts resurface, oil jumps",
+      "whatHappened": "Financial reporting by Reuters highlights a strategic operational and market development for Nasdaq.",
+      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
+      "marketContext": "The Technology & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
+      "importantDataOrResults": {
+        "metrics": [
+          {
+            "label": "Source Verification",
+            "value": "Reuters",
+            "change": "Just now",
+            "isPositive": true
+          },
+          {
+            "label": "Catalyst Status",
+            "value": "Live Wire",
+            "change": "Active Strategic Development",
+            "isPositive": true
+          }
+        ],
+        "summary": "Active corporate development reported by Reuters. Disclosures and stakeholder commentary reflect current strategic positioning."
+      },
+      "keyLessons": [
+        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
+        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
+        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
+      ],
+      "sources": [
+        {
+          "title": "Nasdaq futures sink as AI doubts resurface, oil jumps",
+          "publisher": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTWxDZDg5X0padGNvb2k2V2ZkX2tEWW9YWkdjeVdMZHNUTlg1MXY4TmUyTDZHdUhNTHFRNWRPRjc2VFlEN3RXTDhNSjhDYmRfTWZGXzdKYXdLejRHNGgwRVdNbmZRUkFhSm9GakxMek56UUZ2OUtqajd6NVkzRkR1VzBNWlo5VWp5NUFkX2phUjlSSFlndUlNNGxvUXlHSm1wMlpTbkRR?oc=5",
+          "date": "Just now"
+        }
+      ],
+      "date": "Oct 22, 2026",
+      "readTime": "3 min read",
+      "status": "Breaking Catalyst",
+      "tags": [
+        "Technology & Software",
+        "Corporate Strategy",
+        "Live Intelligence"
+      ],
+      "rssHeadlineReference": "Nasdaq futures sink as AI doubts resurface, oil jumps",
+      "isLive": true,
+      "rankingSignal": "High Strategic Market Impact",
+      "generatedByGroq": false,
+      "generatedAt": "2026-10-22T13:05:51.601Z"
+    },
+    {
+      "id": "live-study-china%20stocks-rss-4-China%20Stoc-mvjckizs",
+      "company": "China Stocks",
+      "industry": "Technology & Software",
+      "title": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
+      "whatHappened": "Financial reporting by Bloomberg.com highlights a strategic operational and market development for China Stocks.",
+      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
+      "marketContext": "The Technology & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
+      "importantDataOrResults": {
+        "metrics": [
+          {
+            "label": "Source Verification",
+            "value": "Bloomberg.com",
+            "change": "3h ago",
+            "isPositive": true
+          },
+          {
+            "label": "Catalyst Status",
+            "value": "Live Wire",
+            "change": "Active Strategic Development",
+            "isPositive": true
+          }
+        ],
+        "summary": "Active corporate development reported by Bloomberg.com. Disclosures and stakeholder commentary reflect current strategic positioning."
+      },
+      "keyLessons": [
+        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
+        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
+        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
+      ],
+      "sources": [
+        {
+          "title": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
+          "publisher": "Bloomberg.com",
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMkp5bjg3WHRYdlFYTFc2b1VRRmVpd09Oa0Y1SkxUR2xnUTFyTXAyMG9zcUFnN2pIbU1WQVJBdmVqNG0xZDk1UWM0N1M3djhNaWVwbXVBamhRS3dMMWtPRlhQbGFXWk9BTXVXcnppTVB6ZWl3eTRzM3BqclJ0MlE3MEJVSXhWTUlnYm1aVGVGa01kcmljSXFBX1NTWC1Hd1k5X3hwcGtyRjdtblFhVG9RdmlmVQ?oc=5",
+          "date": "3h ago"
+        }
+      ],
+      "date": "Oct 22, 2026",
+      "readTime": "3 min read",
+      "status": "Breaking Catalyst",
+      "tags": [
+        "Technology & Software",
+        "Corporate Strategy",
+        "Live Intelligence"
+      ],
+      "rssHeadlineReference": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
+      "isLive": true,
+      "rankingSignal": "Verified Wire Discovery",
+      "generatedByGroq": false,
+      "generatedAt": "2026-10-22T13:05:51.601Z"
+    },
+    {
+      "id": "live-study-meta%20platforms-rss-5-Meta%20Platf-mvj7wpbs",
       "company": "Meta Platforms",
       "industry": "Social Networks & AI",
-      "title": "New Mexico jury finds Facebook liable for deceiving users about privacy protections",
-      "whatHappened": "Financial reporting by AP News highlights a strategic operational and market development for Meta Platforms.",
+      "title": "Mark Zuckerberg Says Meta Will ‘Build Superintelligence Through Scaling’ After $64.6 Billion Q3 Beat, META Stock Jumps After Hours",
+      "whatHappened": "Financial reporting by Yahoo Finance highlights a strategic operational and market development for Meta Platforms.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
       "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
@@ -172,8 +225,8 @@
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "AP News",
-            "change": "1d ago",
+            "value": "Yahoo Finance",
+            "change": "6h ago",
             "isPositive": true
           },
           {
@@ -183,7 +236,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by AP News. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by Yahoo Finance. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -192,13 +245,13 @@
       ],
       "sources": [
         {
-          "title": "New Mexico jury finds Facebook liable for deceiving users about privacy protections",
-          "publisher": "AP News",
-          "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxQWG40YndwZnVtdGtfVGxGd01iWWxMcUlSNEVTYzR3bVJETERWMFFlMGVoUnFUWUZZbUVLMTEtTW14VEtLQmdqbVIxQlN6OHdYQkc5ZEZkZlY4VnVzVy1Qemc5WTRIUkFtWjRra0s3UWt0ck1Bblk2WkhtWUxENXNTVTgxMmxUaEpoLTloRzV3eGFCYl9YU0RPd1ZjeFdyck9JMXc?oc=5",
-          "date": "1d ago"
+          "title": "Mark Zuckerberg Says Meta Will ‘Build Superintelligence Through Scaling’ After $64.6 Billion Q3 Beat, META Stock Jumps After Hours",
+          "publisher": "Yahoo Finance",
+          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNeDRFREtLOXA4QWJmZnZUd2pBSzVGX2VNRHVZT05rcncxb2JNc1B4bkQ0cEZTMnU0YWk0cEhPSUctOGJOaEc4Uk1tMWVneW5uQ1JRcjRNUW5GV2l4a1lKS0VhN0N1UERTZUt4YjBEazJQd3V5MmFqbWoyTnhLSXNOVDJfSGozRFIyWUt4aVRYS0R3S1BMZWNuT2FGdw?oc=5",
+          "date": "6h ago"
         }
       ],
-      "date": "Sep 27, 2026",
+      "date": "Oct 22, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
@@ -206,27 +259,27 @@
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "New Mexico jury finds Facebook liable for deceiving users about privacy protections",
+      "rssHeadlineReference": "Mark Zuckerberg Says Meta Will ‘Build Superintelligence Through Scaling’ After $64.6 Billion Q3 Beat, META Stock Jumps After Hours",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:43:31.030Z"
+      "generatedAt": "2026-10-22T13:05:51.601Z"
     },
     {
-      "id": "live-study-apple-rss-5-Apple-muiwl1ns",
-      "company": "Apple",
-      "industry": "Consumer Electronics & Software",
-      "title": "Apple hit with $5.7 billion in damages over haptic patents",
-      "whatHappened": "Financial reporting by The Verge highlights a strategic operational and market development for Apple.",
+      "id": "live-study-meta%20platforms-rss-6-Meta%20Platf-mvjdqoqo",
+      "company": "Meta Platforms",
+      "industry": "Social Networks & AI",
+      "title": "Meta strikes deal with Zuckerberg to protect him from California wealth tax",
+      "whatHappened": "Financial reporting by The Guardian highlights a strategic operational and market development for Meta Platforms.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Consumer Electronics & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "The Verge",
-            "change": "11h ago",
+            "value": "The Guardian",
+            "change": "3h ago",
             "isPositive": true
           },
           {
@@ -236,7 +289,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by The Verge. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by The Guardian. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -245,78 +298,25 @@
       ],
       "sources": [
         {
-          "title": "Apple hit with $5.7 billion in damages over haptic patents",
-          "publisher": "The Verge",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxQeVJUTnRNZlE5RmtjSmlfZEVuVXVrVU9YRm1VYWdvN3FDbkhlTDlwWmFCRHZfVk8tdTdLZGR5MGNIb0lsbEtBamRkR2RhU1JROER6VWZ2NnUwTTVmZjZuYU9wTHBTcjhsSFVOcEJCSDV3ZGsxMUl4RHc2Y1hVa1pwQkpxek10Z2h3RjFxM201OXhnZG9ldzRpLS12aw?oc=5",
-          "date": "11h ago"
+          "title": "Meta strikes deal with Zuckerberg to protect him from California wealth tax",
+          "publisher": "The Guardian",
+          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbWdENUhyQkpudUU4em5EVDB6bnFWS3FNUFRoSEhEY1dWV09heGdSLXZtZnJPNkpnamQyZFB0VzU2dDRSaHFad01MV016M1ozcjJ6eHhyd3Z5TzlJc1pVMnYtMmt1SjlMdVprWUxnSHAwVkJYaTVaNkdvOGdpcE5LLVFJM1ZYbl9yczlRZWlCU0luQTllX2hIMg?oc=5",
+          "date": "3h ago"
         }
       ],
-      "date": "Sep 27, 2026",
+      "date": "Oct 22, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Consumer Electronics & Software",
+        "Social Networks & AI",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Apple hit with $5.7 billion in damages over haptic patents",
+      "rssHeadlineReference": "Meta strikes deal with Zuckerberg to protect him from California wealth tax",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:43:31.030Z"
-    },
-    {
-      "id": "live-study-iced%20coffee-rss-6-Iced%20Coffe-muia2u80",
-      "company": "Iced Coffee",
-      "industry": "Automotive & Mobility",
-      "title": "Iced Coffee At A Job Interview? Career Experts Weigh In On Viral Debate",
-      "whatHappened": "Financial reporting by Forbes highlights a strategic operational and market development for Iced Coffee.",
-      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Automotive & Mobility industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
-      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
-      "importantDataOrResults": {
-        "metrics": [
-          {
-            "label": "Source Verification",
-            "value": "Forbes",
-            "change": "22h ago",
-            "isPositive": true
-          },
-          {
-            "label": "Catalyst Status",
-            "value": "Live Wire",
-            "change": "Active Strategic Development",
-            "isPositive": true
-          }
-        ],
-        "summary": "Active corporate development reported by Forbes. Disclosures and stakeholder commentary reflect current strategic positioning."
-      },
-      "keyLessons": [
-        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
-        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
-        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
-      ],
-      "sources": [
-        {
-          "title": "Iced Coffee At A Job Interview? Career Experts Weigh In On Viral Debate",
-          "publisher": "Forbes",
-          "url": "https://news.google.com/rss/articles/CBMi0gFBVV95cUxQYVpObjNXS1U4X1FIWjUxemdCckNkc2F2MVJOSmdaUXhSaUU1dDlhcEw2OW1OdXZGd2R2VlJ3bjdSclIyWVF3bTgzNUROQ2lfYXo5RHN4SE8xcG00WmZ5V2cwY1UzX3hMREViX0sxR2VpUXlsLXR2WWdDYW9OeXhVRW8tcDZkRDRJOGViaTVaLVhEaFVxUGVYNHhUODYxNWk1OTdZcjZYemE3YTBEbXZCSTRUbUZzbFdvYklmZFA1NHYtMnFBVDhsSmJROU5nSDRjVGc?oc=5",
-          "date": "22h ago"
-        }
-      ],
-      "date": "Sep 27, 2026",
-      "readTime": "3 min read",
-      "status": "Breaking Catalyst",
-      "tags": [
-        "Automotive & Mobility",
-        "Corporate Strategy",
-        "Live Intelligence"
-      ],
-      "rssHeadlineReference": "Iced Coffee At A Job Interview? Career Experts Weigh In On Viral Debate",
-      "isLive": true,
-      "rankingSignal": "Verified Wire Discovery",
-      "generatedByGroq": false,
-      "generatedAt": "2026-09-27T08:43:31.030Z"
+      "generatedAt": "2026-10-22T13:05:51.601Z"
     },
     {
       "id": "nvidia-ai-fullstack-moat",
@@ -783,5 +783,5 @@
   ],
   "count": 12,
   "groqConnected": true,
-  "generatedAt": "2026-09-27T08:43:31.030Z"
+  "generatedAt": "2026-10-22T13:05:51.602Z"
 }

@@ -48,8 +48,7 @@ export const About: React.FC = () => {
         <ScrollReveal className="max-w-3xl mb-16">
           <div className="flex items-center gap-3 mb-3">
             <BrandLogo size="md" className="w-10 h-10 drop-shadow-xs" />
-            <div className="inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-wider text-blue-600">
-              <span className="w-1.5 h-1.5 rounded-full bg-blue-600" />
+            <div className="text-xs font-mono font-semibold uppercase tracking-wider text-blue-600">
               About Me & Strategic Research
             </div>
           </div>

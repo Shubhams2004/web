@@ -123,12 +123,9 @@ export const CuratedLiveWire: React.FC<CuratedLiveWireProps> = ({
               <span>Market Wires & Catalysts</span>
               <span aria-hidden="true">·</span>
               {isLiveWire ? (
-                <span className="text-emerald-700 font-semibold flex items-center gap-1">
-                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                  <span>Real-Time Feed</span>
-                </span>
+                <span className="text-emerald-700 font-semibold">Live Wire Ingestion</span>
               ) : (
-                <span className="text-slate-500">Archived Pipeline</span>
+                <span className="text-slate-500">Curated Pipeline</span>
               )}
             </div>
 

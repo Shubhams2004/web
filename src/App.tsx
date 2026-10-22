@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { Navbar, Footer } from './components/common';
 import { Hero, About, TrendingCaseStudies, Contact, CuratedLiveWire, ExploreShowcase } from './components/sections';
-import { CaseStudyPage } from './components/case-studies';
+import { CaseStudyPage, CaseStudyDetailModal } from './components/case-studies';
 import { NewsPlatformPage, NewsArticleModal } from './components/news';
 import { SprintRunPage, RetroGamePage, ZombieGamePage, PixelDungeonPage, ShadowHuntPage, GameId } from './games';
 import { MissionControlPage } from './mission-control';
 import { ExperimentalPlaygroundPage } from './components/experimental-playground';
 import { portfolioData } from './data';
 import { updatePageSEO, SECTION_SEO_PRESETS } from './utils';
-import { NewsCategory, NewsArticle } from './types';
+import { NewsCategory, NewsArticle, BusinessCaseStudy } from './types';
 
 export default function App() {
   const [activeSection, setActiveSection] = useState<string>('home');
@@ -21,6 +21,7 @@ export default function App() {
   const [activeGameId, setActiveGameId] = useState<GameId>('pixel-dungeon');
   const [newsInitialCategory, setNewsInitialCategory] = useState<NewsCategory>('All');
   const [selectedHomeArticle, setSelectedHomeArticle] = useState<NewsArticle | null>(null);
+  const [selectedHomeCaseStudy, setSelectedHomeCaseStudy] = useState<BusinessCaseStudy | null>(null);
 
   // Standalone routing for /game, dedicated case study page, news platform, and Mission Control
   useEffect(() => {
@@ -388,6 +389,7 @@ export default function App() {
               if (el) el.scrollIntoView({ behavior: 'smooth' });
             }
           }}
+          onSelectCaseStudy={(study) => setSelectedHomeCaseStudy(study)}
         />
 
         {/* Curated Digital Dispatch & Live News Catalysts */}
@@ -424,6 +426,12 @@ export default function App() {
       <NewsArticleModal
         article={selectedHomeArticle}
         onClose={() => setSelectedHomeArticle(null)}
+      />
+
+      {/* Case Study Detail Modal for Hero Flagship & Direct Previews */}
+      <CaseStudyDetailModal
+        caseStudy={selectedHomeCaseStudy}
+        onClose={() => setSelectedHomeCaseStudy(null)}
       />
     </div>
   );
