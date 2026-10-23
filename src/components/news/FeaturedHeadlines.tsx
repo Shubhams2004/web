@@ -1,6 +1,6 @@
 import React from 'react';
 import { NewsArticle } from '../../types';
-import { Clock, Eye, Sparkles, TrendingUp, ArrowRight, Bookmark } from 'lucide-react';
+import { Clock, Sparkles, ArrowRight, Bookmark } from 'lucide-react';
 
 interface FeaturedHeadlinesProps {
   articles: NewsArticle[];
@@ -30,7 +30,7 @@ export const FeaturedHeadlines: React.FC<FeaturedHeadlinesProps> = ({
     <section id="featured-top-headlines" className="py-6 sm:py-8 border-b border-slate-200">
       <div className="flex items-center justify-between mb-4 sm:mb-6">
         <div className="flex items-center gap-2">
-          <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse"></span>
+          <span className="w-2.5 h-2.5 rounded-full bg-red-600 animate-pulse" />
           <h2 className="text-xs sm:text-sm font-bold uppercase tracking-wider text-slate-900">
             Top Story & Editorial Spotlight
           </h2>
@@ -43,78 +43,88 @@ export const FeaturedHeadlines: React.FC<FeaturedHeadlinesProps> = ({
         <div className="lg:col-span-7 flex flex-col">
           <div
             id={`lead-story-${leadArticle.id}`}
+            tabIndex={0}
+            role="article"
+            aria-label={leadArticle.title}
             onClick={() => onSelectArticle(leadArticle)}
-            className="group relative flex-1 flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all duration-300 cursor-pointer"
+            onKeyDown={(e) => {
+              if (e.key === 'Enter' || e.key === ' ') {
+                e.preventDefault();
+                onSelectArticle(leadArticle);
+              }
+            }}
+            className="group relative flex-1 flex flex-col justify-between bg-white rounded-xl border border-slate-200/90 p-6 sm:p-8 shadow-xs hover:border-slate-300 hover:shadow-sm transition-all duration-200 cursor-pointer focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:border-transparent"
           >
-            {/* Lead Image with Category Badge & Bookmark */}
-            <div className="relative aspect-16/9 sm:aspect-16/10 w-full overflow-hidden bg-slate-100">
-              <img
-                src={leadArticle.imageUrl}
-                alt={leadArticle.title}
-                referrerPolicy="no-referrer"
-                loading="eager"
-                className="w-full h-full object-cover group-hover:scale-103 transition-transform duration-500 ease-out"
-              />
-              <div className="absolute inset-0 bg-linear-to-t from-slate-950/80 via-slate-950/20 to-transparent"></div>
-
-              {/* Category Pill & Location */}
-              <div className="absolute top-3 left-3 flex items-center gap-2">
-                <span className="px-2.5 py-1 rounded-md text-xs font-bold bg-blue-600 text-white shadow-xs tracking-wide uppercase">
-                  {leadArticle.category}
-                </span>
-                {leadArticle.location && (
-                  <span className="px-2 py-0.5 rounded text-[10px] font-medium bg-slate-900/80 text-slate-200 backdrop-blur-xs">
-                    {leadArticle.location}
-                  </span>
-                )}
-              </div>
-
-              {/* Save Button */}
-              <button
-                type="button"
-                onClick={(e) => onToggleSave(leadArticle.id, e)}
-                className={`absolute top-3 right-3 p-2 rounded-full transition-colors ${
-                  isLeadSaved
-                    ? 'bg-blue-600 text-white'
-                    : 'bg-slate-900/70 hover:bg-slate-900 text-slate-200'
-                }`}
-                title={isLeadSaved ? 'Saved to bookmarks' : 'Save article'}
-              >
-                <Bookmark className={`w-4 h-4 ${isLeadSaved ? 'fill-current' : ''}`} />
-              </button>
-
-              {/* Text overlay on image for impact */}
-              <div className="absolute bottom-0 left-0 right-0 p-4 sm:p-6 text-white">
-                <span className="text-[11px] font-mono text-blue-300 uppercase tracking-wider mb-1 block">
-                  Featured Investigation
-                </span>
-                <h3 className="text-lg sm:text-2xl font-bold tracking-tight text-white leading-snug group-hover:text-blue-200 transition-colors font-serif">
-                  {leadArticle.title}
-                </h3>
-              </div>
-            </div>
-
-            {/* Lead Content Box */}
-            <div className="p-4 sm:p-6 flex-1 flex flex-col justify-between bg-white">
-              <p className="text-xs sm:text-sm text-slate-600 leading-relaxed line-clamp-3 mb-4">
-                {leadArticle.summary}
-              </p>
-
-              <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-xs text-slate-500">
-                <div className="flex items-center gap-2">
-                  <span className="font-semibold text-slate-800 text-xs">
-                    {leadArticle.source || leadArticle.author?.name || 'Verified Wire'}
-                  </span>
-                </div>
-
-                <div className="flex items-center gap-3 text-[11px]">
-                  <span className="flex items-center gap-1">
-                    <Clock className="w-3.5 h-3.5 text-slate-400" />
-                    {leadArticle.publishedAt}
+            <div>
+              {/* Lead Story Kicker & Bookmark */}
+              <div className="flex items-center justify-between gap-3 mb-3">
+                <div className="flex items-center gap-2 flex-wrap text-xs">
+                  <span className="font-bold text-blue-700 uppercase tracking-wider text-[11px] sm:text-xs">
+                    {leadArticle.category}
                   </span>
                   <span className="text-slate-300">·</span>
-                  <span>{leadArticle.readTime}</span>
+                  <span className="font-medium text-slate-500 text-[11px]">
+                    Featured Investigation
+                  </span>
+                  {leadArticle.location && (
+                    <>
+                      <span className="text-slate-300">·</span>
+                      <span className="font-medium text-slate-500 text-[11px]">
+                        {leadArticle.location}
+                      </span>
+                    </>
+                  )}
                 </div>
+
+                {/* Save Button */}
+                <button
+                  type="button"
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    onToggleSave(leadArticle.id, e);
+                  }}
+                  className={`p-1.5 rounded-md transition-colors cursor-pointer shrink-0 ${
+                    isLeadSaved
+                      ? 'text-blue-600 bg-blue-50 hover:bg-blue-100'
+                      : 'text-slate-400 hover:text-slate-700 hover:bg-slate-100'
+                  }`}
+                  title={isLeadSaved ? 'Saved to bookmarks' : 'Save article'}
+                  aria-label={isLeadSaved ? 'Saved to bookmarks' : 'Save article'}
+                >
+                  <Bookmark className={`w-4 h-4 ${isLeadSaved ? 'fill-current' : ''}`} />
+                </button>
+              </div>
+
+              {/* Lead Headline */}
+              <h3 className="text-2xl sm:text-3xl lg:text-4xl font-black font-serif text-slate-950 group-hover:text-blue-700 transition-colors leading-tight tracking-tight mt-2 mb-4">
+                {leadArticle.title}
+              </h3>
+
+              {/* Lead Excerpt */}
+              <p className="text-sm sm:text-base text-slate-600 leading-relaxed font-sans line-clamp-4 mb-6">
+                {leadArticle.summary}
+              </p>
+            </div>
+
+            {/* Lead Metadata Footer */}
+            <div className="pt-4 border-t border-slate-100 flex items-center justify-between text-xs text-slate-500 flex-wrap gap-2">
+              <div className="flex items-center gap-2">
+                <span className="font-semibold text-slate-800 text-xs">
+                  {leadArticle.source || leadArticle.author?.name || 'Verified Wire'}
+                </span>
+              </div>
+
+              <div className="flex items-center gap-3 text-[11px] text-slate-400 font-mono">
+                <span className="flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5 text-slate-400" />
+                  {leadArticle.publishedAt}
+                </span>
+                <span className="text-slate-300">·</span>
+                <span>{leadArticle.readTime}</span>
+                <span className="inline-flex items-center gap-1 text-blue-700 font-sans font-bold group-hover:translate-x-0.5 transition-transform ml-1">
+                  <span>Read Article</span>
+                  <ArrowRight className="w-3.5 h-3.5" />
+                </span>
               </div>
             </div>
           </div>
@@ -128,47 +138,62 @@ export const FeaturedHeadlines: React.FC<FeaturedHeadlinesProps> = ({
               <div
                 key={article.id}
                 id={`secondary-story-${article.id}`}
+                tabIndex={0}
+                role="article"
+                aria-label={article.title}
                 onClick={() => onSelectArticle(article)}
-                className="group flex flex-col sm:flex-row bg-white rounded-xl border border-slate-200 overflow-hidden shadow-xs hover:shadow-md transition-all cursor-pointer"
+                onKeyDown={(e) => {
+                  if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    onSelectArticle(article);
+                  }
+                }}
+                className="group bg-white rounded-xl border border-slate-200/90 p-5 shadow-xs hover:border-slate-300 hover:shadow-sm transition-all duration-200 cursor-pointer flex flex-col justify-between focus:outline-hidden focus:ring-2 focus:ring-blue-600 focus:border-transparent"
               >
-                {/* Thumbnail */}
-                <div className="sm:w-2/5 aspect-16/10 sm:aspect-auto sm:h-auto overflow-hidden bg-slate-100 relative shrink-0">
-                  <img
-                    src={article.imageUrl}
-                    alt={article.title}
-                    referrerPolicy="no-referrer"
-                    loading="lazy"
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-                  />
-                  <span className="absolute top-2 left-2 px-2 py-0.5 rounded text-[10px] font-bold bg-slate-900/80 text-white uppercase tracking-wider backdrop-blur-xs">
-                    {article.category}
-                  </span>
-                </div>
-
-                {/* Content */}
-                <div className="p-4 flex-1 flex flex-col justify-between">
-                  <div>
-                    <div className="flex items-center justify-between text-[11px] text-slate-400 mb-1.5">
-                      <span className="font-medium text-slate-500">{article.location || 'Report'}</span>
-                      <span>{article.publishedAt}</span>
+                <div>
+                  <div className="flex items-center justify-between text-[11px] text-slate-400 mb-2">
+                    <div className="flex items-center gap-2">
+                      <span className="font-bold text-blue-700 uppercase tracking-wider">
+                        {article.category}
+                      </span>
+                      {article.location && (
+                        <>
+                          <span className="text-slate-300">·</span>
+                          <span className="font-medium text-slate-500">{article.location}</span>
+                        </>
+                      )}
                     </div>
-                    <h4 className="text-sm sm:text-base font-bold text-slate-900 group-hover:text-blue-600 transition-colors leading-snug line-clamp-2 font-serif">
-                      {article.title}
-                    </h4>
-                    <p className="text-xs text-slate-600 line-clamp-2 mt-1.5 leading-relaxed">
-                      {article.summary}
-                    </p>
+                    <span>{article.publishedAt}</span>
                   </div>
 
-                  <div className="flex items-center justify-between mt-3 pt-2 border-t border-slate-100 text-[11px] text-slate-500">
-                    <span className="font-medium text-slate-700">
-                      {article.source || article.author?.name || 'Verified Wire'}
-                    </span>
+                  <h4 className="text-base sm:text-lg font-bold font-serif text-slate-900 group-hover:text-blue-700 transition-colors leading-snug line-clamp-2 mb-2">
+                    {article.title}
+                  </h4>
+
+                  <p className="text-xs text-slate-600 line-clamp-2 leading-relaxed mb-3">
+                    {article.summary}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between pt-3 border-t border-slate-100 text-[11px] text-slate-500">
+                  <span className="font-semibold text-slate-700 truncate max-w-[170px]">
+                    {article.source || article.author?.name || 'Verified Wire'}
+                  </span>
+                  <div className="flex items-center gap-2">
+                    <span className="font-mono text-slate-400">{article.readTime}</span>
                     <button
                       type="button"
-                      onClick={(e) => onToggleSave(article.id, e)}
-                      className="text-slate-400 hover:text-blue-600 p-1"
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        onToggleSave(article.id, e);
+                      }}
+                      className={`p-1 rounded-md transition-colors ${
+                        isSaved
+                          ? 'text-blue-600 bg-blue-50'
+                          : 'text-slate-400 hover:text-slate-700 hover:bg-slate-100'
+                      }`}
                       title={isSaved ? 'Saved' : 'Save'}
+                      aria-label={isSaved ? 'Saved' : 'Save'}
                     >
                       <Bookmark className={`w-3.5 h-3.5 ${isSaved ? 'fill-blue-600 text-blue-600' : ''}`} />
                     </button>
@@ -214,3 +239,4 @@ export const FeaturedHeadlines: React.FC<FeaturedHeadlinesProps> = ({
     </section>
   );
 };
+

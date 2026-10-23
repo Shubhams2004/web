@@ -1,64 +1,11 @@
 {
   "caseStudies": [
     {
-      "id": "live-study-tesla-rss-1-Tesla-mvjjpg80",
-      "company": "Tesla",
-      "industry": "Automotive & Clean Energy",
-      "title": "SpaceX and Tesla Are Already Joined at the Hip. What a Formal Merger Would Mean.",
-      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Tesla.",
-      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Automotive & Clean Energy industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
-      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
-      "importantDataOrResults": {
-        "metrics": [
-          {
-            "label": "Source Verification",
-            "value": "WSJ",
-            "change": "Just now",
-            "isPositive": true
-          },
-          {
-            "label": "Catalyst Status",
-            "value": "Live Wire",
-            "change": "Active Strategic Development",
-            "isPositive": true
-          }
-        ],
-        "summary": "Active corporate development reported by WSJ. Disclosures and stakeholder commentary reflect current strategic positioning."
-      },
-      "keyLessons": [
-        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
-        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
-        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
-      ],
-      "sources": [
-        {
-          "title": "SpaceX and Tesla Are Already Joined at the Hip. What a Formal Merger Would Mean.",
-          "publisher": "WSJ",
-          "url": "https://news.google.com/rss/articles/CBMipAFBVV95cUxOMzUyNDRqaUN5bzNjOUtHdmk2VHZFTHpPbjRSR0VOM3JnM1BRZjFDZ1dfVWZYd1NkZnpEMUF0WVRGRndJQnEzU0hyMUNES1F4YVc1Q3hGNkpyQnQ2ZTZ4Y09EcUU1V2l1bFV3VHo3RG5wbk9VUjB5dTRmMGUxcXBsTXZxVlk4Snh0RXRKTWNKMkpxQzFiZ2FRaGlzNWUwMkZtbVM2Rg?oc=5",
-          "date": "Just now"
-        }
-      ],
-      "date": "Oct 22, 2026",
-      "readTime": "3 min read",
-      "status": "Breaking Catalyst",
-      "tags": [
-        "Automotive & Clean Energy",
-        "Corporate Strategy",
-        "Live Intelligence"
-      ],
-      "rssHeadlineReference": "SpaceX and Tesla Are Already Joined at the Hip. What a Formal Merger Would Mean.",
-      "isLive": true,
-      "rankingSignal": "Top Recency & Wire Consensus",
-      "generatedByGroq": false,
-      "generatedAt": "2026-10-22T13:05:51.601Z"
-    },
-    {
-      "id": "live-study-american%20airlines-rss-2-American%20A-mvjfvwu0",
-      "company": "American Airlines",
+      "id": "live-study-stock%20live-rss-1-Stock%20Live-mvkq4uc0",
+      "company": "Stock Live",
       "industry": "Commercial Strategy & Markets",
-      "title": "American Airlines expects deeper 2026 loss on pricier fuel despite record revenue",
-      "whatHappened": "Financial reporting by CNBC highlights a strategic operational and market development for American Airlines.",
+      "title": "Stock futures trade mixed after tech sector sell-off: Live updates",
+      "whatHappened": "Financial reporting by CNBC highlights a strategic operational and market development for Stock Live.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
       "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
@@ -67,7 +14,7 @@
           {
             "label": "Source Verification",
             "value": "CNBC",
-            "change": "2h ago",
+            "change": "Just now",
             "isPositive": true
           },
           {
@@ -86,13 +33,13 @@
       ],
       "sources": [
         {
-          "title": "American Airlines expects deeper 2026 loss on pricier fuel despite record revenue",
+          "title": "Stock futures trade mixed after tech sector sell-off: Live updates",
           "publisher": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxNak80bjFjS2pOdmVwM2RueXhEbnJZU1hpMWdZckJMbEgtaEl4b2dTdHV2VkpsVWdvWGFzeW1mVDkzWUVhNUtseWpOSTlaLU44R0JKN196bHQwbEFOT0pWUENEaWF5aGs3TVluYkdGVU5XcENSdE15QldhaTk5Z2ZGddIBhgFBVV95cUxNUXdObGpBeW01bjVUbkhmcHZqU2JXeDJKRUN5U0xvQ2FDRGZHa0J4Vk5KTDk3M2RyaEw3TDFYd0ZrSzh6eUthUENPeE9fQlBUaUtzaUVEckhoMVNNampaVVFaXzBBQ2FiQlh4WjlDeXotZEg5Q1AzNGNfejdITUtveVJCS2tpUQ?oc=5",
-          "date": "2h ago"
+          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBNc0s0YTFvMUVGOTZsQTBGQ2xGQkNJNmZrZVlXOXpMTTV4VDFZQnF5LTBOVHpXMVI1cmI4QmhFNTVudnpRVDVUbldkZEZmeXl3MHI4aU1UaXVvbHNEdHhvbmNweVQ5TWdjaWRPQWpZLXJIYk5RTlHSAXtBVV95cUxPN0Q0eEc2UXVTTmwxcTZsY05HeEdKN0U1dDc1S1YxWmxZOXJlSm1NVVZDU3MxcXFKNlduX3NxckhxZ1puVlE1d09SZk4zSGhVcG9xNFhBb1d6Skd4NlZSdDZ5Y1I2NkxEXzJuUmxUMThNX3haWnlIeUZQQ0k?oc=5",
+          "date": "Just now"
         }
       ],
-      "date": "Oct 22, 2026",
+      "date": "Oct 23, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
@@ -100,27 +47,27 @@
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "American Airlines expects deeper 2026 loss on pricier fuel despite record revenue",
+      "rssHeadlineReference": "Stock futures trade mixed after tech sector sell-off: Live updates",
       "isLive": true,
-      "rankingSignal": "High Strategic Market Impact",
+      "rankingSignal": "Top Recency & Wire Consensus",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-22T13:05:51.601Z"
+      "generatedAt": "2026-10-23T09:18:19.228Z"
     },
     {
-      "id": "live-study-nasdaq-rss-3-Nasdaq-mvjgyemw",
-      "company": "Nasdaq",
-      "industry": "Technology & Software",
-      "title": "Nasdaq futures sink as AI doubts resurface, oil jumps",
-      "whatHappened": "Financial reporting by Reuters highlights a strategic operational and market development for Nasdaq.",
+      "id": "live-study-gold%20falls-rss-2-Gold%20Falls-mvknps2o",
+      "company": "Gold Falls",
+      "industry": "Energy & Infrastructure",
+      "title": "Gold Falls as Energy Prices Rise Higher",
+      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Gold Falls.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Technology & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Energy & Infrastructure industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "Reuters",
-            "change": "Just now",
+            "value": "WSJ",
+            "change": "2h ago",
             "isPositive": true
           },
           {
@@ -130,7 +77,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by Reuters. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by WSJ. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -139,32 +86,85 @@
       ],
       "sources": [
         {
-          "title": "Nasdaq futures sink as AI doubts resurface, oil jumps",
-          "publisher": "Reuters",
-          "url": "https://news.google.com/rss/articles/CBMipgFBVV95cUxNTWxDZDg5X0padGNvb2k2V2ZkX2tEWW9YWkdjeVdMZHNUTlg1MXY4TmUyTDZHdUhNTHFRNWRPRjc2VFlEN3RXTDhNSjhDYmRfTWZGXzdKYXdLejRHNGgwRVdNbmZRUkFhSm9GakxMek56UUZ2OUtqajd6NVkzRkR1VzBNWlo5VWp5NUFkX2phUjlSSFlndUlNNGxvUXlHSm1wMlpTbkRR?oc=5",
-          "date": "Just now"
+          "title": "Gold Falls as Energy Prices Rise Higher",
+          "publisher": "WSJ",
+          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPLVpKUTYybGVMb1hPclJUSE5SNlRqaG5Lc19SRFRwajJiSUg0ejdvYy1MdXduNEhjdFNGc1JUcmxrVjBvVG9HTzRWcVQ1YUNKTHlha09qYXM5Mm1mMjREdngzTUtjbThaX21CVFh2dkJaZTZrMkt3NFVtSWpOMTZLd2hSTG9RMnVDWUJ3MUlVcUxJZzZITTk3a3RlQm1QeVpLdWhpeTdsYw?oc=5",
+          "date": "2h ago"
         }
       ],
-      "date": "Oct 22, 2026",
+      "date": "Oct 23, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Technology & Software",
+        "Energy & Infrastructure",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Nasdaq futures sink as AI doubts resurface, oil jumps",
+      "rssHeadlineReference": "Gold Falls as Energy Prices Rise Higher",
       "isLive": true,
       "rankingSignal": "High Strategic Market Impact",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-22T13:05:51.601Z"
+      "generatedAt": "2026-10-23T09:18:19.228Z"
     },
     {
-      "id": "live-study-china%20stocks-rss-4-China%20Stoc-mvjckizs",
-      "company": "China Stocks",
+      "id": "live-study-meta%20platforms-rss-3-Meta%20Platf-mvjotclc",
+      "company": "Meta Platforms",
+      "industry": "Social Networks & AI",
+      "title": "Meta’s Stock Split Paves Way for Huge AI Financing Deal",
+      "whatHappened": "Financial reporting by Barron's highlights a strategic operational and market development for Meta Platforms.",
+      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
+      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
+      "importantDataOrResults": {
+        "metrics": [
+          {
+            "label": "Source Verification",
+            "value": "Barron's",
+            "change": "18h ago",
+            "isPositive": true
+          },
+          {
+            "label": "Catalyst Status",
+            "value": "Live Wire",
+            "change": "Active Strategic Development",
+            "isPositive": true
+          }
+        ],
+        "summary": "Active corporate development reported by Barron's. Disclosures and stakeholder commentary reflect current strategic positioning."
+      },
+      "keyLessons": [
+        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
+        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
+        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
+      ],
+      "sources": [
+        {
+          "title": "Meta’s Stock Split Paves Way for Huge AI Financing Deal",
+          "publisher": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQclVZYi1ZSWIzcjFXUVdfWTUzVVh0eUtRRkxmVllWNm1yYzA1Q2s3dVZmVTdPZDlsNjlSR2pfdnpBMkRoZ0Q2UTU4M1ZPajNuekxVZV9tX3dyXzFLNWZ1THFHQmNPZUxiSHNFVkNrRkVMdXhla0hHSVpabEloYndobUp5bFlmN2M?oc=5",
+          "date": "18h ago"
+        }
+      ],
+      "date": "Oct 23, 2026",
+      "readTime": "3 min read",
+      "status": "Breaking Catalyst",
+      "tags": [
+        "Social Networks & AI",
+        "Corporate Strategy",
+        "Live Intelligence"
+      ],
+      "rssHeadlineReference": "Meta’s Stock Split Paves Way for Huge AI Financing Deal",
+      "isLive": true,
+      "rankingSignal": "High Strategic Market Impact",
+      "generatedByGroq": false,
+      "generatedAt": "2026-10-23T09:18:19.228Z"
+    },
+    {
+      "id": "live-study-treasuries%20link-rss-4-Treasuries%2-mvkehzmo",
+      "company": "Treasuries Link",
       "industry": "Technology & Software",
-      "title": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
-      "whatHappened": "Financial reporting by Bloomberg.com highlights a strategic operational and market development for China Stocks.",
+      "title": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
+      "whatHappened": "Financial reporting by Bloomberg.com highlights a strategic operational and market development for Treasuries Link.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
       "marketContext": "The Technology & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
@@ -173,7 +173,7 @@
           {
             "label": "Source Verification",
             "value": "Bloomberg.com",
-            "change": "3h ago",
+            "change": "6h ago",
             "isPositive": true
           },
           {
@@ -192,13 +192,13 @@
       ],
       "sources": [
         {
-          "title": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
+          "title": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
           "publisher": "Bloomberg.com",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOMkp5bjg3WHRYdlFYTFc2b1VRRmVpd09Oa0Y1SkxUR2xnUTFyTXAyMG9zcUFnN2pIbU1WQVJBdmVqNG0xZDk1UWM0N1M3djhNaWVwbXVBamhRS3dMMWtPRlhQbGFXWk9BTXVXcnppTVB6ZWl3eTRzM3BqclJ0MlE3MEJVSXhWTUlnYm1aVGVGa01kcmljSXFBX1NTWC1Hd1k5X3hwcGtyRjdtblFhVG9RdmlmVQ?oc=5",
-          "date": "3h ago"
+          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOV0dULXFaUm9nREVVNEJjUFlvODVTbkwyV21vZXJ1eVJveDc4cEd4SG5lWEZsRjNxVWNkZWlvRFJPMi10cXhjcldVUkxGd2wtMWtQbzVpYXJLR29taWlmQThpZE5ObWhFSXFpX0VYZlJMZFQ1WFdKYnF4cWhwUDE3b2NueThFenpCWEJSeDg4UzNfRDZleS1qcmpxY2sxWjhwV3ZnUjZqLTRBT2k4bDJoOVc4Zw?oc=5",
+          "date": "6h ago"
         }
       ],
-      "date": "Oct 22, 2026",
+      "date": "Oct 23, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
@@ -206,18 +206,18 @@
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "China Stocks Set for Bear Market as AI Trade, Policy Hopes Fade",
+      "rssHeadlineReference": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-22T13:05:51.601Z"
+      "generatedAt": "2026-10-23T09:18:19.229Z"
     },
     {
-      "id": "live-study-meta%20platforms-rss-5-Meta%20Platf-mvj7wpbs",
+      "id": "live-study-meta%20platforms-rss-5-Meta%20Platf-mvk723c8",
       "company": "Meta Platforms",
       "industry": "Social Networks & AI",
-      "title": "Mark Zuckerberg Says Meta Will ‘Build Superintelligence Through Scaling’ After $64.6 Billion Q3 Beat, META Stock Jumps After Hours",
-      "whatHappened": "Financial reporting by Yahoo Finance highlights a strategic operational and market development for Meta Platforms.",
+      "title": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta",
+      "whatHappened": "Financial reporting by TechCrunch highlights a strategic operational and market development for Meta Platforms.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
       "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
@@ -225,8 +225,8 @@
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "Yahoo Finance",
-            "change": "6h ago",
+            "value": "TechCrunch",
+            "change": "9h ago",
             "isPositive": true
           },
           {
@@ -236,7 +236,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by Yahoo Finance. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by TechCrunch. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -245,13 +245,13 @@
       ],
       "sources": [
         {
-          "title": "Mark Zuckerberg Says Meta Will ‘Build Superintelligence Through Scaling’ After $64.6 Billion Q3 Beat, META Stock Jumps After Hours",
-          "publisher": "Yahoo Finance",
-          "url": "https://news.google.com/rss/articles/CBMimwFBVV95cUxNeDRFREtLOXA4QWJmZnZUd2pBSzVGX2VNRHVZT05rcncxb2JNc1B4bkQ0cEZTMnU0YWk0cEhPSUctOGJOaEc4Uk1tMWVneW5uQ1JRcjRNUW5GV2l4a1lKS0VhN0N1UERTZUt4YjBEazJQd3V5MmFqbWoyTnhLSXNOVDJfSGozRFIyWUt4aVRYS0R3S1BMZWNuT2FGdw?oc=5",
-          "date": "6h ago"
+          "title": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta",
+          "publisher": "TechCrunch",
+          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxONnhPc3Noa0hZdmVYU1l4aGZ0bTZlSlVsZHRoSG9LNFJNbnVvVnFiYlBWelRnSzRDTUtxTzVZcl95ZmV4eHdrNllsVzNKVHBReEduWjNibXNleHYyLXB4elExVDFGcjBuMnFmMFNMeE85cWtOakM5YUFDZDNIYVlDWjJlT0tBWlJoMGZDWjQ0TXFVb1B2dWVLd0NPMEVjT2IxY2QtS2llUU00QUFqd3ZQYTlKQjZ6Rlp6T09tcXdpc2Q4eXB5X1czYjFMOWJSYVlTREJNa2VLRQ?oc=5",
+          "date": "9h ago"
         }
       ],
-      "date": "Oct 22, 2026",
+      "date": "Oct 23, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
@@ -259,27 +259,27 @@
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Mark Zuckerberg Says Meta Will ‘Build Superintelligence Through Scaling’ After $64.6 Billion Q3 Beat, META Stock Jumps After Hours",
+      "rssHeadlineReference": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-22T13:05:51.601Z"
+      "generatedAt": "2026-10-23T09:18:19.229Z"
     },
     {
-      "id": "live-study-meta%20platforms-rss-6-Meta%20Platf-mvjdqoqo",
-      "company": "Meta Platforms",
-      "industry": "Social Networks & AI",
-      "title": "Meta strikes deal with Zuckerberg to protect him from California wealth tax",
-      "whatHappened": "Financial reporting by The Guardian highlights a strategic operational and market development for Meta Platforms.",
+      "id": "live-study-openai-rss-6-OpenAI-mvk3ek00",
+      "company": "OpenAI",
+      "industry": "Generative AI Systems",
+      "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
+      "whatHappened": "Financial reporting by TechCrunch highlights a strategic operational and market development for OpenAI.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Generative AI Systems industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "The Guardian",
-            "change": "3h ago",
+            "value": "TechCrunch",
+            "change": "11h ago",
             "isPositive": true
           },
           {
@@ -289,7 +289,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by The Guardian. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by TechCrunch. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -298,25 +298,25 @@
       ],
       "sources": [
         {
-          "title": "Meta strikes deal with Zuckerberg to protect him from California wealth tax",
-          "publisher": "The Guardian",
-          "url": "https://news.google.com/rss/articles/CBMimAFBVV95cUxPbWdENUhyQkpudUU4em5EVDB6bnFWS3FNUFRoSEhEY1dWV09heGdSLXZtZnJPNkpnamQyZFB0VzU2dDRSaHFad01MV016M1ozcjJ6eHhyd3Z5TzlJc1pVMnYtMmt1SjlMdVprWUxnSHAwVkJYaTVaNkdvOGdpcE5LLVFJM1ZYbl9yczlRZWlCU0luQTllX2hIMg?oc=5",
-          "date": "3h ago"
+          "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
+          "publisher": "TechCrunch",
+          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxON0lOUndGcjRBanppZmhpM1o2blEzanc5WEpHeU5PQi1HUFYzZ3pod2pvY3JIdm5BTnI2RDYzTlg1ZGd1QkhxSGR2OTB6UEFkNElQbkkwYk1sclEtdG1pMzFYRnl6Nlo3ZUlwb1hEaFM2WlRHRmNjcE1nblA1c202RzNwLUlhVnhLZVlFc2NSakpLdUcwRTJhVS1MYVdkSVU?oc=5",
+          "date": "11h ago"
         }
       ],
-      "date": "Oct 22, 2026",
+      "date": "Oct 23, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Social Networks & AI",
+        "Generative AI Systems",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Meta strikes deal with Zuckerberg to protect him from California wealth tax",
+      "rssHeadlineReference": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-22T13:05:51.601Z"
+      "generatedAt": "2026-10-23T09:18:19.229Z"
     },
     {
       "id": "nvidia-ai-fullstack-moat",
@@ -783,5 +783,5 @@
   ],
   "count": 12,
   "groqConnected": true,
-  "generatedAt": "2026-10-22T13:05:51.602Z"
+  "generatedAt": "2026-10-23T09:18:19.229Z"
 }

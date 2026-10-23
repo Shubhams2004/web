@@ -220,21 +220,6 @@ export const NewsArticleModal: React.FC<NewsArticleModalProps> = ({
             </div>
           </header>
 
-          {/* Hero Image & Caption */}
-          <div className="mb-8 rounded-xl overflow-hidden border border-slate-200 bg-slate-100">
-            <img
-              src={article.imageUrl}
-              alt={article.title}
-              referrerPolicy="no-referrer"
-              className="w-full h-auto max-h-[460px] object-cover"
-            />
-            {article.imageCaption && (
-              <p className="p-3 text-xs text-slate-500 italic bg-slate-50 border-t border-slate-200">
-                {article.imageCaption}
-              </p>
-            )}
-          </div>
-
           {/* Key Takeaways Callout Box */}
           <div className="mb-8 p-4 sm:p-5 rounded-xl bg-blue-50/70 border border-blue-200/80">
             <div className="flex items-center gap-2 mb-2 text-blue-900 font-bold text-xs uppercase tracking-wider">

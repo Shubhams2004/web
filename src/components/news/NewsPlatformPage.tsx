@@ -389,12 +389,22 @@ export const NewsPlatformPage: React.FC<NewsPlatformPageProps> = ({
                 {Array.from({ length: 4 }).map((_, i) => (
                   <div
                     key={i}
-                    className="flex flex-col bg-white rounded-xl border border-slate-200 overflow-hidden p-4 space-y-3 animate-pulse"
+                    className="flex flex-col justify-between bg-white rounded-xl border border-slate-200/90 p-5 sm:p-6 space-y-3 animate-pulse"
                   >
-                    <div className="aspect-16/10 w-full bg-slate-200 rounded-lg" />
-                    <div className="h-4 bg-slate-200 rounded w-3/4" />
-                    <div className="h-3 bg-slate-100 rounded w-full" />
-                    <div className="h-3 bg-slate-100 rounded w-5/6" />
+                    <div>
+                      <div className="flex items-center justify-between mb-3">
+                        <div className="h-3 bg-slate-200 rounded w-20" />
+                        <div className="h-3 bg-slate-100 rounded w-12" />
+                      </div>
+                      <div className="h-5 bg-slate-200 rounded w-full mb-2" />
+                      <div className="h-5 bg-slate-200 rounded w-4/5 mb-3" />
+                      <div className="h-3 bg-slate-100 rounded w-full mb-1.5" />
+                      <div className="h-3 bg-slate-100 rounded w-5/6" />
+                    </div>
+                    <div className="pt-3 border-t border-slate-100 flex items-center justify-between">
+                      <div className="h-3 bg-slate-200 rounded w-24" />
+                      <div className="h-3 bg-slate-100 rounded w-16" />
+                    </div>
                   </div>
                 ))}
               </div>
