@@ -1,20 +1,20 @@
 {
   "caseStudies": [
     {
-      "id": "live-study-stock%20live-rss-1-Stock%20Live-mvkq4uc0",
-      "company": "Stock Live",
-      "industry": "Commercial Strategy & Markets",
-      "title": "Stock futures trade mixed after tech sector sell-off: Live updates",
-      "whatHappened": "Financial reporting by CNBC highlights a strategic operational and market development for Stock Live.",
+      "id": "live-study-enterprise%20market%20leader-rss-1-Enterprise%2-mvl47wyo",
+      "company": "Enterprise Market Leader",
+      "industry": "Semiconductors & Hardware",
+      "title": "US designates helium as a critical material, citing its importance for semiconductors",
+      "whatHappened": "Financial reporting by AP News highlights a strategic operational and market development for Enterprise Market Leader.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Semiconductors & Hardware industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "CNBC",
-            "change": "Just now",
+            "value": "AP News",
+            "change": "19h ago",
             "isPositive": true
           },
           {
@@ -24,7 +24,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by CNBC. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by AP News. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -33,41 +33,94 @@
       ],
       "sources": [
         {
-          "title": "Stock futures trade mixed after tech sector sell-off: Live updates",
-          "publisher": "CNBC",
-          "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBNc0s0YTFvMUVGOTZsQTBGQ2xGQkNJNmZrZVlXOXpMTTV4VDFZQnF5LTBOVHpXMVI1cmI4QmhFNTVudnpRVDVUbldkZEZmeXl3MHI4aU1UaXVvbHNEdHhvbmNweVQ5TWdjaWRPQWpZLXJIYk5RTlHSAXtBVV95cUxPN0Q0eEc2UXVTTmwxcTZsY05HeEdKN0U1dDc1S1YxWmxZOXJlSm1NVVZDU3MxcXFKNlduX3NxckhxZ1puVlE1d09SZk4zSGhVcG9xNFhBb1d6Skd4NlZSdDZ5Y1I2NkxEXzJuUmxUMThNX3haWnlIeUZQQ0k?oc=5",
-          "date": "Just now"
+          "title": "US designates helium as a critical material, citing its importance for semiconductors",
+          "publisher": "AP News",
+          "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORjM5SGFuUzRrVGZkRXl5NWJtQkYzQTVub3FLQ2MzZEd3eTRiU2RHYldFOXpUdmhNYnkwaVh1Q1pHNXNfQjdCRXhqVjZxUDZDVW5RWXFFMTU0NXZFT2tGY1FOcWdhV1ZhRG9pY2xORGdkbTdBZG5yekNOdnpJYW01cEpQU1lnOFVMY2xKZm5sY21ZQ3h6UG9TMUtQZEZ4a05WVS1Z?oc=5",
+          "date": "19h ago"
         }
       ],
-      "date": "Oct 23, 2026",
+      "date": "Oct 24, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Commercial Strategy & Markets",
+        "Semiconductors & Hardware",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Stock futures trade mixed after tech sector sell-off: Live updates",
+      "rssHeadlineReference": "US designates helium as a critical material, citing its importance for semiconductors",
       "isLive": true,
       "rankingSignal": "Top Recency & Wire Consensus",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-23T09:18:19.228Z"
+      "generatedAt": "2026-10-24T10:02:56.867Z"
     },
     {
-      "id": "live-study-gold%20falls-rss-2-Gold%20Falls-mvknps2o",
-      "company": "Gold Falls",
-      "industry": "Energy & Infrastructure",
-      "title": "Gold Falls as Energy Prices Rise Higher",
-      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Gold Falls.",
+      "id": "live-study-enterprise%20market%20leader-rss-2-Enterprise%2-mvl59ko8",
+      "company": "Enterprise Market Leader",
+      "industry": "Retail & Consumer Goods",
+      "title": "US consumer sentiment near record low ahead of midterm elections",
+      "whatHappened": "Financial reporting by Reuters highlights a strategic operational and market development for Enterprise Market Leader.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Energy & Infrastructure industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Retail & Consumer Goods industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
+      "importantDataOrResults": {
+        "metrics": [
+          {
+            "label": "Source Verification",
+            "value": "Reuters",
+            "change": "18h ago",
+            "isPositive": true
+          },
+          {
+            "label": "Catalyst Status",
+            "value": "Live Wire",
+            "change": "Active Strategic Development",
+            "isPositive": true
+          }
+        ],
+        "summary": "Active corporate development reported by Reuters. Disclosures and stakeholder commentary reflect current strategic positioning."
+      },
+      "keyLessons": [
+        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
+        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
+        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
+      ],
+      "sources": [
+        {
+          "title": "US consumer sentiment near record low ahead of midterm elections",
+          "publisher": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPR05CVGk5UUlBVHZBTDJObFp0eHJZUlpOdGdnSkxWZUtQWWR5V1BvRkZIQTQwSGtoa21PTFNNUHFPbGpkSm05QXc5MXB0Q3VNWTBxd21hQmpSdDlhc1pHNkhMeWhLd2xpR21nQ2Rxa0d4Ym0yQ0Jtb2I1dWlMYlUzenFWVkVlNG9xbmxKUENEQjFzWnhFTFZLQkhCR2Fucmd0ZUhCU0ttQ2xXUQ?oc=5",
+          "date": "18h ago"
+        }
+      ],
+      "date": "Oct 24, 2026",
+      "readTime": "3 min read",
+      "status": "Breaking Catalyst",
+      "tags": [
+        "Retail & Consumer Goods",
+        "Corporate Strategy",
+        "Live Intelligence"
+      ],
+      "rssHeadlineReference": "US consumer sentiment near record low ahead of midterm elections",
+      "isLive": true,
+      "rankingSignal": "High Strategic Market Impact",
+      "generatedByGroq": false,
+      "generatedAt": "2026-10-24T10:02:56.868Z"
+    },
+    {
+      "id": "live-study-exclusive%20jetblue-rss-3-Exclusive%20-mvlsd99c",
+      "company": "Exclusive JetBlue",
+      "industry": "Banking & Macro Finance",
+      "title": "Exclusive | JetBlue Creditors Hire Advisers as Airline’s Shares, Bonds Sink",
+      "whatHappened": "Financial reporting by WSJ highlights a strategic operational and market development for Exclusive JetBlue.",
+      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
+      "marketContext": "The Banking & Macro Finance industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
             "value": "WSJ",
-            "change": "2h ago",
+            "change": "7h ago",
             "isPositive": true
           },
           {
@@ -86,41 +139,41 @@
       ],
       "sources": [
         {
-          "title": "Gold Falls as Energy Prices Rise Higher",
+          "title": "Exclusive | JetBlue Creditors Hire Advisers as Airline’s Shares, Bonds Sink",
           "publisher": "WSJ",
-          "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPLVpKUTYybGVMb1hPclJUSE5SNlRqaG5Lc19SRFRwajJiSUg0ejdvYy1MdXduNEhjdFNGc1JUcmxrVjBvVG9HTzRWcVQ1YUNKTHlha09qYXM5Mm1mMjREdngzTUtjbThaX21CVFh2dkJaZTZrMkt3NFVtSWpOMTZLd2hSTG9RMnVDWUJ3MUlVcUxJZzZITTk3a3RlQm1QeVpLdWhpeTdsYw?oc=5",
-          "date": "2h ago"
+          "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNbGNXMUZPOXJzRVEySm1hY2trdEJ5MGhJWlN0eUlPLU11WEZSTlJ5WG16TFdLQjg2aU43bDZRakRBYXJTb2hKZ3pyQmRBNFBfLUx0Mlh5UDZDN1JjWHF0alUyamwyVEt2bExqZjN0VW81NjYtNnlwLUpyTTZSdHRHWU9GNFVCTHhHSnNjZTRVcHhTTnFiQ1MwZk54MnRpUzVnSDlXZG1Dc0RUMkpEb2lPY2JNcnpIZFk?oc=5",
+          "date": "7h ago"
         }
       ],
-      "date": "Oct 23, 2026",
+      "date": "Oct 24, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Energy & Infrastructure",
+        "Banking & Macro Finance",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Gold Falls as Energy Prices Rise Higher",
+      "rssHeadlineReference": "Exclusive | JetBlue Creditors Hire Advisers as Airline’s Shares, Bonds Sink",
       "isLive": true,
       "rankingSignal": "High Strategic Market Impact",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-23T09:18:19.228Z"
+      "generatedAt": "2026-10-24T10:02:56.868Z"
     },
     {
-      "id": "live-study-meta%20platforms-rss-3-Meta%20Platf-mvjotclc",
-      "company": "Meta Platforms",
-      "industry": "Social Networks & AI",
-      "title": "Meta’s Stock Split Paves Way for Huge AI Financing Deal",
-      "whatHappened": "Financial reporting by Barron's highlights a strategic operational and market development for Meta Platforms.",
+      "id": "live-study-hynix%20stock-rss-4-Hynix%20Stoc-mvl106ao",
+      "company": "Hynix Stock",
+      "industry": "Semiconductors & Hardware",
+      "title": "SK Hynix Stock Jumps After Scrapping U.S. IPO of Memory-Chip Unit",
+      "whatHappened": "Financial reporting by Barron's highlights a strategic operational and market development for Hynix Stock.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Semiconductors & Hardware industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
             "value": "Barron's",
-            "change": "18h ago",
+            "change": "20h ago",
             "isPositive": true
           },
           {
@@ -139,41 +192,41 @@
       ],
       "sources": [
         {
-          "title": "Meta’s Stock Split Paves Way for Huge AI Financing Deal",
+          "title": "SK Hynix Stock Jumps After Scrapping U.S. IPO of Memory-Chip Unit",
           "publisher": "Barron's",
-          "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQclVZYi1ZSWIzcjFXUVdfWTUzVVh0eUtRRkxmVllWNm1yYzA1Q2s3dVZmVTdPZDlsNjlSR2pfdnpBMkRoZ0Q2UTU4M1ZPajNuekxVZV9tX3dyXzFLNWZ1THFHQmNPZUxiSHNFVkNrRkVMdXhla0hHSVpabEloYndobUp5bFlmN2M?oc=5",
-          "date": "18h ago"
+          "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9xSzlpdEtVNkR5LUQzbVpudlRGVmI2UVRXZVA0U25qdmRFUHNPdWZMOHA0c1VwQ3ZhZERZN0c3ajQ5cVF6c0h4dUZOWm9HdGxsNkFlanRwYjRSYmhiZjJRT2ZzMDVpbnNLRkUxRUpUUEhwemhHU3Jra2JVdkY?oc=5",
+          "date": "20h ago"
         }
       ],
-      "date": "Oct 23, 2026",
+      "date": "Oct 24, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Social Networks & AI",
+        "Semiconductors & Hardware",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Meta’s Stock Split Paves Way for Huge AI Financing Deal",
+      "rssHeadlineReference": "SK Hynix Stock Jumps After Scrapping U.S. IPO of Memory-Chip Unit",
       "isLive": true,
-      "rankingSignal": "High Strategic Market Impact",
+      "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-23T09:18:19.228Z"
+      "generatedAt": "2026-10-24T10:02:56.868Z"
     },
     {
-      "id": "live-study-treasuries%20link-rss-4-Treasuries%2-mvkehzmo",
-      "company": "Treasuries Link",
-      "industry": "Technology & Software",
-      "title": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
-      "whatHappened": "Financial reporting by Bloomberg.com highlights a strategic operational and market development for Treasuries Link.",
+      "id": "live-study-wall%20street-rss-5-Wall%20Stree-mvlmco6w",
+      "company": "Wall Street",
+      "industry": "Commercial Strategy & Markets",
+      "title": "Wall Street closes lower to end rocky week",
+      "whatHappened": "Financial reporting by Reuters highlights a strategic operational and market development for Wall Street.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Technology & Software industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Commercial Strategy & Markets industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "Bloomberg.com",
-            "change": "6h ago",
+            "value": "Reuters",
+            "change": "10h ago",
             "isPositive": true
           },
           {
@@ -183,7 +236,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by Bloomberg.com. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by Reuters. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -192,41 +245,41 @@
       ],
       "sources": [
         {
-          "title": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
-          "publisher": "Bloomberg.com",
-          "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOV0dULXFaUm9nREVVNEJjUFlvODVTbkwyV21vZXJ1eVJveDc4cEd4SG5lWEZsRjNxVWNkZWlvRFJPMi10cXhjcldVUkxGd2wtMWtQbzVpYXJLR29taWlmQThpZE5ObWhFSXFpX0VYZlJMZFQ1WFdKYnF4cWhwUDE3b2NueThFenpCWEJSeDg4UzNfRDZleS1qcmpxY2sxWjhwV3ZnUjZqLTRBT2k4bDJoOVc4Zw?oc=5",
-          "date": "6h ago"
+          "title": "Wall Street closes lower to end rocky week",
+          "publisher": "Reuters",
+          "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQR01KeXBjdXBubVRzTlJfWWJTMHctb2hFS2pVT21ydWtZNzBaMldxd1c2ZUJGNWhIeGV6MUxvQVZvSl9GdFh5QThQbFpuT0IwYi02Y3JGM19YSWJ3LXMtb29RbS1WZUljdGtsS2dockxHVm5SWnBSMzJpM0Y4RFItdW5SMzFsdXg2LWtrYWE1SC1TQlkxOERJZHNtQVREdw?oc=5",
+          "date": "10h ago"
         }
       ],
-      "date": "Oct 23, 2026",
+      "date": "Oct 24, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Technology & Software",
+        "Commercial Strategy & Markets",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
+      "rssHeadlineReference": "Wall Street closes lower to end rocky week",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-23T09:18:19.229Z"
+      "generatedAt": "2026-10-24T10:02:56.868Z"
     },
     {
-      "id": "live-study-meta%20platforms-rss-5-Meta%20Platf-mvk723c8",
-      "company": "Meta Platforms",
-      "industry": "Social Networks & AI",
-      "title": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta",
-      "whatHappened": "Financial reporting by TechCrunch highlights a strategic operational and market development for Meta Platforms.",
+      "id": "live-study-nvidia-rss-6-NVIDIA-mvl6v2w0",
+      "company": "NVIDIA",
+      "industry": "Semiconductors & AI",
+      "title": "Nvidia Stock’s 2 Critical Flaws and More Reasons an Analyst Says Sell",
+      "whatHappened": "Financial reporting by Barron's highlights a strategic operational and market development for NVIDIA.",
       "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Social Networks & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
+      "marketContext": "The Semiconductors & AI industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
       "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
       "importantDataOrResults": {
         "metrics": [
           {
             "label": "Source Verification",
-            "value": "TechCrunch",
-            "change": "9h ago",
+            "value": "Barron's",
+            "change": "17h ago",
             "isPositive": true
           },
           {
@@ -236,7 +289,7 @@
             "isPositive": true
           }
         ],
-        "summary": "Active corporate development reported by TechCrunch. Disclosures and stakeholder commentary reflect current strategic positioning."
+        "summary": "Active corporate development reported by Barron's. Disclosures and stakeholder commentary reflect current strategic positioning."
       },
       "keyLessons": [
         "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
@@ -245,78 +298,25 @@
       ],
       "sources": [
         {
-          "title": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta",
-          "publisher": "TechCrunch",
-          "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxONnhPc3Noa0hZdmVYU1l4aGZ0bTZlSlVsZHRoSG9LNFJNbnVvVnFiYlBWelRnSzRDTUtxTzVZcl95ZmV4eHdrNllsVzNKVHBReEduWjNibXNleHYyLXB4elExVDFGcjBuMnFmMFNMeE85cWtOakM5YUFDZDNIYVlDWjJlT0tBWlJoMGZDWjQ0TXFVb1B2dWVLd0NPMEVjT2IxY2QtS2llUU00QUFqd3ZQYTlKQjZ6Rlp6T09tcXdpc2Q4eXB5X1czYjFMOWJSYVlTREJNa2VLRQ?oc=5",
-          "date": "9h ago"
+          "title": "Nvidia Stock’s 2 Critical Flaws and More Reasons an Analyst Says Sell",
+          "publisher": "Barron's",
+          "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5SVktBZjJfVEV6cG1KNTRURUZ5MUNuSmFSeW5aeldtcWg4LWNkZC05TVVmRmhZYzhSWnNtbG81Vkt0ellCTWZ3dGRYMGptZ0xfZGdCTU8xY3lmR2tjNE80NE5MZ0l1R3M5M0xHV0k2THFIYk13QXlRRU5hSFdzZw?oc=5",
+          "date": "17h ago"
         }
       ],
-      "date": "Oct 23, 2026",
+      "date": "Oct 24, 2026",
       "readTime": "3 min read",
       "status": "Breaking Catalyst",
       "tags": [
-        "Social Networks & AI",
+        "Semiconductors & AI",
         "Corporate Strategy",
         "Live Intelligence"
       ],
-      "rssHeadlineReference": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta",
+      "rssHeadlineReference": "Nvidia Stock’s 2 Critical Flaws and More Reasons an Analyst Says Sell",
       "isLive": true,
       "rankingSignal": "Verified Wire Discovery",
       "generatedByGroq": false,
-      "generatedAt": "2026-10-23T09:18:19.229Z"
-    },
-    {
-      "id": "live-study-openai-rss-6-OpenAI-mvk3ek00",
-      "company": "OpenAI",
-      "industry": "Generative AI Systems",
-      "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
-      "whatHappened": "Financial reporting by TechCrunch highlights a strategic operational and market development for OpenAI.",
-      "businessProblemOrOpportunity": "Navigating sector transitions, capital allocation, and competitive dynamics amid fast-moving market expectations.",
-      "marketContext": "The Generative AI Systems industry is currently subject to evolving macroeconomic conditions, regulatory oversight, and competitive reallocation of resources.",
-      "strategyActionTaken": "Executive leadership and corporate stakeholders are actively executing operational adjustments as disclosed across financial disclosures and wire reporting.",
-      "importantDataOrResults": {
-        "metrics": [
-          {
-            "label": "Source Verification",
-            "value": "TechCrunch",
-            "change": "11h ago",
-            "isPositive": true
-          },
-          {
-            "label": "Catalyst Status",
-            "value": "Live Wire",
-            "change": "Active Strategic Development",
-            "isPositive": true
-          }
-        ],
-        "summary": "Active corporate development reported by TechCrunch. Disclosures and stakeholder commentary reflect current strategic positioning."
-      },
-      "keyLessons": [
-        "Strategic Speed: Rapid executive adaptation to market reporting preserves operational advantage.",
-        "Information Transparency: Accurate stakeholder communication mitigates market uncertainty.",
-        "Competitive Positioning: Continuous focus on core margins safeguards long-term industry rank."
-      ],
-      "sources": [
-        {
-          "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
-          "publisher": "TechCrunch",
-          "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxON0lOUndGcjRBanppZmhpM1o2blEzanc5WEpHeU5PQi1HUFYzZ3pod2pvY3JIdm5BTnI2RDYzTlg1ZGd1QkhxSGR2OTB6UEFkNElQbkkwYk1sclEtdG1pMzFYRnl6Nlo3ZUlwb1hEaFM2WlRHRmNjcE1nblA1c202RzNwLUlhVnhLZVlFc2NSakpLdUcwRTJhVS1MYVdkSVU?oc=5",
-          "date": "11h ago"
-        }
-      ],
-      "date": "Oct 23, 2026",
-      "readTime": "3 min read",
-      "status": "Breaking Catalyst",
-      "tags": [
-        "Generative AI Systems",
-        "Corporate Strategy",
-        "Live Intelligence"
-      ],
-      "rssHeadlineReference": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
-      "isLive": true,
-      "rankingSignal": "Verified Wire Discovery",
-      "generatedByGroq": false,
-      "generatedAt": "2026-10-23T09:18:19.229Z"
+      "generatedAt": "2026-10-24T10:02:56.868Z"
     },
     {
       "id": "nvidia-ai-fullstack-moat",
@@ -783,5 +783,5 @@
   ],
   "count": 12,
   "groqConnected": true,
-  "generatedAt": "2026-10-23T09:18:19.229Z"
+  "generatedAt": "2026-10-24T10:02:56.868Z"
 }

@@ -14,7 +14,7 @@ export default defineConfig(({ mode }) => {
     '';
 
   return {
-    base: '/',
+    base: process.env.BASE_URL || './',
     plugins: [react(), tailwindcss(), newsApiPlugin(groqApiKey)],
     resolve: {
       alias: {

@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: ["main"]
+    branches: ["main", "master"]
   schedule:
     - cron: '0 */6 * * *'
   workflow_dispatch:
@@ -34,13 +34,15 @@ jobs:
       - name: Security & Integrity Audit
         run: npm run security-check
 
+      - name: Setup Pages
+        id: pages
+        uses: actions/configure-pages@v5
+
       - name: Build
         run: npm run build
         env:
           GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
-
-      - name: Setup Pages
-        uses: actions/configure-pages@v5
+          BASE_URL: ${{ steps.pages.outputs.base_path }}/
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

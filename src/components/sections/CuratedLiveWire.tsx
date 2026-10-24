@@ -109,7 +109,7 @@ export const CuratedLiveWire: React.FC<CuratedLiveWireProps> = ({
   return (
     <section
       id="live-wire"
-      className={`py-14 sm:py-20 bg-white border-b border-slate-200/80 ${className}`}
+      className={`py-14 sm:py-20 bg-slate-50/60 border-b border-slate-200/80 ${className}`}
       aria-label="Live Market Dispatches and News Wire"
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -195,7 +195,7 @@ export const CuratedLiveWire: React.FC<CuratedLiveWireProps> = ({
             {leadStory && (
               <div
                 onClick={() => handleArticleClick(leadStory)}
-                className="lg:col-span-7 rounded-2xl border border-slate-200 bg-slate-50/40 hover:bg-white p-7 sm:p-8 transition-all shadow-xs hover:shadow-md cursor-pointer flex flex-col justify-between group"
+                className="lg:col-span-7 rounded-2xl border border-slate-200/90 bg-white hover:border-slate-300 p-7 sm:p-8 transition-all shadow-xs hover:shadow-md cursor-pointer flex flex-col justify-between group"
               >
                 <div>
                   {/* Category and date unboxed metadata */}

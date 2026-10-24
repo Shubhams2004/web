@@ -1,151 +1,151 @@
 {
   "stories": [
     {
-      "id": "rss-1-Stock%20Live-mvkq4uc0",
-      "title": "Stock futures trade mixed after tech sector sell-off: Live updates",
-      "source": "CNBC",
-      "publishedAt": "Just now",
-      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFBNc0s0YTFvMUVGOTZsQTBGQ2xGQkNJNmZrZVlXOXpMTTV4VDFZQnF5LTBOVHpXMVI1cmI4QmhFNTVudnpRVDVUbldkZEZmeXl3MHI4aU1UaXVvbHNEdHhvbmNweVQ5TWdjaWRPQWpZLXJIYk5RTlHSAXtBVV95cUxPN0Q0eEc2UXVTTmwxcTZsY05HeEdKN0U1dDc1S1YxWmxZOXJlSm1NVVZDU3MxcXFKNlduX3NxckhxZ1puVlE1d09SZk4zSGhVcG9xNFhBb1d6Skd4NlZSdDZ5Y1I2NkxEXzJuUmxUMThNX3haWnlIeUZQQ0k?oc=5",
-      "suggestedCompany": "Stock Live",
+      "id": "rss-1-Enterprise%2-mvl47wyo",
+      "title": "US designates helium as a critical material, citing its importance for semiconductors",
+      "source": "AP News",
+      "publishedAt": "19h ago",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxORjM5SGFuUzRrVGZkRXl5NWJtQkYzQTVub3FLQ2MzZEd3eTRiU2RHYldFOXpUdmhNYnkwaVh1Q1pHNXNfQjdCRXhqVjZxUDZDVW5RWXFFMTU0NXZFT2tGY1FOcWdhV1ZhRG9pY2xORGdkbTdBZG5yekNOdnpJYW01cEpQU1lnOFVMY2xKZm5sY21ZQ3h6UG9TMUtQZEZ4a05WVS1Z?oc=5",
+      "suggestedCompany": "Enterprise Market Leader",
+      "suggestedIndustry": "Semiconductors & Hardware"
+    },
+    {
+      "id": "rss-2-Enterprise%2-mvl59ko8",
+      "title": "US consumer sentiment near record low ahead of midterm elections",
+      "source": "Reuters",
+      "publishedAt": "18h ago",
+      "url": "https://news.google.com/rss/articles/CBMiqgFBVV95cUxPR05CVGk5UUlBVHZBTDJObFp0eHJZUlpOdGdnSkxWZUtQWWR5V1BvRkZIQTQwSGtoa21PTFNNUHFPbGpkSm05QXc5MXB0Q3VNWTBxd21hQmpSdDlhc1pHNkhMeWhLd2xpR21nQ2Rxa0d4Ym0yQ0Jtb2I1dWlMYlUzenFWVkVlNG9xbmxKUENEQjFzWnhFTFZLQkhCR2Fucmd0ZUhCU0ttQ2xXUQ?oc=5",
+      "suggestedCompany": "Enterprise Market Leader",
+      "suggestedIndustry": "Retail & Consumer Goods"
+    },
+    {
+      "id": "rss-3-Exclusive%20-mvlsd99c",
+      "title": "Exclusive | JetBlue Creditors Hire Advisers as Airline’s Shares, Bonds Sink",
+      "source": "WSJ",
+      "publishedAt": "7h ago",
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNbGNXMUZPOXJzRVEySm1hY2trdEJ5MGhJWlN0eUlPLU11WEZSTlJ5WG16TFdLQjg2aU43bDZRakRBYXJTb2hKZ3pyQmRBNFBfLUx0Mlh5UDZDN1JjWHF0alUyamwyVEt2bExqZjN0VW81NjYtNnlwLUpyTTZSdHRHWU9GNFVCTHhHSnNjZTRVcHhTTnFiQ1MwZk54MnRpUzVnSDlXZG1Dc0RUMkpEb2lPY2JNcnpIZFk?oc=5",
+      "suggestedCompany": "Exclusive JetBlue",
+      "suggestedIndustry": "Banking & Macro Finance"
+    },
+    {
+      "id": "rss-4-Hynix%20Stoc-mvl106ao",
+      "title": "SK Hynix Stock Jumps After Scrapping U.S. IPO of Memory-Chip Unit",
+      "source": "Barron's",
+      "publishedAt": "20h ago",
+      "url": "https://news.google.com/rss/articles/CBMifEFVX3lxTE9xSzlpdEtVNkR5LUQzbVpudlRGVmI2UVRXZVA0U25qdmRFUHNPdWZMOHA0c1VwQ3ZhZERZN0c3ajQ5cVF6c0h4dUZOWm9HdGxsNkFlanRwYjRSYmhiZjJRT2ZzMDVpbnNLRkUxRUpUUEhwemhHU3Jra2JVdkY?oc=5",
+      "suggestedCompany": "Hynix Stock",
+      "suggestedIndustry": "Semiconductors & Hardware"
+    },
+    {
+      "id": "rss-5-Wall%20Stree-mvlmco6w",
+      "title": "Wall Street closes lower to end rocky week",
+      "source": "Reuters",
+      "publishedAt": "10h ago",
+      "url": "https://news.google.com/rss/articles/CBMingFBVV95cUxQR01KeXBjdXBubVRzTlJfWWJTMHctb2hFS2pVT21ydWtZNzBaMldxd1c2ZUJGNWhIeGV6MUxvQVZvSl9GdFh5QThQbFpuT0IwYi02Y3JGM19YSWJ3LXMtb29RbS1WZUljdGtsS2dockxHVm5SWnBSMzJpM0Y4RFItdW5SMzFsdXg2LWtrYWE1SC1TQlkxOERJZHNtQVREdw?oc=5",
+      "suggestedCompany": "Wall Street",
       "suggestedIndustry": "Commercial Strategy & Markets"
     },
     {
-      "id": "rss-2-Gold%20Falls-mvknps2o",
-      "title": "Gold Falls as Energy Prices Rise Higher",
-      "source": "WSJ",
-      "publishedAt": "2h ago",
-      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPLVpKUTYybGVMb1hPclJUSE5SNlRqaG5Lc19SRFRwajJiSUg0ejdvYy1MdXduNEhjdFNGc1JUcmxrVjBvVG9HTzRWcVQ1YUNKTHlha09qYXM5Mm1mMjREdngzTUtjbThaX21CVFh2dkJaZTZrMkt3NFVtSWpOMTZLd2hSTG9RMnVDWUJ3MUlVcUxJZzZITTk3a3RlQm1QeVpLdWhpeTdsYw?oc=5",
-      "suggestedCompany": "Gold Falls",
-      "suggestedIndustry": "Energy & Infrastructure"
-    },
-    {
-      "id": "rss-3-Meta%20Platf-mvjotclc",
-      "title": "Meta’s Stock Split Paves Way for Huge AI Financing Deal",
+      "id": "rss-6-NVIDIA-mvl6v2w0",
+      "title": "Nvidia Stock’s 2 Critical Flaws and More Reasons an Analyst Says Sell",
       "source": "Barron's",
-      "publishedAt": "18h ago",
-      "url": "https://news.google.com/rss/articles/CBMihwFBVV95cUxQclVZYi1ZSWIzcjFXUVdfWTUzVVh0eUtRRkxmVllWNm1yYzA1Q2s3dVZmVTdPZDlsNjlSR2pfdnpBMkRoZ0Q2UTU4M1ZPajNuekxVZV9tX3dyXzFLNWZ1THFHQmNPZUxiSHNFVkNrRkVMdXhla0hHSVpabEloYndobUp5bFlmN2M?oc=5",
-      "suggestedCompany": "Meta Platforms",
-      "suggestedIndustry": "Social Networks & AI"
+      "publishedAt": "17h ago",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE5SVktBZjJfVEV6cG1KNTRURUZ5MUNuSmFSeW5aeldtcWg4LWNkZC05TVVmRmhZYzhSWnNtbG81Vkt0ellCTWZ3dGRYMGptZ0xfZGdCTU8xY3lmR2tjNE80NE5MZ0l1R3M5M0xHV0k2THFIYk13QXlRRU5hSFdzZw?oc=5",
+      "suggestedCompany": "NVIDIA",
+      "suggestedIndustry": "Semiconductors & AI"
     },
     {
-      "id": "rss-4-Treasuries%2-mvkehzmo",
-      "title": "Treasuries’ Link to AI Shows Sharp Shift as Haven Trade Returns",
-      "source": "Bloomberg.com",
-      "publishedAt": "6h ago",
-      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOV0dULXFaUm9nREVVNEJjUFlvODVTbkwyV21vZXJ1eVJveDc4cEd4SG5lWEZsRjNxVWNkZWlvRFJPMi10cXhjcldVUkxGd2wtMWtQbzVpYXJLR29taWlmQThpZE5ObWhFSXFpX0VYZlJMZFQ1WFdKYnF4cWhwUDE3b2NueThFenpCWEJSeDg4UzNfRDZleS1qcmpxY2sxWjhwV3ZnUjZqLTRBT2k4bDJoOVc4Zw?oc=5",
-      "suggestedCompany": "Treasuries Link",
+      "id": "rss-7-Hacks%20Are-mvlmtxc0",
+      "title": "AI Hacks Are Coming Thick and Fast and Overwhelming the Internet",
+      "source": "WSJ",
+      "publishedAt": "10h ago",
+      "url": "https://news.google.com/rss/articles/CBMiowFBVV95cUxPTUNnR1RPd3VXa0hoTW1USmVib3RXRVNMbjI3R2NwNDhtYkV4YU10azF5U0VVUEZWQXFRdFdlaUg1eWFDRkZTZi04UUJ6MmtEem5YdUhra0lCX2trOEtSWGIydnpjQXotNDBZVHdXT2lOeWlKenNnWC1CS3NBNVhQOW9KNmJWZTNoTlZkUEd0c01XTWs1M3dTbkstZVpCNjVROE5r?oc=5",
+      "suggestedCompany": "Hacks Are",
       "suggestedIndustry": "Technology & Software"
     },
     {
-      "id": "rss-5-Meta%20Platf-mvk723c8",
-      "title": "Mark Zuckerberg's creative plan to pay California’s proposed billionaire tax without losing control of Meta",
-      "source": "TechCrunch",
-      "publishedAt": "9h ago",
-      "url": "https://news.google.com/rss/articles/CBMi1wFBVV95cUxONnhPc3Noa0hZdmVYU1l4aGZ0bTZlSlVsZHRoSG9LNFJNbnVvVnFiYlBWelRnSzRDTUtxTzVZcl95ZmV4eHdrNllsVzNKVHBReEduWjNibXNleHYyLXB4elExVDFGcjBuMnFmMFNMeE85cWtOakM5YUFDZDNIYVlDWjJlT0tBWlJoMGZDWjQ0TXFVb1B2dWVLd0NPMEVjT2IxY2QtS2llUU00QUFqd3ZQYTlKQjZ6Rlp6T09tcXdpc2Q4eXB5X1czYjFMOWJSYVlTREJNa2VLRQ?oc=5",
-      "suggestedCompany": "Meta Platforms",
-      "suggestedIndustry": "Social Networks & AI"
-    },
-    {
-      "id": "rss-6-OpenAI-mvk3ek00",
+      "id": "rss-8-OpenAI-mvk3ek00",
       "title": "OpenAI working on new $30B raise at $1.25T valuation ahead of IPO",
       "source": "TechCrunch",
-      "publishedAt": "11h ago",
+      "publishedAt": "2d ago",
       "url": "https://news.google.com/rss/articles/CBMinwFBVV95cUxON0lOUndGcjRBanppZmhpM1o2blEzanc5WEpHeU5PQi1HUFYzZ3pod2pvY3JIdm5BTnI2RDYzTlg1ZGd1QkhxSGR2OTB6UEFkNElQbkkwYk1sclEtdG1pMzFYRnl6Nlo3ZUlwb1hEaFM2WlRHRmNjcE1nblA1c202RzNwLUlhVnhLZVlFc2NSakpLdUcwRTJhVS1MYVdkSVU?oc=5",
       "suggestedCompany": "OpenAI",
       "suggestedIndustry": "Generative AI Systems"
     },
     {
-      "id": "rss-7-SpaceX%20ATT-mvkiz6vc",
-      "title": "SpaceX reportedly targets 80K cell sites for wireless network; AT&T, Verizon, T-Mobile drop (SPCX:NASDAQ)",
-      "source": "Seeking Alpha",
-      "publishedAt": "4h ago",
-      "url": "https://news.google.com/rss/articles/CBMiwwFBVV95cUxNZmVpWGMwVHAwdGZsTUhlUlpUYW1DYXBEU2pTZkpCbG10NC1aTnVqT29rZnpJZ09kZkhxdTB5Vi0tNzFzTVFYQ2pPR0k2cFZDcS1uY3RjNjBxVkIwMjVkSVRXVVVwZ21VTTFfSF9KS3JCaV9hWV8tYjliWlI0WUc4Q1lDRVZ5SXdwY0dLd2ZIaHRIMDZBRDFuVXVqUW1YNHkyWnVmREJvVXp6dFI0YUd4WkVGQTFpT1lPY2V3Q0Q1SVZrU1U?oc=5",
-      "suggestedCompany": "SpaceX ATT",
+      "id": "rss-9-Trumps%20Wha-mvle0k6g",
+      "title": "Trump's executive order targets mortgage insurance, refinance costs. What it means for borrowers",
+      "source": "CNBC",
+      "publishedAt": "14h ago",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE4xUUdNZDZZNHVyNVhBXzBjWVVCSXdNN0ZmanlPWk0xaXcxclJ1LXl2MnJxSkphb0JtOEpjV3dsTnp3d2pOQTcta1ZmY3ZGZS1vdGk5MnNmT1BoTTZ0bnoxZUxkOFJlLTh2TExRRE5OYWJHSUZaYm9wZF9iZm03d9IBgwFBVV95cUxPcmZpejNUaE5wcTJOamp2UGZZc1R4MEU4TFVURHQyMFNENUNpb0pTTGs1MjRrcVBGMlZqTlhiWW1WMFdiNmdHN0w3T3lTeVlER0RIeWhUdmdabnJ6T2c0aGJMQkt6aXFCM3kyRkZHVzBabTJFR05SWlNkQ1piLW9wODZaVQ?oc=5",
+      "suggestedCompany": "Trumps What",
       "suggestedIndustry": "Commercial Strategy & Markets"
     },
     {
-      "id": "rss-8-Meta%20Platf-mvjvo9hc",
-      "title": "Mark Zuckerberg said demand for Meta’s Muse was so high, he had to get Stripe to raise credit limits",
-      "source": "Fortune",
-      "publishedAt": "15h ago",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxPeERid0lvNXVqb0l6VkVMM1BsQ2lRcHU4bkJONmpfYzloNTZVWkktTEZOU0txX1NKLUhEVkZaX0N2UnIzU1c2SUtHZFRDeWdDY05NU1dEWlg4Qkt1V2hCNDU5WGprTHBldHRPWERiOEFnNmR3Ykt6M0xCMWNrQ2ZFYzB4UXE5SmlkT3ZJNmZTRQ?oc=5",
-      "suggestedCompany": "Meta Platforms",
-      "suggestedIndustry": "Social Networks & AI"
-    },
-    {
-      "id": "rss-9-Meta%20Platf-mvk3lr9c",
-      "title": "‘Just the beginning’: New Mexico AG warns AI industry after $25B Meta ruling",
-      "source": "Politico",
-      "publishedAt": "11h ago",
-      "url": "https://news.google.com/rss/articles/CBMivwFBVV95cUxOb3VTZHhhbHJIbTZuRHlZd1IwQVlra19BTGpjVXZaQ2lacDE3cVExRE5iNy1xRlVmS0lyY0FFS19HaEdRdy1LQ0VqU1ZzRURUUlNRQzQ5TlZqeHg2THNpN1JoNE9Ld3duY3ZOTDBnQ0QwZ3Z3QU9PdTBia1M4OEpaQkFra3hoSFhfSC1WUWNYNXhVOWJaRnoyR0otSzAwbWRxdHl4bi1Idl9aM2ZhQmV2NThBTUlOdmlvUnpFUFRZVQ?oc=5",
-      "suggestedCompany": "Meta Platforms",
-      "suggestedIndustry": "Social Networks & AI"
-    },
-    {
-      "id": "rss-10-Tech%20Asia-mvkbbj9c",
-      "title": "Tech selloff slows in Asia, oil hits five-month high",
-      "source": "Reuters",
-      "publishedAt": "7h ago",
-      "url": "https://news.google.com/rss/articles/CBMigwFBVV95cUxQMG5uTk9BQ2lzbUtHT1k4Nlp4RlRCcXFvVXR5YUhCamhubGQ1SlB0c2FYczVLdl9ESzJBRzdkNmVuYU1ISVc2MndXWnBZTzBDNFdzeHBEQTNPTGU2SGhBTmtKM3Z1SWUxR2szN20yYWIySGIzUXlZcXVhdGNtTlJNMGN1WQ?oc=5",
-      "suggestedCompany": "Tech Asia",
-      "suggestedIndustry": "Energy & Infrastructure"
-    },
-    {
-      "id": "rss-11-Airbnb-mvk25140",
-      "title": "Airbnb guests no longer have to wash the dishes or strip the beds at checkout",
-      "source": "AP News",
-      "publishedAt": "12h ago",
-      "url": "https://news.google.com/rss/articles/CBMiogFBVV95cUxOYVR1WHZ3YWZNVnJTaFNLZ01QYnZReUZweTJpUFZIS2RHb2pLLXZ6WUdRUDVuT0pvaGYyZ0EzeGFaTm5hYnpPNkFqSTZnRl9ORGlhVkhSekhMRkpObEdQTDQyWDhadnFQbWVxZ0hBUWhzQWZVbm1tdW9mZzkxUlpOSGNoN1ZNZXBhdkQ0UktneHZ4Y3hpb2FXSjBkX052Q25aYkE?oc=5",
-      "suggestedCompany": "Airbnb",
+      "id": "rss-10-Mark%20Zucke-mvlaim88",
+      "title": "Mark Zuckerberg’s deal to stay in California cheered by wealth tax campaign",
+      "source": "Financial Times",
+      "publishedAt": "16h ago",
+      "url": "https://news.google.com/rss/articles/CBMihAFBVV95cUxQcmxRTm9laFJ0Ymw0bVFicDljenBRdXA2OWhneUVvMXFCVmlpZXlpbHlxeWlBU3JVQkRySEczYThHVkhLMkRFOWVWTlNhUUJscTRMQ2RDLVB1cDBMMjAtU0F3MzF5YVpVRk5JRG9xRkNza2JLak81WVhNdUc3X01JaGVpOFE?oc=5",
+      "suggestedCompany": "Mark Zuckerbergs",
       "suggestedIndustry": "Commercial Strategy & Markets"
     },
     {
-      "id": "rss-12-Oil%20Iranwa-mvk0gl6o",
-      "title": "Oil prices approach Iran-war highs as soaring tanker rates trigger a second energy squeeze",
+      "id": "rss-11-Anthropic%20-mvl998qo",
+      "title": "Anthropic Is Racing to Price Its IPO Before the Thanksgiving Dealmaking Freeze",
+      "source": "Yahoo Finance",
+      "publishedAt": "16h ago",
+      "url": "https://news.google.com/rss/articles/CBMipwFBVV95cUxQM25BcVRGX0dRRGotVFA5Snd0eU5YbXVyQmdPZWZ6NXA0b0xJNVJLZ0dEOFU0bkFqYlk4WTNwUndtZ1V0aFdDdWRDRXlzWmJ5VmhDck5IT0Jvd0IyZXN2MXZKRlJpbk5lcU1oMGY2cVNlNW1hbXpKZTFwM1l3OXAzQlgzenNaTE9LWkVKd1NEc1lwcjNVZmlqdzl4SlhiczVlb3dGM1IwSQ?oc=5",
+      "suggestedCompany": "Anthropic Racing",
+      "suggestedIndustry": "Commercial Strategy & Markets"
+    },
+    {
+      "id": "rss-12-Treasury%20H-mvkv04io",
+      "title": "Treasury yields log biggest drop since the 2023 banking crisis. Here’s what’s going on.",
       "source": "MarketWatch",
-      "publishedAt": "13h ago",
-      "url": "https://news.google.com/rss/articles/CBMizgFBVV95cUxQUGZHWmZzVnVTd2gtaTI5U1YtMnNQcU5FMnp5YzlMQnhkQnh4Ri1ZVUFfc1J6WTBTUFZtbXZCWG1XYmRLMFJnSkNkNHdFSDc3dU0xNHJaam03UHBNVnNhUWE2X2ZpaWJOTG1BWFhqaVJfclNFdTFWNFlVNTZUbnBvU0lJWGJvY1VKRlY3UnVBWld3SG1sSUc0Qjd0QTZuVEYtTXV6TGpzVkpERWRZYkdJX1ZOVEctQ2ppZVNjU0JKcXhvLUhDZWJOdklZQTdGUQ?oc=5",
-      "suggestedCompany": "Oil Iranwar",
-      "suggestedIndustry": "Energy & Infrastructure"
+      "publishedAt": "23h ago",
+      "url": "https://news.google.com/rss/articles/CBMiswFBVV95cUxOdDNHQlIxQkRfeVl2bWtrX2lzYTZsX0JYazZRaGdkclU5aHAwWlppV05YSTdvS0kwQXNVa0p6N0tseXVpcDZPRFBhdV9fbTExaXZZSTJJT1RXQmVXR3ZpTE5aZXp5cXFHRnB0WGxJNjVubU14LUs0eFV0SDVHWnJpYVkwYlNxZEhvZDVPa1U1MXlsYi15a2czRGJiOER5RjQ5M0toakZZbWV5S245WkM3QVNhZw?oc=5",
+      "suggestedCompany": "Treasury Heres",
+      "suggestedIndustry": "Banking & Macro Finance"
     },
     {
-      "id": "rss-13-Japans%20BOJ-mvk6yn40",
-      "title": "Japan's core inflation exceeds BOJ target, cements near-term rate hike chance",
+      "id": "rss-13-PODCAST%20Th-mvl0hqps",
+      "title": "PODCAST: The AI reset",
       "source": "Reuters",
+      "publishedAt": "20h ago",
+      "url": "https://news.google.com/rss/articles/CBMifkFVX3lxTE9jM2kta3htQjBxSHVGVkEzc3JXWk1JUktNSVpCVkw4UmRGVzNOeC1UYWoteHk1bDA2MEJKWnBIeEZfRXA2dDZEOXlhbjZVMm1Mci1lSzRkTkpyRXp4YlQ2Y2N0emo4eHdJR1V1cUxWZkt4bDlNTEREbWJsYVRRQQ?oc=5",
+      "suggestedCompany": "PODCAST The",
+      "suggestedIndustry": "Technology & Software"
+    },
+    {
+      "id": "rss-14-Meta%20Platf-mvksgthc",
+      "title": "Meta and Tesla Q3 reports show why Big Tech investors face an AI spending catch-22",
+      "source": "Business Insider",
+      "publishedAt": "1d ago",
+      "url": "https://news.google.com/rss/articles/CBMiqAFBVV95cUxPVXV1SHhIMUFsWnUwMzhXSmhkMGhmeG1lVlZtTVh1a2JFWTJtYTZaX1Y1VWgwTm1IZUo0SkhoWHBfbVBVVFNjRGR3MjdvakNPQUltTm1taU1seHVvbF9hZk1xZlYyUld6Q1RPa055MngyN21zWTROMzFJNkpmbVRSdk1iandBbktDallzd0RldkdiSnk3WTc3M1RFeUZfZVJZdk5oVjgtU2g?oc=5",
+      "suggestedCompany": "Meta Platforms",
+      "suggestedIndustry": "Social Networks & AI"
+    },
+    {
+      "id": "rss-15-Argentinian%-mvlq4k60",
+      "title": "Argentinian judge drops fraud investigation into Milei over crypto scandal",
+      "source": "Al Jazeera",
       "publishedAt": "9h ago",
-      "url": "https://news.google.com/rss/articles/CBMiyAFBVV95cUxQOTJqdzA2UHpkbmExTlVYbWgxX2VuMGQ3ck9XcUpfUEgxQURja19JdmlfLURneW9HUWpZbzNPMFJ3bS15Zk5DYlNTWU1teWprbW1hOHlJNXdDNWxYbExYRUU0bTIyVzFPLVlRZjY2cFk0THZTb094X2FrM3lPZ005THBHczdTdEl4WEhIUXVCdnA2TE9qTEtFWHh4aHloeWZFU0RuQmhlR0VRSDRCTURWZDB2eTNnWDloNWJIWktsNG5Pak5NSEdtSQ?oc=5",
-      "suggestedCompany": "Japans BOJ",
-      "suggestedIndustry": "Banking & Macro Finance"
+      "url": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNSHU5M3hnTDZhTGdwWFFRZ1EyNEFyV1hkX1JNTEpUdEQtdmc0TE5GMExYbEdhTVNPLUVFWmRfTG85YXV4akRTOWdCajFoeUFzZzQ1SmU1eVl2RVdINDYta3ZQR3h1SnN4UjQycjVlcUJMRGFfQ1phZHBCY2t0bC1OWDA4eU5RcHlJbllsdkxGaVRNRkhKem9NNElqMlBRMEVjMXR4TUVUdFV1Y1I3YlFfcVRFX1UzVm_SAbwBQVVfeXFMUDh6NC1xQjFZM0tzeEc5SE9YVGlpZUFsUU1vVlVnd0lhWXBpSXdyLWFGYjlCVXQzdE5EYV9zbU11ZGc0T0xaanlGM0dJZnVjcG1IbE5kRDZRSzdZRUwzZ3RXTUhIRVRHUjhKdzFFcDA0anJ5eXdwdEthM0NrQ29KeVNhOGU0RS1wOXN1TFh6cndVN2FxTkxpOERwXzR6dXBJSFlEQS1zcnVWak5aWUZyWWhPQklDZUUwcGlhZGs?oc=5",
+      "suggestedCompany": "Argentinian Milei",
+      "suggestedIndustry": "Commercial Strategy & Markets"
     },
     {
-      "id": "rss-14-Musk%20Inves-mvk051ag",
-      "title": "Musk Invests $1 Billion In Skydance As It Stares Down High Debt After WBD Acquisition",
-      "source": "Forbes",
-      "publishedAt": "13h ago",
-      "url": "https://news.google.com/rss/articles/CBMi2gFBVV95cUxOTHVOcFVrbUtnZVdsUDJrZXVMMnVORTVSU3QtUGpsX3MtaHY3Um9QX09tM0tfdXpHZmVlUG5oaTUwc0RHNGJUbnBUQzk4aWxtOUNkVVJVZHByZFdkVEx4WUViU0JBa2pQakMyWUpDOU45Z0VZMUNqcG5XRkNVZ05ZUlc4bW8xV0JDMUNvT1FzWXNnRW9NT1pvUU5wQjBPellmcXdUNXVzaU1PdU5YQmhtelJCYXN0QTQ5VE5sRFdnajNOZHBXM18xR0U2clE2aEdfWkUxa1AyTFptdw?oc=5",
-      "suggestedCompany": "Musk Invests",
-      "suggestedIndustry": "Banking & Macro Finance"
-    },
-    {
-      "id": "rss-15-UnitedHealth-mvki44tc",
-      "title": "UnitedHealthcare, Humana Medicare Advantage cancellations to affect 1M",
-      "source": "NewsNation",
-      "publishedAt": "4h ago",
-      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxOVlVvNFNKT1lYUmpYaXVBUEV4dlJCY2R1OEhCcnFIazlRYTdUT2t0RE9qTDNNaFFSUUVXSjZibFFXdGRTYzlQRU1sOHBITC1Db00zeUY5UnVKakhnUWhZckxhYmVUSnJpdXJjSG5BbHhNd25RRzFPWTFweWdfVGdVOHVreXUzWTlBSXp2MWd1ckJ1SEpKUmxSYlhn0gGfAUFVX3lxTE1YNkd2NDI4Q01YWUxvcU05OEZicnQ3S0JzNFBTN2JMZXRGQjhCU3VCUmVlNWw5THF4VDdOdTRZeGFaWWhObWVDbnZtY055ZzVlaEUyRUludUJaZVBfT0E2Q0pGMF83QkFyY3FYX2lvM0tjNHkzV0RGajB2R2cxdmxscW5jdWo5QktMRXM5NFYtSC1ZYXJ5V3FCQnhyQ2lLVQ?oc=5",
-      "suggestedCompany": "UnitedHealthcare Humana",
-      "suggestedIndustry": "Automotive & Mobility"
-    },
-    {
-      "id": "rss-16-Hackers%20PH-mvk3d2rc",
-      "title": "Hackers appear to be struggling to exploit PHP flaws after global cybersecurity crisis",
-      "source": "NBC News",
-      "publishedAt": "11h ago",
-      "url": "https://news.google.com/rss/articles/CBMikAFBVV95cUxOVVFxYTJNZUhsZERlMER2dExPLVJqOEJMWTd5TG1rbm41b3RUQXZGeUlTOWkyVHRzU05ab1R2SzYyQjY3MTVQX0JPM3duNVRCNC15SXBXN09PNW14QnpWeTBjcGNfaUtneFZ1OHpSRDVxRFREYVlNWHl3NnkyM3R4UHhDcXRhTkNrSTJZUk5NTjc?oc=5",
-      "suggestedCompany": "Hackers PHP",
+      "id": "rss-16-MTA-mvlmfs2o",
+      "title": "MTA suspending bus fare enforcement teams after altercations emerge",
+      "source": "Gothamist",
+      "publishedAt": "10h ago",
+      "url": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNTFktUE1Wc29aS3NvVHdFU3Roa3g4enRKNWhLSHhaNFVKQVk1Y0UxTUw2ZXdNQlhWNll4R21RYzZOdHNWREpmSHJHNkQxLWxCTW1XNG5XbWNUSUFRcTUzUURETkJxTE85R0JxOGx4dnhHNEFvZ0dGaHpYSVVsdUVfR1FCM2U2WG8xR2VxdHBQNHA2ZFN5QTZNS0tR?oc=5",
+      "suggestedCompany": "MTA",
       "suggestedIndustry": "Commercial Strategy & Markets"
     }
   ],
   "count": 16,
   "source": "Business RSS Feed",
-  "generatedAt": "2026-10-23T09:18:19.229Z"
+  "generatedAt": "2026-10-24T10:02:56.868Z"
 }

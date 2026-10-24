@@ -41,7 +41,7 @@ export const About: React.FC = () => {
     <section
       id="about"
       ref={ref}
-      className={`py-20 sm:py-24 bg-white border-b border-slate-200/70 ${animationClasses}`}
+      className={`py-20 sm:py-24 bg-slate-50/60 border-b border-slate-200/80 ${animationClasses}`}
     >
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
@@ -83,7 +83,7 @@ export const About: React.FC = () => {
                   key={service.id}
                   id={`service-card-${service.id}`}
                   delay={index * 0.05}
-                  className="p-6 rounded-xl bg-slate-50 border border-slate-200/80 hover:border-blue-300 hover:bg-white transition-all duration-200 shadow-2xs group"
+                  className="p-6 rounded-xl bg-white border border-slate-200/90 hover:border-blue-400 hover:shadow-xs transition-all duration-200 shadow-2xs group"
                 >
                   <div className="flex items-start gap-4">
                     <div className="w-12 h-12 rounded-lg bg-blue-100/80 text-blue-600 flex items-center justify-center shrink-0 group-hover:bg-blue-600 group-hover:text-white transition-colors">

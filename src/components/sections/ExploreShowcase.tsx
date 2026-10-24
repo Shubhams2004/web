@@ -38,17 +38,16 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
   return (
     <section
       id="explore"
-      className={`py-16 sm:py-20 lg:py-24 bg-slate-900 text-white border-b border-slate-800 relative overflow-hidden ${className}`}
+      className={`py-16 sm:py-20 lg:py-24 bg-slate-950 text-white border-b border-slate-800/80 relative overflow-hidden ${className}`}
       aria-label="Explore Interactive Systems and Deeper Laboratory"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-0 right-1/4 w-96 h-96 bg-blue-600/10 rounded-full blur-3xl pointer-events-none" />
-      <div className="absolute bottom-0 left-1/3 w-80 h-80 bg-emerald-600/10 rounded-full blur-3xl pointer-events-none" />
+      <div className="absolute top-0 right-1/4 w-[600px] h-[300px] bg-blue-900/10 rounded-full blur-3xl pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         {/* Section Header */}
         <div className="max-w-3xl mb-12 sm:mb-16">
-          <div className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-cyan-400 mb-3">
+          <div className="flex items-center gap-2 text-xs font-mono tracking-wider uppercase text-blue-400 mb-3">
             <span>Deeper Environments</span>
             <span aria-hidden="true">·</span>
             <span>Interactive Systems</span>
@@ -66,10 +65,10 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
         {/* 4-Card Curated Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 items-stretch">
           {/* Card 1: Playable Arcade Collection (Span 7) */}
-          <div className="lg:col-span-7 bg-slate-950/70 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group hover:border-slate-700 transition-all shadow-lg relative overflow-hidden">
+          <div className="lg:col-span-7 bg-slate-900/80 border border-slate-800/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group hover:border-slate-700 transition-all shadow-xl relative overflow-hidden">
             <div className="relative z-10">
               <div className="flex items-center justify-between gap-3 mb-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                <div className="flex items-center gap-2 text-xs font-mono text-blue-400 font-semibold uppercase tracking-wider">
                   <Gamepad2 className="w-4 h-4" />
                   <span>Arcade Laboratory</span>
                 </div>
@@ -83,7 +82,7 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mb-6">
-                Four fully featured, zero-install in-browser experiences: tactical stealth infiltration in <strong className="text-cyan-300">Shadow Hunt</strong>, procedural dungeon crawling in <strong className="text-amber-300">Pixel Dungeon</strong>, top-down wave combat in <strong className="text-emerald-300">Zombie Survival</strong>, and synthwave highway pursuit in <strong className="text-rose-300">Retro Racer</strong>.
+                Four fully featured, zero-install in-browser experiences: tactical stealth infiltration in <strong className="text-blue-300 font-semibold">Shadow Hunt</strong>, procedural dungeon crawling in <strong className="text-amber-300 font-semibold">Pixel Dungeon</strong>, top-down wave combat in <strong className="text-emerald-300 font-semibold">Zombie Survival</strong>, and highway pursuit in <strong className="text-rose-300 font-semibold">Retro Racer</strong>.
               </p>
             </div>
 
@@ -91,7 +90,7 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
               <button
                 type="button"
                 onClick={() => handleGameClick('shadow-hunt')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-blue-900/30 transition-all cursor-pointer active:scale-95"
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-semibold text-xs sm:text-sm tracking-wide shadow-md shadow-blue-950/40 transition-all cursor-pointer active:scale-95"
               >
                 <Play className="w-4 h-4 fill-white" />
                 <span>Play Shadow Hunt</span>
@@ -100,21 +99,21 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
               <button
                 type="button"
                 onClick={() => handleNavigate('#/game')}
-                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm border border-slate-700 transition-colors cursor-pointer"
+                className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 font-medium text-xs sm:text-sm border border-slate-700 hover:border-slate-600 transition-colors cursor-pointer"
               >
-                <Gamepad2 className="w-4 h-4 text-cyan-400" />
+                <Gamepad2 className="w-4 h-4 text-blue-400" />
                 <span>Browse All 4 Games</span>
               </button>
             </div>
           </div>
 
           {/* Card 2: Experimental Laboratory (Span 5) */}
-          <div className="lg:col-span-5 bg-slate-950/70 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group hover:border-slate-700 transition-all shadow-lg">
+          <div className="lg:col-span-5 bg-slate-900/80 border border-slate-800/90 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group hover:border-slate-700 transition-all shadow-xl">
             <div>
               <div className="flex items-center justify-between gap-3 mb-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-cyan-400">
+                <div className="flex items-center gap-2 text-xs font-mono text-teal-400">
                   <FlaskConical className="w-4 h-4" />
-                  <span className="font-bold uppercase tracking-wider">
+                  <span className="font-semibold uppercase tracking-wider">
                     Interactive Sandbox
                   </span>
                 </div>
@@ -136,7 +135,7 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
               <button
                 type="button"
                 onClick={() => handleNavigate('#/playground')}
-                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-cyan-300 hover:text-white font-bold text-xs sm:text-sm border border-slate-700 hover:border-cyan-600/50 transition-all cursor-pointer group-hover:bg-cyan-600 group-hover:text-white group-hover:border-cyan-500"
+                className="w-full inline-flex items-center justify-center gap-2 px-5 py-3 rounded-xl bg-slate-800 hover:bg-slate-750 text-slate-200 hover:text-white font-medium text-xs sm:text-sm border border-slate-700 transition-all cursor-pointer group-hover:border-slate-600"
               >
                 <span>Launch Experimental Lab</span>
                 <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
