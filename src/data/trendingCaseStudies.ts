@@ -1,4 +1,4 @@
-import { BusinessCaseStudy, BusinessRssStory } from '../types';
+import { BusinessCaseStudy, BusinessRssStory } from '../types.ts';
 
 export const INITIAL_TRENDING_CASE_STUDIES: BusinessCaseStudy[] = [
   {

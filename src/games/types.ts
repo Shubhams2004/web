@@ -16,4 +16,4 @@ export interface GameDefinition {
   component: React.ComponentType<{ onBack: () => void; onSwitchGame?: (gameId: string) => void }>;
 }
 
-export type GameId = 'sprint-run' | 'retro-racer' | 'zombie-survival' | 'pixel-dungeon' | 'shadow-hunt';
+export type GameId = 'shadow-hunt' | 'pixel-dungeon' | 'zombie-survival' | 'retro-racer';

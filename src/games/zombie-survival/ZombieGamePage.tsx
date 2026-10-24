@@ -286,6 +286,55 @@ export const ZombieGamePage: React.FC<ZombieGamePageProps> = ({ onBack, onSwitch
             </div>
           </div>
 
+          {/* Health & Arsenal Status Strip */}
+          <div className="mb-3 px-1 grid grid-cols-1 sm:grid-cols-2 gap-2 text-xs font-mono">
+            {/* Health Bar */}
+            <div className="flex items-center gap-2 bg-slate-950/80 px-2.5 py-1.5 rounded-xl border border-slate-800">
+              <span className={`text-[10px] font-bold ${stats.health <= 25 ? 'text-rose-400 animate-pulse' : 'text-emerald-400'}`}>
+                HP {Math.round(stats.health)}%
+              </span>
+              <div className="flex-1 h-2.5 bg-slate-900 rounded-full overflow-hidden border border-slate-800 p-0.5">
+                <div
+                  className={`h-full rounded-full transition-all duration-150 ${
+                    stats.health > 50
+                      ? 'bg-gradient-to-r from-emerald-500 to-emerald-400'
+                      : stats.health > 25
+                      ? 'bg-gradient-to-r from-amber-500 to-yellow-400'
+                      : 'bg-gradient-to-r from-rose-600 to-red-500 animate-pulse'
+                  }`}
+                  style={{ width: `${Math.max(0, Math.min(100, (stats.health / stats.maxHealth) * 100))}%` }}
+                />
+              </div>
+            </div>
+
+            {/* Active Weapon & Timer */}
+            <div className="flex items-center justify-between bg-slate-950/80 px-2.5 py-1.5 rounded-xl border border-slate-800">
+              <span className="text-[10px] text-slate-400 uppercase">ARSENAL:</span>
+              <div className="flex items-center gap-1.5">
+                {stats.weapon === 'shotgun' ? (
+                  <span className="text-[11px] font-bold text-orange-400 flex items-center gap-1">
+                    <span>💥 SHOTGUN</span>
+                    <span className="text-[10px] px-1 py-0.2 rounded bg-orange-950 text-orange-300 border border-orange-700">
+                      {stats.weaponTimeRemaining}s
+                    </span>
+                  </span>
+                ) : stats.weapon === 'machinegun' ? (
+                  <span className="text-[11px] font-bold text-sky-400 flex items-center gap-1">
+                    <span>⚡ MACHINE GUN</span>
+                    <span className="text-[10px] px-1 py-0.2 rounded bg-sky-950 text-sky-300 border border-sky-700">
+                      {stats.weaponTimeRemaining}s
+                    </span>
+                  </span>
+                ) : (
+                  <span className="text-[11px] font-bold text-slate-300 flex items-center gap-1">
+                    <span>🔫 9MM PISTOL</span>
+                    <span className="text-[10px] text-slate-500">∞</span>
+                  </span>
+                )}
+              </div>
+            </div>
+          </div>
+
           {/* High-Performance 60FPS Game Canvas */}
           <ZombieCanvas
             gameState={gameState}

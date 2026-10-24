@@ -251,14 +251,23 @@ export const ShadowHuntPage: React.FC<ShadowHuntPageProps> = ({
                   <span className="text-white font-bold">{stats.targetsEliminated}/3</span>
                 </div>
 
-                <button
-                  type="button"
-                  onClick={handleRestart}
-                  className="w-full py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-900/30 transition-all cursor-pointer active:scale-98 flex items-center justify-center gap-2"
-                >
-                  <RotateCcw className="w-4 h-4" />
-                  <span>Retry Mission</span>
-                </button>
+                <div className="flex gap-2">
+                  <button
+                    type="button"
+                    onClick={handleRestart}
+                    className="flex-1 py-3 px-4 rounded-xl bg-rose-600 hover:bg-rose-500 text-white font-bold text-sm shadow-lg shadow-rose-900/30 transition-all cursor-pointer active:scale-98 flex items-center justify-center gap-2"
+                  >
+                    <RotateCcw className="w-4 h-4" />
+                    <span>Retry Mission</span>
+                  </button>
+                  <button
+                    type="button"
+                    onClick={onBack}
+                    className="py-3 px-4 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-bold text-sm border border-slate-700 transition-all cursor-pointer"
+                  >
+                    Return
+                  </button>
+                </div>
               </div>
             </div>
           )}

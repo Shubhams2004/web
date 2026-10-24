@@ -3,7 +3,7 @@ import { Navbar, Footer } from './components/common';
 import { Hero, About, TrendingCaseStudies, Contact, CuratedLiveWire, ExploreShowcase } from './components/sections';
 import { CaseStudyPage, CaseStudyDetailModal } from './components/case-studies';
 import { NewsPlatformPage, NewsArticleModal } from './components/news';
-import { SprintRunPage, RetroGamePage, ZombieGamePage, PixelDungeonPage, ShadowHuntPage, GameId } from './games';
+import { RetroGamePage, ZombieGamePage, PixelDungeonPage, ShadowHuntPage, GameId } from './games';
 import { MissionControlPage } from './mission-control';
 import { ExperimentalPlaygroundPage } from './components/experimental-playground';
 import { portfolioData } from './data';
@@ -18,7 +18,7 @@ export default function App() {
   const [isMissionControlPage, setIsMissionControlPage] = useState<boolean>(false);
   const [isPlaygroundPage, setIsPlaygroundPage] = useState<boolean>(false);
   const [playgroundInitialExpId, setPlaygroundInitialExpId] = useState<string | undefined>(undefined);
-  const [activeGameId, setActiveGameId] = useState<GameId>('pixel-dungeon');
+  const [activeGameId, setActiveGameId] = useState<GameId>('shadow-hunt');
   const [newsInitialCategory, setNewsInitialCategory] = useState<NewsCategory>('All');
   const [selectedHomeArticle, setSelectedHomeArticle] = useState<NewsArticle | null>(null);
   const [selectedHomeCaseStudy, setSelectedHomeCaseStudy] = useState<BusinessCaseStudy | null>(null);
@@ -48,8 +48,8 @@ export default function App() {
 
       setIsMissionControlPage(false);
 
-      // Check direct Sprint Run dedicated route
-      const isSprintRun =
+      // Redirect legacy sprint routes to the primary arcade game
+      const isLegacySprint =
         hash === '#/sprint-run' ||
         hash === '#sprint-run' ||
         hash === '#/sprint' ||
@@ -60,9 +60,10 @@ export default function App() {
         path.endsWith('/sprint-run/') ||
         path.endsWith('/sprint');
 
-      if (isSprintRun) {
+      if (isLegacySprint) {
         setIsGamePage(true);
-        setActiveGameId('sprint-run');
+        setActiveGameId('shadow-hunt');
+        window.location.hash = '#/game/shadow-hunt';
         setIsNewsPlatformPage(false);
         setCaseStudyProjectId(null);
         return;
@@ -84,12 +85,6 @@ export default function App() {
 
         // Check specific game requested in hash
         if (
-          hash.includes('sprint') ||
-          hash === '#game-sprint' ||
-          hash.startsWith('#/game/sprint')
-        ) {
-          setActiveGameId('sprint-run');
-        } else if (
           hash.includes('shadow') ||
           hash.includes('hunt') ||
           hash === '#game-shadow' ||
@@ -277,15 +272,6 @@ export default function App() {
       window.location.hash = `#/game/${id}`;
     };
 
-    if (activeGameId === 'sprint-run') {
-      return (
-        <SprintRunPage
-          onBack={handleBack}
-          onSwitchGame={handleSwitchGame}
-        />
-      );
-    }
-
     if (activeGameId === 'shadow-hunt') {
       return (
         <ShadowHuntPage
@@ -403,7 +389,7 @@ export default function App() {
         {/* In-Depth Empirical Business Case Studies */}
         <TrendingCaseStudies />
 
-        {/* Curated Explore Ecosystem: 3D Arcade & Sprint Run, Experimental Lab, Newsroom, Command Deck */}
+        {/* Curated Explore Ecosystem: Arcade Games, Experimental Lab, Newsroom, Command Deck */}
         <ExploreShowcase
           onLaunchGame={(id) => {
             setActiveGameId(id as GameId);

@@ -1,4 +1,4 @@
-import type { NewsResponse } from '../types';
+import type { NewsResponse } from '../types.ts';
 
 export const fallbackNewsData: Record<string, NewsResponse> = {
   'top world': {

@@ -1047,32 +1047,73 @@ export const ShadowHuntCanvas: React.FC<ShadowHuntCanvasProps> = ({
 
         ctx.restore();
 
-        // Status Indicator above Guard (? or !)
+        // High-Contrast Status Indicator Badge above Guard
         if (guard.state === 'alert') {
-          ctx.fillStyle = '#ef4444';
-          ctx.font = 'bold 15px monospace';
+          const pulse = Math.sin(currentTime * 0.015) * 2;
+          const badgeW = 74;
+          const badgeH = 22;
+          const badgeX = guard.x - badgeW / 2;
+          const badgeY = guard.y - 36 + pulse;
+
+          ctx.fillStyle = '#dc2626';
+          ctx.strokeStyle = '#fecaca';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 6);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 11px monospace';
           ctx.textAlign = 'center';
-          ctx.fillText('!', guard.x, guard.y - 24);
+          ctx.textBaseline = 'middle';
+          ctx.fillText('! ALERT', guard.x, badgeY + badgeH / 2);
         } else if (guard.detectionLevel > 0) {
-          ctx.fillStyle = '#f59e0b';
-          ctx.font = 'bold 14px monospace';
-          ctx.textAlign = 'center';
-          ctx.fillText('?', guard.x, guard.y - 24);
+          const badgeW = 76;
+          const badgeH = 20;
+          const badgeX = guard.x - badgeW / 2;
+          const badgeY = guard.y - 34;
 
-          // Detection buildup bar
-          const barW = 28;
-          ctx.fillStyle = 'rgba(0,0,0,0.7)';
-          ctx.fillRect(guard.x - barW / 2, guard.y - 36, barW, 4);
-          ctx.fillStyle = '#f59e0b';
-          ctx.fillRect(guard.x - barW / 2, guard.y - 36, barW * guard.detectionLevel, 4);
-        }
+          ctx.fillStyle = 'rgba(15, 23, 42, 0.92)';
+          ctx.strokeStyle = '#f59e0b';
+          ctx.lineWidth = 1.5;
+          ctx.beginPath();
+          ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 5);
+          ctx.fill();
+          ctx.stroke();
 
-        // VIP Target Badge
-        if (guard.isTarget) {
-          ctx.fillStyle = '#ef4444';
+          // Detection buildup fill bar
+          const fillW = Math.max(0, Math.min(badgeW - 4, (badgeW - 4) * guard.detectionLevel));
+          ctx.fillStyle = 'rgba(245, 158, 11, 0.4)';
+          ctx.fillRect(badgeX + 2, badgeY + 2, fillW, badgeH - 4);
+
+          ctx.fillStyle = '#fbbf24';
           ctx.font = 'bold 9px monospace';
           ctx.textAlign = 'center';
-          ctx.fillText('TARGET', guard.x, guard.y + 24);
+          ctx.textBaseline = 'middle';
+          ctx.fillText(`? ${Math.round(guard.detectionLevel * 100)}%`, guard.x, badgeY + badgeH / 2);
+        }
+
+        // VIP Target Badge (High-contrast glowing ruby pill)
+        if (guard.isTarget) {
+          const badgeW = 68;
+          const badgeH = 17;
+          const badgeX = guard.x - badgeW / 2;
+          const badgeY = guard.y + 22;
+
+          ctx.fillStyle = 'rgba(159, 18, 57, 0.95)';
+          ctx.strokeStyle = '#fda4af';
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.roundRect(badgeX, badgeY, badgeW, badgeH, 5);
+          ctx.fill();
+          ctx.stroke();
+
+          ctx.fillStyle = '#ffffff';
+          ctx.font = 'bold 8.5px monospace';
+          ctx.textAlign = 'center';
+          ctx.textBaseline = 'middle';
+          ctx.fillText('VIP TARGET', guard.x, badgeY + badgeH / 2);
         }
 
         // Takedown Lock-on Reticle if player in strike range

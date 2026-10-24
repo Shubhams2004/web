@@ -1,12 +1,11 @@
 export type ExperimentStatus = 'STABLE' | 'PROTOTYPE' | 'UNSTABLE' | 'UNKNOWN';
 
-export type ExperimentCategory = 'all' | 'physics' | 'ai' | 'visual' | 'game' | 'weird';
+export type ExperimentCategory = 'all' | 'physics' | 'ai' | 'visual' | 'weird';
 
 export type ExperimentId =
   | 'gravity-sandbox'
   | 'ai-lab'
   | 'visual-lab'
-  | 'game-mechanics-lab'
   | 'weird-web';
 
 export interface ExperimentDefinition {

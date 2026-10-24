@@ -317,46 +317,62 @@ export const PixelDungeonPage: React.FC<PixelDungeonPageProps> = ({
             crtEnabled={crtEnabled}
           />
 
-          {/* Equipment & Telemetry Strip */}
-          <div className="mt-3 grid grid-cols-4 gap-2 bg-slate-950/80 p-2.5 rounded-xl border border-slate-800/80 text-[11px] font-mono">
+          {/* Equipment & Telemetry Strip (Enhanced Readability) */}
+          <div className="mt-3 grid grid-cols-2 sm:grid-cols-4 gap-2.5 bg-slate-950/90 p-3 rounded-xl border border-slate-800 text-[11px] font-mono shadow-inner">
             {/* Weapon */}
-            <div className="flex flex-col">
-              <span className="text-slate-500 text-[9px]">WEAPON</span>
-              <div className="flex items-center gap-1 text-sky-400 font-bold truncate">
-                <Swords className="w-3 h-3 shrink-0" />
+            <div className="flex flex-col justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[9px] uppercase tracking-wider">WEAPON</span>
+                <span className="text-[9px] px-1.5 py-0.2 rounded bg-sky-950 text-sky-400 border border-sky-800 font-bold">
+                  T{stats.weaponTier}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 text-sky-300 font-bold truncate my-1">
+                <Swords className="w-3.5 h-3.5 shrink-0 text-sky-400" />
                 <span className="truncate">{stats.weaponName}</span>
               </div>
-              <span className="text-slate-400 text-[9px]">+{stats.attack} ATK</span>
+              <span className="text-emerald-400 text-[10px] font-bold">+{stats.attack} ATK</span>
             </div>
 
             {/* Armor */}
-            <div className="flex flex-col">
-              <span className="text-slate-500 text-[9px]">ARMOR</span>
-              <div className="flex items-center gap-1 text-indigo-400 font-bold truncate">
-                <Shield className="w-3 h-3 shrink-0" />
+            <div className="flex flex-col justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[9px] uppercase tracking-wider">ARMOR</span>
+                <span className="text-[9px] px-1.5 py-0.2 rounded bg-indigo-950 text-indigo-400 border border-indigo-800 font-bold">
+                  T{stats.armorTier}
+                </span>
+              </div>
+              <div className="flex items-center gap-1.5 text-indigo-300 font-bold truncate my-1">
+                <Shield className="w-3.5 h-3.5 shrink-0 text-indigo-400" />
                 <span className="truncate">{stats.armorName}</span>
               </div>
-              <span className="text-slate-400 text-[9px]">+{stats.defense} DEF</span>
+              <span className="text-indigo-400 text-[10px] font-bold">+{stats.defense} DEF</span>
             </div>
 
-            {/* Gold */}
-            <div className="flex flex-col">
-              <span className="text-slate-500 text-[9px]">GOLD</span>
-              <div className="flex items-center gap-1 text-amber-400 font-bold">
-                <Coins className="w-3 h-3 shrink-0" />
-                <span>{stats.coins}</span>
+            {/* Gold & Keys */}
+            <div className="flex flex-col justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[9px] uppercase tracking-wider">TREASURY</span>
+                <span className="text-[9px] text-amber-400 font-bold">KEYS: {stats.keys}</span>
               </div>
-              <span className="text-slate-400 text-[9px]">Score +{stats.score}</span>
+              <div className="flex items-center gap-1.5 text-amber-300 font-bold my-1">
+                <Coins className="w-3.5 h-3.5 shrink-0 text-amber-400" />
+                <span>{stats.coins} Gold</span>
+              </div>
+              <span className="text-slate-400 text-[10px]">Score: {stats.score.toLocaleString()}</span>
             </div>
 
-            {/* Enemies Slain */}
-            <div className="flex flex-col">
-              <span className="text-slate-500 text-[9px]">KILLS</span>
-              <div className="flex items-center gap-1 text-rose-400 font-bold">
-                <Skull className="w-3 h-3 shrink-0" />
-                <span>{stats.enemiesDefeated}</span>
+            {/* Monsters Defeated */}
+            <div className="flex flex-col justify-between p-2 rounded-lg bg-slate-900/80 border border-slate-800">
+              <div className="flex items-center justify-between">
+                <span className="text-slate-400 text-[9px] uppercase tracking-wider">CONQUEST</span>
+                <span className="text-[9px] text-rose-400 font-bold">FLOOR B{stats.floor}</span>
               </div>
-              <span className="text-slate-400 text-[9px]">Monsters</span>
+              <div className="flex items-center gap-1.5 text-rose-300 font-bold my-1">
+                <Skull className="w-3.5 h-3.5 shrink-0 text-rose-400" />
+                <span>{stats.enemiesDefeated} Slain</span>
+              </div>
+              <span className="text-slate-400 text-[10px]">Crypt Cleared</span>
             </div>
           </div>
 

@@ -60,25 +60,6 @@ export const EXPERIMENTS_REGISTRY: ExperimentDefinition[] = [
     icon: '🌌',
   },
   {
-    id: 'game-mechanics-lab',
-    name: '🎮 Game Mechanics Lab: Verlet Physics & Ropes',
-    shortName: '🎮 Game Mechanics Lab',
-    category: 'game',
-    status: 'STABLE',
-    tagline: 'Constraint-based particle chains, cloth simulation & kinetic ragdoll dynamics.',
-    description:
-      'Tactile game mechanics playground testing Verlet integration. Drag tension nodes, cut elastic constraints with a pointer slash, and observe structural integrity under stress.',
-    features: [
-      'Verlet integration rope & cloth mesh',
-      'Tearable elastic constraints',
-      'Tension impulse feedback',
-      'Interactive pointer cutter knife',
-    ],
-    instructions:
-      'Drag any node with your mouse/touch. Hold Shift or click "Slash" to sever links and test structural failure.',
-    icon: '🎮',
-  },
-  {
     id: 'weird-web',
     name: '🧠 Weird Web: Zero-G DOM & Cursor Warp',
     shortName: '🧠 Weird Web',

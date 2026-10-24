@@ -68,7 +68,7 @@ export const Footer: React.FC = () => {
                 News Platform
               </a>
               <a href="#/game" className="text-slate-400 hover:text-emerald-400 transition-colors">
-                3D Arcade & Sprint Run
+                Arcade Games
               </a>
               <a href="#/playground" className="text-slate-400 hover:text-cyan-400 transition-colors">
                 Experimental Lab

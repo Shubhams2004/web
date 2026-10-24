@@ -325,11 +325,11 @@ export const SECTION_SEO_PRESETS: Record<string, PageMetaContext> = {
   explore: {
     title: 'Explore Interactive Systems & Digital Lab | Shubham Sonale',
     description:
-      'Explore the interactive digital ecosystem: 3D Sprint Run arcade runner, browser laboratory sandbox, newsroom platform, and command deck.',
+      'Explore the interactive digital ecosystem: playable arcade games, browser laboratory sandbox, newsroom platform, and command deck.',
     section: 'Explore Ecosystem',
     keywords: [
       'Interactive Lab',
-      'Sprint Run 3D',
+      'Arcade Games',
       'Browser Laboratory',
       'Mission Control',
       'Digital Ecosystem',

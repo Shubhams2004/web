@@ -4,15 +4,15 @@ import {
   startDailyNewsScheduler,
   getDailyNewsStatus,
   generateNewsSnapshotJson,
-} from './src/server/newsService';
-import { getClientFallback } from './src/data/newsFallback';
+} from './src/server/newsService.ts';
+import { getClientFallback } from './src/data/newsFallback.ts';
 import {
   getAllCaseStudies,
   fetchBusinessRssStories,
   generateCaseStudyWithGroq,
   generateCaseStudiesSnapshotJson,
-} from './src/server/caseStudyService';
-import { INITIAL_TRENDING_CASE_STUDIES, INITIAL_BUSINESS_RSS_STORIES } from './src/data/trendingCaseStudies';
+} from './src/server/caseStudyService.ts';
+import { INITIAL_TRENDING_CASE_STUDIES, INITIAL_BUSINESS_RSS_STORIES } from './src/data/trendingCaseStudies.ts';
 import * as fs from 'node:fs';
 import * as path from 'node:path';
 
@@ -56,10 +56,19 @@ export function newsApiPlugin(apiKey: string): Plugin {
         const rawUrl = req.url || '';
         const pathname = rawUrl.split('?')[0];
 
-        // Direct /game path support for Vite dev server base
+        // Direct /game path support
         if (pathname === '/game' || pathname === '/game/') {
           res.statusCode = 302;
-          res.setHeader('Location', '/web/game');
+          res.setHeader('Location', '/#/game');
+          res.end();
+          return;
+        }
+
+        // Backward compatibility redirect for /web paths
+        if (pathname.startsWith('/web')) {
+          const target = pathname.replace(/^\/web\/?/, '/') || '/';
+          res.statusCode = 302;
+          res.setHeader('Location', target);
           res.end();
           return;
         }

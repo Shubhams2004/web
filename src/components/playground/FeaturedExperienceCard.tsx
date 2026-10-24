@@ -10,6 +10,7 @@ import {
   ArrowRight,
   Crosshair,
   Gauge,
+  Skull,
 } from 'lucide-react';
 import { AVAILABLE_GAMES, GameDefinition } from '../../games';
 import { missionAudio } from '../../mission-control/audio';
@@ -23,7 +24,7 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
   onLaunchGame,
   className = '',
 }) => {
-  const [selectedGameId, setSelectedGameId] = useState<string>('sprint-run');
+  const [selectedGameId, setSelectedGameId] = useState<string>('shadow-hunt');
 
   const selectedGame: GameDefinition =
     AVAILABLE_GAMES.find((g) => g.id === selectedGameId) || AVAILABLE_GAMES[0];
@@ -46,13 +47,6 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
   // Game-specific highlights
   const getGameHighlights = (id: string) => {
     switch (id) {
-      case 'sprint-run':
-        return [
-          { label: 'Style', val: '3D Endless Jungle Runner' },
-          { label: 'Mechanics', val: 'Leap, Slide, Lane Shift, Sprint' },
-          { label: 'Camera', val: 'Dynamic 3D Chase Cam' },
-          { label: 'Visuals', val: 'Full-Size Stylized 3D Human' },
-        ];
       case 'shadow-hunt':
         return [
           { label: 'Style', val: 'Touch-First Stealth Assassin' },
@@ -234,11 +228,14 @@ export const FeaturedExperienceCard: React.FC<FeaturedExperienceCardProps> = ({
                   {/* Icon illustration per game if no thumbnail */}
                   {!selectedGame.thumbnailUrl && (
                     <div className="relative z-10 mb-3 p-4 rounded-2xl bg-slate-900/80 border border-slate-800 group-hover:scale-110 transition-transform duration-300">
+                      {selectedGame.id === 'shadow-hunt' && (
+                        <Crosshair className="w-12 h-12 text-blue-400" />
+                      )}
                       {selectedGame.id === 'pixel-dungeon' && (
                         <Shield className="w-12 h-12 text-amber-400" />
                       )}
                       {selectedGame.id === 'zombie-survival' && (
-                        <Crosshair className="w-12 h-12 text-emerald-400" />
+                        <Skull className="w-12 h-12 text-emerald-400" />
                       )}
                       {selectedGame.id === 'retro-racer' && (
                         <Gauge className="w-12 h-12 text-cyan-400" />

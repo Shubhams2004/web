@@ -736,31 +736,31 @@ export const PixelDungeonCanvas: React.FC<PixelDungeonCanvasProps> = ({
 
           // 1. Wall Tile
           if (tile === 'wall') {
-            ctx.fillStyle = inSight ? '#1e293b' : '#0f172a';
+            ctx.fillStyle = inSight ? '#334155' : '#1e293b';
             ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
 
             // Brick details
-            ctx.fillStyle = inSight ? '#334155' : '#1e293b';
+            ctx.fillStyle = inSight ? '#475569' : '#334155';
             ctx.fillRect(px + 2, py + 2, TILE_SIZE - 4, 8);
             ctx.fillRect(px + 4, py + 12, TILE_SIZE - 8, 8);
 
             // Top rim highlight
-            ctx.fillStyle = inSight ? '#475569' : '#1e293b';
+            ctx.fillStyle = inSight ? '#64748b' : '#334155';
             ctx.fillRect(px, py, TILE_SIZE, 2);
           }
           // 2. Floor Tile
           else if (tile === 'floor') {
-            ctx.fillStyle = inSight ? '#1e2330' : '#0c1017';
+            ctx.fillStyle = inSight ? '#243247' : '#141c2b';
             ctx.fillRect(px, py, TILE_SIZE, TILE_SIZE);
 
             // Flagstone seams
-            ctx.strokeStyle = inSight ? '#131822' : '#070a0f';
+            ctx.strokeStyle = inSight ? '#1a2436' : '#0c121e';
             ctx.lineWidth = 1;
             ctx.strokeRect(px + 1, py + 1, TILE_SIZE - 2, TILE_SIZE - 2);
 
             // Ambient stone flecks
             if ((x * 7 + y * 13) % 5 === 0) {
-              ctx.fillStyle = inSight ? '#334155' : '#131a24';
+              ctx.fillStyle = inSight ? '#475569' : '#1e293b';
               ctx.fillRect(px + 6, py + 8, 2, 2);
             }
           }
@@ -1093,25 +1093,30 @@ export const PixelDungeonCanvas: React.FC<PixelDungeonCanvasProps> = ({
         }
       }
 
-      // Render Floating Text
-      ctx.font = 'bold 11px monospace';
+      // Render Floating Combat Text (With high-contrast outlines)
+      ctx.font = 'bold 13px monospace';
       for (let i = state.floatingTexts.length - 1; i >= 0; i--) {
         const ft = state.floatingTexts[i];
         ft.y += ft.vy;
         ft.life--;
-        ctx.fillStyle = ft.color;
         ctx.textAlign = 'center';
-        ctx.shadowColor = '#000000';
-        ctx.shadowBlur = 4;
+
+        // Outer dark stroke for 100% legibility against dark or lighted tiles
+        ctx.strokeStyle = '#020617';
+        ctx.lineWidth = 3;
+        ctx.strokeText(ft.text, ft.x, ft.y);
+
+        // Core fill text
+        ctx.fillStyle = ft.color;
         ctx.fillText(ft.text, ft.x, ft.y);
-        ctx.shadowBlur = 0;
+
         if (ft.life <= 0) {
           state.floatingTexts.splice(i, 1);
         }
       }
 
       // HUD Overlay on Canvas: Bottom Strip (Subtle Retro Bar)
-      ctx.fillStyle = 'rgba(15, 23, 42, 0.85)';
+      ctx.fillStyle = 'rgba(15, 23, 42, 0.9)';
       ctx.fillRect(0, CANVAS_HEIGHT - 22, CANVAS_WIDTH, 22);
       ctx.fillStyle = '#64748b';
       ctx.font = '10px monospace';
@@ -1138,23 +1143,44 @@ export const PixelDungeonCanvas: React.FC<PixelDungeonCanvasProps> = ({
         CANVAS_HEIGHT - 8
       );
 
-      // Floor Transition Overlay
+      // Floor Transition Overlay (Clear progression summary)
       if (gameState === 'floor-transition') {
-        ctx.fillStyle = 'rgba(6, 9, 14, 0.78)';
+        ctx.fillStyle = 'rgba(6, 9, 14, 0.88)';
         ctx.fillRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
 
+        const cardW = 320;
+        const cardH = 140;
+        const cardX = (CANVAS_WIDTH - cardW) / 2;
+        const cardY = (CANVAS_HEIGHT - cardH) / 2;
+
+        ctx.fillStyle = 'rgba(15, 23, 42, 0.95)';
+        ctx.strokeStyle = '#38bdf8';
+        ctx.lineWidth = 2;
+        ctx.beginPath();
+        ctx.roundRect(cardX, cardY, cardW, cardH, 12);
+        ctx.fill();
+        ctx.stroke();
+
         ctx.fillStyle = '#38bdf8';
-        ctx.font = 'bold 22px monospace';
+        ctx.font = 'bold 20px monospace';
         ctx.textAlign = 'center';
-        ctx.fillText(`DEPTH B${state.floor} CLEARED!`, CANVAS_WIDTH / 2, CANVAS_HEIGHT / 2 - 16);
+        ctx.fillText(`DEPTH B${state.floor} CLEARED!`, CANVAS_WIDTH / 2, cardY + 36);
+
+        ctx.fillStyle = '#fbbf24';
+        ctx.font = 'bold 12px monospace';
+        ctx.fillText(`+${state.floor * 150} BONUS PTS AWARDED`, CANVAS_WIDTH / 2, cardY + 66);
 
         ctx.fillStyle = '#94a3b8';
-        ctx.font = '13px monospace';
+        ctx.font = '11px monospace';
         ctx.fillText(
-          `Descending deeper into the catacombs...`,
+          `Descending deeper to Depth B${state.floor + 1}...`,
           CANVAS_WIDTH / 2,
-          CANVAS_HEIGHT / 2 + 16
+          cardY + 98
         );
+
+        ctx.fillStyle = '#38bdf8';
+        ctx.font = '9px monospace';
+        ctx.fillText(`Stronger monsters and richer crypt treasures await`, CANVAS_WIDTH / 2, cardY + 118);
       }
 
       // Start Screen Overlay

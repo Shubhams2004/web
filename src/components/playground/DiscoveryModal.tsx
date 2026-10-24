@@ -78,9 +78,9 @@ export const DiscoveryModal: React.FC<DiscoveryModalProps> = ({
       color: 'text-emerald-400 bg-emerald-950/60 border-emerald-800',
     },
     {
-      title: 'Three 80s/90s Arcade Classics',
+      title: 'Four In-Browser Arcade Games',
       code: 'Arcade Suite',
-      desc: 'Pixel Dungeon procedural crawler, Zombie Survival 1989 arena, and Retro Racer synthwave highway pursuit.',
+      desc: 'Shadow Hunt tactical stealth, Pixel Dungeon procedural crawler, Zombie Survival 1989 arena, and Retro Racer synthwave pursuit.',
       route: '#/game',
       action: 'Open Arcade',
       icon: Gamepad2,

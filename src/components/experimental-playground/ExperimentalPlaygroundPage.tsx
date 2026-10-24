@@ -17,7 +17,6 @@ import { ExperimentCard } from './ExperimentCard';
 import { GravitySandboxExperiment } from './experiments/GravitySandbox';
 import { AILabExperiment } from './experiments/AILab';
 import { VisualLabExperiment } from './experiments/VisualLab';
-import { GameMechanicsLabExperiment } from './experiments/GameMechanicsLab';
 import { WeirdWebLabExperiment } from './experiments/WeirdWebLab';
 
 interface ExperimentalPlaygroundPageProps {
@@ -139,7 +138,6 @@ export const ExperimentalPlaygroundPage: React.FC<ExperimentalPlaygroundPageProp
             {selectedExperiment.id === 'gravity-sandbox' && <GravitySandboxExperiment />}
             {selectedExperiment.id === 'ai-lab' && <AILabExperiment />}
             {selectedExperiment.id === 'visual-lab' && <VisualLabExperiment />}
-            {selectedExperiment.id === 'game-mechanics-lab' && <GameMechanicsLabExperiment />}
             {selectedExperiment.id === 'weird-web' && <WeirdWebLabExperiment />}
           </div>
         </section>
@@ -163,7 +161,6 @@ export const ExperimentalPlaygroundPage: React.FC<ExperimentalPlaygroundPageProp
                 { id: 'physics', label: '🧲 Physics' },
                 { id: 'ai', label: '🤖 AI' },
                 { id: 'visual', label: '🌌 Visual' },
-                { id: 'game', label: '🎮 Game' },
                 { id: 'weird', label: '🧠 Weird Web' },
               ].map((cat) => {
                 const isSelected = activeCategory === cat.id;

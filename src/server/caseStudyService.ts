@@ -2,11 +2,11 @@ import Groq from 'groq-sdk';
 import { promises as fs } from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { BusinessCaseStudy, BusinessRssStory, CaseStudyMetric } from '../types';
+import { BusinessCaseStudy, BusinessRssStory, CaseStudyMetric } from '../types.ts';
 import {
   INITIAL_TRENDING_CASE_STUDIES,
   INITIAL_BUSINESS_RSS_STORIES,
-} from '../data/trendingCaseStudies';
+} from '../data/trendingCaseStudies.ts';
 
 const PREFERRED_GROQ_MODELS = [
   'qwen/qwen3.8-27b',

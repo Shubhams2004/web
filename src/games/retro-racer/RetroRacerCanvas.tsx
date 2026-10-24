@@ -392,8 +392,8 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
         s.speedMph = Math.round(player.speed);
         audio.updateEngine(player.speed / maxNormalSpeed);
 
-        // Lateral steering
-        const steerSpeed = 240 + (player.speed / maxNormalSpeed) * 80;
+        // Lateral steering (crisp and responsive touch & key handling)
+        const steerSpeed = 290 + (player.speed / maxNormalSpeed) * 90;
         if (keys.left) {
           player.lateralSpeed = -steerSpeed;
           player.x -= steerSpeed * dt;
@@ -1119,16 +1119,19 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
     ctx.translate(c.x, c.y);
 
     // Shadow
-    ctx.fillStyle = 'rgba(0, 0, 0, 0.45)';
+    ctx.fillStyle = 'rgba(0, 0, 0, 0.55)';
     ctx.beginPath();
-    ctx.roundRect(-2, 4, c.width + 4, c.height, 6);
+    ctx.roundRect(-3, 4, c.width + 6, c.height, 8);
     ctx.fill();
 
-    // Main Body
+    // Main Body with subtle bright outline for high-speed visibility
     ctx.fillStyle = c.primaryColor;
+    ctx.strokeStyle = 'rgba(255, 255, 255, 0.45)';
+    ctx.lineWidth = 1.2;
     ctx.beginPath();
     ctx.roundRect(0, 0, c.width, c.height, 6);
     ctx.fill();
+    ctx.stroke();
 
     // Roof / Cabin
     ctx.fillStyle = c.accentColor;
@@ -1148,20 +1151,18 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
       ctx.fillText('TAXI', c.width / 2 - 7, c.height / 2 + 2);
     }
 
-    // Headlights (facing forward toward bottom of screen)
-    ctx.fillStyle = '#fef08a';
-    ctx.shadowColor = '#fef08a';
-    ctx.shadowBlur = 6;
-    ctx.fillRect(3, c.height - 4, 6, 3);
-    ctx.fillRect(c.width - 9, c.height - 4, 6, 3);
-
-    // Taillights (top of opponent car)
+    // Rear Taillights (Facing player from ahead - bright glowing red)
     ctx.fillStyle = '#ef4444';
     ctx.shadowColor = '#ef4444';
-    ctx.shadowBlur = 4;
+    ctx.shadowBlur = 10;
+    ctx.fillRect(3, c.height - 5, 8, 4);
+    ctx.fillRect(c.width - 11, c.height - 5, 8, 4);
+    ctx.shadowBlur = 0;
+
+    // Front Headlights (Facing forward towards top)
+    ctx.fillStyle = '#fef08a';
     ctx.fillRect(3, 1, 6, 3);
     ctx.fillRect(c.width - 9, 1, 6, 3);
-    ctx.shadowBlur = 0;
 
     // Wheels
     ctx.fillStyle = '#1e293b';
@@ -1180,48 +1181,59 @@ export const RetroRacerCanvas: React.FC<RetroRacerCanvasProps> = ({
   ) => {
     // Top Bar HUD banner
     ctx.save();
-    ctx.fillStyle = 'rgba(11, 15, 25, 0.85)';
-    ctx.fillRect(0, 0, CANVAS_WIDTH, 48);
+    ctx.fillStyle = 'rgba(11, 15, 25, 0.92)';
+    ctx.fillRect(0, 0, CANVAS_WIDTH, 52);
 
-    ctx.strokeStyle = '#1e293b';
-    ctx.lineWidth = 1;
-    ctx.strokeRect(0, 48, CANVAS_WIDTH, 1);
+    ctx.strokeStyle = '#334155';
+    ctx.lineWidth = 1.5;
+    ctx.strokeRect(0, 52, CANVAS_WIDTH, 1);
 
     // Score & High Score
-    ctx.font = "8px 'Press Start 2P', monospace";
+    ctx.font = 'bold 9px monospace';
     ctx.fillStyle = '#94a3b8';
     ctx.fillText('SCORE', 16, 18);
     ctx.fillStyle = '#f8fafc';
-    ctx.font = "12px 'Press Start 2P', monospace";
-    ctx.fillText(s.score.toString().padStart(6, '0'), 16, 36);
+    ctx.font = 'bold 14px monospace';
+    ctx.fillText(s.score.toString().padStart(6, '0'), 16, 38);
 
-    ctx.font = "8px 'Press Start 2P', monospace";
+    ctx.font = 'bold 9px monospace';
     ctx.fillStyle = '#f59e0b';
-    ctx.fillText('HI-SCORE', 140, 18);
-    ctx.fillStyle = '#fde68a';
-    ctx.font = "12px 'Press Start 2P', monospace";
-    ctx.fillText(s.highScore.toString().padStart(6, '0'), 140, 36);
+    ctx.fillText('RECORD', 135, 18);
+    ctx.fillStyle = '#fbbf24';
+    ctx.font = 'bold 14px monospace';
+    ctx.fillText(s.highScore.toString().padStart(6, '0'), 135, 38);
 
     // Distance
-    ctx.font = "8px 'Press Start 2P', monospace";
+    ctx.font = 'bold 9px monospace';
     ctx.fillStyle = '#94a3b8';
-    ctx.fillText('DISTANCE', 260, 18);
+    ctx.fillText('DISTANCE', 255, 18);
     ctx.fillStyle = '#38bdf8';
-    ctx.font = "12px 'Press Start 2P', monospace";
-    ctx.fillText(`${Math.round(s.distance)}M`, 260, 36);
+    ctx.font = 'bold 14px monospace';
+    ctx.fillText(`${Math.round(s.distance)}M`, 255, 38);
 
-    // Speedometer
-    ctx.font = "8px 'Press Start 2P', monospace";
+    // Digital Speedometer with dynamic gauge
+    ctx.font = 'bold 9px monospace';
     ctx.fillStyle = '#94a3b8';
-    ctx.fillText('SPEED', 380, 18);
-    const speedColor = p.turboTimeRemaining > 0 ? '#38bdf8' : s.speedMph > 100 ? '#ef4444' : '#22c55e';
+    ctx.fillText('SPEED', 375, 18);
+    const speedColor = p.turboTimeRemaining > 0 ? '#38bdf8' : s.speedMph > 115 ? '#ef4444' : s.speedMph > 80 ? '#f59e0b' : '#22c55e';
     ctx.fillStyle = speedColor;
-    ctx.font = "12px 'Press Start 2P', monospace";
-    ctx.fillText(`${s.speedMph}`, 380, 36);
+    ctx.font = 'bold 15px monospace';
+    ctx.fillText(`${s.speedMph} MPH`, 375, 38);
+
+    // Tachometer speed bar
+    const tachW = 85;
+    const tachH = 3;
+    const tachX = 375;
+    const tachY = 44;
+    ctx.fillStyle = 'rgba(255, 255, 255, 0.15)';
+    ctx.fillRect(tachX, tachY, tachW, tachH);
+    ctx.fillStyle = speedColor;
+    const fillW = Math.max(0, Math.min(tachW, (s.speedMph / 160) * tachW));
+    ctx.fillRect(tachX, tachY, fillW, tachH);
 
     // Status Badges (Shield, Turbo, 2x Multiplier)
     let badgeX = 16;
-    const badgeY = 62;
+    const badgeY = 66;
 
     if (p.hasShield) {
       ctx.fillStyle = 'rgba(34, 211, 238, 0.2)';

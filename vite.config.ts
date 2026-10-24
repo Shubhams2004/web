@@ -2,7 +2,7 @@ import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react';
 import path from 'path';
 import { defineConfig, loadEnv } from 'vite';
-import { newsApiPlugin } from './vite-news-plugin';
+import { newsApiPlugin } from './vite-news-plugin.ts';
 
 export default defineConfig(({ mode }) => {
   const env = loadEnv(mode, process.cwd(), '');
@@ -14,12 +14,13 @@ export default defineConfig(({ mode }) => {
     '';
 
   return {
-    base: '/web/',
+    base: '/',
     plugins: [react(), tailwindcss(), newsApiPlugin(groqApiKey)],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname || process.cwd(), '.'),
       },
     },
   };
 });
+

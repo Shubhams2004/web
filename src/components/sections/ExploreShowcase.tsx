@@ -65,23 +65,13 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
 
         {/* 4-Card Curated Bento Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 items-stretch">
-          {/* Card 1: 3D Sprint Run & Arcade (Span 7) */}
+          {/* Card 1: Playable Arcade Collection (Span 7) */}
           <div className="lg:col-span-7 bg-slate-950/70 border border-slate-800 rounded-3xl p-6 sm:p-8 flex flex-col justify-between group hover:border-slate-700 transition-all shadow-lg relative overflow-hidden">
-            {/* Background Preview Image with measured scrim overlay */}
-            <div className="absolute inset-0 z-0 opacity-20 group-hover:opacity-30 transition-opacity duration-500 overflow-hidden pointer-events-none">
-              <img
-                src="/src/assets/images/sprint_run_card_preview_1790417905607.jpg"
-                alt="Sprint Run 3D Jungle Ruins Preview"
-                referrerPolicy="no-referrer"
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/80 to-transparent" />
-            </div>
-
             <div className="relative z-10">
               <div className="flex items-center justify-between gap-3 mb-4">
-                <div className="flex items-center gap-2 text-xs font-mono text-emerald-400 font-bold uppercase tracking-wider">
-                  <span>3D Spatial Experience</span>
+                <div className="flex items-center gap-2 text-xs font-mono text-cyan-400 font-bold uppercase tracking-wider">
+                  <Gamepad2 className="w-4 h-4" />
+                  <span>Arcade Laboratory</span>
                 </div>
                 <span className="text-xs font-mono text-slate-400">
                   4 Playable Games
@@ -89,22 +79,22 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-bold text-white tracking-tight leading-tight font-serif mb-3">
-                Sprint Run & 3D Arcade
+                Playable Arcade Collection
               </h3>
 
               <p className="text-xs sm:text-sm text-slate-300 leading-relaxed max-w-xl mb-6">
-                An original modern 3D endless adventure runner through ancient jungle ruins with kinematic stride animation, jump and slide maneuvers, and supersonic sprint boosts. Plus Retro Racer, Shadow Hunt, and Pixel Dungeon.
+                Four fully featured, zero-install in-browser experiences: tactical stealth infiltration in <strong className="text-cyan-300">Shadow Hunt</strong>, procedural dungeon crawling in <strong className="text-amber-300">Pixel Dungeon</strong>, top-down wave combat in <strong className="text-emerald-300">Zombie Survival</strong>, and synthwave highway pursuit in <strong className="text-rose-300">Retro Racer</strong>.
               </p>
             </div>
 
             <div className="relative z-10 flex flex-wrap items-center gap-3 pt-4 border-t border-slate-800/80">
               <button
                 type="button"
-                onClick={() => handleGameClick('sprint-run')}
-                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-emerald-600 hover:bg-emerald-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-emerald-900/30 transition-all cursor-pointer active:scale-95"
+                onClick={() => handleGameClick('shadow-hunt')}
+                className="inline-flex items-center gap-2 px-5 py-3 rounded-xl bg-blue-600 hover:bg-blue-500 text-white font-bold text-xs sm:text-sm tracking-wide shadow-md shadow-blue-900/30 transition-all cursor-pointer active:scale-95"
               >
                 <Play className="w-4 h-4 fill-white" />
-                <span>Play Sprint Run (3D)</span>
+                <span>Play Shadow Hunt</span>
               </button>
 
               <button
@@ -113,7 +103,7 @@ export const ExploreShowcase: React.FC<ExploreShowcaseProps> = ({
                 className="inline-flex items-center gap-2 px-4 py-3 rounded-xl bg-slate-800 hover:bg-slate-700 text-slate-200 font-semibold text-xs sm:text-sm border border-slate-700 transition-colors cursor-pointer"
               >
                 <Gamepad2 className="w-4 h-4 text-cyan-400" />
-                <span>Browse All Games</span>
+                <span>Browse All 4 Games</span>
               </button>
             </div>
           </div>

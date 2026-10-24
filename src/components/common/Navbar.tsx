@@ -176,7 +176,7 @@ export const Navbar: React.FC<NavbarProps> = ({ activeSection }) => {
               onClick={() => setMobileMenuOpen(false)}
               className="px-3 py-2 rounded-lg text-xs font-semibold text-slate-600 hover:text-slate-900 hover:bg-slate-50 flex items-center justify-between"
             >
-              <span>3D Arcade & Sprint Run</span>
+              <span>Arcade Games</span>
               <ArrowUpRight className="w-3.5 h-3.5 text-slate-400" />
             </a>
 
